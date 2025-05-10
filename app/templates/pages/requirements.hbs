@@ -8,127 +8,128 @@ layout: none
 
 {{> header ~}}
 
-    <section class="requirements section">
-        <div class="container">
-            <h1>{{page.title}}</h1>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        phpMyFAQ needs to be installed on a web server. FAQ administrators and users have to use a web
-                        browser to access a web-based GUI to read and add FAQs. phpMyFAQ administrators require access
-                        to the files on the server to update templates and perform upgrades or maintenance.
-                    </p>
-                    <ul>
-                        <li>
-                            <strong><a rel="nofollow" target="_blank" href="https://www.php.net">PHP 8.2+</a></strong>
-                            <ul>
-                                <li>
-                                   We recommend using PHP 8.3 or PHP 8.4
-                                </li>
-                                <li>
-                                    We recommend using a PHP accelerator or Opcode cache like Zend OpCache
-                                </li>
-                                <li>
-                                    Allocate at least 64MB of memory to each PHP process
-                                </li>
-                                <li>
-                                    Required extensions: GD, JSON, Session, MBString, Filter, XMLWriter, SPL
-                                </li>
-                                <li>
-                                    Recommended configuration:
-<pre><code class="ini">memory_limit = 128M</code></pre>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Database server, e.g.</strong>
-                            <ul>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://www.mysql.com">MySQL</a> 8.x or later
-                                    with ext/mysqli extension
-                                </li>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://www.postgresql.org">PostgreSQL</a>
-                                    10.x or later
-                                </li>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://www.microsoft.com/sql/">Microsoft SQL Server</a>
-                                    2019 or later
-                                </li>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://www.sqlite.org">SQLite3</a>
-                                </li>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://mariadb.org/">MariaDB</a> 8.x with
-                                    ext/mysqli extension
-                                </li>
-                                <li>
-                                    additionally <a rel="nofollow" target="_blank" href="https://elastic.co">Elasticsearch</a>
-                                    (6.x and later)
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>Webserver, e.g.</strong>
-                            <ul>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://httpd.apache.org">Apache</a>
-                                    2.4.x with mod_rewrite and "AllowOverride All" set
-                                </li>
-                                <li>
-                                    <a rel="nofollow" target="_blank" href="https://www.nginx.net">nginx</a> 1.0+
-                                </li>
-                            </ul>
-                            <p>
-                                We recommend enabling content compression to speed up the delivery of HTML, CSS and
-                                JavaScript.
-                            </p>
-                            <p>
-                                If you're running Apache von Windows, you may have to increase of the Apache's stack
-                                size:
-                            </p>
-<pre><code class="apache">&lt;IfModule mpm_winnt_module&gt;
+<section class="requirements section">
+  <div class="container">
+    <h1>{{page.title}}</h1>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          phpMyFAQ needs to be installed on a web server. FAQ administrators and users have to use a web
+          browser to access a web-based GUI to read and add FAQs. phpMyFAQ administrators require access
+          to the files on the server to update templates and perform upgrades or maintenance.
+        </p>
+        <ul>
+          <li>
+            <strong><a rel="nofollow" target="_blank" href="https://www.php.net">PHP 8.2+</a></strong>
+            <ul>
+              <li>
+                We recommend using PHP 8.3 or PHP 8.4
+              </li>
+              <li>
+                We recommend using a PHP accelerator or Opcode cache like Zend OpCache
+              </li>
+              <li>
+                Allocate at least 64MB of memory to each PHP process
+              </li>
+              <li>
+                Required extensions: GD, JSON, Session, MBString, Filter, XMLWriter, SPL
+              </li>
+              <li>
+                Recommended configuration:
+                <pre><code class="ini">memory_limit = 128M</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Database server, e.g.</strong>
+            <ul>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://www.mysql.com">MySQL</a> 8.x or later
+                with ext/mysqli extension
+              </li>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://www.postgresql.org">PostgreSQL</a>
+                10.x or later
+              </li>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://www.microsoft.com/sql/">Microsoft SQL Server</a>
+                2019 or later
+              </li>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://www.sqlite.org">SQLite3</a>
+              </li>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://mariadb.org/">MariaDB</a> 8.x with
+                ext/mysqli extension
+              </li>
+              <li>
+                additionally,
+                <a rel="nofollow" target="_blank" href="https://elastic.co">Elasticsearch</a>
+                (7.x and 8.x)
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Webserver, e.g.</strong>
+            <ul>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://httpd.apache.org">Apache</a>
+                2.4.x with mod_rewrite and "AllowOverride All" set
+              </li>
+              <li>
+                <a rel="nofollow" target="_blank" href="https://www.nginx.net">nginx</a> 1.0+
+              </li>
+            </ul>
+            <p>
+              We recommend enabling content compression to speed up the delivery of HTML, CSS, and JavaScript.
+            </p>
+            <p>
+              If you're running Apache von Windows, you may have to increase of the Apache's stack size:
+            </p>
+            <pre><code class="apache">&lt;IfModule mpm_winnt_module&gt;
     ThreadStackSize 8388608
 &lt;/IfModule&gt;</code></pre>
-                            <p>
-                            You should add the code to the <strong>httpd-mpm.conf</strong> file and enable that file in
-                            </p>
-                            <pre><code class="apache">Include conf/extra/httpd-mpm.conf</code></pre>
-                        </li>
-                        <li>
-                            <strong>Operating system support</strong>
-                            <ul>
-                                <li>GNU/Linux</li>
-                                <li>Microsoft Windows</li>
-                                <li>OS X</li>
-                                <li>FreeBSD</li>
-                                <li>HP-UX</li>
-                                <li>Solaris</li>
-                                <li>AIX</li>
-                                <li>Netware</li>
-                            </ul></li>
-                        <li>
-                            <strong>Browser support</strong>
-                            <ul>
-                                <li>Mozilla Firefox</li>
-                                <li>Google Chrome</li>
-                                <li>Apple Safari</li>
-                                <li>Opera</li>
-                                <li>Microsoft Edge</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p>
-                        In case PHP runs as module of the Apache, you will have to be able to do a chown on the files
-                        before installation. The files and directories have to be owned by the Apache user.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p>
+              You should add the code to the <strong>httpd-mpm.conf</strong> file and enable that file in
+            </p>
+            <pre><code class="apache">Include conf/extra/httpd-mpm.conf</code></pre>
+          </li>
+          <li>
+            <strong>Operating system support</strong>
+            <ul>
+              <li>GNU/Linux</li>
+              <li>Microsoft Windows</li>
+              <li>OS X</li>
+              <li>FreeBSD</li>
+              <li>HP-UX</li>
+              <li>Solaris</li>
+              <li>AIX</li>
+              <li>Netware</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Browser support</strong>
+            <ul>
+              <li>Mozilla Firefox</li>
+              <li>Google Chrome</li>
+              <li>Apple Safari</li>
+              <li>Opera</li>
+              <li>Microsoft Edge</li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          In case PHP runs as a module of the Apache, you will have to be able to do a chown on the files
+          before installation.
+          The files and directories have to be owned by the Apache user.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="assets/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<script src="assets/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 {{> footer ~}}
 
