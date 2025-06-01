@@ -41,7 +41,7 @@ module.exports = function (grunt) {
         pkg:        grunt.file.readJSON('package.json'),
         versions:   grunt.file.readJSON('./data/versions.json'),
         deployment: grunt.file.readJSON('./data/' + grunt.config('env') + '/deployment.json'),
-        banner:     '/*! phpMyFAQ - https://www.phpmyfaq.de/ - Copyright © 2001-2024 Thorsten Rinne - compiled <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        banner:     '/*! phpMyFAQ - https://www.phpmyfaq.de/ - Copyright © 2001-2025 Thorsten Rinne - compiled <%= grunt.template.today("yyyy-mm-dd") %> */\n',
 
         // Fetch external data for downloads
         curl: {
@@ -440,23 +440,6 @@ module.exports = function (grunt) {
             }
         },
 
-        // Generates a custom Modernizr build that includes only the tests you
-        // reference in your app
-        modernizr: {
-            dist: {
-                devFile: 'bower_components/modernizr/modernizr.js',
-                outputFile: '<%= config.dist %>/assets/js/modernizr.js',
-                files: {
-                    src: [
-                        '<%= config.dist %>/assets/js/{,*/}*.js',
-                        '<%= config.dist %>/assets/css/{,*/}*.css',
-                        '!<%= config.dist %>/assets/js/*'
-                    ]
-                },
-                uglify: true
-            }
-        },
-
         // LESS stuff
         less: {
             development: {
@@ -563,7 +546,6 @@ module.exports = function (grunt) {
         'concurrent:dist',
         'autoprefixer',
         'copy:dist',
-        'modernizr',
         'usemin',
         'htmlmin',
         'sitemap'
