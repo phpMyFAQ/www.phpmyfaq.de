@@ -55,6 +55,7 @@ export default function RequirementsPage() {
                     <li><strong>PostgreSQL 13+</strong></li>
                     <li><strong>SQLite 3.38+</strong> (for small installations)</li>
                     <li><strong>Microsoft SQL Server 2019+</strong></li>
+                    <li><strong>Microsoft SQL Server 2019+</strong></li>
                   </ul>
                 </div>
               </div>
@@ -65,23 +66,14 @@ export default function RequirementsPage() {
                 <div className="card-body">
                   <h5 className="card-title">Optional Components</h5>
                   <ul>
-                    <li><strong>Elasticsearch 7.0+</strong> for advanced search</li>
+                    <li><strong>Elasticsearch 7.0+</strong> or <strong>OpenSearch 2.0+</strong> for advanced search</li>
                     <li><strong>LDAP server</strong> for user authentication</li>
                     <li><strong>SMTP server</strong> for email notifications</li>
-                    <li><strong>Memcached/Redis</strong> for caching</li>
                   </ul>
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div className="alert alert-info">
-            <h4>Browser Support</h4>
-            <p>phpMyFAQ supports all modern browsers including:</p>
-            <ul className="mb-0">
-              <li>Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</li>
-              <li>Mobile browsers on iOS 14+ and Android 10+</li>
-            </ul>
+
           </div>
         </div>
       </div>

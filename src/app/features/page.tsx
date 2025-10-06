@@ -38,8 +38,7 @@ export default function FeaturesPage() {
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              Integrated WYSIWYG editor based on{' '}
-              <a href="https://www.tinymce.com/" target="_blank" rel="nofollow">TinyMCE</a>
+              Integrated WYSIWYG editor
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
@@ -48,6 +47,10 @@ export default function FeaturesPage() {
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
               Simple installation and configuration
+            </li>
+            <li className="mb-2">
+              <i className="fas fa-check text-success me-2"></i>
+              AI ready with an integrated MCP server
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
@@ -226,6 +229,15 @@ export default function FeaturesPage() {
           <h3 className="h5">Advanced spam protection</h3>
           <p>
             phpMyFAQ uses graphical captcha, bad word lists, and IPv4/IPv6 banlists to prevent spam.
+          </p>
+        </div>
+        <div className="col-md-4 col-sm-6">
+          <div className="text-center mb-3">
+            <i className="fas fa-robot fa-3x" style={{color: '#ff6600'}}></i>
+          </div>
+          <h3 className="h5">MCP server</h3>
+          <p>
+            phpMyFAQ is AI ready with an integrated MCP server, so you can use phpMyFAQ together with AI clients.
           </p>
         </div>
       </div>

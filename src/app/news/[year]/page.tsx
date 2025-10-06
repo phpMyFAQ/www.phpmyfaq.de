@@ -14,7 +14,7 @@ interface NewsYearPageProps {
 // Function to read and parse markdown content
 function getNewsContent(year: string): string | null {
   try {
-    const filePath = join(process.cwd(), 'app/templates/pages/news', `${year}.md`)
+    const filePath = join(process.cwd(), 'content/news', `${year}.md`)
     const content = readFileSync(filePath, 'utf-8')
 
     // Extract content after frontmatter

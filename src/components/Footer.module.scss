@@ -49,27 +49,37 @@
 .socialIcons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   list-style: none;
   padding: 0;
   margin: 0;
 
   a {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    color: white;
+    color: #ffffff;
     border-radius: 50%;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    i {
+      color: #ffffff;
+      font-size: 36px;
+      line-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     &:hover {
       transform: translateY(-4px) scale(1.1);
-      box-shadow: 0 8px 16px rgba(255, 102, 0, 0.3);
+      box-shadow: 0 8px 16px rgba(255, 102, 0, 0.4);
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
     }
   }
 }

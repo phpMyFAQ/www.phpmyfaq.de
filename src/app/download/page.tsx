@@ -1,8 +1,8 @@
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
-import { 
-  getVersions, 
-  getStableInfo, 
+import {
+  getVersions,
+  getStableInfo,
   getDevelopmentInfo,
   formatFileSize,
   getDownloadUrl,
@@ -110,7 +110,7 @@ export default function DownloadPage() {
                     </div>
                   )}
 
-                  <a href="https://github.com/thorsten/phpMyFAQ/releases/latest"
+                  <a href="./changelog#{stableVersion}"
                      className="btn btn-outline-primary w-100" target="_blank" rel="noopener"
                      style={{borderRadius: '25px'}}>
                     <i className="fas fa-file-alt me-2"></i>
