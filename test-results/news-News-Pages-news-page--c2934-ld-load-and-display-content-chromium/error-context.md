@@ -1,0 +1,220 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Logo of phpMyFAQ" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e8] [cursor=pointer]
+        - generic [ref=e9]: phpMyFAQ
+      - generic [ref=e10]:
+        - navigation [ref=e11]:
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Features" [ref=e14] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e15]:
+              - link "Documentation" [ref=e16] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e17]:
+              - link "Support" [ref=e18] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e19]:
+              - link "Download" [ref=e20] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e22] [cursor=pointer]:
+          - img [ref=e24] [cursor=pointer]
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - heading "phpMyFAQ news from 2020" [level=1] [ref=e30]
+      - generic [ref=e33]:
+        - navigation "breadcrumb" [ref=e34]:
+          - list [ref=e35]:
+            - listitem [ref=e36]:
+              - link "News" [ref=e37] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e38]: / 2020
+        - generic [ref=e39]:
+          - heading "2020-12-23" [level=3] [ref=e40]
+          - separator [ref=e41]
+          - paragraph [ref=e43]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.0.7" [ref=e44] [cursor=pointer]:
+              - /url: /download
+            - text: and
+            - link "phpMyFAQ 3.1.0-alpha.3" [ref=e45] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Valéry Giscard d’Estaing\" releases. phpMyFAQ 3.0.7 fixes a XSS vulnerability and adds the TOC plugin for TinyMCE. We removed support for deprecated data-vocabulary.org schema and the Travis CI build and we switched to Github Actions. We updated our dependencies and we fixed all reported issues. In phpMyFAQ 3.1.0-alpha.3 we added the possibility to login via email address and mail notifications for new FAQs in admin section. We also improved the build of our application. We updated our dependencies and we fixed all reported issues. Happy holidays, stay healthy and take care of yourself and families!"
+        - generic [ref=e46]:
+          - heading "2020-11-27" [level=3] [ref=e47]
+          - separator [ref=e48]
+          - paragraph [ref=e50]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.6" [ref=e51] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Diego Armando Maradona\" release. This release supports PHP 8.0 and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e52]:
+          - heading "2020-11-15" [level=3] [ref=e53]
+          - separator [ref=e54]
+          - paragraph [ref=e56]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.0-alpha.2" [ref=e57] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Four Seasons Total Landscaping\" release. We fixed some blocking issues in the install and update scripts. Stay healthy and take care of yourself and families!"
+        - generic [ref=e58]:
+          - heading "2020-11-12" [level=3] [ref=e59]
+          - separator [ref=e60]
+          - paragraph [ref=e62]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.1.0-alpha" [ref=e63] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Sean Connery\" release. We changed the PHP requirement to PHP 7.3+, and we added support for PHP 8.0. We added support for Elasticsearch v6+, drag and drop sorting for main categories, the possibility to add users without a password, export of all users as CSV, and a opt-in for displaying user data. We switched to ChartJS as new charting library, and a added new REST API v2.1 to register users and add FAQs via API client tokens. We removed several deprecated and rarely used functionality like the REST API v1, the RSS support, the rewrite support for IIS, password hashing with MD5 and SHA-1 and the OpenSearch support. Stay healthy and take care of yourself and families!"
+        - generic [ref=e64]:
+          - heading "2020-10-17" [level=3] [ref=e65]
+          - separator [ref=e66]
+          - paragraph [ref=e68]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.0.5" [ref=e69] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Ruth Bader Ginsburg\" release. We updated the bundled third party dependencies, and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e70]:
+          - heading "2020-07-26" [level=3] [ref=e71]
+          - separator [ref=e72]
+          - paragraph [ref=e74]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.4" [ref=e75] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Peter Green\" release. We extended the default session timeout for the administration backend, we updated our dependencies, and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e76]:
+          - heading "2020-05-21" [level=3] [ref=e77]
+          - separator [ref=e78]
+          - paragraph [ref=e80]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.0.3" [ref=e81] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Michel Piccoli\" release. We improved the editing of FAQs in the admin backend and updated to Bootstrap v4.5. We updated our dependencies and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e82]:
+          - heading "2019-04-16" [level=3] [ref=e83]
+          - separator [ref=e84]
+          - paragraph [ref=e86]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.2" [ref=e87] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Stirling Moss\" release. We improved the handling of multiple homepage categories and the editing of FAQs in the admin backend. We updated our dependencies and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e88]:
+          - heading "2020-03-17" [level=3] [ref=e89]
+          - separator [ref=e90]
+          - paragraph [ref=e92]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.0.1" [ref=e93] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Max von Sydow\" release. We re-added tag cloud on several pages, we fixed some minor bugs and especially issues for PostgreSQL. We updated all of our bundled dependencies. Stay save!"
+        - generic [ref=e94]:
+          - heading "2020-02-16" [level=3] [ref=e95]
+          - separator [ref=e96]
+          - paragraph [ref=e98]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.0" [ref=e99] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"李文亮 (Li Wenliang)\" release. This new major version after more than 3 years adds several improvements and new features. We changed PHP requirement to PHP 7.2 or later, we added PHP namespaces, Docker support, support for Elasticsearch v5+, a LDAP configuration frontend, a configuration for enable/disable XML sitemap, support for category images, support for categories on homepage, a filter functionality in templates, an improved attachment overview, HTML5 export, support for EU General Data Protection Regulation, a multiple attachment upload, a 404 page template, a Mongolian translation, support for adding own meta content in templates and we added new REST API v2 (including login). We improved sticky records and the brute force protection handling. We switched the CSS development from LESS to SCSS and the template variable syntax is now compatible with Twig/Handlebars. We updated the Turkish translation and all bundled dependencies. With v3.0 we deprecated RSS feeds and the old REST API v1. We removed the translation admin frontend, the XHTML export, support for ext/mssql the bundled Symfony ClassLoader, Bower (now using Yarn only), Grunt (now using Webpack) and Modernizr. We removed share on Facebook link and the Facebook Like Button support."
+        - generic [ref=e100]:
+          - heading "2020-01-24" [level=3] [ref=e101]
+          - separator [ref=e102]
+          - paragraph [ref=e104]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.0.0-RC.2" [ref=e105] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Terry Jones\" release. We fixed a lot of issue found by our test users of the first RC release and we updated all of our bundled dependencies. Please don't use this version in production systems, but test this version and please report bugs!"
+        - generic [ref=e106]:
+          - heading "2020-01-04" [level=3] [ref=e107]
+          - separator [ref=e108]
+          - paragraph [ref=e110]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.0-RC" [ref=e111] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Jan Fedder\" release. This first release candidate adds a new REST API and we migrated from Grunt to Webpack. We fixed a lot of issue found by our test users of the third beta release and we updated almost all of our bundled dependencies. Please don't use this version in production systems, but test this version and please report bugs!"
+  - generic [ref=e113]:
+    - heading "Other interesting links" [level=2] [ref=e114]
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - heading "Getting started" [level=3] [ref=e117]
+        - list [ref=e118]:
+          - listitem [ref=e119]:
+            - link "Requirements" [ref=e120] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e121]:
+            - link "Download" [ref=e122] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e123]:
+            - link "Changelog" [ref=e124] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e125]:
+            - link "Security Advisories" [ref=e126] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e127]:
+            - link "Translations" [ref=e128] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e129]:
+        - heading "Resources" [level=3] [ref=e130]
+        - list [ref=e131]:
+          - listitem [ref=e132]:
+            - link "News archive" [ref=e133] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e134]:
+            - link "Donations" [ref=e135] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e136]:
+            - link "Who uses phpMyFAQ?" [ref=e137] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e138]:
+            - link "20 years phpMyFAQ (2021)" [ref=e139] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e140]:
+            - link "15 years phpMyFAQ (2016)" [ref=e141] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e142]:
+            - link "10 years phpMyFAQ (2011)" [ref=e143] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e144]:
+        - heading "Misc" [level=3] [ref=e145]
+        - list [ref=e146]:
+          - listitem [ref=e147]:
+            - link "Thank you!" [ref=e148] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e149]:
+            - link "Terms of Service" [ref=e150] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e151]:
+            - link "Imprint" [ref=e152] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e153]:
+            - link "Privacy Notice" [ref=e154] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e155]:
+      - heading "Get Connected" [level=3] [ref=e156]
+      - list [ref=e157]:
+        - listitem [ref=e158]:
+          - link "phpMyFAQ at Github" [ref=e159] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e160] [cursor=pointer]: 
+        - listitem [ref=e161]:
+          - link "phpMyFAQ at Facebook" [ref=e162] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e163] [cursor=pointer]: 
+        - listitem [ref=e164]:
+          - link "phpMyFAQ Discord Community" [ref=e165] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e166] [cursor=pointer]: 
+        - listitem [ref=e167]:
+          - link "Mail me!" [ref=e168] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e169] [cursor=pointer]: 
+  - contentinfo [ref=e170]:
+    - generic [ref=e172]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e173]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

@@ -1,0 +1,240 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - link "Logo of phpMyFAQ" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e17] [cursor=pointer]
+        - generic [ref=e18]: phpMyFAQ
+      - generic [ref=e19]:
+        - navigation [ref=e20]:
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Features" [ref=e23] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e24]:
+              - link "Documentation" [ref=e25] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e26]:
+              - link "Support" [ref=e27] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e28]:
+              - link "Download" [ref=e29] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e31] [cursor=pointer]:
+          - img [ref=e33] [cursor=pointer]
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - heading "phpMyFAQ news from 2007" [level=1] [ref=e39]
+      - generic [ref=e42]:
+        - navigation "breadcrumb" [ref=e43]:
+          - list [ref=e44]:
+            - listitem [ref=e45]:
+              - link "News" [ref=e46] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e47]: / 2007
+        - generic [ref=e48]:
+          - heading "2007-11-18" [level=3] [ref=e49]
+          - separator [ref=e50]
+          - paragraph [ref=e52]:
+            - text: The phpMyFAQ team is pleased to announce
+            - link "phpMyFAQ 2.0.4" [ref=e53] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"I Am Trying To Believe\" release. This release added a Thai translation, some DiggIt! and French translation fixes, and many minor bugfixes."
+        - generic [ref=e54]:
+          - heading "2007-10-27" [level=3] [ref=e55]
+          - separator [ref=e56]
+          - paragraph [ref=e58]: The phpMyFAQ Team hereby announces that support for phpMyFAQ 1.6 will continue until the end of this year only. phpMyFAQ 2.0 will be supported until 2008-08-08 then the extended support for PHP 4 will end.
+        - generic [ref=e59]:
+          - heading "2007-08-18" [level=3] [ref=e60]
+          - separator [ref=e61]
+          - paragraph [ref=e63]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 2.0.3" [ref=e64] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"zucchini\" release. This release fixes many minor bugs."
+        - generic [ref=e65]:
+          - heading "2007-07-08" [level=3] [ref=e66]
+          - separator [ref=e67]
+          - paragraph [ref=e69]:
+            - text: The phpMyFAQ team is pleased to announce
+            - link "phpMyFAQ 2.0.2" [ref=e70] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Where Is My Mind?\" release. This release added some performance improvements, an updated Danish translation, and many bugfixes."
+        - generic [ref=e71]:
+          - heading "2007-06-01" [level=3] [ref=e72]
+          - separator [ref=e73]
+          - paragraph [ref=e75]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 2.0.1" [ref=e76] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"right to freedom of assembly and association\" release. This release fixes the broken update script, some bugs with the basic permission level, PHP segfaults with Zend Optimizer extension, and updates the Japanese translation. We also fixed many minor bugs."
+        - generic [ref=e77]:
+          - heading "2007-05-22" [level=3] [ref=e78]
+          - separator [ref=e79]
+          - generic [ref=e80]:
+            - paragraph [ref=e81]:
+              - text: The phpMyFAQ team is pleased to announce
+              - link "phpMyFAQ 2.0.0" [ref=e82] [cursor=pointer]:
+                - /url: /download
+              - text: ", the \"Just zeros and ones\" release. After almost two years of development, this version - codenamed Prometheus - introduces these improvements:"
+            - paragraph [ref=e83]: "- Added rewritten and enhanced user management - Added rewritten and enhanced authorization management - Added user and group based permissions for categories and records - Added Ajax support - Added automatic link verification - Added user binding to a category - Added glossary support - Added the possibility to delete admin log - Added configurable visibility of new questions - Added dynamic related articles - Added support for Google, Yahoo!, and MSN sitemaps - Added improved WYSIWYG editor and Image Manager - Added improved News module - Added tagging - Added DiggIt! link - Added Microsummaries - Added OpenSearch support - Added \"submit translation\" link - Added experimental support for Oracle - Added experimental support for Interbase/Firebird - Added sorting by id, title, and date for records in admin backend - Added comment administration frontend - Added configurable simple reordering of records - Added questionnaire for statistics in installer - Added Ajax-powered Instant Response - Added editable default values for record configuration - Added blacklist for search bots - Added stylesheets for right-to-left text-direction - Improved export functions - Improved URL rewrite functions - Improved category management - Improved administration backend - Updated Arabic translation - Updated German translation - Updated Hebrew translation - Updated Italian translation - Updated Japanese translation - Updated Spanish translation"
+        - generic [ref=e84]:
+          - heading "2007-05-13" [level=3] [ref=e85]
+          - separator [ref=e86]
+          - paragraph [ref=e88]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 1.6.12" [ref=e89] [cursor=pointer]:
+              - /url: /download
+            - text: . This release updates the bundled Net_IDNA class to version 0.5.1. We also fixed some minor bugs.
+        - generic [ref=e90]:
+          - heading "2007-05-08" [level=3] [ref=e91]
+          - separator [ref=e92]
+          - paragraph [ref=e94]:
+            - text: The phpMyFAQ team is pleased to announce the second release candidate of our next-generation release,
+            - link "phpMyFAQ 2.0.0-RC2" [ref=e95] [cursor=pointer]:
+              - /url: /download
+            - text: . This release fixes hopefully the last bugs. Do not use this version in production systems, but please test this version and report bugs!
+        - generic [ref=e96]:
+          - heading "2007-04-29" [level=3] [ref=e97]
+          - separator [ref=e98]
+          - paragraph [ref=e100]:
+            - text: The phpMyFAQ Team would like to announce the availability of the release candidate of our next-generation release,
+            - link "phpMyFAQ 2.0.0-RC" [ref=e101] [cursor=pointer]:
+              - /url: /download
+            - text: . This release added stylesheets for right-to-left text-direction, an improved administration backend, updated Hebrew and Spanish translations, and of course, we fixed many bugs. Do not use this version in production systems, but please test this version and report bugs!
+        - generic [ref=e102]:
+          - heading "2007-04-10" [level=3] [ref=e103]
+          - separator [ref=e104]
+          - paragraph [ref=e106]:
+            - text: The phpMyFAQ team is pleased to announce the public beta version of our next-generation release,
+            - link "phpMyFAQ 2.0.0-beta2" [ref=e107] [cursor=pointer]:
+              - /url: /download
+            - text: . This release added a configurable simple reordering of records, sorting by id, title, and date for records in admin backend, a comment administration frontend, a questionnaire for statistics in installer, an Ajax-powered Instant Response, editable default values for record configuration, a blacklist for search bots, and of course, we fixed tons of bugs. Do not use this version in production systems, but please test this version and report bugs!
+        - generic [ref=e108]:
+          - heading "2007-03-31" [level=3] [ref=e109]
+          - separator [ref=e110]
+          - paragraph [ref=e112]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 1.6.11" [ref=e113] [cursor=pointer]:
+              - /url: /download
+            - text: . This maintenance release updates the Finnish translation and fixes problems with unsupported charsets in PHP. We also fixed some minor bugs.
+        - generic [ref=e114]:
+          - heading "2007-03-03" [level=3] [ref=e115]
+          - separator [ref=e116]
+          - paragraph [ref=e118]:
+            - text: The phpMyFAQ team is pleased to announce the second preview of our next-generation release,
+            - link "phpMyFAQ 2.0.0-beta" [ref=e119] [cursor=pointer]:
+              - /url: /download
+            - text: . This release added user and group based permissions for categories and records, OpenSearch support, a "submit translation" link and form, experimental support for Oracle databases, experimental support for Interbase/Firebird databases, an updated Arabic translation, and of course, we fixed tons of bugs. Do not use this version in production systems, but please test this version and report bugs!
+        - generic [ref=e120]:
+          - heading "2007-02-18" [level=3] [ref=e121]
+          - separator [ref=e122]
+          - paragraph [ref=e124]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 1.6.10" [ref=e125] [cursor=pointer]:
+              - /url: /download
+            - text: . This release fixes a serious security issue. All users of affected phpMyFAQ versions are encouraged to upgrade as soon as possible to this latest version! A detailed
+            - link "security advisory" [ref=e126] [cursor=pointer]:
+              - /url: /security/advisory-2007-02-18
+            - text: is available. We also fixed some minor bugs and improved the performance.
+        - generic [ref=e127]:
+          - heading "2007-02-11" [level=3] [ref=e128]
+          - separator [ref=e129]
+          - paragraph [ref=e131]: The last 18 hours phpmyfaq.de was offline after a DOS attack. My webhoster closed my page yesterday evening and re-opened it some minutes ago. Thanks to the attacker from the Czech Republic! :-(
+        - generic [ref=e132]:
+          - heading "2007-01-28" [level=3] [ref=e133]
+          - separator [ref=e134]
+          - paragraph [ref=e136]:
+            - text: The phpMyFAQ team is pleased to announce the release of
+            - link "phpMyFAQ 1.6.9" [ref=e137] [cursor=pointer]:
+              - /url: /download
+            - text: . This first release of 2007 updates the bundled PHP XMLRPC to version 2.1. We also fixed some bugs.
+  - generic [ref=e139]:
+    - heading "Other interesting links" [level=2] [ref=e140]
+    - generic [ref=e141]:
+      - generic [ref=e142]:
+        - heading "Getting started" [level=3] [ref=e143]
+        - list [ref=e144]:
+          - listitem [ref=e145]:
+            - link "Requirements" [ref=e146] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e147]:
+            - link "Download" [ref=e148] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e149]:
+            - link "Changelog" [ref=e150] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e151]:
+            - link "Security Advisories" [ref=e152] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e153]:
+            - link "Translations" [ref=e154] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e155]:
+        - heading "Resources" [level=3] [ref=e156]
+        - list [ref=e157]:
+          - listitem [ref=e158]:
+            - link "News archive" [ref=e159] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e160]:
+            - link "Donations" [ref=e161] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e162]:
+            - link "Who uses phpMyFAQ?" [ref=e163] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e164]:
+            - link "20 years phpMyFAQ (2021)" [ref=e165] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e166]:
+            - link "15 years phpMyFAQ (2016)" [ref=e167] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e168]:
+            - link "10 years phpMyFAQ (2011)" [ref=e169] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e170]:
+        - heading "Misc" [level=3] [ref=e171]
+        - list [ref=e172]:
+          - listitem [ref=e173]:
+            - link "Thank you!" [ref=e174] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e175]:
+            - link "Terms of Service" [ref=e176] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e177]:
+            - link "Imprint" [ref=e178] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e179]:
+            - link "Privacy Notice" [ref=e180] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e181]:
+      - heading "Get Connected" [level=3] [ref=e182]
+      - list [ref=e183]:
+        - listitem [ref=e184]:
+          - link "phpMyFAQ at Github" [ref=e185] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e186] [cursor=pointer]: 
+        - listitem [ref=e187]:
+          - link "phpMyFAQ at Facebook" [ref=e188] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e189] [cursor=pointer]: 
+        - listitem [ref=e190]:
+          - link "phpMyFAQ Discord Community" [ref=e191] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e192] [cursor=pointer]: 
+        - listitem [ref=e193]:
+          - link "Mail me!" [ref=e194] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e195] [cursor=pointer]: 
+  - contentinfo [ref=e196]:
+    - generic [ref=e198]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e199]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

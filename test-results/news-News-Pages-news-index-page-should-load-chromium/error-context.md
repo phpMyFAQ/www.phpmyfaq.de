@@ -1,0 +1,242 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - link "Logo of phpMyFAQ" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e17] [cursor=pointer]
+        - generic [ref=e18]: phpMyFAQ
+      - generic [ref=e19]:
+        - navigation [ref=e20]:
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Features" [ref=e23] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e24]:
+              - link "Documentation" [ref=e25] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e26]:
+              - link "Support" [ref=e27] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e28]:
+              - link "Download" [ref=e29] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e31] [cursor=pointer]:
+          - img [ref=e33] [cursor=pointer]
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - heading "News archive" [level=1] [ref=e39]
+      - list [ref=e43]:
+        - listitem [ref=e44]:
+          - heading "2025" [level=2] [ref=e45]:
+            - link "2025" [ref=e46] [cursor=pointer]:
+              - /url: /news/2025
+          - heading "Working hard on phpMyFAQ 4.1, getting all ready for PHP 8.5" [level=3] [ref=e47]
+        - listitem [ref=e48]:
+          - heading "2024" [level=2] [ref=e49]:
+            - link "2024" [ref=e50] [cursor=pointer]:
+              - /url: /news/2024
+          - heading "Finally, releasing phpMyFAQ 4.0, getting all ready for PHP 8.4, started working on phpMyFAQ 4.1" [level=3] [ref=e51]
+        - listitem [ref=e52]:
+          - heading "2023" [level=2] [ref=e53]:
+            - link "2023" [ref=e54] [cursor=pointer]:
+              - /url: /news/2023
+          - heading "Finally, releasing phpMyFAQ 3.2, getting all ready for PHP 8.3, started working on phpMyFAQ 4.0" [level=3] [ref=e55]
+        - listitem [ref=e56]:
+          - heading "2022" [level=2] [ref=e57]:
+            - link "2022" [ref=e58] [cursor=pointer]:
+              - /url: /news/2022
+          - heading "Finally, releasing phpMyFAQ 3.1, getting all ready for PHP 8.2, working hard on phpMyFAQ 3.2" [level=3] [ref=e59]
+        - listitem [ref=e60]:
+          - heading "2021" [level=2] [ref=e61]:
+            - link "2021" [ref=e62] [cursor=pointer]:
+              - /url: /news/2021
+          - heading "Still struggling with the Corona pandemic, getting all ready for PHP 8.1, working hard on phpMyFAQ 3.1" [level=3] [ref=e63]
+        - listitem [ref=e64]:
+          - heading "2020" [level=2] [ref=e65]:
+            - link "2020" [ref=e66] [cursor=pointer]:
+              - /url: /news/2020
+          - heading "Finally releasing phpMyFAQ 3.0, struggling with the Corona pandemic, getting all ready for PHP 8.0 and working hard on phpMyFAQ 3.1" [level=3] [ref=e67]
+        - listitem [ref=e68]:
+          - heading "2019" [level=2] [ref=e69]:
+            - link "2019" [ref=e70] [cursor=pointer]:
+              - /url: /news/2019
+          - heading "Working hard on phpMyFAQ 3.0 and dropped support for PHP 5." [level=3] [ref=e71]
+        - listitem [ref=e72]:
+          - heading "2018" [level=2] [ref=e73]:
+            - link "2018" [ref=e74] [cursor=pointer]:
+              - /url: /news/2018
+          - heading "Finally, added PHP namespaces and Docker support for the upcoming phpMyFAQ 3.0 milestone" [level=3] [ref=e75]
+        - listitem [ref=e76]:
+          - heading "2017" [level=2] [ref=e77]:
+            - link "2017" [ref=e78] [cursor=pointer]:
+              - /url: /news/2017
+          - heading "Improving the 2.9 version and working hard on phpMyFAQ 3.0" [level=3] [ref=e79]
+        - listitem [ref=e80]:
+          - heading "2016" [level=2] [ref=e81]:
+            - link "2016" [ref=e82] [cursor=pointer]:
+              - /url: /news/2016
+          - heading "Celebrated 15 years of phpMyFAQ and released phpMyFAQ 2.9" [level=3] [ref=e83]
+        - listitem [ref=e84]:
+          - heading "2015" [level=2] [ref=e85]:
+            - link "2015" [ref=e86] [cursor=pointer]:
+              - /url: /news/2015
+          - heading "Working on 2.8 and 2.9, getting everything ready for PHP 7 and HHVM" [level=3] [ref=e87]
+        - listitem [ref=e88]:
+          - heading "2014" [level=2] [ref=e89]:
+            - link "2014" [ref=e90] [cursor=pointer]:
+              - /url: /news/2014
+          - heading "Improving the 2.8 version and working hard on phpMyFAQ 2.9" [level=3] [ref=e91]
+        - listitem [ref=e92]:
+          - heading "2013" [level=2] [ref=e93]:
+            - link "2013" [ref=e94] [cursor=pointer]:
+              - /url: /news/2013
+          - heading "Using PHP 5.3 and Bootstrap for phpMyFAQ 2.8" [level=3] [ref=e95]
+        - listitem [ref=e96]:
+          - heading "2012" [level=2] [ref=e97]:
+            - link "2012" [ref=e98] [cursor=pointer]:
+              - /url: /news/2012
+          - heading "Improving the 2.7 version and working on phpMyFAQ 2.8" [level=3] [ref=e99]
+        - listitem [ref=e100]:
+          - heading "2011" [level=2] [ref=e101]:
+            - link "2011" [ref=e102] [cursor=pointer]:
+              - /url: /news/2011
+          - heading "Celebrated 10 years of phpMyFAQ, worked on better usability and HTML5 support with phpMyFAQ 2.7" [level=3] [ref=e103]
+        - listitem [ref=e104]:
+          - heading "2010" [level=2] [ref=e105]:
+            - link "2010" [ref=e106] [cursor=pointer]:
+              - /url: /news/2010
+          - heading "Everything's UTF-8 encoded now with phpMyFAQ 2.6" [level=3] [ref=e107]
+        - listitem [ref=e108]:
+          - heading "2009" [level=2] [ref=e109]:
+            - link "2009" [ref=e110] [cursor=pointer]:
+              - /url: /news/2009
+          - heading "Using PHP 5.2 with phpMyFAQ 2.5" [level=3] [ref=e111]
+        - listitem [ref=e112]:
+          - heading "2008" [level=2] [ref=e113]:
+            - link "2008" [ref=e114] [cursor=pointer]:
+              - /url: /news/2008
+          - heading "Improving the 2.0 version and working on phpMyFAQ 2.5" [level=3] [ref=e115]
+        - listitem [ref=e116]:
+          - heading "2007" [level=2] [ref=e117]:
+            - link "2007" [ref=e118] [cursor=pointer]:
+              - /url: /news/2007
+          - heading "Better user management and permissions with phpMyFAQ 2.0" [level=3] [ref=e119]
+        - listitem [ref=e120]:
+          - heading "2006" [level=2] [ref=e121]:
+            - link "2006" [ref=e122] [cursor=pointer]:
+              - /url: /news/2006
+          - heading "Revisions and better spam protection with phpMyFAQ 1.6" [level=3] [ref=e123]
+        - listitem [ref=e124]:
+          - heading "2005" [level=2] [ref=e125]:
+            - link "2005" [ref=e126] [cursor=pointer]:
+              - /url: /news/2005
+          - heading "Support for PHP 5, PostgreSQL, MS SQL and SEO optimized URLs with 1.5" [level=3] [ref=e127]
+        - listitem [ref=e128]:
+          - heading "2004" [level=2] [ref=e129]:
+            - link "2004" [ref=e130] [cursor=pointer]:
+              - /url: /news/2004
+          - heading "Now with a WYSIWYG editor and XHTML support with phpMyFAQ 1.4" [level=3] [ref=e131]
+        - listitem [ref=e132]:
+          - heading "2003" [level=2] [ref=e133]:
+            - link "2003" [ref=e134] [cursor=pointer]:
+              - /url: /news/2003
+          - heading "Adding simple multi-language and PDF support in phpMyFAQ 1.3" [level=3] [ref=e135]
+        - listitem [ref=e136]:
+          - heading "2002" [level=2] [ref=e137]:
+            - link "2002" [ref=e138] [cursor=pointer]:
+              - /url: /news/2002
+          - heading "New features and PHP 4 support with phpMyFAQ 1.1 and going open source with phpMyFAQ 1.2" [level=3] [ref=e139]
+        - listitem [ref=e140]:
+          - heading "2001" [level=2] [ref=e141]:
+            - link "2001" [ref=e142] [cursor=pointer]:
+              - /url: /news/2001
+          - heading "The PHP3 beginnings with phpMyFAQ 0.x and the final 1.0 release" [level=3] [ref=e143]
+  - generic [ref=e145]:
+    - heading "Other interesting links" [level=2] [ref=e146]
+    - generic [ref=e147]:
+      - generic [ref=e148]:
+        - heading "Getting started" [level=3] [ref=e149]
+        - list [ref=e150]:
+          - listitem [ref=e151]:
+            - link "Requirements" [ref=e152] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e153]:
+            - link "Download" [ref=e154] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e155]:
+            - link "Changelog" [ref=e156] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e157]:
+            - link "Security Advisories" [ref=e158] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e159]:
+            - link "Translations" [ref=e160] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e161]:
+        - heading "Resources" [level=3] [ref=e162]
+        - list [ref=e163]:
+          - listitem [ref=e164]:
+            - link "News archive" [ref=e165] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e166]:
+            - link "Donations" [ref=e167] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e168]:
+            - link "Who uses phpMyFAQ?" [ref=e169] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e170]:
+            - link "20 years phpMyFAQ (2021)" [ref=e171] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e172]:
+            - link "15 years phpMyFAQ (2016)" [ref=e173] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e174]:
+            - link "10 years phpMyFAQ (2011)" [ref=e175] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e176]:
+        - heading "Misc" [level=3] [ref=e177]
+        - list [ref=e178]:
+          - listitem [ref=e179]:
+            - link "Thank you!" [ref=e180] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e181]:
+            - link "Terms of Service" [ref=e182] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e183]:
+            - link "Imprint" [ref=e184] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e185]:
+            - link "Privacy Notice" [ref=e186] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e187]:
+      - heading "Get Connected" [level=3] [ref=e188]
+      - list [ref=e189]:
+        - listitem [ref=e190]:
+          - link "phpMyFAQ at Github" [ref=e191] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e192] [cursor=pointer]: 
+        - listitem [ref=e193]:
+          - link "phpMyFAQ at Facebook" [ref=e194] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e195] [cursor=pointer]: 
+        - listitem [ref=e196]:
+          - link "phpMyFAQ Discord Community" [ref=e197] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e198] [cursor=pointer]: 
+        - listitem [ref=e199]:
+          - link "Mail me!" [ref=e200] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e201] [cursor=pointer]: 
+  - contentinfo [ref=e202]:
+    - generic [ref=e204]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e205]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

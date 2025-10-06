@@ -1,0 +1,290 @@
+// phpMyFAQ orange color
+$phpmyfaq-orange: #ff6600;
+$phpmyfaq-orange-light: #ff8533;
+$phpmyfaq-orange-dark: #cc5200;
+
+// Light mode colors
+$light-bg: #ffffff;
+$light-bg-secondary: #f8f9fa;
+$light-text: #333333;
+$light-text-muted: #666666;
+$light-border: #e0e0e0;
+$light-card-shadow: rgba(0, 0, 0, 0.1);
+
+// Dark mode colors
+$dark-bg: #1a1a1a;
+$dark-bg-secondary: #2d2d2d;
+$dark-text: #e0e0e0;
+$dark-text-muted: #a0a0a0;
+$dark-border: #404040;
+$dark-card-shadow: rgba(0, 0, 0, 0.3);
+
+.supportContainer {
+  padding: 4rem 0;
+  min-height: 60vh;
+
+  // Light mode (default)
+  background: linear-gradient(135deg, $light-bg-secondary 0%, $light-bg 100%);
+  color: $light-text;
+
+  // Dark mode
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(135deg, $dark-bg 0%, $dark-bg-secondary 100%);
+    color: $dark-text;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, $phpmyfaq-orange 0%, $phpmyfaq-orange-light 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: $light-text-muted;
+    max-width: 600px;
+    margin: 0 auto;
+
+    @media (prefers-color-scheme: dark) {
+      color: $dark-text-muted;
+    }
+  }
+}
+
+.supportGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.supportCard {
+  background: $light-bg;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid $light-border;
+  box-shadow: 0 4px 6px $light-card-shadow;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  @media (prefers-color-scheme: dark) {
+    background: $dark-bg-secondary;
+    border-color: $dark-border;
+    box-shadow: 0 4px 6px $dark-card-shadow;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $phpmyfaq-orange 0%, $phpmyfaq-orange-light 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px $light-card-shadow;
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 8px 16px $dark-card-shadow;
+    }
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  .cardIcon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, $phpmyfaq-orange 0%, $phpmyfaq-orange-light 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: white;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: $light-text;
+
+    @media (prefers-color-scheme: dark) {
+      color: $dark-text;
+    }
+  }
+
+  p {
+    color: $light-text-muted;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+
+    @media (prefers-color-scheme: dark) {
+      color: $dark-text-muted;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+
+    li {
+      padding: 0.5rem 0;
+      color: $light-text-muted;
+      display: flex;
+      align-items: center;
+
+      @media (prefers-color-scheme: dark) {
+        color: $dark-text-muted;
+      }
+
+      &::before {
+        content: '→';
+        color: $phpmyfaq-orange;
+        margin-right: 0.75rem;
+        font-weight: bold;
+      }
+
+      a {
+        color: $phpmyfaq-orange;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $phpmyfaq-orange-dark;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.ctaButton {
+  display: inline-block;
+  background: linear-gradient(135deg, $phpmyfaq-orange 0%, $phpmyfaq-orange-light 100%);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba($phpmyfaq-orange, 0.3);
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.additionalResources {
+  background: $light-bg;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+  border: 1px solid $light-border;
+
+  @media (prefers-color-scheme: dark) {
+    background: $dark-bg-secondary;
+    border-color: $dark-border;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: $light-text;
+
+    @media (prefers-color-scheme: dark) {
+      color: $dark-text;
+    }
+  }
+
+  .resourceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .resourceItem {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: $light-bg-secondary;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+
+    @media (prefers-color-scheme: dark) {
+      background: $dark-bg;
+    }
+
+    &:hover {
+      background: rgba($phpmyfaq-orange, 0.05);
+    }
+
+    .resourceIcon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, $phpmyfaq-orange 0%, $phpmyfaq-orange-light 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    a {
+      color: $light-text;
+      text-decoration: none;
+      font-weight: 500;
+
+      @media (prefers-color-scheme: dark) {
+        color: $dark-text;
+      }
+
+      &:hover {
+        color: $phpmyfaq-orange;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .supportGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .resourceGrid {
+    grid-template-columns: 1fr;
+  }
+}

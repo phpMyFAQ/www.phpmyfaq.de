@@ -1,0 +1,304 @@
+// Override Bootstrap's primary color with phpMyFAQ orange
+$primary: #ff6600;
+$secondary: #667eea;
+$success: #28a745;
+$warning: #f39c12;
+$danger: #dc3545;
+$info: #17a2b8;
+
+@import "bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/lato-v23-latin-300.woff2') format('woff2'),
+       url('/fonts/lato-v23-latin-300.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 300;
+  src: url('/fonts/lato-v23-latin-300italic.woff2') format('woff2'),
+       url('/fonts/lato-v23-latin-300italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/lato-v23-latin-regular.woff2') format('woff2'),
+       url('/fonts/lato-v23-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/cabin-v26-latin-regular.woff2') format('woff2'),
+       url('/fonts/cabin-v26-latin-regular.woff') format('woff');
+}
+
+// Theme variables
+:root {
+  // phpMyFAQ orange
+  --color-primary: #ff6600;
+  --color-primary-light: #ff8533;
+  --color-primary-dark: #cc5200;
+
+  // Light mode
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-text: #333333;
+  --color-text-muted: #666666;
+  --color-border: #e0e0e0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  // Dark mode
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-text: #e0e0e0;
+  --color-text-muted: #a0a0a0;
+  --color-border: #404040;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cabin', sans-serif;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+}
+
+.promo {
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 50%, #ffaa66 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.promo .title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.promo .highlight {
+  color: #ffd700;
+}
+
+.promo .intro {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  border-radius: 30px;
+  padding: 0.75rem 2rem;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+// Hero section buttons
+.promo .btn-success {
+  background: #28a745;
+  border-color: #28a745;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.promo .btn-success:hover {
+  background: #218838;
+  border-color: #1e7e34;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.promo .btn-outline-light {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: 500;
+}
+
+.promo .btn-outline-light:hover {
+  background: white;
+  color: #ff6600;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.love-phpmyfaq {
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.meta {
+  margin-top: 3rem;
+}
+
+.meta a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+}
+
+.meta a:hover {
+  color: white;
+}
+
+.footer {
+  background: #333;
+  color: #ccc;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.top-footer {
+  background: #f8f9fa;
+  padding: 3rem 0;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+// Download page styles
+.download-hero {
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  color: white;
+}
+
+.download-badge {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.icon-badge-orange {
+  background: #ff6600;
+  color: white;
+}
+
+.icon-badge-yellow {
+  background: #f39c12;
+  color: #000;
+}
+
+.icon-badge-blue {
+  background: #e7f3ff;
+  color: #0066cc;
+}
+
+.icon-badge-orange-light {
+  background: #fff3e0;
+  color: #ff6600;
+}
+
+.checksum-box {
+  background: #f8f9fa;
+}
+
+.checksum-box-dev {
+  background: #fff9e6;
+}
+
+.older-versions-box {
+  background: #f8f9fa;
+}
+
+// Download page improvements for dark mode
+[data-theme='dark'] {
+  .card {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-border) !important;
+  }
+
+  .card-body {
+    color: var(--color-text);
+  }
+
+  .text-muted {
+    color: var(--color-text-muted) !important;
+  }
+
+  code {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffa500;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  // Improve readability of links in dark mode
+  a:not(.btn) {
+    color: #ff8533;
+
+    &:hover {
+      color: #ffaa66;
+    }
+  }
+
+  .checksum-box,
+  .older-versions-box {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .checksum-box-dev {
+    background: rgba(255, 193, 7, 0.1);
+  }
+
+  .icon-badge-blue {
+    background: rgba(0, 102, 204, 0.2);
+    color: #66b3ff;
+  }
+
+  .icon-badge-orange-light {
+    background: rgba(255, 102, 0, 0.2);
+    color: #ff8533;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "stable": "4.0.13",
+  "stable_released": "2025-10-03",
+  "development": "4.1.0-alpha.3",
+  "development_released": "2025-10-04",
+  "nightly": "nightly-2025-10-03",
+  "nightly_released": "2025-10-03"
+}

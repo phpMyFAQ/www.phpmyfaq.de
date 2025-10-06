@@ -1,0 +1,191 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - link "Logo of phpMyFAQ" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e17] [cursor=pointer]
+        - generic [ref=e18]: phpMyFAQ
+      - generic [ref=e19]:
+        - navigation [ref=e20]:
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Features" [ref=e23] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e24]:
+              - link "Documentation" [ref=e25] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e26]:
+              - link "Support" [ref=e27] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e28]:
+              - link "Download" [ref=e29] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e31] [cursor=pointer]:
+          - img [ref=e33] [cursor=pointer]
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - heading "phpMyFAQ news from 2008" [level=1] [ref=e39]
+      - generic [ref=e42]:
+        - navigation "breadcrumb" [ref=e43]:
+          - list [ref=e44]:
+            - listitem [ref=e45]:
+              - link "News" [ref=e46] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e47]: / 2008
+        - generic [ref=e48]:
+          - heading "2008-11-26" [level=3] [ref=e49]
+          - separator [ref=e50]
+          - paragraph [ref=e52]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 2.0.10" [ref=e53] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"it survived the financial crisis\" release. This release fixes a lot of minor bugs."
+        - generic [ref=e54]:
+          - heading "2008-10-17" [level=3] [ref=e55]
+          - separator [ref=e56]
+          - paragraph [ref=e58]:
+            - text: The phpMyFAQ team is pleased to announce
+            - link "phpMyFAQ 2.0.9" [ref=e59] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Everyone I know goes away in the end\" release. This release improves the spam detection and fixes some bugs introduced with version 2.0.8. This release is dedicated to my uncle Werner, who passed away this week."
+        - generic [ref=e60]:
+          - heading "2008-09-11" [level=3] [ref=e61]
+          - separator [ref=e62]
+          - paragraph [ref=e64]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 2.0.8" [ref=e65] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"9/11 memorial\" release. This release fixes a security issue, some errors with MS SQL and IBM DB2 support, and we fixed some minor bugs. The French and Serbian translations were updated. We also switched our repository from CVS to SVN."
+        - generic [ref=e66]:
+          - heading "2008-05-18" [level=3] [ref=e67]
+          - separator [ref=e68]
+          - paragraph [ref=e70]:
+            - text: The phpMyFAQ team is pleased to announce the first preview of our next generation release,
+            - link "phpMyFAQ 2.5.0-alpha" [ref=e71] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Yes, we kicked PHP 4 support finally\" release. This release changes the PHP requirement to PHP 5.2 and introduces the new and improved new basic layout theme. We added RSS feeds for every category and the ability to copy and duplicate FAQ entries. The template engine now supports blocks in template files. A public user registration was added, and we improved the user administration frontend. Do not use this version in production systems, but test this version and report bugs!"
+        - generic [ref=e72]:
+          - heading "2008-05-12" [level=3] [ref=e73]
+          - separator [ref=e74]
+          - paragraph [ref=e76]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 2.0.7" [ref=e77] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Whit Monday\" release. This release adds a Bengali and a Ukraine translation. The Czech translation was updated, and we fixed some minor bugs."
+        - generic [ref=e78]:
+          - heading "2008-02-24" [level=3] [ref=e79]
+          - separator [ref=e80]
+          - paragraph [ref=e82]:
+            - text: The phpMyFAQ team is pleased to announce
+            - link "phpMyFAQ 2.0.6" [ref=e83] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"sunny Sunday\" release. This release fixes a permission settings-related issue and some minor bugfixes."
+        - generic [ref=e84]:
+          - heading "2008-01-20" [level=3] [ref=e85]
+          - separator [ref=e86]
+          - paragraph [ref=e88]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 2.0.5" [ref=e89] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"With a Little Help From My Friends\" release. This release fixes the lighttpd rewrite rules and many minor bugs."
+        - generic [ref=e90]:
+          - heading "2008-01-05" [level=3] [ref=e91]
+          - separator [ref=e92]
+          - paragraph [ref=e94]:
+            - text: Today I switched our
+            - link "own FAQ" [ref=e95] [cursor=pointer]:
+              - /url: http://faq.phpmyfaq.de
+            - text: from phpMyFAQ 1.6.11 to the upcoming 2.0.5 release. It worked like a charm, and I also used the new 2.5 layout.
+        - generic [ref=e96]:
+          - heading "2008-01-04" [level=3] [ref=e97]
+          - separator [ref=e98]
+          - paragraph [ref=e100]: Today we updated our blog software to Wordpress 2.3.2, and we switched the main phpmyfaq.de website to the new 2.5 layout.
+  - generic [ref=e102]:
+    - heading "Other interesting links" [level=2] [ref=e103]
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - heading "Getting started" [level=3] [ref=e106]
+        - list [ref=e107]:
+          - listitem [ref=e108]:
+            - link "Requirements" [ref=e109] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e110]:
+            - link "Download" [ref=e111] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e112]:
+            - link "Changelog" [ref=e113] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e114]:
+            - link "Security Advisories" [ref=e115] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e116]:
+            - link "Translations" [ref=e117] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e118]:
+        - heading "Resources" [level=3] [ref=e119]
+        - list [ref=e120]:
+          - listitem [ref=e121]:
+            - link "News archive" [ref=e122] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e123]:
+            - link "Donations" [ref=e124] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e125]:
+            - link "Who uses phpMyFAQ?" [ref=e126] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e127]:
+            - link "20 years phpMyFAQ (2021)" [ref=e128] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e129]:
+            - link "15 years phpMyFAQ (2016)" [ref=e130] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e131]:
+            - link "10 years phpMyFAQ (2011)" [ref=e132] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e133]:
+        - heading "Misc" [level=3] [ref=e134]
+        - list [ref=e135]:
+          - listitem [ref=e136]:
+            - link "Thank you!" [ref=e137] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e138]:
+            - link "Terms of Service" [ref=e139] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e140]:
+            - link "Imprint" [ref=e141] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e142]:
+            - link "Privacy Notice" [ref=e143] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e144]:
+      - heading "Get Connected" [level=3] [ref=e145]
+      - list [ref=e146]:
+        - listitem [ref=e147]:
+          - link "phpMyFAQ at Github" [ref=e148] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e149] [cursor=pointer]: 
+        - listitem [ref=e150]:
+          - link "phpMyFAQ at Facebook" [ref=e151] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e152] [cursor=pointer]: 
+        - listitem [ref=e153]:
+          - link "phpMyFAQ Discord Community" [ref=e154] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e155] [cursor=pointer]: 
+        - listitem [ref=e156]:
+          - link "Mail me!" [ref=e157] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e158] [cursor=pointer]: 
+  - contentinfo [ref=e159]:
+    - generic [ref=e161]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e162]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

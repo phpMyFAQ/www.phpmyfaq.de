@@ -1,0 +1,157 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Logo of phpMyFAQ" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e8] [cursor=pointer]
+        - generic [ref=e9]: phpMyFAQ
+      - generic [ref=e10]:
+        - navigation [ref=e11]:
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Features" [ref=e14] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e15]:
+              - link "Documentation" [ref=e16] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e17]:
+              - link "Support" [ref=e18] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e19]:
+              - link "Download" [ref=e20] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e22] [cursor=pointer]:
+          - img [ref=e24] [cursor=pointer]
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - heading "phpMyFAQ news from 2021" [level=1] [ref=e30]
+      - generic [ref=e33]:
+        - navigation "breadcrumb" [ref=e34]:
+          - list [ref=e35]:
+            - listitem [ref=e36]:
+              - link "News" [ref=e37] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e38]: / 2021
+        - generic [ref=e39]:
+          - heading "2021-10-22" [level=3] [ref=e40]
+          - separator [ref=e41]
+          - paragraph [ref=e43]:
+            - text: The phpMyFAQ Team has learned of a security issue that has been discovered in our mail server configuration, a missing DMARC record for our domain phpmyfaq.de. We fixed that issue.
+            - link "Click here to find a detailed security advisory" [ref=e44] [cursor=pointer]:
+              - /url: /security/advisory-2021-10-22
+            - text: .
+        - generic [ref=e45]:
+          - heading "2021-04-17" [level=3] [ref=e46]
+          - separator [ref=e47]
+          - paragraph [ref=e49]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.9" [ref=e50] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Helen McCrory \" release. This release fixes all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e51]:
+          - heading "2021-03-12" [level=3] [ref=e52]
+          - separator [ref=e53]
+          - paragraph [ref=e55]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.0-beta" [ref=e56] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Happy 75th Birthday to Liza Minnelli\" release. We're feature complete now with the 3.1 release and we fixed all open issues. Please don't use this version in production systems, but test this version and please report bugs!"
+        - generic [ref=e57]:
+          - heading "2021-02-24" [level=3] [ref=e58]
+          - separator [ref=e59]
+          - paragraph [ref=e61]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.8" [ref=e62] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Larry Flynt\" release. This release adds Bootstrap v4.6 and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+        - generic [ref=e63]:
+          - heading "2021-02-12" [level=3] [ref=e64]
+          - separator [ref=e65]
+          - paragraph [ref=e67]: The phpMyFAQ team is quietly celebrating the project's 20th birthday today - in memory of the over 2 million CoVID-19 deaths already worldwide. It's been a wild ride from PHP3 and MySQL 3.22 in the early days to PHP8 and multiple database support today. Thanks for the great 20 years to all users, contributors and friends of the project. Thank you! Thorsten
+  - generic [ref=e69]:
+    - heading "Other interesting links" [level=2] [ref=e70]
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - heading "Getting started" [level=3] [ref=e73]
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "Requirements" [ref=e76] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e77]:
+            - link "Download" [ref=e78] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e79]:
+            - link "Changelog" [ref=e80] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e81]:
+            - link "Security Advisories" [ref=e82] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e83]:
+            - link "Translations" [ref=e84] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e85]:
+        - heading "Resources" [level=3] [ref=e86]
+        - list [ref=e87]:
+          - listitem [ref=e88]:
+            - link "News archive" [ref=e89] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e90]:
+            - link "Donations" [ref=e91] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e92]:
+            - link "Who uses phpMyFAQ?" [ref=e93] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e94]:
+            - link "20 years phpMyFAQ (2021)" [ref=e95] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e96]:
+            - link "15 years phpMyFAQ (2016)" [ref=e97] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e98]:
+            - link "10 years phpMyFAQ (2011)" [ref=e99] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e100]:
+        - heading "Misc" [level=3] [ref=e101]
+        - list [ref=e102]:
+          - listitem [ref=e103]:
+            - link "Thank you!" [ref=e104] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e105]:
+            - link "Terms of Service" [ref=e106] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e107]:
+            - link "Imprint" [ref=e108] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e109]:
+            - link "Privacy Notice" [ref=e110] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e111]:
+      - heading "Get Connected" [level=3] [ref=e112]
+      - list [ref=e113]:
+        - listitem [ref=e114]:
+          - link "phpMyFAQ at Github" [ref=e115] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e116] [cursor=pointer]: 
+        - listitem [ref=e117]:
+          - link "phpMyFAQ at Facebook" [ref=e118] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e119] [cursor=pointer]: 
+        - listitem [ref=e120]:
+          - link "phpMyFAQ Discord Community" [ref=e121] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e122] [cursor=pointer]: 
+        - listitem [ref=e123]:
+          - link "Mail me!" [ref=e124] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e125] [cursor=pointer]: 
+  - contentinfo [ref=e126]:
+    - generic [ref=e128]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e129]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

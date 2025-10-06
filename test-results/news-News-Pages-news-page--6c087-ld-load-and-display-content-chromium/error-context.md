@@ -1,0 +1,255 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - link "Logo of phpMyFAQ" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e17] [cursor=pointer]
+        - generic [ref=e18]: phpMyFAQ
+      - generic [ref=e19]:
+        - navigation [ref=e20]:
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Features" [ref=e23] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e24]:
+              - link "Documentation" [ref=e25] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e26]:
+              - link "Support" [ref=e27] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e28]:
+              - link "Download" [ref=e29] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e31] [cursor=pointer]:
+          - img [ref=e33] [cursor=pointer]
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - heading "phpMyFAQ news from 2002" [level=1] [ref=e39]
+      - generic [ref=e42]:
+        - navigation "breadcrumb" [ref=e43]:
+          - list [ref=e44]:
+            - listitem [ref=e45]:
+              - link "News" [ref=e46] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e47]: / 2002
+        - generic [ref=e48]:
+          - heading "2002-12-21" [level=3] [ref=e49]
+          - separator [ref=e50]
+          - paragraph [ref=e52]: The phpMyFAQ team wishes all users of our software and visitors to these pages a Merry Christmas and a Happy New Year 2003! We are currently working on the next bugfix release 1.2.4, which will probably be released at the beginning of the year. Based on this version, we will then start developing phpMyFAQ 1.3.0 in early February.
+        - generic [ref=e53]:
+          - heading "2002-11-30" [level=3] [ref=e54]
+          - separator [ref=e55]
+          - paragraph [ref=e57]:
+            - text: The new version of phpMyFAQ is ready! The new
+            - link "release 1.2.3" [ref=e58] [cursor=pointer]:
+              - /url: /download
+            - text: brings improvements to the language files and bugfixes in the admin area. Furthermore, this version checks whether the installation or update scripts have been deleted, which contributes to security.
+        - generic [ref=e59]:
+          - heading "2002-11-04" [level=3] [ref=e60]
+          - separator [ref=e61]
+          - paragraph [ref=e63]: Due to a bug in the parser, the new version 1.2.2 of phpMyFAQ is available as of today. It also fixes other bugs in the admin area. No new features are included.
+        - generic [ref=e64]:
+          - heading "2002-10-24" [level=3] [ref=e65]
+          - separator [ref=e66]
+          - paragraph [ref=e68]:
+            - text: The first bugfix release is ready. The
+            - link "new version 1.2.1 of phpMyFAQ" [ref=e69] [cursor=pointer]:
+              - /url: /download
+            - text: solves problems with configuration and cookie authentication. Furthermore, the update function has been significantly improved.
+        - generic [ref=e70]:
+          - heading "2002-10-13" [level=3] [ref=e71]
+          - separator [ref=e72]
+          - paragraph [ref=e74]: As of today, phpmyfaq.de is finally on its own server, the pages should now load faster. :-)
+        - generic [ref=e75]:
+          - heading "2002-10-09" [level=3] [ref=e76]
+          - separator [ref=e77]
+          - paragraph [ref=e79]:
+            - text: The new phpMyFAQ 1.2.0 is ready and freely available to every user. The new version is now licensed under the
+            - link "Mozilla Public License" [ref=e80] [cursor=pointer]:
+              - /url: http://www.mozilla.org/MPL/MPL-1.1.html
+            - text: ", offers a template system for custom layouts and full support for PHP 4.1, 4.2 and the upcoming PHP 4.3."
+        - generic [ref=e81]:
+          - heading "2002-10-06" [level=3] [ref=e82]
+          - separator [ref=e83]
+          - paragraph [ref=e85]: The first release candidate of phpMyFAQ 1.2.0 can now be downloaded from our website. Compared to Beta3, some more bugs have been fixed. If no more bug reports appear in the next few days, the final version 1.2.0 will be released soon. :-)
+        - generic [ref=e86]:
+          - heading "2002-10-03" [level=3] [ref=e87]
+          - separator [ref=e88]
+          - paragraph [ref=e90]:
+            - text: Beta3 of the new phpMyFAQ version 1.2.0 is ready and can be
+            - link "downloaded" [ref=e91] [cursor=pointer]:
+              - /url: /download
+            - text: . Beta3 is our last beta version before the release candidates. Furthermore, the documentation for the new version is now also online.
+        - generic [ref=e92]:
+          - heading "2002-10-02" [level=3] [ref=e93]
+          - separator [ref=e94]
+          - paragraph [ref=e96]: In the next few days, our domain phpmyfaq.de will be moving to a new server. We hope that the move will work without any downtime.
+        - generic [ref=e97]:
+          - heading "2002-09-28" [level=3] [ref=e98]
+          - separator [ref=e99]
+          - paragraph [ref=e101]:
+            - text: As of today, you can find Beta2 of phpMyFAQ 1.2.0 in our
+            - link "download section" [ref=e102] [cursor=pointer]:
+              - /url: /download
+            - text: . In this new version, all features of the new version are now implemented. Please test this version so that we can find and remove all bugs.
+        - generic [ref=e103]:
+          - heading "2002-09-20" [level=3] [ref=e104]
+          - separator [ref=e105]
+          - paragraph [ref=e107]: Beta1 is ready and can be downloaded for free. The features and modules are implemented at about 75%. We welcome bug reports and comments!
+        - generic [ref=e108]:
+          - heading "2002-09-17" [level=3] [ref=e109]
+          - separator [ref=e110]
+          - paragraph [ref=e112]:
+            - text: As of today, we are offering all new versions of phpMyFAQ
+            - link "free for download" [ref=e113] [cursor=pointer]:
+              - /url: /download
+            - text: . We're starting with the first alpha version of phpMyFAQ 1.2.0. We welcome bug reports and comments!
+        - generic [ref=e114]:
+          - heading "2002-08-23" [level=3] [ref=e115]
+          - separator [ref=e116]
+          - paragraph [ref=e118]:
+            - text: For our beta test at the beginning of September 2002, we are looking for some brave users who will thoroughly test the new phpMyFAQ 1.2.0, which is still under development. Interested parties should contact us by
+            - link "email" [ref=e119] [cursor=pointer]:
+              - /url: mailto:thorsten@phpmyfaq.de?subject=BETA-TEST+phpMyFAQ+1.2.0
+            - text: .
+        - generic [ref=e120]:
+          - heading "2002-06-23" [level=3] [ref=e121]
+          - separator [ref=e122]
+          - paragraph [ref=e124]: Thanks to the help of a user, we are now shipping the new version 1.1.5 of phpMyFAQ with a Russian language module. Furthermore, some minor bugs have been fixed. The new version 1.2.0 is in development.
+        - generic [ref=e125]:
+          - heading "2002-06-08" [level=3] [ref=e126]
+          - separator [ref=e127]
+          - paragraph [ref=e129]: Due to some minor problems with PHP 4.1.0, phpMyFAQ version 1.1.4a was released today. Users of version 1.1.4 don't need a patch if they haven't had any problems so far. The new version 1.2.0 is already in development.
+        - generic [ref=e130]:
+          - heading "2002-05-24" [level=3] [ref=e131]
+          - separator [ref=e132]
+          - paragraph [ref=e134]: The new version of phpMyFAQ is ready! The new release 1.1.4 brings numerous bugfixes and improved PHP and HTML code. Furthermore, the voting function can now be disabled. Updates are availably free via email to all users of versions 1.1.x.
+        - generic [ref=e135]:
+          - heading "2002-05-01" [level=3] [ref=e136]
+          - separator [ref=e137]
+          - paragraph [ref=e139]: Version 1.1.3 of phpMyFAQ is available as of today. Besides various bugfixes, we have also begun to clean up and optimize the code. Users of phpMyFAQ 1.1.2 can find the patch to the new version for download on our download page. The next major release 1.2.0 is already being planned.
+        - generic [ref=e140]:
+          - heading "2002-03-22" [level=3] [ref=e141]
+          - separator [ref=e142]
+          - paragraph [ref=e144]: "Along with the new version 1.1.2, there's now a new feature: Send2Friend; this allows FAQ articles to be sent to up to five friends."
+        - generic [ref=e145]:
+          - heading "2002-03-06" [level=3] [ref=e146]
+          - separator [ref=e147]
+          - paragraph [ref=e149]: Due to two minor bugs, we are releasing the new version 1.1.1 of phpMyFAQ today.
+        - generic [ref=e150]:
+          - heading "2002-02-11" [level=3] [ref=e151]
+          - separator [ref=e152]
+          - paragraph [ref=e154]: As of today, the new version 1.1.0 of phpMyFAQ is ready.
+        - generic [ref=e155]:
+          - heading "2002-02-01" [level=3] [ref=e156]
+          - separator [ref=e157]
+          - paragraph [ref=e159]: Since there are still some bugs in Beta2, there will be a Beta4 of phpMyFAQ 1.1.0 in addition to Beta3, which will be released today or tomorrow.
+        - generic [ref=e160]:
+          - heading "2002-01-30" [level=3] [ref=e161]
+          - separator [ref=e162]
+          - paragraph [ref=e164]: During this evening, we will send Beta2 of phpMyFAQ 1.1.0 to the beta testers.
+        - generic [ref=e165]:
+          - heading "2002-01-26" [level=3] [ref=e166]
+          - separator [ref=e167]
+          - paragraph [ref=e169]: Beta2 of phpMyFAQ 1.1.0 will be sent to the beta testers at the beginning of next week. Open bugs will then be fixed in the next beta version; the release of the final version is planned for mid-February.
+        - generic [ref=e170]:
+          - heading "2002-01-07" [level=3] [ref=e171]
+          - separator [ref=e172]
+          - paragraph [ref=e174]: As of today, Beta1 of phpMyFAQ 1.1.0 is ready. We are currently checking the version thoroughly and will then send the package to the beta testers during the week.
+        - generic [ref=e175]:
+          - heading "2002-01-03" [level=3] [ref=e176]
+          - separator [ref=e177]
+          - paragraph [ref=e179]: We will begin beta testing the new version 1.1.0 in the second week of January. Interested parties are welcome to contact us.
+        - generic [ref=e180]:
+          - heading "2002-01-01" [level=3] [ref=e181]
+          - separator [ref=e182]
+          - paragraph [ref=e184]: Unfortunately, we had to postpone the release of the new version. The current version 1.0.1 will continue to be distributed.
+  - generic [ref=e186]:
+    - heading "Other interesting links" [level=2] [ref=e187]
+    - generic [ref=e188]:
+      - generic [ref=e189]:
+        - heading "Getting started" [level=3] [ref=e190]
+        - list [ref=e191]:
+          - listitem [ref=e192]:
+            - link "Requirements" [ref=e193] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e194]:
+            - link "Download" [ref=e195] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e196]:
+            - link "Changelog" [ref=e197] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e198]:
+            - link "Security Advisories" [ref=e199] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e200]:
+            - link "Translations" [ref=e201] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e202]:
+        - heading "Resources" [level=3] [ref=e203]
+        - list [ref=e204]:
+          - listitem [ref=e205]:
+            - link "News archive" [ref=e206] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e207]:
+            - link "Donations" [ref=e208] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e209]:
+            - link "Who uses phpMyFAQ?" [ref=e210] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e211]:
+            - link "20 years phpMyFAQ (2021)" [ref=e212] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e213]:
+            - link "15 years phpMyFAQ (2016)" [ref=e214] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e215]:
+            - link "10 years phpMyFAQ (2011)" [ref=e216] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e217]:
+        - heading "Misc" [level=3] [ref=e218]
+        - list [ref=e219]:
+          - listitem [ref=e220]:
+            - link "Thank you!" [ref=e221] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e222]:
+            - link "Terms of Service" [ref=e223] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e224]:
+            - link "Imprint" [ref=e225] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e226]:
+            - link "Privacy Notice" [ref=e227] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e228]:
+      - heading "Get Connected" [level=3] [ref=e229]
+      - list [ref=e230]:
+        - listitem [ref=e231]:
+          - link "phpMyFAQ at Github" [ref=e232] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e233] [cursor=pointer]: 
+        - listitem [ref=e234]:
+          - link "phpMyFAQ at Facebook" [ref=e235] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e236] [cursor=pointer]: 
+        - listitem [ref=e237]:
+          - link "phpMyFAQ Discord Community" [ref=e238] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e239] [cursor=pointer]: 
+        - listitem [ref=e240]:
+          - link "Mail me!" [ref=e241] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e242] [cursor=pointer]: 
+  - contentinfo [ref=e243]:
+    - generic [ref=e245]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e246]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

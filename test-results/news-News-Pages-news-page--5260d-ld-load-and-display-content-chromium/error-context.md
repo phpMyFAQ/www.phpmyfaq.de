@@ -1,0 +1,599 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - link "Logo of phpMyFAQ" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e17] [cursor=pointer]
+        - generic [ref=e18]: phpMyFAQ
+      - generic [ref=e19]:
+        - navigation [ref=e20]:
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Features" [ref=e23] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e24]:
+              - link "Documentation" [ref=e25] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e26]:
+              - link "Support" [ref=e27] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e28]:
+              - link "Download" [ref=e29] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e31] [cursor=pointer]:
+          - img [ref=e33] [cursor=pointer]
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - heading "phpMyFAQ news from 2003" [level=1] [ref=e39]
+      - generic [ref=e42]:
+        - navigation "breadcrumb" [ref=e43]:
+          - list [ref=e44]:
+            - listitem [ref=e45]:
+              - link "News" [ref=e46] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e47]: / 2003
+        - generic [ref=e48]:
+          - heading "2003-12-18" [level=3] [ref=e49]
+          - separator [ref=e50]
+          - paragraph [ref=e52]:
+            - text: The
+            - link "second milestone of phpMyFAQ 1.4.0" [ref=e53] [cursor=pointer]:
+              - /url: /download
+            - text: is ready. Besides a lot of small improvements this version includes a complete rewritten update script, better language detection and tons of bugfixes. Do not use this version in production systems!
+        - generic [ref=e54]:
+          - heading "2003-12-10" [level=3] [ref=e55]
+          - separator [ref=e56]
+          - paragraph [ref=e58]:
+            - text: With a new and better installation script, valid XHTML templates, automatic language detection and many code improvements, we are proud to announce the availability of the
+            - link "first milestone (\"M1\") from phpMyFAQ 1.4.0" [ref=e59] [cursor=pointer]:
+              - /url: /download
+            - text: . You cannot upgrade your existing phpMyFAQ 1.3.x installation to this pre-alpha version yet.
+        - generic [ref=e60]:
+          - heading "2003-11-26" [level=3] [ref=e61]
+          - separator [ref=e62]
+          - paragraph [ref=e64]:
+            - text: With an improved category navigation, graphical analysis of ratings, ISO 8601 compliant date formats, improved BBCode editor, BB-Code support for news, the Russian language file and many smaller improvements and bug fixes, we are releasing
+            - link "phpMyFAQ 1.3.9" [ref=e65] [cursor=pointer]:
+              - /url: /download
+            - text: today. This is the last phpMyFAQ version of the
+            - link "1.3 series" [ref=e66] [cursor=pointer]:
+              - /url: /changelog
+            - text: ", the new 1.4 series is already in development and builds on the stable 1.3.9."
+        - generic [ref=e67]:
+          - heading "2003-11-21" [level=3] [ref=e68]
+          - separator [ref=e69]
+          - paragraph [ref=e71]:
+            - text: The
+            - link "third Release Candidate of phpMyFAQ 1.3.9" [ref=e72] [cursor=pointer]:
+              - /url: /download
+            - text: has been released. This version should be very stable and also work with PHP 5.0.0 beta2.
+        - generic [ref=e73]:
+          - heading "2003-11-18" [level=3] [ref=e74]
+          - separator [ref=e75]
+          - paragraph [ref=e77]:
+            - text: The
+            - link "second Release Candidate of phpMyFAQ 1.3.9" [ref=e78] [cursor=pointer]:
+              - /url: /download
+            - text: is ready. This version fixes some of the hopefully last bugs.
+        - generic [ref=e79]:
+          - heading "2003-11-12" [level=3] [ref=e80]
+          - separator [ref=e81]
+          - paragraph [ref=e83]:
+            - text: The
+            - link "first Release Candidate of phpMyFAQ 1.3.9" [ref=e84] [cursor=pointer]:
+              - /url: /download
+            - text: can be downloaded for testing. This version brings some improvements to the highlighting of search words, an update to the English language file, BBCode support for news, and minor bugfixes.
+        - generic [ref=e85]:
+          - heading "2003-11-06" [level=3] [ref=e86]
+          - separator [ref=e87]
+          - paragraph [ref=e89]:
+            - text: The
+            - link "third beta version of phpMyFAQ 1.3.9" [ref=e90] [cursor=pointer]:
+              - /url: /download
+            - text: brings further bugfixes.
+        - generic [ref=e91]:
+          - heading "2003-11-01" [level=3] [ref=e92]
+          - separator [ref=e93]
+          - paragraph [ref=e95]:
+            - text: The
+            - link "second beta version of phpMyFAQ 1.3.9" [ref=e96] [cursor=pointer]:
+              - /url: /download
+            - text: brings some bugfixes.
+        - generic [ref=e97]:
+          - heading "2003-10-28" [level=3] [ref=e98]
+          - separator [ref=e99]
+          - paragraph [ref=e101]:
+            - text: The
+            - link "beta version of phpMyFAQ 1.3.9" [ref=e102] [cursor=pointer]:
+              - /url: /download
+            - text: brings a large number of improvements. The BB-Code editor has been greatly improved, and the Russian language file has been added. The beta also brings improvements for multibyte languages like Chinese, improves image display in PDF documents, and fixes several minor bugs.
+        - generic [ref=e103]:
+          - heading "2003-10-26" [level=3] [ref=e104]
+          - separator [ref=e105]
+          - paragraph [ref=e107]:
+            - text: The
+            - link "first development snapshot of phpMyFAQ 1.3.9" [ref=e108] [cursor=pointer]:
+              - /url: /download
+            - text: is released. The new version offers improved category navigation, graphical evaluations of ratings, ISO 8601 compliant dates, and minor code optimizations. We also offer an informal "Du" version of the German language files, many thanks to Ralph Bauer for this.
+        - generic [ref=e109]:
+          - heading "2003-10-23" [level=3] [ref=e110]
+          - separator [ref=e111]
+          - paragraph [ref=e113]:
+            - text: With extended support for MySQL 4.0, the Latvian language, and many bugfixes,
+            - link "phpMyFAQ 1.3.8" [ref=e114] [cursor=pointer]:
+              - /url: /download
+            - text: is released today.
+        - generic [ref=e115]:
+          - heading "2003-10-17" [level=3] [ref=e116]
+          - separator [ref=e117]
+          - paragraph [ref=e119]:
+            - text: The
+            - link "second Release Candidate of phpMyFAQ 1.3.8" [ref=e120] [cursor=pointer]:
+              - /url: /download
+            - text: is already released today. This version fixes some of the hopefully last bugs.
+        - generic [ref=e121]:
+          - heading "2003-10-16" [level=3] [ref=e122]
+          - separator [ref=e123]
+          - paragraph [ref=e125]:
+            - text: The
+            - link "first Release Candidate of phpMyFAQ 1.3.8" [ref=e126] [cursor=pointer]:
+              - /url: /download
+            - text: can be downloaded for testing. Several bugs have been fixed in this version.
+        - generic [ref=e127]:
+          - heading "2003-10-11" [level=3] [ref=e128]
+          - separator [ref=e129]
+          - paragraph [ref=e131]:
+            - text: The first
+            - link "beta version of phpMyFAQ 1.3.8" [ref=e132] [cursor=pointer]:
+              - /url: /download
+            - text: contains the Latvian language file, some bugfixes, and support for Boolean search for MySQL 4.0.
+        - generic [ref=e133]:
+          - heading "2003-10-08" [level=3] [ref=e134]
+          - separator [ref=e135]
+          - paragraph [ref=e137]:
+            - text: As of today, phpMyFAQ also supports the
+            - link "Latvian language" [ref=e138] [cursor=pointer]:
+              - /url: /download
+            - text: . Many thanks to Kaspars Priedols for the translation!
+        - generic [ref=e139]:
+          - heading "2003-10-05" [level=3] [ref=e140]
+          - separator [ref=e141]
+          - paragraph [ref=e143]:
+            - text: The
+            - link "development version of phpMyFAQ 1.3.8" [ref=e144] [cursor=pointer]:
+              - /url: /download
+            - text: can be downloaded for testing. This version fixes some severe bugs in the backup module.
+        - generic [ref=e145]:
+          - heading "2003-09-19" [level=3] [ref=e146]
+          - separator [ref=e147]
+          - paragraph [ref=e149]:
+            - text: The new
+            - link "phpMyFAQ 1.3.7" [ref=e150] [cursor=pointer]:
+              - /url: /download
+            - text: is ready. It contains numerous bugfixes and a patch against Verisign. This version is dedicated to the recently deceased Johnny Cash.
+        - generic [ref=e151]:
+          - heading "2003-09-11" [level=3] [ref=e152]
+          - separator [ref=e153]
+          - paragraph [ref=e155]:
+            - text: The
+            - link "beta version of phpMyFAQ 1.3.7" [ref=e156] [cursor=pointer]:
+              - /url: /download
+            - text: contains a bugfix for operating the FAQ on a Windows system.
+        - generic [ref=e157]:
+          - heading "2003-09-04" [level=3] [ref=e158]
+          - separator [ref=e159]
+          - paragraph [ref=e161]:
+            - text: The
+            - link "development version of phpMyFAQ 1.3.7" [ref=e162] [cursor=pointer]:
+              - /url: /download
+            - text: is online and can be downloaded for testing. This version has no new features, only bugfixes.
+        - generic [ref=e163]:
+          - heading "2003-09-03" [level=3] [ref=e164]
+          - separator [ref=e165]
+          - paragraph [ref=e167]: Today the phpMyFAQ was downloaded for the 10,000th time, and development versions 1.3.7-dev and 2.0.0-dev are in progress.
+        - generic [ref=e168]:
+          - heading "2003-09-01" [level=3] [ref=e169]
+          - separator [ref=e170]
+          - paragraph [ref=e172]:
+            - text: Due to a bug in the installation script,
+            - link "phpMyFAQ 1.3.6" [ref=e173] [cursor=pointer]:
+              - /url: /download
+            - text: is released. We recommend all users to update their FAQ to phpMyFAQ 1.3.6.
+        - generic [ref=e174]:
+          - heading "2003-08-31" [level=3] [ref=e175]
+          - separator [ref=e176]
+          - paragraph [ref=e178]:
+            - text: We have released
+            - link "phpMyFAQ 1.3.5" [ref=e179] [cursor=pointer]:
+              - /url: /download
+            - text: today. The new version offers, among other things, internal linking of articles and several bugfixes. We recommend all users to update their FAQ to phpMyFAQ 1.3.5.
+        - generic [ref=e180]:
+          - heading "2003-08-26" [level=3] [ref=e181]
+          - separator [ref=e182]
+          - paragraph [ref=e184]:
+            - text: The
+            - link "phpMyFAQ 1.3.5 beta3" [ref=e185] [cursor=pointer]:
+              - /url: /download
+            - text: offers some improvements to the BB-Code parser and some bugfixes. It also contains a new feature — the ability to link FAQ articles to each other. Many thanks to Nick Georgakis for the hack.
+        - generic [ref=e186]:
+          - heading "2003-08-22" [level=3] [ref=e187]
+          - separator [ref=e188]
+          - paragraph [ref=e190]:
+            - text: A
+            - link "second beta version of phpMyFAQ 1.3.5" [ref=e191] [cursor=pointer]:
+              - /url: /download
+            - text: is available, which contains some bugfixes.
+        - generic [ref=e192]:
+          - heading "2003-08-14" [level=3] [ref=e193]
+          - separator [ref=e194]
+          - paragraph [ref=e196]:
+            - text: With an RSS feed script for cron jobs, updated English translations, and many small bugfixes, the
+            - link "beta version of phpMyFAQ 1.3.5" [ref=e197] [cursor=pointer]:
+              - /url: /download
+            - text: is released today.
+        - generic [ref=e198]:
+          - heading "2003-08-03" [level=3] [ref=e199]
+          - separator [ref=e200]
+          - paragraph [ref=e202]:
+            - text: The new phpMyFAQ 1.3.4 is ready and available for
+            - link "download" [ref=e203] [cursor=pointer]:
+              - /url: /download
+            - text: . The new version offers a large number of bug fixes. We recommend all users to update their FAQ to phpMyFAQ 1.3.4.
+        - generic [ref=e204]:
+          - heading "2003-07-28" [level=3] [ref=e205]
+          - separator [ref=e206]
+          - paragraph [ref=e208]:
+            - text: With a new BB-Code parser, Italian language files, and numerous bugfixes, the
+            - link "first beta version of phpMyFAQ 1.3.4" [ref=e209] [cursor=pointer]:
+              - /url: /download
+            - text: is released today.
+        - generic [ref=e210]:
+          - heading "2003-07-22" [level=3] [ref=e211]
+          - separator [ref=e212]
+          - paragraph [ref=e214]:
+            - text: As of today, an
+            - link "Italian language file" [ref=e215] [cursor=pointer]:
+              - /url: /download
+            - text: is available for phpMyFAQ 1.3.3, and a
+            - link "development snapshot of phpMyFAQ 1.3.4" [ref=e216] [cursor=pointer]:
+              - /url: /download
+            - text: is freely available.
+        - generic [ref=e217]:
+          - heading "2003-07-17" [level=3] [ref=e218]
+          - separator [ref=e219]
+          - paragraph [ref=e221]:
+            - text: As of today, there is a revised and updated
+            - link "Dutch language file" [ref=e222] [cursor=pointer]:
+              - /url: /download
+            - text: . An Italian translation is currently in progress and will be released together with phpMyFAQ 1.3.4-dev at the end of the month.
+        - generic [ref=e223]:
+          - heading "2003-07-14" [level=3] [ref=e224]
+          - separator [ref=e225]
+          - paragraph [ref=e227]: The new developer version of phpMyFAQ 1.3.4 is in development and will probably be released this month, with the final version of phpMyFAQ 1.3.4 planned for mid-August. We hope to be able to publish a first developer version of phpMyFAQ 2.0 by mid/end of August.
+        - generic [ref=e228]:
+          - heading "2003-06-27" [level=3] [ref=e229]
+          - separator [ref=e230]
+          - paragraph [ref=e232]:
+            - text: With a greatly improved installation script, improved PDF export, and support for Spanish and Portuguese, we are releasing the new
+            - link "phpMyFAQ 1.3.3" [ref=e233] [cursor=pointer]:
+              - /url: /download
+            - text: "today. We recommend all phpMyFAQ users to update to this version. Update: Due to a small bug, we have patched the 1.3.3 versions."
+        - generic [ref=e234]:
+          - heading "2003-06-18" [level=3] [ref=e235]
+          - separator [ref=e236]
+          - paragraph [ref=e238]:
+            - text: Due to a bug in the installer, there is a
+            - link "third beta version of phpMyFAQ 1.3.3" [ref=e239] [cursor=pointer]:
+              - /url: /download
+            - text: today.
+        - generic [ref=e240]:
+          - heading "2003-06-15" [level=3] [ref=e241]
+          - separator [ref=e242]
+          - paragraph [ref=e244]:
+            - text: A
+            - link "second beta version of phpMyFAQ 1.3.3" [ref=e245] [cursor=pointer]:
+              - /url: /download
+            - text: is available. In addition to numerous bugfixes, it also includes a new installation script.
+        - generic [ref=e246]:
+          - heading "2003-06-10" [level=3] [ref=e247]
+          - separator [ref=e248]
+          - paragraph [ref=e250]: We have installed a new bug tracking system today.
+        - generic [ref=e251]:
+          - heading "2003-06-08" [level=3] [ref=e252]
+          - separator [ref=e253]
+          - paragraph [ref=e255]:
+            - text: As of today, the
+            - link "phpMyFAQ 1.3.3 beta" [ref=e256] [cursor=pointer]:
+              - /url: /download
+            - text: is available for testing. In addition to some bugfixes, it adds the Portuguese and Spanish language files and offers the possibility of IP blocks. This version is not yet suitable for productive use.
+        - generic [ref=e257]:
+          - heading "2003-06-06" [level=3] [ref=e258]
+          - separator [ref=e259]
+          - paragraph [ref=e261]:
+            - text: As of today, a
+            - link "Spanish language file" [ref=e262] [cursor=pointer]:
+              - /url: /download
+            - text: is available for phpMyFAQ 1.3.2.
+        - generic [ref=e263]:
+          - heading "2003-06-01" [level=3] [ref=e264]
+          - separator [ref=e265]
+          - paragraph [ref=e267]:
+            - text: As of today, a
+            - link "development snapshot of phpMyFAQ 1.3.3" [ref=e268] [cursor=pointer]:
+              - /url: /download
+            - text: is available. This version exports entire FAQs to a PDF file on request, supports images in the PDF exports, and brings many other improvements. This version is not yet suitable for productive use.
+        - generic [ref=e269]:
+          - heading "2003-05-31" [level=3] [ref=e270]
+          - separator [ref=e271]
+          - paragraph [ref=e273]:
+            - text: As of today, a
+            - link "Portuguese language file" [ref=e274] [cursor=pointer]:
+              - /url: /download
+            - text: is available for phpMyFAQ 1.3.2.
+        - generic [ref=e275]:
+          - heading "2003-05-26" [level=3] [ref=e276]
+          - separator [ref=e277]
+          - paragraph [ref=e279]:
+            - text: The new version
+            - link "phpMyFAQ 1.3.2" [ref=e280] [cursor=pointer]:
+              - /url: /download
+            - text: has been released for download today.
+        - generic [ref=e281]:
+          - heading "2003-05-16" [level=3] [ref=e282]
+          - separator [ref=e283]
+          - paragraph [ref=e285]:
+            - text: The
+            - link "beta version of phpMyFAQ 1.3.2" [ref=e286] [cursor=pointer]:
+              - /url: /download
+            - text: is ready and can be downloaded for testing. In addition to minor bugfixes, this version also includes a reload block for voting, and the BB-Code help is multilingual.
+        - generic [ref=e287]:
+          - heading "2003-05-08" [level=3] [ref=e288]
+          - separator [ref=e289]
+          - paragraph [ref=e291]:
+            - text: As of today, there is a
+            - link "development version" [ref=e292] [cursor=pointer]:
+              - /url: /download
+            - text: of phpMyFAQ 1.3.2. This version offers a new rudimentary category sorting, a Polish language file, extended checks in the update script, and some bugfixes.
+        - generic [ref=e293]:
+          - heading "2003-05-06" [level=3] [ref=e294]
+          - separator [ref=e295]
+          - paragraph [ref=e297]:
+            - text: As of today, our
+            - link "documentation of phpMyFAQ 1.3 in Polish" [ref=e298] [cursor=pointer]:
+              - /url: /docs/
+            - text: is available. The Polish language files will follow in a few days.
+        - generic [ref=e299]:
+          - heading "2003-05-02" [level=3] [ref=e300]
+          - separator [ref=e301]
+          - paragraph [ref=e303]:
+            - text: The first bugfix release is ready. The
+            - link "new version 1.3.1 of phpMyFAQ" [ref=e304] [cursor=pointer]:
+              - /url: /download
+            - text: offers some new features, many bugfixes, and a French language file.
+        - generic [ref=e305]:
+          - heading "2003-04-25" [level=3] [ref=e306]
+          - separator [ref=e307]
+          - paragraph [ref=e309]:
+            - text: As of today, a
+            - link "French language file" [ref=e310] [cursor=pointer]:
+              - /url: /download
+            - text: is available. From version 1.3.1 onwards, this will be permanently integrated into phpMyFAQ.
+        - generic [ref=e311]:
+          - heading "2003-04-17" [level=3] [ref=e312]
+          - separator [ref=e313]
+          - paragraph [ref=e315]:
+            - link "phpMyFAQ 1.3.0" [ref=e316] [cursor=pointer]:
+              - /url: /download
+            - text: is ready!
+        - generic [ref=e317]:
+          - heading "2003-04-10" [level=3] [ref=e318]
+          - separator [ref=e319]
+          - paragraph [ref=e321]:
+            - text: The Release Candidate of phpMyFAQ 1.3.0 can now be
+            - link "downloaded" [ref=e322] [cursor=pointer]:
+              - /url: /download
+            - text: from our site. Compared to beta3, some more bugs have been fixed and the **English documentation** has been added. If no more bug reports appear in the next few days, the final version 1.3.0 will be published soon.
+        - generic [ref=e323]:
+          - heading "2003-04-08" [level=3] [ref=e324]
+          - separator [ref=e325]
+          - paragraph [ref=e327]:
+            - text: Since today there is an
+            - link "english translation of our documentation" [ref=e328] [cursor=pointer]:
+              - /url: /documentation
+            - text: of phpMyFAQ 1.3.0 online. Many thanks to Stephan Hochhaus!
+        - generic [ref=e329]:
+          - heading "2003-04-05" [level=3] [ref=e330]
+          - separator [ref=e331]
+          - paragraph [ref=e333]:
+            - text: As of today, you will find the third beta version of phpMyFAQ 1.3.0 in our
+            - link "download area" [ref=e334] [cursor=pointer]:
+              - /url: /download
+            - text: . Please test this version so that we can fix the very last errors.
+        - generic [ref=e335]:
+          - heading "2003-04-04" [level=3] [ref=e336]
+          - separator [ref=e337]
+          - paragraph [ref=e339]:
+            - text: As of today, you will find the second beta version of phpMyFAQ 1.3.0 in our
+            - link "download area" [ref=e340] [cursor=pointer]:
+              - /url: /download
+            - text: . Please test this version so that we can fix the very last errors.
+        - generic [ref=e341]:
+          - heading "2003-03-29" [level=3] [ref=e342]
+          - separator [ref=e343]
+          - paragraph [ref=e345]:
+            - text: As of today, you will find the first beta version of phpMyFAQ 1.3.0 in our
+            - link "download area" [ref=e346] [cursor=pointer]:
+              - /url: /download
+            - text: . Please test this version so that we can fix the last errors. This version is not yet suitable for productive use.
+        - generic [ref=e347]:
+          - heading "2003-03-24" [level=3] [ref=e348]
+          - separator [ref=e349]
+          - paragraph [ref=e351]:
+            - text: Due to some minor bugs, there is a new update to
+            - link "version 1.2.5b" [ref=e352] [cursor=pointer]:
+              - /url: /download
+            - text: today. As of today, you will also find the third and final alpha version of phpMyFAQ 1.3.0 in our
+            - link "download area" [ref=e353] [cursor=pointer]:
+              - /url: /download
+            - text: . Please test this version so that we can find and remove all bugs. This version is intended for testers only, not for productive use, and it cannot be guaranteed that this version is bug-free.
+        - generic [ref=e354]:
+          - heading "2003-03-16" [level=3] [ref=e355]
+          - separator [ref=e356]
+          - paragraph [ref=e358]:
+            - text: As of today, you will find the second alpha version of phpMyFAQ 1.3.0 in our
+            - link "download area" [ref=e359] [cursor=pointer]:
+              - /url: /download
+            - text: . Please test this version so that we can find and remove all bugs. This version is intended for testers only, not for productive use, and it cannot be guaranteed that this version is bug-free.
+        - generic [ref=e360]:
+          - heading "2003-03-07" [level=3] [ref=e361]
+          - separator [ref=e362]
+          - paragraph [ref=e364]:
+            - text: As of today, you will find the alpha version of phpMyFAQ 1.3.0 in our
+            - link "download area" [ref=e365] [cursor=pointer]:
+              - /url: /download
+            - text: . Many new features are implemented in this new version; please test this version so that we can find and remove all bugs. This version is intended for testers only, not for productive use, and it cannot be guaranteed that this version is bug-free.
+        - generic [ref=e366]:
+          - heading "2003-03-06" [level=3] [ref=e367]
+          - separator [ref=e368]
+          - paragraph [ref=e370]:
+            - text: As of today, there is another
+            - link "development version" [ref=e371] [cursor=pointer]:
+              - /url: /download
+            - text: of phpMyFAQ 1.3.0. This version is intended for testers only, not for productive use, and it cannot be guaranteed that this version is bug-free. The next version will probably be the first alpha version of phpMyFAQ.
+        - generic [ref=e372]:
+          - heading "2003-03-04" [level=3] [ref=e373]
+          - separator [ref=e374]
+          - paragraph [ref=e376]:
+            - text: Due to some minor bugs, there is a new update to
+            - link "version 1.2.5a" [ref=e377] [cursor=pointer]:
+              - /url: /download
+            - text: today. The new version 1.3.0 is still in development and is making good progress.
+        - generic [ref=e378]:
+          - heading "2003-02-22" [level=3] [ref=e379]
+          - separator [ref=e380]
+          - paragraph [ref=e382]:
+            - text: As of today, there is another
+            - link "development version" [ref=e383] [cursor=pointer]:
+              - /url: /download
+            - text: of phpMyFAQ 1.3.0. This version is intended for testers only, not for productive use, and it cannot be guaranteed that this version is bug-free.
+        - generic [ref=e384]:
+          - heading "2003-02-12" [level=3] [ref=e385]
+          - separator [ref=e386]
+          - paragraph [ref=e388]: Today, two years ago, we began developing phpMyFAQ. :-) For the second birthday of our project, we are releasing a development version of phpMyFAQ 1.3.0 today. This version is intended for testers only, not for productive use, and it cannot be guaranteed that this version is bug-free.
+        - generic [ref=e389]:
+          - heading "2003-02-02" [level=3] [ref=e390]
+          - separator [ref=e391]
+          - paragraph [ref=e393]: Since phpMyFAQ 1.2.4 had some serious bugs, there is already a new version today. We recommend all users of phpMyFAQ 1.2.4 to update their FAQ to phpMyFAQ 1.2.5.
+        - generic [ref=e394]:
+          - heading "2003-01-31" [level=3] [ref=e395]
+          - separator [ref=e396]
+          - paragraph [ref=e398]:
+            - text: The new phpMyFAQ 1.2.4 is ready and available for
+            - link "download" [ref=e399] [cursor=pointer]:
+              - /url: /download
+            - text: . The new version offers a large number of bug fixes. We recommend all users to update their FAQ to phpMyFAQ 1.2.4.
+        - generic [ref=e400]:
+          - heading "2003-01-19" [level=3] [ref=e401]
+          - separator [ref=e402]
+          - paragraph [ref=e404]: We have replaced our forum software and are now using phpBB 2. All posts from the old forum were converted to the new forum, as well as all users.
+        - generic [ref=e405]:
+          - heading "2003-01-17" [level=3] [ref=e406]
+          - separator [ref=e407]
+          - paragraph [ref=e409]:
+            - text: As of today, a
+            - link "Dutch language file" [ref=e410] [cursor=pointer]:
+              - /url: /download
+            - text: is available.
+        - generic [ref=e411]:
+          - heading "2003-01-09" [level=3] [ref=e412]
+          - separator [ref=e413]
+          - paragraph [ref=e415]: Due to extreme time constraints, phpMyFAQ 1.2.4 will not be released until early/mid-February. Version 1.3.0 will then be developed based on this version.
+  - generic [ref=e417]:
+    - heading "Other interesting links" [level=2] [ref=e418]
+    - generic [ref=e419]:
+      - generic [ref=e420]:
+        - heading "Getting started" [level=3] [ref=e421]
+        - list [ref=e422]:
+          - listitem [ref=e423]:
+            - link "Requirements" [ref=e424] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e425]:
+            - link "Download" [ref=e426] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e427]:
+            - link "Changelog" [ref=e428] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e429]:
+            - link "Security Advisories" [ref=e430] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e431]:
+            - link "Translations" [ref=e432] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e433]:
+        - heading "Resources" [level=3] [ref=e434]
+        - list [ref=e435]:
+          - listitem [ref=e436]:
+            - link "News archive" [ref=e437] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e438]:
+            - link "Donations" [ref=e439] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e440]:
+            - link "Who uses phpMyFAQ?" [ref=e441] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e442]:
+            - link "20 years phpMyFAQ (2021)" [ref=e443] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e444]:
+            - link "15 years phpMyFAQ (2016)" [ref=e445] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e446]:
+            - link "10 years phpMyFAQ (2011)" [ref=e447] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e448]:
+        - heading "Misc" [level=3] [ref=e449]
+        - list [ref=e450]:
+          - listitem [ref=e451]:
+            - link "Thank you!" [ref=e452] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e453]:
+            - link "Terms of Service" [ref=e454] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e455]:
+            - link "Imprint" [ref=e456] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e457]:
+            - link "Privacy Notice" [ref=e458] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e459]:
+      - heading "Get Connected" [level=3] [ref=e460]
+      - list [ref=e461]:
+        - listitem [ref=e462]:
+          - link "phpMyFAQ at Github" [ref=e463] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e464] [cursor=pointer]: 
+        - listitem [ref=e465]:
+          - link "phpMyFAQ at Facebook" [ref=e466] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e467] [cursor=pointer]: 
+        - listitem [ref=e468]:
+          - link "phpMyFAQ Discord Community" [ref=e469] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e470] [cursor=pointer]: 
+        - listitem [ref=e471]:
+          - link "Mail me!" [ref=e472] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e473] [cursor=pointer]: 
+  - contentinfo [ref=e474]:
+    - generic [ref=e476]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e477]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```

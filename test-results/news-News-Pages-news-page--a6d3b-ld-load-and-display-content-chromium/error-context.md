@@ -1,0 +1,237 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Logo of phpMyFAQ" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Logo of phpMyFAQ" [ref=e8] [cursor=pointer]
+        - generic [ref=e9]: phpMyFAQ
+      - generic [ref=e10]:
+        - navigation [ref=e11]:
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Features" [ref=e14] [cursor=pointer]:
+                - /url: /features
+            - listitem [ref=e15]:
+              - link "Documentation" [ref=e16] [cursor=pointer]:
+                - /url: /documentation
+            - listitem [ref=e17]:
+              - link "Support" [ref=e18] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e19]:
+              - link "Download" [ref=e20] [cursor=pointer]:
+                - /url: /download
+        - button "Toggle theme" [ref=e22] [cursor=pointer]:
+          - img [ref=e24] [cursor=pointer]
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - heading "phpMyFAQ news from 2022" [level=1] [ref=e30]
+      - generic [ref=e33]:
+        - navigation "breadcrumb" [ref=e34]:
+          - list [ref=e35]:
+            - listitem [ref=e36]:
+              - link "News" [ref=e37] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=e38]: / 2022
+        - generic [ref=e39]:
+          - heading "2022-12-11" [level=3] [ref=e40]
+          - separator [ref=e41]
+          - paragraph [ref=e43]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.1.9" [ref=e44] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Irene Cara\" release. This release fixes multiple vulnerabilities, we updated bundled dependencies, and we fixed all reported issues."
+            - link "Click here to find a detailed security advisory" [ref=e45] [cursor=pointer]:
+              - /url: /security/advisory-2022-12-11
+            - text: .
+        - generic [ref=e46]:
+          - heading "2022-10-24" [level=3] [ref=e47]
+          - separator [ref=e48]
+          - paragraph [ref=e50]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.8" [ref=e51] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Mahsa Amini\" release. This release fixes multiple vulnerabilities, and we fixed all reported issues."
+            - link "Click here to find a detailed security advisory" [ref=e52] [cursor=pointer]:
+              - /url: /security/advisory-2022-10-24
+            - text: .
+        - generic [ref=e53]:
+          - heading "2022-10-02" [level=3] [ref=e54]
+          - separator [ref=e55]
+          - paragraph [ref=e57]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.7" [ref=e58] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Elisabeth II.\" release. This release fixes a CSRF vulnerability, and we fixed all reported issues."
+            - link "Click here to find a detailed security advisory" [ref=e59] [cursor=pointer]:
+              - /url: /security/advisory-2022-10-02
+            - text: .
+        - generic [ref=e60]:
+          - heading "2022-07-23" [level=3] [ref=e61]
+          - separator [ref=e62]
+          - paragraph [ref=e64]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.1.6" [ref=e65] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Uwe Seeler\" release. This release fixes a stored XSS vulnerability, and we fixed all reported issues."
+        - generic [ref=e66]:
+          - heading "2022-06-27" [level=3] [ref=e67]
+          - separator [ref=e68]
+          - paragraph [ref=e70]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.5" [ref=e71] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Andrew Fletcher\" release. phpMyFAQ 3.1.5 adds compatibility with Elasticsearch v8+, adds trust of self-signed certificates with MS SQL, and we fixed all reported issues."
+        - generic [ref=e72]:
+          - heading "2022-04-25" [level=3] [ref=e73]
+          - separator [ref=e74]
+          - paragraph [ref=e76]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.1.4" [ref=e77] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"#staywithukraine\" release. This release fixes an issue introduced with phpMyFAQ 3.1.3 yesterday. Stay healthy and take care of yourself and families!"
+        - generic [ref=e78]:
+          - heading "2022-04-24" [level=3] [ref=e79]
+          - separator [ref=e80]
+          - paragraph [ref=e82]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.3" [ref=e83] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Taylor Hawkins\" release. phpMyFAQ 3.1.3 fixes a login issue when using LDAP and we fixed all reported issues."
+        - generic [ref=e84]:
+          - heading "2022-03-16" [level=3] [ref=e85]
+          - separator [ref=e86]
+          - paragraph [ref=e88]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.1.2" [ref=e89] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"William Hurt\" release. We updated our dependencies and we fixed all reported issues."
+        - generic [ref=e90]:
+          - heading "2022-02-14" [level=3] [ref=e91]
+          - separator [ref=e92]
+          - paragraph [ref=e94]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.1" [ref=e95] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Ivan Reitman\" release. This release fixes an issue introduced with the final phpMyFAQ 3.1.0. We also updated the third party dependencies. Stay healthy and take care of yourself and families!"
+        - generic [ref=e96]:
+          - heading "2022-02-12" [level=3] [ref=e97]
+          - separator [ref=e98]
+          - paragraph [ref=e100]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.1.0" [ref=e101] [cursor=pointer]:
+              - /url: /download
+            - text: "on the 21st birthday of the project, the \"Louie Anderson\" release. This new major version after more than 2 years adds several improvements and new features. We changed the minimum PHP version to v7.4. We added support for PHP 8.0 and PHP 8.1 and Elasticsearch v6+. We also added support for the following new features: drag'n'drop sorting for main categories, possibility to add users without a password and export of all users as CSV. We added ChartJS as new charting library. The new REST API v2.1 allows you to register users and add FAQs and we added API client tokens for REST API v2.1. We also added an opt-in for displaying user data, a mail notifications for new FAQs in admin section and the possibility to login via email address. We updated Bootstrap to v4.6 and Composer to v2. Additionally, we support the Twitter API v2. We removed the support for the old REST API v1, RSS support, rewrite support for IIS, password hashing with MD5 and SHA-1, OpenSearch support, XML export, auto-save for FAQs during editing and obsolete DbUnit tests. Stay healthy and take care of yourself and families!"
+        - generic [ref=e102]:
+          - heading "2022-01-22" [level=3] [ref=e103]
+          - separator [ref=e104]
+          - paragraph [ref=e106]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.1.0-RC" [ref=e107] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Meat Loaf\" release and"
+            - link "phpMyFAQ 3.0.12" [ref=e108] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Louie Anderson\" release. phpMyFAQ 3.1.0-RC is a release candidate without any new features since the beta release last year but with a lot of improvements and bugfixes. The minimum PHP version is now v7.4. phpMyFAQ 3.0.12 fixes an issue introduced in phpMyFAQ 3.0.10 that broke the authentication when using the LDAP or AD authentication. Stay healthy and take care of yourself and families!"
+        - generic [ref=e109]:
+          - heading "2022-01-18" [level=3] [ref=e110]
+          - separator [ref=e111]
+          - paragraph [ref=e113]:
+            - text: The phpMyFAQ Team is pleased to announce
+            - link "phpMyFAQ 3.0.11" [ref=e114] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Desmond Tutu\" release. This release fixes an issue introduced with phpMyFAQ 3.0.10 yesterday. Stay healthy and take care of yourself and families!"
+        - generic [ref=e115]:
+          - heading "2022-01-17" [level=3] [ref=e116]
+          - separator [ref=e117]
+          - paragraph [ref=e119]:
+            - text: The phpMyFAQ Team would like to announce the availability of
+            - link "phpMyFAQ 3.0.10" [ref=e120] [cursor=pointer]:
+              - /url: /download
+            - text: ", the \"Sidney Poitier\" release. phpMyFAQ 3.0.10 fixes multiple cross-site request forgery (CSRF) and cross-site scripting (XSS) vulnerabilities. We updated our dependencies and we fixed all reported issues. Happy new year 2022, stay healthy and take care of yourself and families!"
+  - generic [ref=e122]:
+    - heading "Other interesting links" [level=2] [ref=e123]
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - heading "Getting started" [level=3] [ref=e126]
+        - list [ref=e127]:
+          - listitem [ref=e128]:
+            - link "Requirements" [ref=e129] [cursor=pointer]:
+              - /url: /requirements
+          - listitem [ref=e130]:
+            - link "Download" [ref=e131] [cursor=pointer]:
+              - /url: /download
+          - listitem [ref=e132]:
+            - link "Changelog" [ref=e133] [cursor=pointer]:
+              - /url: /changelog
+          - listitem [ref=e134]:
+            - link "Security Advisories" [ref=e135] [cursor=pointer]:
+              - /url: /advisories
+          - listitem [ref=e136]:
+            - link "Translations" [ref=e137] [cursor=pointer]:
+              - /url: /translations
+      - generic [ref=e138]:
+        - heading "Resources" [level=3] [ref=e139]
+        - list [ref=e140]:
+          - listitem [ref=e141]:
+            - link "News archive" [ref=e142] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e143]:
+            - link "Donations" [ref=e144] [cursor=pointer]:
+              - /url: /donations
+          - listitem [ref=e145]:
+            - link "Who uses phpMyFAQ?" [ref=e146] [cursor=pointer]:
+              - /url: /references
+          - listitem [ref=e147]:
+            - link "20 years phpMyFAQ (2021)" [ref=e148] [cursor=pointer]:
+              - /url: /20years
+          - listitem [ref=e149]:
+            - link "15 years phpMyFAQ (2016)" [ref=e150] [cursor=pointer]:
+              - /url: /15years
+          - listitem [ref=e151]:
+            - link "10 years phpMyFAQ (2011)" [ref=e152] [cursor=pointer]:
+              - /url: /10years
+      - generic [ref=e153]:
+        - heading "Misc" [level=3] [ref=e154]
+        - list [ref=e155]:
+          - listitem [ref=e156]:
+            - link "Thank you!" [ref=e157] [cursor=pointer]:
+              - /url: /thankyou
+          - listitem [ref=e158]:
+            - link "Terms of Service" [ref=e159] [cursor=pointer]:
+              - /url: /terms
+          - listitem [ref=e160]:
+            - link "Imprint" [ref=e161] [cursor=pointer]:
+              - /url: /imprint
+          - listitem [ref=e162]:
+            - link "Privacy Notice" [ref=e163] [cursor=pointer]:
+              - /url: /privacy
+    - generic [ref=e164]:
+      - heading "Get Connected" [level=3] [ref=e165]
+      - list [ref=e166]:
+        - listitem [ref=e167]:
+          - link "phpMyFAQ at Github" [ref=e168] [cursor=pointer]:
+            - /url: https://github.com/thorsten/phpMyFAQ
+            - generic [ref=e169] [cursor=pointer]: 
+        - listitem [ref=e170]:
+          - link "phpMyFAQ at Facebook" [ref=e171] [cursor=pointer]:
+            - /url: https://www.facebook.com/phpMyFAQ/
+            - generic [ref=e172] [cursor=pointer]: 
+        - listitem [ref=e173]:
+          - link "phpMyFAQ Discord Community" [ref=e174] [cursor=pointer]:
+            - /url: https://discord.gg/wszhTceuNM
+            - generic [ref=e175] [cursor=pointer]: 
+        - listitem [ref=e176]:
+          - link "Mail me!" [ref=e177] [cursor=pointer]:
+            - /url: mailto:thorsten@phpmyfaq.de
+            - generic [ref=e178] [cursor=pointer]: 
+  - contentinfo [ref=e179]:
+    - generic [ref=e181]:
+      - text: © 2001-2025 | Developed with
+      - generic [ref=e182]: 
+      - text: by Thorsten Rinne and the phpMyFAQ Team | All rights reserved.
+```
