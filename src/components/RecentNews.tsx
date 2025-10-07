@@ -48,7 +48,7 @@ This release fixes a lot of reported bugs, and we updated our third party depend
   return (
     <section id="news" className="news">
       <div className="container mt-5">
-        <h2>
+        <h2 className="mb-2">
           <a id="latest-news"></a>
           Latest phpMyFAQ news
         </h2>

@@ -1,17 +1,20 @@
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
-  'Code names',
-  "phpMyFAQ uses code names for every major release, if you're curious about them, take a look at this page."
-)
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata(
+    'Code names',
+    'phpMyFAQ uses code names for every major release, if you\'re curious about them, take a look at this page.'
+  )
+}
 
 export default function CodenamesPage() {
   return (
     <PageLayout title="Code names">
       <p className="intro">
-        Since phpMyFAQ 1.4.x we&apos;re using code names during the development for the next major phpMyFAQ
-        releases. Here&apos;s the list of them with a describing Wikipedia article.
+        Since phpMyFAQ 1.4.x we're using code names during the development for the next major phpMyFAQ
+        releases. Here's the list of them with a describing Wikipedia article.
       </p>
       <div className="row">
         <div className="col-lg-6 col-md-6">
@@ -46,8 +49,7 @@ export default function CodenamesPage() {
             <li>
               <strong>phpMyFAQ 1.5.x</strong> (2005-2006, 10 releases)<br />
               Codename: <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Phoebe_%28moon%29">Phoebe</a>,
-              a moon of planet
-              Saturn
+              a moon of planet Saturn
             </li>
             <li>
               <strong>phpMyFAQ 1.6.x</strong> (2006-2007, 13 releases)<br />
@@ -108,7 +110,7 @@ export default function CodenamesPage() {
             <li>
               <strong>phpMyFAQ 3.1.x</strong> (2022–2023, 19 releases)<br />
               Codename: <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Poseidon">Poseidon</a>, the
-              of the sea, rivers, floods, droughts, and earthquakes in Greek mythology
+              god of the sea, rivers, floods, droughts, and earthquakes in Greek mythology
             </li>
             <li>
               <strong>phpMyFAQ 3.2.x</strong> (2023-2024, 11 releases)<br />
@@ -123,14 +125,14 @@ export default function CodenamesPage() {
           <h2>phpMyFAQ 4.x series (2024 - today)</h2>
           <ul>
             <li>
-              <strong>phpMyFAQ 4.0.x</strong> (2024-today, 14 release so far)<br />
+              <strong>phpMyFAQ 4.0.x</strong> (2024-today, 14 releases so far)<br />
               Codename: <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Pallas_(Titan)">Pallas</a>,
               the titan of warcraft in Greek mythology.
             </li>
             <li>
               <strong>phpMyFAQ 4.1.x</strong> (2025?)<br />
               Codename: <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Porus_(mythology)">Porus</a>,
-              from Plato&apos;s Symposium.
+              from Plato's Symposium.
             </li>
             <li>
               <strong>phpMyFAQ 4.2.x</strong><br />

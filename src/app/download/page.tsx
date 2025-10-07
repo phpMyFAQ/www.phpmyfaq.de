@@ -51,7 +51,7 @@ export default function DownloadPage() {
               <div className="d-flex gap-3 justify-content-center flex-wrap">
                 <a
                   href={getDownloadUrl(stableVersion, 'zip')}
-                  className="btn btn-light btn-lg px-4"
+                  className="btn btn-light btn-lg px-4 btn-hero-primary"
                   download
                   style={{borderRadius: '30px'}}
                 >
@@ -60,7 +60,7 @@ export default function DownloadPage() {
                 </a>
                 <a
                   href={getDownloadUrl(stableVersion, 'tar.gz')}
-                  className="btn btn-outline-light btn-lg px-4"
+                  className="btn btn-light btn-lg px-4 btn-hero-outline"
                   download
                   style={{borderRadius: '30px'}}
                 >
@@ -110,7 +110,7 @@ export default function DownloadPage() {
                     </div>
                   )}
 
-                  <a href="./changelog#{stableVersion}"
+                  <a href={`/changelog#${stableVersion}`}
                      className="btn btn-outline-primary w-100" target="_blank" rel="noopener"
                      style={{borderRadius: '25px'}}>
                     <i className="fas fa-file-alt me-2"></i>
@@ -121,10 +121,10 @@ export default function DownloadPage() {
             </div>
 
             <div className="col-lg-6">
-              <div className="card h-100 shadow-sm" style={{border: '2px solid #f39c12'}}>
+              <div className="card h-100 shadow-sm" style={{border: '2px solid #7c3aed'}}>
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="icon-badge-yellow rounded-circle d-flex align-items-center justify-content-center me-3"
+                    <div className="icon-badge-purple rounded-circle d-flex align-items-center justify-content-center me-3"
                          style={{width: '50px', height: '50px'}}>
                       <i className="fas fa-code-branch fa-lg"></i>
                     </div>
@@ -135,7 +135,7 @@ export default function DownloadPage() {
                   </div>
 
                   <div className="mb-3">
-                    <h4 className="mb-1" style={{color: '#f39c12'}}>phpMyFAQ {devVersion}</h4>
+                    <h4 className="mb-1" style={{color: '#7c3aed'}}>phpMyFAQ {devVersion}</h4>
                     <p className="text-muted mb-0">Released: {formatReleaseDate(devReleased)}</p>
                   </div>
 
@@ -148,16 +148,16 @@ export default function DownloadPage() {
                       <div className="d-grid gap-2 mb-3">
                         <a
                           href={getDownloadUrl(devVersion, 'zip')}
-                          className="btn btn-warning"
+                          className="btn"
                           download
-                          style={{borderRadius: '25px'}}
+                          style={{borderRadius: '25px', backgroundColor: '#7c3aed', color: 'white', borderColor: '#7c3aed'}}
                         >
                           <i className="fas fa-download me-2"></i>
                           ZIP ({formatFileSize(developmentInfo.zip.filesize)})
                         </a>
                         <a
                           href={getDownloadUrl(devVersion, 'tar.gz')}
-                          className="btn btn-outline-warning"
+                          className="btn btn-outline-purple"
                           download
                           style={{borderRadius: '25px'}}
                         >
@@ -180,11 +180,11 @@ export default function DownloadPage() {
                     </>
                   )}
 
-                  <a href="https://github.com/thorsten/phpMyFAQ"
-                     className="btn btn-outline-secondary w-100" target="_blank" rel="noopener"
+                  <a href={`/changelog#${devVersion}`}
+                     className="btn btn-outline-primary w-100" target="_blank" rel="noopener"
                      style={{borderRadius: '25px'}}>
-                    <i className="fab fa-github me-2"></i>
-                    View on GitHub
+                    <i className="fas fa-file-alt me-2"></i>
+                    View Release Notes
                   </a>
                 </div>
               </div>

@@ -1,94 +1,109 @@
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
-  'Coding standards',
-  'Coding styles for PHP code, HTML, and CSS. Please take care you follow these coding standards.'
-)
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata(
+    'Coding standards',
+    'Coding styles for PHP code, HTML, and SCSS/CSS. Please take care you follow these coding standards.'
+  )
+}
 
 export default function StandardsPage() {
   return (
     <PageLayout title="Coding standards">
-      <div className="row">
-        <div className="col-xs-12">
-          <p>
-            This document describes the coding standards used by the phpMyFAQ development team for PHP, HTML, CSS, SCSS and JavaScript. If you want to be compliant with our coding standards we recommend to use the PHP_CodeSniffer with our integrated phpMyFAQ Coding Standard.
-          </p>
-        </div>
-      </div>
+      <p className="intro">
+        All files have to be UTF-8 encoded, never use any other encoding.
+      </p>
 
       <div className="row">
-        <div className="col-lg-6 col-xs-12">
-          <h2>PHP</h2>
-          <p>For PHP code we&apos;re using:</p>
+        <div className="col-lg-12">
+
+          <h2>PHP 8+</h2>
+          <p>
+            We're using the PSR coding standards for phpMyFAQ. You can find the definition of these
+            coding standards here:
+          </p>
           <ul>
             <li>
               <a rel="nofollow" target="_blank" href="https://www.php-fig.org/psr/psr-4/">
-                PSR-4: Autoloader
+                PSR-4
               </a>
             </li>
             <li>
               <a rel="nofollow" target="_blank" href="https://www.php-fig.org/psr/psr-12/">
-                PSR-12: Extended Coding Style
+                PSR-12
               </a>
             </li>
           </ul>
 
-          <h2>HTML</h2>
-          <p>For HTML code we&apos;re using:</p>
+          <h2>HTML5</h2>
           <ul>
             <li>
-              HTML5 with valid syntax as much as possible based on the{' '}
-              <a rel="nofollow" target="_blank" href="https://html.spec.whatwg.org/">
-                WHATWG HTML Living Standard
-              </a>
+              We use the HTML5 doctype, which is easy to remember: &lt;!DOCTYPE html&gt;
+            </li>
+            <li>
+              Two spaces for indentation, never tabs
+            </li>
+            <li>
+              Double quotes only, never single quotes
+            </li>
+            <li>
+              Always use proper indentation
+            </li>
+            <li>
+              Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags)
+            </li>
+            <li>
+              Paragraphs of text should always be placed in a &lt;p&gt; tag. Never use multiple &lt;br/&gt;
+              tags.
+            </li>
+            <li>
+              Every form input that has text attached should use a &lt;label&gt; tag, especially
+              radio or checkbox elements.
+            </li>
+            <li>
+              Always put quotes around attributes for readability.
             </li>
           </ul>
 
-          <h2>CSS/SCSS</h2>
-          <p>For CSS and SCSS code we&apos;re using:</p>
+          <h2>CSS / SCSS</h2>
           <ul>
             <li>
-              <a rel="nofollow" target="_blank" href="https://github.com/necolas/idiomatic-css">
-                Idiomatic CSS
-              </a>
+              Two spaces for indentation, never tabs
             </li>
             <li>
-              <a rel="nofollow" target="_blank" href="http://sass-lang.com/guide">
-                Sass Basics
-              </a>
+              Multiple-line approach (one property and value per line)
             </li>
-          </ul>
-        </div>
-
-        <div className="col-lg-6 col-xs-12">
-          <h2>JavaScript</h2>
-          <p>For JavaScript code we&apos;re using:</p>
-          <ul>
             <li>
-              <a rel="nofollow" target="_blank" href="https://github.com/airbnb/javascript">
-                AirBnB JavaScript Style Guide
-              </a>
+              Always a space after a property's colon (e.g., <em>display: block;</em> and not
+              <em>display:block;</em>)
+            </li>
+            <li>
+              End all lines with a semicolon
+            </li>
+            <li>
+              For multiple, comma-separated selectors, place each selector on its own line
+            </li>
+            <li>
+              Attribute selectors, like <em>input[type="text"]</em> should always wrap the attribute's
+              value in double quotes, for consistency and safety (see this{' '}
+              <a rel="nofollow" href="https://mathiasbynens.be/notes/unquoted-attribute-values">
+                blog post on unquoted attribute values
+              </a>{' '}
+              that can lead to XSS attacks).
             </li>
           </ul>
 
-          <h2>phpMyFAQ Coding Standard with PHP_CodeSniffer</h2>
-          <p>
-            If you want to verify you follow our coding standards you can use our integrated phpMyFAQ Coding Standard for the PHP_CodeSniffer.
-          </p>
-          <p>
-            To run it you have to install it first via Composer:
-          </p>
-          <pre>$ composer install</pre>
-          <p>After that you can run the PHP_CodeSniffer from the phpMyFAQ root directory:</p>
-          <pre>$ ./vendor/bin/phpcs --standard=phpcs.xml phpmyfaq/</pre>
-          <p>
-            If you want to check only one file you can simply run:
-          </p>
-          <pre>$ ./vendor/bin/phpcs --standard=phpcs.xml phpmyfaq/src/phpMyFAQ/Setup.php</pre>
-          <p>
-            We integrated the PHPCS configuration in PHP Storm as well, so you can run it directly from the IDE.
-          </p>
+          <h2>JavaScript / ECMAScript</h2>
+          <pre>
+            <code className="json">{`{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true
+}`}</code>
+          </pre>
         </div>
       </div>
     </PageLayout>
