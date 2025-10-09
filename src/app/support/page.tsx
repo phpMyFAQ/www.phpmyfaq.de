@@ -25,22 +25,28 @@ export default function SupportPage() {
             <p>Join our vibrant community and get help from fellow phpMyFAQ users and developers.</p>
             <ul>
               <li>
+                <a href="https://forum.phpmyfaq.de" target="_blank" rel="noopener noreferrer">
+                  Support Forum
+                </a>
+                <span className={"ms-2"}>Support Forum</span>
+              </li>
+              <li>
                 <a href="https://discord.gg/wszhTceuNM" target="_blank" rel="noopener noreferrer">
                   Discord Community
                 </a>
-                <span> - Real-time chat support</span>
+                <span className={"ms-2"}>Real-time chat support</span>
               </li>
               <li>
                 <a href="https://github.com/thorsten/phpMyFAQ/discussions" target="_blank" rel="noopener noreferrer">
                   GitHub Discussions
                 </a>
-                <span> - Ask questions & share</span>
+                <span className={"ms-2"}>Ask questions & share</span>
               </li>
               <li>
                 <a href="https://github.com/thorsten/phpMyFAQ/issues" target="_blank" rel="noopener noreferrer">
                   Bug Reports
                 </a>
-                <span> - Report issues & features</span>
+                <span className={"ms-2"}>Report issues & features</span>
               </li>
             </ul>
           </div>
@@ -70,19 +76,19 @@ export default function SupportPage() {
                 <a href="/documentation" rel="noopener noreferrer">
                   User Documentation
                 </a>
-                <span> - Complete guides</span>
+                <span className={"ms-2"}> Complete guides</span>
               </li>
               <li>
                 <a href="/docs/standards" rel="noopener noreferrer">
                   Developer Docs
                 </a>
-                <span> - Coding standards</span>
+                <span className={"ms-2"}> Coding standards</span>
               </li>
               <li>
                 <a href="https://api-docs.phpmyfaq.de/" target="_blank" rel="noopener noreferrer">
                   API Reference
                 </a>
-                <span> - OpenAPI specs</span>
+                <span className={"ms-2"}> OpenAPI specs</span>
               </li>
             </ul>
           </div>
