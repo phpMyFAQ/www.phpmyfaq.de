@@ -110,7 +110,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .promo .highlight {
-  color: #ffd700;
+  color: #000000;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .promo .intro {

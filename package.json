@@ -15,6 +15,7 @@
     "update:data": "npm run fetch:versions && npm run fetch:downloads"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@types/bootstrap": "^5.2.10",
     "@types/marked": "^5.0.2",
     "bootstrap": "^5.3.8",

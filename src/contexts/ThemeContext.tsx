@@ -35,8 +35,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.setAttribute('data-theme', newTheme)
   }
 
+  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
-    return <>{children}</>
+    return (
+      <ThemeContext.Provider value={{ theme: 'light', toggleTheme: () => {} }}>
+        {children}
+      </ThemeContext.Provider>
+    )
   }
 
   return (

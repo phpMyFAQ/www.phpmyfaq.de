@@ -23,7 +23,7 @@ export default function Header() {
         <div className={styles.headerContent}>
           <div className={styles.logo}>
             <Link href="/">
-              <img src="/images/logo.png" width="199" height="50" alt="Logo of phpMyFAQ" />
+              <img src="/images/logo-transparent.svg" width="199" height="50" alt="Logo of phpMyFAQ" />
             </Link>
             <span className="visually-hidden">phpMyFAQ</span>
           </div>
@@ -32,7 +32,7 @@ export default function Header() {
             <nav>
               <button
                 className={styles.navToggle}
-                onClick={() => setIsNavOpen(!isNavOpen)}
+                onClick={(): void => setIsNavOpen(!isNavOpen)}
                 aria-controls="navbar-collapse"
                 aria-expanded={isNavOpen}
                 aria-label="Toggle navigation"
