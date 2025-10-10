@@ -25,7 +25,7 @@ export default function FeaturesPage() {
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              Supports MySQL, MariaDB, PostgreSQL, MS SQL Server, SQLite3, and Elasticsearch
+              Supports MySQL, MariaDB, PostgreSQL, MS SQL Server, SQLite3, Azure SQL, Elasticsearch, and OpenSearch
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>

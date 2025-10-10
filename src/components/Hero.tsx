@@ -20,17 +20,17 @@ export default function Hero() {
 
         <ul className="meta list-inline">
           <li className="list-inline-item">
-            <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ">
+            <a className="btn btn-outline-light" rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ">
               View on GitHub
             </a>
           </li>
           <li className="list-inline-item">
-            <Link href="/documentation">
+            <Link className="btn btn-outline-light" href="/documentation">
               Documentation
             </Link>
           </li>
           <li className="list-inline-item">
-            <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ/issues">
+            <a className="btn btn-outline-light" rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ/issues">
               Issues on GitHub
             </a>
           </li>
