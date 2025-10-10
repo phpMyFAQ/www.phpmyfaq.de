@@ -28,8 +28,7 @@ export function getMarkdownContent(filePath: string): PageData | null {
       content: marked.parse(content) as string,
       frontmatter: data
     }
-  } catch (error) {
-    console.error('Error reading markdown file:', error)
+  } catch {
     return null
   }
 }
@@ -58,8 +57,7 @@ export function getHandlebarsContent(filePath: string): PageData | null {
       content: htmlContent,
       frontmatter: data
     }
-  } catch (error) {
-    console.error('Error reading handlebars file:', error)
+  } catch {
     return null
   }
 }

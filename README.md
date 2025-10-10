@@ -37,7 +37,7 @@ pnpm dev
 ### Testing
 - `pnpm test` - Run unit tests with Vitest
 - `pnpm test:ui` - Run unit tests with UI
-- `pnpm test:coverage` - Run unit tests with coverage report
+- `pnpm test:coverage` - Run unit tests with a coverage report
 - `pnpm test:e2e` - Run Playwright E2E tests
 - `pnpm test:e2e:ui` - Run E2E tests with UI
 - `pnpm test:e2e:headed` - Run E2E tests in headed mode

@@ -67,8 +67,7 @@ export function parseNewsFile(year: string): NewsItem[] {
     }
 
     return entries
-  } catch (error) {
-    console.error(`Error parsing news file for year ${year}:`, error)
+  } catch {
     return []
   }
 }

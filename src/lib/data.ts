@@ -25,11 +25,10 @@ export function getVersions(): VersionData | null {
   try {
     const versionsPath = path.join(process.cwd(), 'data', 'versions.json')
     if (!fs.existsSync(versionsPath)) return null
-    
+
     const data = fs.readFileSync(versionsPath, 'utf8')
     return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading versions data:', error)
+  } catch {
     return null
   }
 }
@@ -38,11 +37,10 @@ export function getStableInfo(): DownloadInfo | null {
   try {
     const stablePath = path.join(process.cwd(), 'data', 'stable.json')
     if (!fs.existsSync(stablePath)) return null
-    
+
     const data = fs.readFileSync(stablePath, 'utf8')
     return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading stable data:', error)
+  } catch {
     return null
   }
 }
@@ -51,11 +49,10 @@ export function getDevelopmentInfo(): DownloadInfo | null {
   try {
     const devPath = path.join(process.cwd(), 'data', 'development.json')
     if (!fs.existsSync(devPath)) return null
-    
+
     const data = fs.readFileSync(devPath, 'utf8')
     return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading development data:', error)
+  } catch {
     return null
   }
 }
