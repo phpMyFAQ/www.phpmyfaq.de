@@ -4,6 +4,9 @@ import { join } from 'path'
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 import { Metadata } from 'next';
+import React from 'react';
+
+export const dynamicParams = false
 
 interface NewsYearPageProps {
   params: Promise<{
