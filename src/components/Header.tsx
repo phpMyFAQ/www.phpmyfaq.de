@@ -29,7 +29,7 @@ export default function Header() {
           </div>
 
           <div className={styles.navContainer}>
-            <nav>
+            <nav aria-label="Main navigation" data-testid="main-nav">
               <button
                 className={styles.navToggle}
                 onClick={(): void => setIsNavOpen(!isNavOpen)}

@@ -2,13 +2,13 @@ import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 
 export const metadata = generatePageMetadata(
-  'Thank you!',
+  'Thank You!',
   'Thank you to all contributors and supporters of phpMyFAQ'
 )
 
 export default function ThankYouPage() {
   return (
-    <PageLayout title="Thank you!">
+    <PageLayout title="Thank You!">
       <div className="row">
         <div className="col-xs-12">
           <p>

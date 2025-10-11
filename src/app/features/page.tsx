@@ -17,7 +17,7 @@ export default function FeaturesPage() {
       {/* Core Features */}
       <div className="row mb-5">
         <div className="col-lg-8 offset-lg-2">
-          <h2 className="text-center mb-4">Core features</h2>
+          <h3 className="text-center mb-4">Core Features</h3>
           <ul className="list-unstyled">
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
@@ -64,10 +64,10 @@ export default function FeaturesPage() {
         </div>
       </div>
 
-      {/* Feature Overview */}
+      {/* Advanced Features */}
       <div className="row mb-4">
         <div className="col-12">
-          <h2 className="text-center mb-5">Feature overview</h2>
+          <h3 className="text-center mb-4">Advanced Features</h3>
         </div>
       </div>
 

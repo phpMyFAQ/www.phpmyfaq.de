@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ClientLayout from '@/components/ClientLayout'
 import "@fortawesome/fontawesome-free/css/all.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.scss";
 
 export const metadata: Metadata = {

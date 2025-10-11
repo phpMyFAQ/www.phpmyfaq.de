@@ -2,13 +2,13 @@ import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 
 export const metadata = generatePageMetadata(
-  'Terms of service',
+  'Terms of Service',
   'Terms of service for phpmyfaq.de'
 )
 
 export default function TermsPage() {
   return (
-    <PageLayout title="Terms of service">
+    <PageLayout title="Terms of Service">
       <div className="row">
         <div className="col-xs-12">
           <p>

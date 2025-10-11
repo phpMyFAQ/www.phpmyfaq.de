@@ -11,7 +11,7 @@ export default function SupportPage() {
     <div className={styles.supportContainer}>
       <div className="container">
         <div className={styles.header}>
-          <h1>Get Support</h1>
+          <h1>Support</h1>
           <p className={styles.lead}>
             Whether you need help getting started or require professional assistance,
             we&apos;re here to support you every step of the way.
@@ -21,7 +21,7 @@ export default function SupportPage() {
         <div className={styles.supportGrid}>
           <div className={styles.supportCard}>
             <div className={styles.cardIcon}>💬</div>
-            <h3>Community Support</h3>
+            <h5>Community Support</h5>
             <p>Join our vibrant community and get help from fellow phpMyFAQ users and developers.</p>
             <ul>
               <li>
@@ -53,7 +53,7 @@ export default function SupportPage() {
 
           <div className={styles.supportCard}>
             <div className={styles.cardIcon}>🚀</div>
-            <h3>Professional Services</h3>
+            <h5>Professional Support</h5>
             <p>Need expert help? Our professional services ensure your phpMyFAQ runs perfectly.</p>
             <ul>
               <li>Custom development & consulting</li>
@@ -69,7 +69,7 @@ export default function SupportPage() {
 
           <div className={styles.supportCard}>
             <div className={styles.cardIcon}>📚</div>
-            <h3>Documentation</h3>
+            <h5>Documentation</h5>
             <p>Comprehensive guides and resources to help you master phpMyFAQ.</p>
             <ul>
               <li>

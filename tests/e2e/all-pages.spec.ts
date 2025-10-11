@@ -76,7 +76,7 @@ test.describe('All Pages Accessibility Tests', () => {
 
     for (const link of footerLinks) {
       const response = await page.request.get(link);
-      expect(response.status()).toBe(200);
+      expect([200, 308, 301]).toContain(response.status());
     }
   });
 
@@ -86,14 +86,17 @@ test.describe('All Pages Accessibility Tests', () => {
     for (const pagePath of navigationPages) {
       await page.goto(pagePath);
       
-      // Check main navigation links are present
-      await expect(page.locator('nav a[href="/features"]')).toBeVisible();
-      await expect(page.locator('nav a[href="/documentation"]')).toBeVisible(); 
-      await expect(page.locator('nav a[href="/support"]')).toBeVisible();
-      await expect(page.locator('nav a[href="/download"]')).toBeVisible();
-      
-      // Check logo link works
-      await expect(page.locator('a[href="/"] img[alt="Logo of phpMyFAQ"]')).toBeVisible();
+      // Scope to the main navigation to avoid ambiguous matches
+      const nav = page.getByRole('navigation').first();
+
+      // Check the main navigation links are present
+      await expect(nav.getByRole('link', { name: 'Features', exact: true })).toBeVisible();
+      await expect(nav.getByRole('link', { name: 'Documentation', exact: true })).toBeVisible();
+      await expect(nav.getByRole('link', { name: 'Support', exact: true })).toBeVisible();
+      await expect(nav.getByRole('link', { name: 'Download', exact: true })).toBeVisible();
+
+      // Check the logo link works
+      await expect(page.locator('a[href="/"] img[alt="Logo of phpMyFAQ"]').first()).toBeVisible();
     }
   });
 });

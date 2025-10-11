@@ -10,7 +10,7 @@ const nextConfig = {
   },
   output: 'export',
   reactStrictMode: true,
-  trailingSlash: true,
+  trailingSlash: false,
 };
 
 export default nextConfig;

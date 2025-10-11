@@ -55,7 +55,7 @@ function parseNewsContent(content: string): React.JSX.Element[] {
     // Process content - convert markdown links to JSX and clean up separators
     const processedContent = section
       .replace(/^\*\s*\*\s*\*/gm, '') // Remove separator lines
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>') // Convert links
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text: string, href: string) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`) // Convert links
       .split('\n\n') // Split into paragraphs
       .filter(p => p.trim()) // Remove empty paragraphs
       .map(p => `<p>${p.trim()}</p>`) // Wrap in paragraph tags
@@ -76,9 +76,7 @@ function parseNewsContent(content: string): React.JSX.Element[] {
 export async function generateStaticParams() {
   // Generate params for all years from 2001 to 2025
   const years = Array.from({ length: 25 }, (_, i) => 2001 + i)
-  return years.map((year) => ({
-    year: year.toString()
-  }))
+  return years.map((year) => ({ year: year.toString() }))
 }
 
 export async function generateMetadata({ params }: NewsYearPageProps): Promise<Metadata> {
@@ -121,7 +119,9 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
             </ol>
           </nav>
 
-          {newsElements}
+          <div id="news-content">
+            {newsElements}
+          </div>
         </div>
       </div>
     </PageLayout>

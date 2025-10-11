@@ -12,7 +12,7 @@ export default function Hero() {
 
         <div className="btns">
           <a className="btn btn-outline-light me-2" href="http://demo.phpmyfaq.de/">Demo</a>
-          <Link href="/download" className="btn btn-light">Download</Link>
+          <Link href="/download" className="btn btn-light">Download phpMyFAQ</Link>
         </div>
         <p className="love-phpmyfaq">
           We really think you will like this knowledge base script. Knowledge is free, and so is phpMyFAQ. Since 2001.

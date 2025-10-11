@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
           <div className={styles.socialSection}>
             <h3>Get Connected</h3>
-            <ul className={styles.socialIcons}>
+            <ul className={`${styles.socialIcons} social-icons`}>
               <li>
                 <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ" aria-label="phpMyFAQ at Github">
                   <i className="fab fa-github"></i>

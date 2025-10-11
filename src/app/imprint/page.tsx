@@ -3,13 +3,13 @@ import { generatePageMetadata } from '@/components/PageLayout'
 import { Metadata } from 'next';
 
 export const metadata: Metadata = generatePageMetadata(
-  'Imprint / Impressum',
+  'Imprint',
   'Imprint for phpmyfaq.de'
 )
 
 export default function ImprintPage() {
   return (
-    <PageLayout title="Imprint / Impressum">
+    <PageLayout title="Imprint">
       <div className="row">
         <div className="col-xs-12">
           <p>

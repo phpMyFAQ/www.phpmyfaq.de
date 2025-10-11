@@ -21,7 +21,7 @@ export default function DocumentationPage() {
       </div>
       <div className="row">
         <div className="col-lg-6 col-xs-12">
-          <h2>Documentation for users</h2>
+          <h2>Getting Started</h2>
           <ul className="list-unstyled">
             <li>
               <h3>
@@ -64,7 +64,7 @@ export default function DocumentationPage() {
           </ul>
         </div>
         <div className="col-lg-6 col-xs-12">
-          <h2>Documentation for developers</h2>
+          <h2>Developer Resources</h2>
           <ul className="list-unstyled">
             <li>
               <h3>
