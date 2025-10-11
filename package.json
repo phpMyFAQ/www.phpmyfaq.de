@@ -11,9 +11,9 @@
     "test:ui": "vitest --ui",
     "test:ci": "vitest --run",
     "test:coverage": "vitest --coverage",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:headed": "playwright test --headed",
+    "test:e2e": "PLAYWRIGHT_TEST=1 playwright test",
+    "test:e2e:ui": "PLAYWRIGHT_TEST=1 playwright test --ui",
+    "test:e2e:headed": "PLAYWRIGHT_TEST=1 playwright test --headed",
     "fetch:versions": "npx tsx scripts/fetch-versions.ts",
     "fetch:downloads": "npx tsx scripts/fetch-downloads.ts",
     "update:data": "npm run fetch:versions && npm run fetch:downloads"
