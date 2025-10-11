@@ -1,0 +1,19 @@
+# Ensure Apache serves index.html for directories and never prefers index.txt
+
+# Prefer index.html as the directory index
+DirectoryIndex index.html
+
+# Disable MultiViews (content negotiation on filename) which could pick index.txt
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+# Map directory requests to index.html explicitly as a safety net
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # If the request is a directory, serve its index.html
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*/)$ $1index.html [L]
+</IfModule>
+
+# Do NOT block index.txt; Next.js may fetch RSC flight data from it.

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "cp -f static/.htaccess out/.htaccess || true",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
