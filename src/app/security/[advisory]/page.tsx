@@ -4,6 +4,7 @@ import { join } from 'path'
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 import { Metadata } from 'next'
+import { parseAdvisoryToHTML } from '@/lib/securityAdvisory'
 
 interface SecurityAdvisoryPageProps {
   params: Promise<{
@@ -36,87 +37,6 @@ function getAdvisoryContent(advisory: string): { title: string; description: str
   } catch (error) {
     return null
   }
-}
-
-// Function to convert Markdown content to JSX
-function parseAdvisoryContent(content: string): React.JSX.Element {
-  // Robust parser: group consecutive metadata lines into a single <dl class="dl-horizontal">
-  const lines = content.split('\n')
-
-  const htmlParts: string[] = []
-  let inDl = false
-
-  const closeDlIfOpen = () => {
-    if (inDl) {
-      htmlParts.push('</dl>')
-      inDl = false
-    }
-  }
-
-  for (let line of lines) {
-    let l = line.trim()
-
-    // Skip empty lines, but ensure we close an open DL
-    if (l.length === 0) {
-      closeDlIfOpen()
-      continue
-    }
-
-    // Keep raw HTML intact
-    if (l.startsWith('<')) {
-      closeDlIfOpen()
-      htmlParts.push(l)
-      continue
-    }
-
-    // Headings
-    if (l.startsWith('#### ')) {
-      closeDlIfOpen()
-      htmlParts.push(`<h4>${l.substring(5)}</h4>`)
-      continue
-    }
-    if (l.startsWith('### ')) {
-      closeDlIfOpen()
-      htmlParts.push(`<h3>${l.substring(4)}</h3>`)
-      continue
-    }
-    if (l.startsWith('## ')) {
-      closeDlIfOpen()
-      htmlParts.push(`<h2>${l.substring(3)}</h2>`)
-      continue
-    }
-
-    // Metadata lines like **Issued on::** 2004-07-27 or **Risk:** medium
-    // Strategy: capture bold label and the value; strip trailing colons from label
-    const metaMatch = l.match(/^\*\*(.+?)\*\*\s*(.+)$/)
-    if (metaMatch) {
-      let labelRaw = metaMatch[1].trim()
-      const value = metaMatch[2].trim()
-
-      // Accept labels with one or more trailing colons inside the bold
-      labelRaw = labelRaw.replace(/:+\s*$/, '').trim()
-
-      if (!inDl) {
-        htmlParts.push('<dl class="dl-horizontal">')
-        inDl = true
-      }
-
-      htmlParts.push(`<dt>${labelRaw}:</dt><dd>${value}</dd>`)
-      continue
-    }
-
-    // Default: wrap as paragraph
-    closeDlIfOpen()
-    htmlParts.push(`<p>${l}</p>`)
-  }
-
-  // Close any open DL at the end
-  if (inDl) {
-    htmlParts.push('</dl>')
-  }
-
-  const processedContent = htmlParts.join('\n').replace(/\n+/g, '\n').trim()
-  return <div dangerouslySetInnerHTML={{ __html: processedContent }} />
 }
 
 export async function generateStaticParams() {
@@ -166,8 +86,8 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
     notFound()
   }
   
-  const contentElement = parseAdvisoryContent(advisoryData.content)
-  
+  const html = parseAdvisoryToHTML(advisoryData.content)
+
   return (
     <PageLayout title={advisoryData.title}>
       <div className="row">
@@ -179,7 +99,7 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
             </ol>
           </nav>
 
-          {contentElement}
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </PageLayout>
