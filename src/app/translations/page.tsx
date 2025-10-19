@@ -1,7 +1,8 @@
+import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Translations',
   'Multi-language support and translation information for phpMyFAQ'
 )

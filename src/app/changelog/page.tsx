@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Changelog',
   'User visible changes in phpMyFAQ releases since 2001 until today'
 )

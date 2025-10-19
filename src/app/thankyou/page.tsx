@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Thank You!',
   'Thank you to all contributors and supporters of phpMyFAQ'
 )
@@ -19,7 +20,7 @@ export default function ThankYouPage() {
               <strong>Lieven Op De Beeck</strong> for the initial phpMyFAQ logo
             </li>
             <li>
-              <a rel="nofollow" target="_blank" href="http://www.grochtdreis.de/">Jens Grochtdreis</a> for
+              <a rel="nofollow" target="_blank" href="https://www.grochtdreis.de/">Jens Grochtdreis</a> for
               helping with (X)HTML and CSS nightmares on phpMyFAQ and phpmyfaq.de
             </li>
             <li>

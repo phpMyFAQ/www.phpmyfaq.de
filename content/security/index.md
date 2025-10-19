@@ -18,6 +18,7 @@ layout: none
 
         ## 2025
         <ul>
+          <li><a href="/security/advisory-2025-10-03">Security Advisory 2025-10-03</a></li>
           <li><a href="/security/advisory-2025-01-02">Security Advisory 2025-01-02</a></li>
         </ul>
 
