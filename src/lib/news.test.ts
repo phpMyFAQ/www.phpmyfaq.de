@@ -179,7 +179,7 @@ News 6
 
     vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`)
     vi.mocked(fs.existsSync).mockReturnValue(true)
-    vi.mocked(fs.readFileSync).mockImplementation((path: any) => {
+    vi.mocked(fs.readFileSync).mockImplementation((path: string) => {
       if (path.includes('2026.md')) return mockContent2026
       if (path.includes('2025.md')) return mockContent2025
       return ''

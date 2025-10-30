@@ -1,10 +1,10 @@
-import { notFound } from 'next/navigation'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import { marked } from 'marked'
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
+import PageLayout, { generatePageMetadata } from '@/components/PageLayout'
 import { Metadata } from 'next';
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 interface DocsVersionPageProps {
   params: Promise<{
@@ -22,11 +22,10 @@ async function getDocsContent(version: string): Promise<string | null> {
     const frontmatterEnd = content.indexOf('---', 3)
     const markdownContent = frontmatterEnd === -1 ? content : content.substring(frontmatterEnd + 3).trim()
 
-    // Convert markdown to HTML
-    const html = await marked(markdownContent)
-    return html
-  } catch (error) {
-    return null
+    // Convert Markdown to HTML
+    return marked(markdownContent);
+  } catch (_error) {
+    return null;
   }
 }
 
@@ -69,7 +68,7 @@ export default async function DocsVersionPage({ params }: DocsVersionPageProps) 
         <div className="col-12">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/docs">Documentation</a></li>
+              <li className="breadcrumb-item"><Link href="/docs">Documentation</Link></li>
               <li className="breadcrumb-item active" aria-current="page">{version}</li>
             </ol>
           </nav>

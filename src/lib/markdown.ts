@@ -1,5 +1,5 @@
-import fs from 'fs'
 import path from 'path'
+import fs from 'fs'
 import matter from 'gray-matter'
 import { marked } from 'marked'
 
@@ -9,7 +9,7 @@ export interface PageData {
     title?: string
     description?: string
     layout?: string
-    [key: string]: any
+    [key: string]: unknown
   }
 }
 
@@ -26,7 +26,7 @@ export function getMarkdownContent(filePath: string): PageData | null {
     
     return {
       content: marked.parse(content) as string,
-      frontmatter: data
+      frontmatter: data as Record<string, unknown>
     }
   } catch {
     return null
@@ -48,14 +48,14 @@ export function getHandlebarsContent(filePath: string): PageData | null {
     // This is a basic implementation - more complex Handlebars logic would need custom handling
     let htmlContent = content
       .replace(/\{\{>\s*([^}]+)\s*\}\}/g, '') // Remove partials for now
-      .replace(/\{\{#markdown\}\}([\s\S]*?)\{\{\/markdown\}\}/g, (match, mdContent) => {
+      .replace(/\{\{#markdown\}\}([\s\S]*?)\{\{\/markdown\}\}/g, (_match, mdContent: string) => {
         return marked.parse(mdContent) as string
       })
       .replace(/\{\{([^}]+)\}\}/g, '') // Remove remaining Handlebars expressions for now
     
     return {
       content: htmlContent,
-      frontmatter: data
+      frontmatter: data as Record<string, unknown>
     }
   } catch {
     return null
@@ -63,8 +63,8 @@ export function getHandlebarsContent(filePath: string): PageData | null {
 }
 
 export function getAllNewsFiles(): string[] {
-  const newsDir = path.join(process.cwd(), 'app/templates/pages/news')
-  
+  const newsDir = path.join(process.cwd(), 'content/news')
+
   if (!fs.existsSync(newsDir)) {
     return []
   }
@@ -75,8 +75,8 @@ export function getAllNewsFiles(): string[] {
 }
 
 export function getAllSecurityAdvisories(): string[] {
-  const securityDir = path.join(process.cwd(), 'app/templates/pages/security')
-  
+  const securityDir = path.join(process.cwd(), 'content/security')
+
   if (!fs.existsSync(securityDir)) {
     return []
   }
@@ -87,8 +87,8 @@ export function getAllSecurityAdvisories(): string[] {
 }
 
 export function getAllDocsFiles(): string[] {
-  const docsDir = path.join(process.cwd(), 'app/templates/pages/docs')
-  
+  const docsDir = path.join(process.cwd(), 'content/docs')
+
   if (!fs.existsSync(docsDir)) {
     return []
   }

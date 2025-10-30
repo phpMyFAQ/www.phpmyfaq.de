@@ -5,7 +5,7 @@ import ErrorPage from '@/components/ErrorPage'
 
 // Mock PageLayout to avoid layout dependencies in unit tests
 vi.mock('@/components/PageLayout', () => ({
-  default: ({ title, description, children }: any) => (
+  default: ({ title, description, children }: never) => (
     <div>
       {title && <h1>{title}</h1>}
       {description && <p>{description}</p>}

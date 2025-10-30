@@ -1,10 +1,11 @@
-import { notFound } from 'next/navigation'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 import { Metadata } from 'next'
 import { parseAdvisoryToHTML } from '@/lib/securityAdvisory'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 interface SecurityAdvisoryPageProps {
   params: Promise<{
@@ -34,7 +35,7 @@ function getAdvisoryContent(advisory: string): { title: string; description: str
       description: descriptionMatch ? descriptionMatch[1].trim() : '',
       content: body
     }
-  } catch (error) {
+  } catch (_error) {
     return null
   }
 }
@@ -94,7 +95,7 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
         <div className="col-12">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/advisories">Security Advisories</a></li>
+              <li className="breadcrumb-item"><Link href="/advisories">Security Advisories</Link></li>
               <li className="breadcrumb-item active" aria-current="page">{advisory}</li>
             </ol>
           </nav>

@@ -1,10 +1,11 @@
-import { notFound } from 'next/navigation'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
 import { Metadata } from 'next';
 import React from 'react';
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 export const dynamicParams = false
 
@@ -25,7 +26,7 @@ function getNewsContent(year: string): string | null {
     if (frontmatterEnd === -1) return content
 
     return content.substring(frontmatterEnd + 3).trim()
-  } catch (error) {
+  } catch (_error) {
     return null
   }
 }
@@ -117,7 +118,7 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
         <div className="col-12">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="/news">News</a></li>
+              <li className="breadcrumb-item"><Link href="/news">News</Link></li>
               <li className="breadcrumb-item active" aria-current="page">{year}</li>
             </ol>
           </nav>
