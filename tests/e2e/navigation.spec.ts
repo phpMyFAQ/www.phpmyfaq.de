@@ -6,7 +6,7 @@ test.describe('Navigation Tests', () => {
     await expect(page).toHaveTitle(/phpMyFAQ/);
     await expect(page.locator('h2.title')).toContainText('phpMyFAQ 4.0');
     await expect(page.locator('p.intro')).toContainText('phpMyFAQ is a mobile-friendly');
-    await expect(page.locator('a[href="http://demo.phpmyfaq.de/"]')).toBeVisible();
+    await expect(page.locator('.promo a[href="/demo"], .promo a[href="/demo/"]')).toBeVisible();
     await expect(page.locator('.promo a[href="/download"], .promo a[href="/download/"]')).toBeVisible();
   });
 
