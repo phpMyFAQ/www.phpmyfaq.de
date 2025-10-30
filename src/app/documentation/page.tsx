@@ -1,7 +1,9 @@
 import PageLayout from '@/components/PageLayout'
 import { generatePageMetadata } from '@/components/PageLayout'
+import Link from 'next/link'
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Documentation',
   'Documentation for phpMyFAQ administrator, end-users and developers.'
 )
@@ -26,7 +28,7 @@ export default function DocumentationPage() {
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a target="_blank" href="/docs/4.1">Documentation for phpMyFAQ 4.1</a>
+                <Link target="_blank" href="/docs/4.1">Documentation for phpMyFAQ 4.1</Link>
               </h3>
               This guide contains detailed documentation for those using phpMyFAQ 4.1, whether they be
               administrators or end-users.
@@ -34,7 +36,7 @@ export default function DocumentationPage() {
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a target="_blank" href="/docs/4.0">Documentation for phpMyFAQ 4.0</a>
+                <Link target="_blank" href="/docs/4.0">Documentation for phpMyFAQ 4.0</Link>
               </h3>
               This guide contains detailed documentation for those using phpMyFAQ 4.0, whether they be
               administrators or end-users.
@@ -42,21 +44,21 @@ export default function DocumentationPage() {
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a href="/requirements">Requirements</a>
+                <Link href="/requirements">Requirements</Link>
               </h3>
               All requirements like e.g. the minimum PHP version to install the latest version of phpMyFAQ
             </li>
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a href="/changelog">Changelog</a>
+                <Link href="/changelog">Changelog</Link>
               </h3>
               The list of user-visible changes of phpMyFAQ releases since 2001.
             </li>
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a href="/translations">Translations</a>
+                <Link href="/translations">Translations</Link>
               </h3>
               The list of supported languages in phpMyFAQ and a guide how to fix existing or add new
               translations.
@@ -69,7 +71,7 @@ export default function DocumentationPage() {
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a href="/docs/standards">Coding standards</a>
+                <Link href="/docs/standards">Coding standards</Link>
               </h3>
               Coding styles for PHP code, HTML, and LESS/CSS. Please take care you follow these coding
               standards.
@@ -101,7 +103,7 @@ export default function DocumentationPage() {
             <li>
               <h3>
                 <i className="fa fa-caret-right"></i>{' '}
-                <a href="/docs/codenames">Codenames</a>
+                <Link href="/docs/codenames">Codenames</Link>
               </h3>
               phpMyFAQ uses codenames for every major release, if you&apos;re curious about them, take a look
               at this page.
@@ -112,7 +114,7 @@ export default function DocumentationPage() {
       <h2>Outdated documentations</h2>
       <p className="outro">
         Looking for an old version of documentation?
-        We have an overview of <a href="/docs/">old, unmaintained versions</a> online.
+        We have an overview of <Link href="/docs/">old, unmaintained versions</Link> online.
       </p>
     </PageLayout>
   )

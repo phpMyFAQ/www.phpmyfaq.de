@@ -1,7 +1,9 @@
-import { generatePageMetadata } from '@/components/PageLayout'
 import styles from './support.module.scss'
+import { generatePageMetadata } from '@/components/PageLayout'
+import Link from 'next/link'
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Support',
   'Get support for phpMyFAQ through our community, documentation, and professional services'
 )
@@ -73,15 +75,15 @@ export default function SupportPage() {
             <p>Comprehensive guides and resources to help you master phpMyFAQ.</p>
             <ul>
               <li>
-                <a href="/documentation" rel="noopener noreferrer">
+                <Link href="/documentation" rel="noopener noreferrer">
                   User Documentation
-                </a>
+                </Link>
                 <span className={"ms-2"}> Complete guides</span>
               </li>
               <li>
-                <a href="/docs/standards" rel="noopener noreferrer">
+                <Link href="/docs/standards" rel="noopener noreferrer">
                   Developer Docs
-                </a>
+                </Link>
                 <span className={"ms-2"}> Coding standards</span>
               </li>
               <li>
@@ -99,19 +101,19 @@ export default function SupportPage() {
           <div className={styles.resourceGrid}>
             <div className={styles.resourceItem}>
               <div className={styles.resourceIcon}>📖</div>
-              <a href="/changelog">Changelog</a>
+              <Link href="/changelog">Changelog</Link>
             </div>
             <div className={styles.resourceItem}>
               <div className={styles.resourceIcon}>🔒</div>
-              <a href="/security">Security Advisories</a>
+              <Link href="/security">Security Advisories</Link>
             </div>
             <div className={styles.resourceItem}>
               <div className={styles.resourceIcon}>🌍</div>
-              <a href="/translations">Translations</a>
+              <Link href="/translations">Translations</Link>
             </div>
             <div className={styles.resourceItem}>
               <div className={styles.resourceIcon}>⚙️</div>
-              <a href="/requirements">Requirements</a>
+              <Link href="/requirements">Requirements</Link>
             </div>
           </div>
         </div>

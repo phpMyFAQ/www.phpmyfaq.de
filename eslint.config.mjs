@@ -6,7 +6,6 @@ import tsPlugin from '@typescript-eslint/eslint-plugin'
 import globals from 'globals'
 
 export default [
-  // Ignore patterns (Flat Config ersetzt .eslintignore)
   {
     ignores: [
       '.next/**',
@@ -19,10 +18,8 @@ export default [
     ],
   },
 
-  // JavaScript/TypeScript Standardempfehlungen
   js.configs.recommended,
 
-  // Next.js Core Web Vitals Regeln (teilweise entschärft für Migration)
   {
     name: 'next/core-web-vitals',
     plugins: {
@@ -30,11 +27,10 @@ export default [
     },
     rules: {
       ...nextPlugin.configs['core-web-vitals'].rules,
-      '@next/next/no-html-link-for-pages': 'off',
+      '@next/next/no-html-link-for-pages': 'error',
     },
   },
 
-  // TypeScript Setup + empfohlene Regeln
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -54,13 +50,9 @@ export default [
     },
     rules: {
       ...tsPlugin.configs.recommended.rules,
-      // TS übernimmt Undef-Prüfung
       'no-undef': 'off',
-      // Migrationserleichterung
       'no-useless-escape': 'warn',
-      // Verbot von triple-slash references (außer next-env.d.ts, die ignoriert wird)
       '@typescript-eslint/triple-slash-reference': ['error', { types: 'never', lib: 'never', path: 'never' }],
-      // Häufige kleine Verstöße sanfter behandeln
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true, caughtErrors: 'none' }],
       '@typescript-eslint/no-explicit-any': 'warn',
     },

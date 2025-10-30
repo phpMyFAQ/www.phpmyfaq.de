@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function ErrorPage({
   error,
   reset,
@@ -21,7 +23,7 @@ export default function ErrorPage({
           )}
           <div className="d-flex gap-2">
             <button className="btn btn-primary" onClick={() => reset()}>Try again</button>
-            <a className="btn btn-outline-secondary" href="/">Back to homepage</a>
+            <Link className="btn btn-outline-secondary" href="/">Back to homepage</Link>
           </div>
         </div>
       </div>
