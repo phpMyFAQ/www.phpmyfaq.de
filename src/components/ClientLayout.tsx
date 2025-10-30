@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { ThemeProvider } from '@/contexts/ThemeContext'
-import Header from './Header'
-import Footer from './Footer'
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import Header from './Header';
+import Footer from './Footer';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,5 +11,5 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <main>{children}</main>
       <Footer />
     </ThemeProvider>
-  )
+  );
 }

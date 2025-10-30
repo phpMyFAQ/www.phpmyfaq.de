@@ -19,7 +19,9 @@
     "fetch:versions": "npx tsx scripts/fetch-versions.ts",
     "fetch:downloads": "npx tsx scripts/fetch-downloads.ts",
     "update:data": "npm run fetch:versions && npm run fetch:downloads",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
@@ -53,11 +55,13 @@
     "conventional-changelog-atom": "^5.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "15.5.4",
+    "eslint-config-prettier": "^9.1.0",
     "globals": "^15.12.0",
     "husky": "^9.1.7",
     "jsdom": "^27.0.1",
     "lint-staged": "^16.2.6",
     "postcss": "^8.5.6",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.18",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"

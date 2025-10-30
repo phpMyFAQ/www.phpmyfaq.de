@@ -1,24 +1,23 @@
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
+import PageLayout from '@/components/PageLayout';
+import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = generatePageMetadata(
   'Changelog',
-  'User visible changes in phpMyFAQ releases since 2001 until today'
-)
+  'User visible changes in phpMyFAQ releases since 2001 until today',
+);
 
 export default function ChangelogPage() {
   return (
     <PageLayout title="Changelog">
       <div className="row">
         <div className="col-12">
-          <p className="lead">
-            User visible changes in phpMyFAQ releases since 2001 until today
-          </p>
+          <p className="lead">User visible changes in phpMyFAQ releases since 2001 until today</p>
 
           <div className="changelog-content">
-            <div dangerouslySetInnerHTML={{
-              __html: `<h2 className="mt-5 mb-3">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `<h2 className="mt-5 mb-3">
       phpMyFAQ 4.1.x
 
 
@@ -2674,8 +2673,9 @@ export default function ChangelogPage() {
     <h3 className="mt-4 mb-2"><a id="0.1"></a>phpMyFAQ 0.1 - 2001-02-12</h3>
     <ul>
       <li className="mb-1">Start of the phpMyFAQ project, originally written by Thorsten Rinne and Bastian Pöttner</li>
-    </ul>`
-            }} />
+    </ul>`,
+              }}
+            />
           </div>
 
           <div className="alert alert-info mt-5">
@@ -2684,11 +2684,12 @@ export default function ChangelogPage() {
               For development builds and pre-release versions, please visit our{' '}
               <a href="https://github.com/thorsten/phpMyFAQ/releases" target="_blank" rel="noopener">
                 GitHub Releases page
-              </a>.
+              </a>
+              .
             </p>
           </div>
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }

@@ -1,18 +1,24 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function Hero() {
   return (
     <section className="promo offset-header">
       <div className="container text-center">
-        <h2 className="title">phpMy<span className="highlight">FAQ</span> 4.0</h2>
+        <h2 className="title">
+          phpMy<span className="highlight">FAQ</span> 4.0
+        </h2>
 
         <p className="intro">
           phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.2+
         </p>
 
         <div className="btns">
-          <Link href="/demo" className="btn btn-outline-light me-2">Demo</Link>
-          <Link href="/download" className="btn btn-light">Download phpMyFAQ</Link>
+          <Link href="/demo" className="btn btn-outline-light me-2">
+            Demo
+          </Link>
+          <Link href="/download" className="btn btn-light">
+            Download phpMyFAQ
+          </Link>
         </div>
         <p className="love-phpmyfaq">
           We really think you will like this knowledge base script. Knowledge is free, and so is phpMyFAQ. Since 2001.
@@ -20,7 +26,12 @@ export default function Hero() {
 
         <ul className="meta list-inline">
           <li className="list-inline-item">
-            <a className="btn btn-outline-light" rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ">
+            <a
+              className="btn btn-outline-light"
+              rel="nofollow"
+              target="_blank"
+              href="https://github.com/thorsten/phpMyFAQ"
+            >
               View on GitHub
             </a>
           </li>
@@ -30,12 +41,17 @@ export default function Hero() {
             </Link>
           </li>
           <li className="list-inline-item">
-            <a className="btn btn-outline-light" rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ/issues">
+            <a
+              className="btn btn-outline-light"
+              rel="nofollow"
+              target="_blank"
+              href="https://github.com/thorsten/phpMyFAQ/issues"
+            >
               Issues on GitHub
             </a>
           </li>
         </ul>
       </div>
     </section>
-  )
+  );
 }

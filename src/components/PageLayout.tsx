@@ -1,19 +1,14 @@
-import { Metadata } from 'next'
-import styles from './PageLayout.module.scss'
+import { Metadata } from 'next';
+import styles from './PageLayout.module.scss';
 
 interface PageLayoutProps {
-  children: React.ReactNode
-  title?: string
-  description?: string
-  className?: string
+  children: React.ReactNode;
+  title?: string;
+  description?: string;
+  className?: string;
 }
 
-export default function PageLayout({
-  children,
-  title,
-  description,
-  className = ''
-}: PageLayoutProps) {
+export default function PageLayout({ children, title, description, className = '' }: PageLayoutProps) {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.container}>
@@ -23,20 +18,15 @@ export default function PageLayout({
             {description && <p className={styles.description}>{description}</p>}
           </div>
         )}
-        <div className={`${styles.content} ${className}`}>
-          {children}
-        </div>
+        <div className={`${styles.content} ${className}`}>{children}</div>
       </div>
     </div>
-  )
+  );
 }
 
-export function generatePageMetadata(
-  title: string,
-  description?: string
-): Metadata {
+export function generatePageMetadata(title: string, description?: string): Metadata {
   return {
     title: `${title} - phpMyFAQ`,
     description: description || `${title} - phpMyFAQ is a multilingual FAQ system`,
-  }
+  };
 }

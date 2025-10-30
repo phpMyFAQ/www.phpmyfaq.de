@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import ThemeToggle from './ThemeToggle'
-import styles from './Header.module.scss'
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
+import styles from './Header.module.scss';
 
 export default function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false)
-  const pathname = usePathname()
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const pathname = usePathname();
 
   const isActive = (path: string) => {
     if (path === '/') {
-      return pathname === '/'
+      return pathname === '/';
     }
-    return pathname.startsWith(path)
-  }
+    return pathname.startsWith(path);
+  };
 
   return (
     <header className={`${styles.header} header`}>
@@ -67,5 +67,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

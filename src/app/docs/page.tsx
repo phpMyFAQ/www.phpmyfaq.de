@@ -1,10 +1,10 @@
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
+import PageLayout from '@/components/PageLayout';
+import { generatePageMetadata } from '@/components/PageLayout';
 
 export const metadata = generatePageMetadata(
   'Documentation archive',
-  'Archive of old, unmaintained versions of phpMyFAQ documentation'
-)
+  'Archive of old, unmaintained versions of phpMyFAQ documentation',
+);
 
 export default function DocsIndexPage() {
   return (
@@ -12,7 +12,9 @@ export default function DocsIndexPage() {
       <div className="row">
         <div className="col-xs-12">
           <p>
-            Looking for an old version of documentation? Please note that we cannot offer any support for the following, old and unmaintained versions. If you&apos;re looking for the current documentation, please go to our <a href="/documentation">documentation page</a>.
+            Looking for an old version of documentation? Please note that we cannot offer any support for the following,
+            old and unmaintained versions. If you&apos;re looking for the current documentation, please go to our{' '}
+            <a href="/documentation">documentation page</a>.
           </p>
         </div>
       </div>
@@ -83,5 +85,5 @@ export default function DocsIndexPage() {
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }

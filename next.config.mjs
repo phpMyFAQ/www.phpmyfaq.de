@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isE2E = process.env.PLAYWRIGHT_TEST === '1'
+const isE2E = process.env.PLAYWRIGHT_TEST === '1';
 const nextConfig = {
   basePath: process.env.PAGES_BASE_PATH,
   eslint: {

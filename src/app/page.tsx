@@ -1,6 +1,6 @@
-import Hero from '@/components/Hero'
-import RecentNews from '@/components/RecentNews'
-import Sponsors from '@/components/Sponsors'
+import Hero from '@/components/Hero';
+import RecentNews from '@/components/RecentNews';
+import Sponsors from '@/components/Sponsors';
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
       <RecentNews />
       <Sponsors />
     </>
-  )
+  );
 }

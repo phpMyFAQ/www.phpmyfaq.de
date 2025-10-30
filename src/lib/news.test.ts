@@ -1,25 +1,25 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { parseNewsFile, getRecentNews } from './news'
-import fs from 'fs'
-import path from 'path'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { parseNewsFile, getRecentNews } from './news';
+import fs from 'fs';
+import path from 'path';
 
-vi.mock('fs')
-vi.mock('path')
+vi.mock('fs');
+vi.mock('path');
 
 describe('parseNewsFile', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-  })
+    vi.clearAllMocks();
+  });
 
   it('should return empty array if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md')
-    vi.mocked(fs.existsSync).mockReturnValue(false)
+    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
+    vi.mocked(fs.existsSync).mockReturnValue(false);
 
-    const result = parseNewsFile('2025')
+    const result = parseNewsFile('2025');
 
-    expect(result).toEqual([])
-    expect(fs.existsSync).toHaveBeenCalledWith('/mock/path/2025.md')
-  })
+    expect(result).toEqual([]);
+    expect(fs.existsSync).toHaveBeenCalledWith('/mock/path/2025.md');
+  });
 
   it('should parse news entries correctly', () => {
     const mockContent = `---
@@ -37,28 +37,28 @@ The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.0.13](/download).
 ### 2025-09-23
 * * *
 The phpMyFAQ Team would like to announce [phpMyFAQ 4.0.12](/download).
-`
+`;
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md')
-    vi.mocked(fs.existsSync).mockReturnValue(true)
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent)
+    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
+    vi.mocked(fs.existsSync).mockReturnValue(true);
+    vi.mocked(fs.readFileSync).mockReturnValue(mockContent);
 
-    const result = parseNewsFile('2025')
+    const result = parseNewsFile('2025');
 
-    expect(result).toHaveLength(3)
+    expect(result).toHaveLength(3);
     expect(result[0]).toEqual({
       date: '2025-10-04',
-      content: expect.stringContaining('phpMyFAQ 4.1.0-alpha.3')
-    })
+      content: expect.stringContaining('phpMyFAQ 4.1.0-alpha.3'),
+    });
     expect(result[1]).toEqual({
       date: '2025-10-03',
-      content: expect.stringContaining('phpMyFAQ 4.0.13')
-    })
+      content: expect.stringContaining('phpMyFAQ 4.0.13'),
+    });
     expect(result[2]).toEqual({
       date: '2025-09-23',
-      content: expect.stringContaining('phpMyFAQ 4.0.12')
-    })
-  })
+      content: expect.stringContaining('phpMyFAQ 4.0.12'),
+    });
+  });
 
   it('should handle news without separator lines', () => {
     const mockContent = `---
@@ -70,44 +70,44 @@ We're excited to announce the release.
 
 ### 2025-10-03
 The phpMyFAQ Team is pleased to announce.
-`
+`;
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md')
-    vi.mocked(fs.existsSync).mockReturnValue(true)
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent)
+    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
+    vi.mocked(fs.existsSync).mockReturnValue(true);
+    vi.mocked(fs.readFileSync).mockReturnValue(mockContent);
 
-    const result = parseNewsFile('2025')
+    const result = parseNewsFile('2025');
 
-    expect(result).toHaveLength(2)
-    expect(result[0].date).toBe('2025-10-04')
-    expect(result[1].date).toBe('2025-10-03')
-  })
+    expect(result).toHaveLength(2);
+    expect(result[0].date).toBe('2025-10-04');
+    expect(result[1].date).toBe('2025-10-03');
+  });
 
   it('should return empty array on error', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md')
-    vi.mocked(fs.existsSync).mockReturnValue(true)
+    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
+    vi.mocked(fs.existsSync).mockReturnValue(true);
     vi.mocked(fs.readFileSync).mockImplementation(() => {
-      throw new Error('Read error')
-    })
+      throw new Error('Read error');
+    });
 
-    const result = parseNewsFile('2025')
+    const result = parseNewsFile('2025');
 
-    expect(result).toEqual([])
-  })
-})
+    expect(result).toEqual([]);
+  });
+});
 
 describe('getRecentNews', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    vi.useFakeTimers()
-  })
+    vi.clearAllMocks();
+    vi.useFakeTimers();
+  });
 
   afterEach(() => {
-    vi.useRealTimers()
-  })
+    vi.useRealTimers();
+  });
 
   it('should return the most recent 6 news entries', () => {
-    vi.setSystemTime(new Date('2025-10-09'))
+    vi.setSystemTime(new Date('2025-10-09'));
 
     const mockContent2025 = `---
 title: News from 2025
@@ -133,21 +133,21 @@ News 6
 
 ### 2025-06-01
 News 7
-`
+`;
 
-    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`)
-    vi.mocked(fs.existsSync).mockReturnValue(true)
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent2025)
+    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.mocked(fs.existsSync).mockReturnValue(true);
+    vi.mocked(fs.readFileSync).mockReturnValue(mockContent2025);
 
-    const result = getRecentNews(6)
+    const result = getRecentNews(6);
 
-    expect(result.length).toBeGreaterThanOrEqual(6)
-    expect(result[0].date).toBe('2025-10-04')
+    expect(result.length).toBeGreaterThanOrEqual(6);
+    expect(result[0].date).toBe('2025-10-04');
     // Just check we got 6 results, order verified in another test
-  })
+  });
 
   it('should combine news from multiple years when current year has fewer than requested', () => {
-    vi.setSystemTime(new Date('2026-01-15'))
+    vi.setSystemTime(new Date('2026-01-15'));
 
     const mockContent2026 = `---
 title: News from 2026
@@ -158,7 +158,7 @@ News 1
 
 ### 2026-01-05
 News 2
-`
+`;
 
     const mockContent2025 = `---
 title: News from 2025
@@ -175,27 +175,27 @@ News 5
 
 ### 2025-12-05
 News 6
-`
+`;
 
-    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`)
-    vi.mocked(fs.existsSync).mockReturnValue(true)
+    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.mocked(fs.existsSync).mockReturnValue(true);
     vi.mocked(fs.readFileSync).mockImplementation((path: string) => {
-      if (path.includes('2026.md')) return mockContent2026
-      if (path.includes('2025.md')) return mockContent2025
-      return ''
-    })
+      if (path.includes('2026.md')) return mockContent2026;
+      if (path.includes('2025.md')) return mockContent2025;
+      return '';
+    });
 
-    const result = getRecentNews(6)
+    const result = getRecentNews(6);
 
-    expect(result).toHaveLength(6)
-    expect(result[0].date).toBe('2026-01-10')
-    expect(result[1].date).toBe('2026-01-05')
-    expect(result[2].date).toBe('2025-12-20')
-    expect(result[5].date).toBe('2025-12-05')
-  })
+    expect(result).toHaveLength(6);
+    expect(result[0].date).toBe('2026-01-10');
+    expect(result[1].date).toBe('2026-01-05');
+    expect(result[2].date).toBe('2025-12-20');
+    expect(result[5].date).toBe('2025-12-05');
+  });
 
   it('should sort news by date descending', () => {
-    vi.setSystemTime(new Date('2025-10-09'))
+    vi.setSystemTime(new Date('2025-10-09'));
 
     const mockContent = `---
 title: News
@@ -209,17 +209,17 @@ Middle news
 
 ### 2025-07-06
 Older news
-`
+`;
 
-    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`)
-    vi.mocked(fs.existsSync).mockReturnValue(true)
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent)
+    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.mocked(fs.existsSync).mockReturnValue(true);
+    vi.mocked(fs.readFileSync).mockReturnValue(mockContent);
 
-    const result = getRecentNews(3)
+    const result = getRecentNews(3);
 
     // Results should be sorted by date descending
-    expect(result.length).toBe(3)
-    expect(new Date(result[0].date).getTime()).toBeGreaterThanOrEqual(new Date(result[1].date).getTime())
-    expect(new Date(result[1].date).getTime()).toBeGreaterThanOrEqual(new Date(result[2].date).getTime())
-  })
-})
+    expect(result.length).toBe(3);
+    expect(new Date(result[0].date).getTime()).toBeGreaterThanOrEqual(new Date(result[1].date).getTime());
+    expect(new Date(result[1].date).getTime()).toBeGreaterThanOrEqual(new Date(result[2].date).getTime());
+  });
+});

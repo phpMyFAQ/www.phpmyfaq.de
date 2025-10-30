@@ -15,11 +15,13 @@ Modern Next.js website for [phpMyFAQ](https://www.phpmyfaq.de), a popular open-s
 ## Getting Started
 
 1. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Start the development server:
+
 ```bash
 pnpm dev
 ```
@@ -29,12 +31,14 @@ pnpm dev
 ## Available Scripts
 
 ### Development
+
 - `pnpm dev` - Start development server
 - `pnpm build` - Build for production
 - `pnpm start` - Start production server
 - `pnpm lint` - Run ESLint
 
 ### Testing
+
 - `pnpm test` - Run unit tests with Vitest
 - `pnpm test:ui` - Run unit tests with UI
 - `pnpm test:coverage` - Run unit tests with a coverage report
@@ -43,6 +47,7 @@ pnpm dev
 - `pnpm test:e2e:headed` - Run E2E tests in headed mode
 
 ### Data Fetching
+
 - `pnpm fetch:versions` - Fetch latest version information
 - `pnpm fetch:downloads` - Fetch download metadata
 - `pnpm update:data` - Update all external data
@@ -82,12 +87,15 @@ scripts/                   # Data fetching scripts
 ## Testing
 
 ### Unit Tests
+
 This project includes comprehensive unit tests using Vitest and React Testing Library:
+
 - Component rendering and behavior
 - Utility functions and data helpers
 - News parsing and markdown processing
 
 Run unit tests:
+
 ```bash
 pnpm test              # Run all tests
 pnpm test:ui           # Interactive UI
@@ -95,13 +103,16 @@ pnpm test:coverage     # Coverage report
 ```
 
 ### E2E Tests
+
 Playwright E2E tests ensure:
+
 - All pages load correctly (no 404 errors)
 - Navigation works properly
 - Favicon loads without errors
 - Page content displays correctly
 
 Run E2E tests:
+
 ```bash
 pnpm test:e2e          # Headless mode
 pnpm test:e2e:ui       # Interactive UI
@@ -111,6 +122,7 @@ pnpm test:e2e:headed   # Headed browser mode
 ## Development
 
 The site uses:
+
 - **Bootstrap classes** for responsive layout
 - **Custom fonts** (Lato, Cabin) loaded from `/public/fonts/`
 - **Component-based architecture** for maintainability
@@ -119,6 +131,7 @@ The site uses:
 ## Deployment
 
 Build the static site:
+
 ```bash
 pnpm build
 ```

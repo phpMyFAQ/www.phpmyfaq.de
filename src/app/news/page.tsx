@@ -1,11 +1,11 @@
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
-import Link from 'next/link'
+import PageLayout from '@/components/PageLayout';
+import { generatePageMetadata } from '@/components/PageLayout';
+import Link from 'next/link';
 
 export const metadata = generatePageMetadata(
   'News archive',
-  'News archive overview about all news about phpMyFAQ since 2001'
-)
+  'News archive overview about all news about phpMyFAQ since 2001',
+);
 
 export default function NewsPage() {
   return (
@@ -17,9 +17,7 @@ export default function NewsPage() {
               <h2>
                 <Link href="/news/2025">2025</Link>
               </h2>
-              <h3 className="text-muted">
-                Working hard on phpMyFAQ 4.1, getting all ready for PHP 8.5
-              </h3>
+              <h3 className="text-muted">Working hard on phpMyFAQ 4.1, getting all ready for PHP 8.5</h3>
             </li>
             <li className="mb-4">
               <h2>
@@ -58,17 +56,15 @@ export default function NewsPage() {
                 <Link href="/news/2020">2020</Link>
               </h2>
               <h3 className="text-muted">
-                Finally releasing phpMyFAQ 3.0, struggling with the Corona pandemic, getting all ready for PHP 8.0 and working
-                hard on phpMyFAQ 3.1
+                Finally releasing phpMyFAQ 3.0, struggling with the Corona pandemic, getting all ready for PHP 8.0 and
+                working hard on phpMyFAQ 3.1
               </h3>
             </li>
             <li className="mb-4">
               <h2>
                 <Link href="/news/2019">2019</Link>
               </h2>
-              <h3 className="text-muted">
-                Working hard on phpMyFAQ 3.0 and dropped support for PHP 5.
-              </h3>
+              <h3 className="text-muted">Working hard on phpMyFAQ 3.0 and dropped support for PHP 5.</h3>
             </li>
             <li className="mb-4">
               <h2>
@@ -82,17 +78,13 @@ export default function NewsPage() {
               <h2>
                 <Link href="/news/2017">2017</Link>
               </h2>
-              <h3 className="text-muted">
-                Improving the 2.9 version and working hard on phpMyFAQ 3.0
-              </h3>
+              <h3 className="text-muted">Improving the 2.9 version and working hard on phpMyFAQ 3.0</h3>
             </li>
             <li className="mb-4">
               <h2>
                 <Link href="/news/2016">2016</Link>
               </h2>
-              <h3 className="text-muted">
-                Celebrated 15 years of phpMyFAQ and released phpMyFAQ 2.9
-              </h3>
+              <h3 className="text-muted">Celebrated 15 years of phpMyFAQ and released phpMyFAQ 2.9</h3>
             </li>
             <li className="mb-4">
               <h2>
@@ -122,7 +114,9 @@ export default function NewsPage() {
               <h2>
                 <Link href="/news/2011">2011</Link>
               </h2>
-              <h3 className="text-muted">Celebrated 10 years of phpMyFAQ, worked on better usability and HTML5 support with phpMyFAQ 2.7</h3>
+              <h3 className="text-muted">
+                Celebrated 10 years of phpMyFAQ, worked on better usability and HTML5 support with phpMyFAQ 2.7
+              </h3>
             </li>
             <li className="mb-4">
               <h2>
@@ -176,7 +170,9 @@ export default function NewsPage() {
               <h2>
                 <Link href="/news/2002">2002</Link>
               </h2>
-              <h3 className="text-muted">New features and PHP 4 support with phpMyFAQ 1.1 and going open source with phpMyFAQ 1.2</h3>
+              <h3 className="text-muted">
+                New features and PHP 4 support with phpMyFAQ 1.1 and going open source with phpMyFAQ 1.2
+              </h3>
             </li>
             <li className="mb-4">
               <h2>
@@ -188,5 +184,5 @@ export default function NewsPage() {
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }

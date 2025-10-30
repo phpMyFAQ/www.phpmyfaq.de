@@ -1,33 +1,33 @@
-import { readFileSync } from 'fs'
-import { join } from 'path'
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import PageLayout from '@/components/PageLayout';
+import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import React from 'react';
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-export const dynamicParams = false
+export const dynamicParams = false;
 
 interface NewsYearPageProps {
   params: Promise<{
-    year: string
-  }>
+    year: string;
+  }>;
 }
 
 // Function to read and parse markdown content
 function getNewsContent(year: string): string | null {
   try {
-    const filePath = join(process.cwd(), 'content/news', `${year}.md`)
-    const content = readFileSync(filePath, 'utf-8')
+    const filePath = join(process.cwd(), 'content/news', `${year}.md`);
+    const content = readFileSync(filePath, 'utf-8');
 
     // Extract content after frontmatter
-    const frontmatterEnd = content.indexOf('---', 3)
-    if (frontmatterEnd === -1) return content
+    const frontmatterEnd = content.indexOf('---', 3);
+    if (frontmatterEnd === -1) return content;
 
-    return content.substring(frontmatterEnd + 3).trim()
+    return content.substring(frontmatterEnd + 3).trim();
   } catch (_error) {
-    return null
+    return null;
   }
 }
 
@@ -36,81 +36,81 @@ function parseNewsContent(content: string): React.JSX.Element[] {
   // Handle three formats:
   // 1. ###YYYY-MM-DD or ### YYYY-MM-DD (newer format)
   // 2. **YYYY-MM-DD** (older format with bold markdown)
-  const dateRegex = /(?:###\s*|\*\*)(\d{4}-\d{2}-\d{2})(?:\*\*)?/g
-  const dates: string[] = []
-  let match
+  const dateRegex = /(?:###\s*|\*\*)(\d{4}-\d{2}-\d{2})(?:\*\*)?/g;
+  const dates: string[] = [];
+  let match;
 
   // Extract all dates
   while ((match = dateRegex.exec(content)) !== null) {
-    dates.push(match[1])
+    dates.push(match[1]);
   }
 
   // Split content by date headers (both formats)
-  const sections = content.split(/(?:###\s*|\*\*)\d{4}-\d{2}-\d{2}(?:\*\*)?/)
-  const elements: React.JSX.Element[] = []
+  const sections = content.split(/(?:###\s*|\*\*)\d{4}-\d{2}-\d{2}(?:\*\*)?/);
+  const elements: React.JSX.Element[] = [];
 
   // Skip the first empty section and process the rest
   for (let i = 1; i < sections.length; i++) {
-    const section = sections[i].trim()
-    if (!section) continue
+    const section = sections[i].trim();
+    if (!section) continue;
 
-    const date = dates[i - 1] || ''
+    const date = dates[i - 1] || '';
 
     // Process content - convert markdown links to JSX and clean up separators
     const processedContent = section
       .replace(/^\*\s*\*\s*\*/gm, '') // Remove separator lines
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text: string, href: string) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`) // Convert links
+      .replace(
+        /\[([^\]]+)\]\(([^)]+)\)/g,
+        (_m, text: string, href: string) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`,
+      ) // Convert links
       .split('\n\n') // Split into paragraphs
-      .filter(p => p.trim()) // Remove empty paragraphs
-      .map(p => `<p>${p.trim()}</p>`) // Wrap in paragraph tags
-      .join('\n')
+      .filter((p) => p.trim()) // Remove empty paragraphs
+      .map((p) => `<p>${p.trim()}</p>`) // Wrap in paragraph tags
+      .join('\n');
 
     elements.push(
       <div key={date} className="mb-4">
         <h3 className="mb-2">{date}</h3>
         <hr className="mb-3" />
         <div dangerouslySetInnerHTML={{ __html: processedContent }} />
-      </div>
-    )
+      </div>,
+    );
   }
 
-  return elements
+  return elements;
 }
 
 export async function generateStaticParams() {
   // Generate params for all years from 2001 to 2025
-  const years = Array.from({ length: 25 }, (_, i) => 2001 + i)
-  return years.map((year) => ({ year: year.toString() }))
+  const years = Array.from({ length: 25 }, (_, i) => 2001 + i);
+  return years.map((year) => ({ year: year.toString() }));
 }
 
 export async function generateMetadata({ params }: NewsYearPageProps): Promise<Metadata> {
-  const { year } = await params
-  return generatePageMetadata(
-    `phpMyFAQ news from ${year}`,
-    `What happened this year so far?`
-  )
+  const { year } = await params;
+  return generatePageMetadata(`phpMyFAQ news from ${year}`, `What happened this year so far?`);
 }
 
 export default async function NewsYearPage({ params }: NewsYearPageProps) {
-  const { year } = await params
+  const { year } = await params;
 
   // Validate year format
   if (!/^\d{4}$/.test(year)) {
-    notFound()
+    notFound();
   }
 
-  const yearNum = parseInt(year)
+  const yearNum = parseInt(year);
   if (yearNum < 2001 || yearNum > 2025) {
-    notFound()
+    notFound();
   }
 
-  const content = getNewsContent(year)
+  const content = getNewsContent(year);
 
   if (!content) {
-    notFound()
+    notFound();
   }
 
-  const newsElements = parseNewsContent(content)
+  const newsElements = parseNewsContent(content);
 
   return (
     <PageLayout title={`phpMyFAQ news from ${year}`}>
@@ -118,16 +118,18 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
         <div className="col-12">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item"><Link href="/news">News</Link></li>
-              <li className="breadcrumb-item active" aria-current="page">{year}</li>
+              <li className="breadcrumb-item">
+                <Link href="/news">News</Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                {year}
+              </li>
             </ol>
           </nav>
 
-          <div id="news-content">
-            {newsElements}
-          </div>
+          <div id="news-content">{newsElements}</div>
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }

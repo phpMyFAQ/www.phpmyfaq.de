@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import { getRecentNews } from '@/lib/news'
+import Link from 'next/link';
+import { getRecentNews } from '@/lib/news';
 
 export default function RecentNews() {
-  const newsItems = getRecentNews(6)
+  const newsItems = getRecentNews(6);
 
   const formatContent = (content: string) => {
     // Simple markdown-like formatting for links
-    return content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-  }
+    return content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  };
 
   return (
     <section id="news" className="news">
@@ -22,10 +22,7 @@ export default function RecentNews() {
               <div className="news-item">
                 <h3>{item.date}</h3>
                 <hr />
-                <div
-                  className="news-content"
-                  dangerouslySetInnerHTML={{ __html: formatContent(item.content) }}
-                />
+                <div className="news-content" dangerouslySetInnerHTML={{ __html: formatContent(item.content) }} />
               </div>
             </div>
           ))}
@@ -42,5 +39,5 @@ export default function RecentNews() {
         </div>
       </div>
     </section>
-  )
+  );
 }

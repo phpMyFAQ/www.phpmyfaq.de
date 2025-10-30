@@ -1,4 +1,4 @@
-import PageLayout from '@/components/PageLayout'
+import PageLayout from '@/components/PageLayout';
 import Link from 'next/link';
 
 export default function NotFound() {
@@ -7,10 +7,11 @@ export default function NotFound() {
       <div className="row">
         <div className="col-12 col-md-8">
           <p>The page may have been moved or deleted.</p>
-          <Link className="btn btn-primary" href="/">Back to homepage</Link>
+          <Link className="btn btn-primary" href="/">
+            Back to homepage
+          </Link>
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }
-

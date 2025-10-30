@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import styles from './Footer.module.scss'
+import Link from 'next/link';
+import styles from './Footer.module.scss';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <>
@@ -75,17 +75,32 @@ export default function Footer() {
             <h3>Get Connected</h3>
             <ul className={`${styles.socialIcons} social-icons`}>
               <li>
-                <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ" aria-label="phpMyFAQ at Github">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://github.com/thorsten/phpMyFAQ"
+                  aria-label="phpMyFAQ at Github"
+                >
                   <i className="fab fa-github"></i>
                 </a>
               </li>
               <li>
-                <a rel="nofollow" target="_blank" href="https://www.facebook.com/phpMyFAQ/" aria-label="phpMyFAQ at Facebook">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://www.facebook.com/phpMyFAQ/"
+                  aria-label="phpMyFAQ at Facebook"
+                >
                   <i className="fab fa-facebook"></i>
                 </a>
               </li>
               <li>
-                <a rel="nofollow" target="_blank" href="https://discord.gg/wszhTceuNM" aria-label="phpMyFAQ Discord Community">
+                <a
+                  rel="nofollow"
+                  target="_blank"
+                  href="https://discord.gg/wszhTceuNM"
+                  aria-label="phpMyFAQ Discord Community"
+                >
                   <i className="fab fa-discord"></i>
                 </a>
               </li>
@@ -102,12 +117,11 @@ export default function Footer() {
       <footer className={`${styles.footer} footer`}>
         <div className={styles.container}>
           <small className={styles.copyright}>
-            &copy; 2001-{currentYear} |
-            Developed with <i className="fas fa-heart"></i> by Thorsten Rinne and the phpMyFAQ Team |
-            All rights reserved.
+            &copy; 2001-{currentYear} | Developed with <i className="fas fa-heart"></i> by Thorsten Rinne and the
+            phpMyFAQ Team | All rights reserved.
           </small>
         </div>
       </footer>
     </>
-  )
+  );
 }

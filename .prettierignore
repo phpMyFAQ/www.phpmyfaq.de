@@ -1,0 +1,18 @@
+# Build outputs
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+
+# Node modules
+node_modules/
+
+# Lock files (formatting not needed)
+*.lock
+pnpm-lock.yaml
+
+# Generated files
+*.min.js
+*.min.css
+

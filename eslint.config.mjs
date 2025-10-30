@@ -1,9 +1,10 @@
 // ESLint v9 Flat Config for phpMyFAQ website
-import js from '@eslint/js'
-import nextPlugin from '@next/eslint-plugin-next'
-import tsParser from '@typescript-eslint/parser'
-import tsPlugin from '@typescript-eslint/eslint-plugin'
-import globals from 'globals'
+import js from '@eslint/js';
+import nextPlugin from '@next/eslint-plugin-next';
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import globals from 'globals';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
   {
@@ -53,7 +54,15 @@ export default [
       'no-undef': 'off',
       'no-useless-escape': 'warn',
       '@typescript-eslint/triple-slash-reference': ['error', { types: 'never', lib: 'never', path: 'never' }],
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', ignoreRestSiblings: true, caughtErrors: 'none' }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+          caughtErrors: 'none',
+        },
+      ],
       '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
@@ -77,4 +86,6 @@ export default [
       globals: globals.node,
     },
   },
-]
+
+  eslintConfigPrettier,
+];

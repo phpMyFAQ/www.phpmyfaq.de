@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
+import PageLayout from '@/components/PageLayout';
+import { generatePageMetadata } from '@/components/PageLayout';
 
 export const metadata: Metadata = generatePageMetadata(
   'Translations',
-  'Multi-language support and translation information for phpMyFAQ'
-)
+  'Multi-language support and translation information for phpMyFAQ',
+);
 
 export default function TranslationsPage() {
   return (
@@ -14,12 +14,16 @@ export default function TranslationsPage() {
         <div className="col-xs-12">
           <p>
             phpMyFAQ currently supports more than 40 languages, including RTL languages like Arabic, Farsi and Hebrew.
-            All our translations are encoded in UTF-8 based PHP files, and we provide support for plural forms in supported
-            phpMyFAQ languages. Additionally, you can use our PDF export functionality with all supported translations.
+            All our translations are encoded in UTF-8 based PHP files, and we provide support for plural forms in
+            supported phpMyFAQ languages. Additionally, you can use our PDF export functionality with all supported
+            translations.
           </p>
           <p>
             You can submit new translations by creating a pull request on{' '}
-            <a target="_blank" href="https://github.com/thorsten/phpMyFAQ">GitHub</a>.
+            <a target="_blank" href="https://github.com/thorsten/phpMyFAQ">
+              GitHub
+            </a>
+            .
           </p>
 
           <h2>Supported languages</h2>
@@ -29,8 +33,12 @@ export default function TranslationsPage() {
             <li>Bengali</li>
             <li>Bosnian</li>
             <li>Brazilian Portuguese</li>
-            <li>Chinese <small>(Simplified)</small></li>
-            <li>Chinese <small>(Traditional)</small></li>
+            <li>
+              Chinese <small>(Simplified)</small>
+            </li>
+            <li>
+              Chinese <small>(Traditional)</small>
+            </li>
             <li>Czech</li>
             <li>Danish</li>
             <li>Dutch</li>
@@ -50,10 +58,14 @@ export default function TranslationsPage() {
             <li>Lithuanian</li>
             <li>Malay</li>
             <li>Mongolian</li>
-            <li>Norwegian <small>(Bokmål)</small></li>
+            <li>
+              Norwegian <small>(Bokmål)</small>
+            </li>
             <li>Persian (Farsi)</li>
             <li>Polish</li>
-            <li>Portuguese <small>(Post-1990 Orthographic Agreement)</small></li>
+            <li>
+              Portuguese <small>(Post-1990 Orthographic Agreement)</small>
+            </li>
             <li>Romanian</li>
             <li>Russian</li>
             <li>Serbian</li>
@@ -71,5 +83,5 @@ export default function TranslationsPage() {
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }

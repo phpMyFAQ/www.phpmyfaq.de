@@ -1,36 +1,36 @@
-import PageLayout from '@/components/PageLayout'
-import { generatePageMetadata } from '@/components/PageLayout'
+import PageLayout from '@/components/PageLayout';
+import { generatePageMetadata } from '@/components/PageLayout';
 import {
   getVersions,
   getStableInfo,
   getDevelopmentInfo,
   formatFileSize,
   getDownloadUrl,
-  formatReleaseDate
-} from '@/lib/data'
+  formatReleaseDate,
+} from '@/lib/data';
 
 export const metadata = generatePageMetadata(
   'Download',
-  'Download the latest version of phpMyFAQ - the open source FAQ system'
-)
+  'Download the latest version of phpMyFAQ - the open source FAQ system',
+);
 
 export default function DownloadPage() {
-  const versions = getVersions()
-  const stableInfo = getStableInfo()
-  const developmentInfo = getDevelopmentInfo()
+  const versions = getVersions();
+  const stableInfo = getStableInfo();
+  const developmentInfo = getDevelopmentInfo();
 
   // Fallback data if files don't exist
   const fallbackVersions = {
     stable: '4.0.13',
     stable_released: '2025-10-03',
     development: '4.1.0-alpha.3',
-    development_released: '2025-10-04'
-  }
+    development_released: '2025-10-04',
+  };
 
-  const stableVersion = versions?.stable || fallbackVersions.stable
-  const stableReleased = versions?.stable_released || fallbackVersions.stable_released
-  const devVersion = versions?.development || fallbackVersions.development
-  const devReleased = versions?.development_released || fallbackVersions.development_released
+  const stableVersion = versions?.stable || fallbackVersions.stable;
+  const stableReleased = versions?.stable_released || fallbackVersions.stable_released;
+  const devVersion = versions?.development || fallbackVersions.development;
+  const devReleased = versions?.development_released || fallbackVersions.development_released;
 
   return (
     <PageLayout title="Download phpMyFAQ">
@@ -53,7 +53,7 @@ export default function DownloadPage() {
                   href={getDownloadUrl(stableVersion, 'zip')}
                   className="btn btn-light btn-lg px-4 btn-hero-primary"
                   download
-                  style={{borderRadius: '30px'}}
+                  style={{ borderRadius: '30px' }}
                 >
                   <i className="fas fa-download me-2"></i>
                   Download ZIP ({formatFileSize(stableInfo.zip.filesize)})
@@ -62,7 +62,7 @@ export default function DownloadPage() {
                   href={getDownloadUrl(stableVersion, 'tar.gz')}
                   className="btn btn-light btn-lg px-4 btn-hero-outline"
                   download
-                  style={{borderRadius: '30px'}}
+                  style={{ borderRadius: '30px' }}
                 >
                   <i className="fas fa-file-archive me-2"></i>
                   Download TAR.GZ ({formatFileSize(stableInfo.targz.filesize)})
@@ -74,11 +74,13 @@ export default function DownloadPage() {
           {/* Version Cards */}
           <div className="row g-4 mb-5">
             <div className="col-lg-6">
-              <div className="card h-100 shadow-sm" style={{border: '2px solid #ff6600'}}>
+              <div className="card h-100 shadow-sm" style={{ border: '2px solid #ff6600' }}>
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="icon-badge-orange rounded-circle d-flex align-items-center justify-content-center me-3"
-                         style={{width: '50px', height: '50px'}}>
+                    <div
+                      className="icon-badge-orange rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: '50px', height: '50px' }}
+                    >
                       <i className="fas fa-check-circle fa-lg"></i>
                     </div>
                     <div>
@@ -88,7 +90,9 @@ export default function DownloadPage() {
                   </div>
 
                   <div className="mb-3">
-                    <h4 className="mb-1" style={{color: '#ff6600'}}>phpMyFAQ {stableVersion}</h4>
+                    <h4 className="mb-1" style={{ color: '#ff6600' }}>
+                      phpMyFAQ {stableVersion}
+                    </h4>
                     <p className="text-muted mb-0">Released: {formatReleaseDate(stableReleased)}</p>
                   </div>
 
@@ -110,9 +114,13 @@ export default function DownloadPage() {
                     </div>
                   )}
 
-                  <a href={`/changelog#${stableVersion}`}
-                     className="btn btn-outline-primary w-100" target="_blank" rel="noopener"
-                     style={{borderRadius: '25px'}}>
+                  <a
+                    href={`/changelog#${stableVersion}`}
+                    className="btn btn-outline-primary w-100"
+                    target="_blank"
+                    rel="noopener"
+                    style={{ borderRadius: '25px' }}
+                  >
                     <i className="fas fa-file-alt me-2"></i>
                     View Release Notes
                   </a>
@@ -121,11 +129,13 @@ export default function DownloadPage() {
             </div>
 
             <div className="col-lg-6">
-              <div className="card h-100 shadow-sm" style={{border: '2px solid #7c3aed'}}>
+              <div className="card h-100 shadow-sm" style={{ border: '2px solid #7c3aed' }}>
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="icon-badge-purple rounded-circle d-flex align-items-center justify-content-center me-3"
-                         style={{width: '50px', height: '50px'}}>
+                    <div
+                      className="icon-badge-purple rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: '50px', height: '50px' }}
+                    >
                       <i className="fas fa-code-branch fa-lg"></i>
                     </div>
                     <div>
@@ -135,7 +145,9 @@ export default function DownloadPage() {
                   </div>
 
                   <div className="mb-3">
-                    <h4 className="mb-1" style={{color: '#7c3aed'}}>phpMyFAQ {devVersion}</h4>
+                    <h4 className="mb-1" style={{ color: '#7c3aed' }}>
+                      phpMyFAQ {devVersion}
+                    </h4>
                     <p className="text-muted mb-0">Released: {formatReleaseDate(devReleased)}</p>
                   </div>
 
@@ -150,7 +162,12 @@ export default function DownloadPage() {
                           href={getDownloadUrl(devVersion, 'zip')}
                           className="btn"
                           download
-                          style={{borderRadius: '25px', backgroundColor: '#7c3aed', color: 'white', borderColor: '#7c3aed'}}
+                          style={{
+                            borderRadius: '25px',
+                            backgroundColor: '#7c3aed',
+                            color: 'white',
+                            borderColor: '#7c3aed',
+                          }}
                         >
                           <i className="fas fa-download me-2"></i>
                           ZIP ({formatFileSize(developmentInfo.zip.filesize)})
@@ -159,7 +176,7 @@ export default function DownloadPage() {
                           href={getDownloadUrl(devVersion, 'tar.gz')}
                           className="btn btn-outline-purple"
                           download
-                          style={{borderRadius: '25px'}}
+                          style={{ borderRadius: '25px' }}
                         >
                           <i className="fas fa-file-archive me-2"></i>
                           TAR.GZ ({formatFileSize(developmentInfo.targz.filesize)})
@@ -180,9 +197,13 @@ export default function DownloadPage() {
                     </>
                   )}
 
-                  <a href={`/changelog#${devVersion}`}
-                     className="btn btn-outline-primary w-100" target="_blank" rel="noopener"
-                     style={{borderRadius: '25px'}}>
+                  <a
+                    href={`/changelog#${devVersion}`}
+                    className="btn btn-outline-primary w-100"
+                    target="_blank"
+                    rel="noopener"
+                    style={{ borderRadius: '25px' }}
+                  >
                     <i className="fas fa-file-alt me-2"></i>
                     View Release Notes
                   </a>
@@ -197,19 +218,29 @@ export default function DownloadPage() {
               <div className="card h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="icon-badge-blue rounded-circle d-flex align-items-center justify-content-center me-3"
-                         style={{width: '45px', height: '45px'}}>
+                    <div
+                      className="icon-badge-blue rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: '45px', height: '45px' }}
+                    >
                       <i className="fas fa-server"></i>
                     </div>
                     <h5 className="mb-0">System Requirements</h5>
                   </div>
                   <ul className="list-unstyled mb-3">
-                    <li className="mb-2"><i className="fas fa-check text-success me-2"></i>PHP 8.2 or higher</li>
-                    <li className="mb-2"><i className="fas fa-check text-success me-2"></i>Web server (Apache, Nginx, IIS)</li>
-                    <li className="mb-2"><i className="fas fa-check text-success me-2"></i>Database (MySQL, PostgreSQL, SQLite)</li>
-                    <li className="mb-2"><i className="fas fa-check text-success me-2"></i>Modern web browser</li>
+                    <li className="mb-2">
+                      <i className="fas fa-check text-success me-2"></i>PHP 8.2 or higher
+                    </li>
+                    <li className="mb-2">
+                      <i className="fas fa-check text-success me-2"></i>Web server (Apache, Nginx, IIS)
+                    </li>
+                    <li className="mb-2">
+                      <i className="fas fa-check text-success me-2"></i>Database (MySQL, PostgreSQL, SQLite)
+                    </li>
+                    <li className="mb-2">
+                      <i className="fas fa-check text-success me-2"></i>Modern web browser
+                    </li>
                   </ul>
-                  <a href="/requirements" className="btn btn-outline-primary w-100" style={{borderRadius: '25px'}}>
+                  <a href="/requirements" className="btn btn-outline-primary w-100" style={{ borderRadius: '25px' }}>
                     <i className="fas fa-list me-2"></i>
                     View Full Requirements
                   </a>
@@ -221,8 +252,10 @@ export default function DownloadPage() {
               <div className="card h-100 shadow-sm">
                 <div className="card-body p-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="icon-badge-orange-light rounded-circle d-flex align-items-center justify-content-center me-3"
-                         style={{width: '45px', height: '45px'}}>
+                    <div
+                      className="icon-badge-orange-light rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: '45px', height: '45px' }}
+                    >
                       <i className="fas fa-life-ring"></i>
                     </div>
                     <h5 className="mb-0">Installation Help</h5>
@@ -230,19 +263,37 @@ export default function DownloadPage() {
                   <ul className="list-unstyled mb-3">
                     <li className="mb-2">
                       <i className="fas fa-book text-primary me-2"></i>
-                      <a href="/documentation" className="text-decoration-none">Installation Guide</a>
+                      <a href="/documentation" className="text-decoration-none">
+                        Installation Guide
+                      </a>
                     </li>
                     <li className="mb-2">
                       <i className="fas fa-headset text-primary me-2"></i>
-                      <a href="/support" className="text-decoration-none">Getting Support</a>
+                      <a href="/support" className="text-decoration-none">
+                        Getting Support
+                      </a>
                     </li>
                     <li className="mb-2">
                       <i className="fab fa-discord text-primary me-2"></i>
-                      <a href="https://discord.gg/wszhTceuNM" target="_blank" rel="noopener" className="text-decoration-none">Discord Community</a>
+                      <a
+                        href="https://discord.gg/wszhTceuNM"
+                        target="_blank"
+                        rel="noopener"
+                        className="text-decoration-none"
+                      >
+                        Discord Community
+                      </a>
                     </li>
                     <li className="mb-2">
                       <i className="fas fa-bug text-primary me-2"></i>
-                      <a href="https://github.com/thorsten/phpMyFAQ/issues" target="_blank" rel="noopener" className="text-decoration-none">Report Issues</a>
+                      <a
+                        href="https://github.com/thorsten/phpMyFAQ/issues"
+                        target="_blank"
+                        rel="noopener"
+                        className="text-decoration-none"
+                      >
+                        Report Issues
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -252,11 +303,20 @@ export default function DownloadPage() {
 
           {/* Older Versions Notice */}
           <div className="older-versions-box text-center p-4 rounded">
-            <i className="fas fa-archive fa-2x mb-3" style={{color: '#6c757d'}}></i>
+            <i className="fas fa-archive fa-2x mb-3" style={{ color: '#6c757d' }}></i>
             <h5>Looking for Older Versions?</h5>
             <p className="mb-3">
               Previous releases are available on our
-              <a href="https://github.com/thorsten/phpMyFAQ/releases" target="_blank" rel="noopener" className="text-decoration-none fw-bold"> GitHub Releases page</a>.
+              <a
+                href="https://github.com/thorsten/phpMyFAQ/releases"
+                target="_blank"
+                rel="noopener"
+                className="text-decoration-none fw-bold"
+              >
+                {' '}
+                GitHub Releases page
+              </a>
+              .
             </p>
             <p className="text-muted small mb-0">
               We recommend always using the latest stable version for security and performance.
@@ -265,5 +325,5 @@ export default function DownloadPage() {
         </div>
       </div>
     </PageLayout>
-  )
+  );
 }

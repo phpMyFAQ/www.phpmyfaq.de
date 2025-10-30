@@ -20,33 +20,33 @@ test.describe('All Pages Accessibility Tests', () => {
     { path: '/thankyou', title: 'Thank You! - phpMyFAQ' },
     { path: '/terms', title: 'Terms of Service - phpMyFAQ' },
     { path: '/imprint', title: 'Imprint - phpMyFAQ' },
-    { path: '/privacy', title: 'Privacy Notice - phpMyFAQ' }
+    { path: '/privacy', title: 'Privacy Notice - phpMyFAQ' },
   ];
 
   for (const { path, title } of pages) {
     test(`${path} loads correctly with proper title`, async ({ page }) => {
       const response = await page.goto(path);
-      
+
       // Check response status
       expect(response?.status()).toBe(200);
-      
+
       // Check page title
       await expect(page).toHaveTitle(title);
-      
+
       // Check no 404 error content
       await expect(page.locator('h1').filter({ hasText: '404' })).not.toBeVisible();
       await expect(page.locator('text=This page could not be found')).not.toBeVisible();
-      
+
       // Check header is present
       await expect(page.locator('header.header')).toBeVisible();
-      
+
       // Check footer is present
       await expect(page.locator('footer.footer')).toBeVisible();
-      
+
       // Check only one header (no duplicates)
       const headerCount = await page.locator('header.header').count();
       expect(headerCount).toBe(1);
-      
+
       // Check only one footer (no duplicates)
       const footerCount = await page.locator('footer.footer').count();
       expect(footerCount).toBe(1);
@@ -55,10 +55,10 @@ test.describe('All Pages Accessibility Tests', () => {
 
   test('all footer links work correctly', async ({ page }) => {
     await page.goto('/');
-    
+
     const footerLinks = [
       '/requirements',
-      '/download', 
+      '/download',
       '/changelog',
       '/advisories',
       '/translations',
@@ -71,7 +71,7 @@ test.describe('All Pages Accessibility Tests', () => {
       '/thankyou',
       '/terms',
       '/imprint',
-      '/privacy'
+      '/privacy',
     ];
 
     for (const link of footerLinks) {
@@ -82,10 +82,10 @@ test.describe('All Pages Accessibility Tests', () => {
 
   test('navigation consistency across all pages', async ({ page }) => {
     const navigationPages = ['/features', '/documentation', '/support', '/download'];
-    
+
     for (const pagePath of navigationPages) {
       await page.goto(pagePath);
-      
+
       // Scope to the main navigation to avoid ambiguous matches
       const nav = page.getByRole('navigation').first();
 
