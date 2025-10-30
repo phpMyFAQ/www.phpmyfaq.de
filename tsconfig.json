@@ -35,7 +35,10 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "out/types/**/*.ts"
+    "out/types/**/*.ts",
+    "node_modules/.pnpm/vitest@3.2.4_@types+node@20.19.22_jiti@1.21.7_jsdom@27.0.1_postcss@8.5.6__sass@1.93.2/node_modules/vitest/globals.d.ts",
+    "node_modules/.pnpm/vitest@3.2.4_@types+node@20.19.22_jiti@1.21.7_jsdom@27.0.1_postcss@8.5.6__sass@1.93.2/node_modules/vitest/globals.d.ts",
+    "node_modules/.pnpm/vitest@3.2.4_@types+node@20.19.22_jiti@1.21.7_jsdom@27.0.1_postcss@8.5.6__sass@1.93.2/node_modules/vitest/globals.d.ts"
   ],
   "exclude": [
     "node_modules"

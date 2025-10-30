@@ -11,7 +11,7 @@ export default function Hero() {
         </p>
 
         <div className="btns">
-          <a className="btn btn-outline-light me-2" href="http://demo.phpmyfaq.de/">Demo</a>
+          <Link href="/demo" className="btn btn-outline-light me-2">Demo</Link>
           <Link href="/download" className="btn btn-light">Download phpMyFAQ</Link>
         </div>
         <p className="love-phpmyfaq">

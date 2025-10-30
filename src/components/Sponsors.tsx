@@ -7,17 +7,6 @@ export default function Sponsors() {
             <div className="text-center" style={{fontSize: '10px', marginTop: '20px'}}>
               <strong>SPONSORED BY</strong>
               <br/>
-              {/* 2025-10-03 - XXXX */}
-              <a target="_blank" href="http://phonebillcasino.co.uk/">Phonebillcasino.co.uk</a> specialise in all
-              aspects of
-              mobile billing, this includes being able to
-              <a target="_blank" href="https://phonebillcasino.co.uk/bet-mobile-phone-credit-sites/">bet using phone
-                  bill at online bookmakers</a>.
-              <br/>
-              Play the latest
-              <a target="_blank" href="http://mobilebingobonuses.co.uk">mobilebingobonuses.co.uk</a>
-              at some of the best casino sites in the UK
-              <br/>
               {/* 2026-04-21 */}
               Find the best online casinos, <a target="_blank" href="https://www.kasinohai.com/parhaat-nettikasinot">parhaat
               nettikasinot</a> in Finnish, on Kasinohai
