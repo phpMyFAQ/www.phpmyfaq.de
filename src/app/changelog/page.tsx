@@ -2687,17 +2687,6 @@ export default function ChangelogPage() {
               }}
             />
           </div>
-
-          <div className="alert alert-info mt-5">
-            <h4>Complete History</h4>
-            <p className="mb-0">
-              For development builds and pre-release versions, please visit our{' '}
-              <a href="https://github.com/thorsten/phpMyFAQ/releases" target="_blank" rel="noopener">
-                GitHub Releases page
-              </a>
-              .
-            </p>
-          </div>
         </div>
       </div>
     </PageLayout>
