@@ -63,6 +63,16 @@ export default function ChangelogPage() {
     </h2>
 
     <h3 className="mt-4 mb-2">
+      <a id="4.0.14"></a>
+      phpMyFAQ 4.0.14 - 2025-11-15
+    </h3>
+    <ul className="list-unstyled ms-3">
+      <li className="mb-1">fixed security vulnerability</li>
+      <li className="mb-1">updated third party dependencies</li>
+      <li className="mb-1">fixed bugs</li>
+    </ul>
+
+    <h3 className="mt-4 mb-2">
       <a id="4.0.13"></a>
       phpMyFAQ 4.0.13 - 2025-10-03
     </h3>
