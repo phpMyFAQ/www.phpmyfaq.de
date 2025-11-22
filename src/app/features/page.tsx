@@ -21,7 +21,7 @@ export default function FeaturesPage() {
           <ul className="list-unstyled">
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              Supports PHP 8.2, 8.3, 8.4, and 8.5
+              Supports PHP 8.3, 8.4, 8.5, and 8.6
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>

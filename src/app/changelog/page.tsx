@@ -22,8 +22,8 @@ export default function ChangelogPage() {
 
 
     <h3 className="mt-4 mb-2">
-      <a id="4.1.0-alpha.3"></a>
-      phpMyFAQ 4.1.0-alpha.3 - 2025-10-04
+      <a id="4.1.0-beta"></a>
+      phpMyFAQ 4.1.0-beta - 2025-11-22
     </h3>
     <ul className="list-unstyled ms-3">
       <li className="mb-1">changed PHP requirement to PHP 8.3 or later</li>
@@ -38,15 +38,16 @@ export default function ChangelogPage() {
       <li className="mb-1">added possibility to enable/disable admin session counter</li>
       <li className="mb-1">added EU Data Act 2025 compliance</li>
       <li className="mb-1">added Urdu translation</li>
-      <li className="mb-1">added dark mode / light mode toggle</li>
-      <li className="mb-1">added experimental support for PHP 8.5</li>
+      <li className="mb-1">added dark mode / light mode / high contrast toggle</li>
+      <li className="mb-1">added support for PHP 8.5</li>
+      <li className="mb-1">added support for OpenSearch</li>
+      <li className="mb-1">added support for .env files</li>
+      <li className="mb-1">added support for Mago</li>
       <li className="mb-1">added experimental support for FrankenPHP</li>
-      <li className="mb-1">added experimental support for OpenSearch</li>
       <li className="mb-1">added experimental support for LDAP group support</li>
       <li className="mb-1">added experimental MCP Server</li>
       <li className="mb-1">added experimental update via command line</li>
-      <li className="mb-1">added experimental support for .env files</li>
-      <li className="mb-1">added experimental support for Mago</li>
+      <li className="mb-1">added experimental support for PHP 8.6</li>
       <li className="mb-1">improved online update feature</li>
       <li className="mb-1">updated Spanish translation</li>
       <li className="mb-1">updated Japanese translation</li>
