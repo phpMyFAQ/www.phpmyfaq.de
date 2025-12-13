@@ -14,12 +14,12 @@ export default function Sponsors() {
               </a>{' '}
               in Finnish, on Kasinohai
               <br />
-              {/* 2025-12-31 */}
+              {/* 2025-12-31 - asked */}
               <a target="_blank" href="https://www.sportgokken.eu/beste-goksites-nederland/">
                 Goksites Nederland
               </a>
               <br />
-              {/* 2025-12-31 */}
+              {/* 2025-12-31 - asked  */}
               Holen Sie sich eine Liste mit dem besten{' '}
               <a target="_blank" href="https://casino-bonus.com/de/">
                 Casino Bonus
@@ -39,7 +39,7 @@ export default function Sponsors() {
               </a>{' '}
               che accettano giocatori italiani.
               <br />
-              {/* 2025-12-11 */}
+              {/* 2026-12-11 */}
               For the best in-play and cash out betting sites online, visit
               <a target="_blank" href="https://cashoutbettingsites.co.uk/">
                 cashoutbettingsites.co.uk
@@ -49,7 +49,7 @@ export default function Sponsors() {
               Get essential insights and expert tips before playing in
               <a href="https://www.bogdancazino.ro/">casino online Romania</a>
               <br />
-              {/* 2025-12-11 */}
+              {/* 2026-12-11 */}
               Für ein optimales Spielerlebnis in Casinos
               <a target="_blank" href="https://neue-casinos24.com/casino-ohne-oasis">
                 ohne OASIS Sperrdatei
@@ -62,8 +62,8 @@ export default function Sponsors() {
               </a>
               Lösungen. Handycasinos24.com für weitere Infos.
               <br />
-              <a target="_blank" href="https://casinozonderregistratie.net/casino-zonder-cruks/">
-                casinozonderregistratie.net's forum over no Cruks casino's
+              <a target="_blank" href="http://fi.parhaatuudetkasinot.com/nettikasinot">
+                nettikasinot
               </a>
               <br />
               <a target="_blank" href="https://nieuwe-casinos.net/casino-reviews">
