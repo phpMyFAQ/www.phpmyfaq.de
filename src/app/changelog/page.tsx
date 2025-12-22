@@ -56,12 +56,21 @@ export default function ChangelogPage() {
       <li className="mb-1">migrated from WYSIWYG editor from TinyMCE to Jodit Editor</li>
       <li className="mb-1">migrated from JavaScript to TypeScript</li>
       <li className="mb-1">migrated from Webpack to Vite v7</li>
-      <li className="mb-1">migrated from Jest to Vitest v3</li>
+      <li className="mb-1">migrated from Jest to Vitest v4</li>
     </ul>
 
     <h2 className="mt-5 mb-3">
       phpMyFAQ 4.0.x
     </h2>
+
+    <h3 className="mt-4 mb-2">
+      <a id="4.0.15"></a>
+      phpMyFAQ 4.0.15 - 2025-12-22
+    </h3>
+    <ul className="list-unstyled ms-3">
+      <li className="mb-1">updated third party dependencies</li>
+      <li className="mb-1">fixed bugs</li>
+    </ul>
 
     <h3 className="mt-4 mb-2">
       <a id="4.0.14"></a>
