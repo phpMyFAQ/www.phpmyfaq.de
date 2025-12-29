@@ -18,6 +18,9 @@ export default function AdvisoriesPage() {
           <h2>2025</h2>
           <ul>
             <li>
+              <Link href="/security/advisory-2025-12-29">Security Advisory 2025-12-29</Link>
+            </li>
+            <li>
               <Link href="/security/advisory-2025-11-15">Security Advisory 2025-11-15</Link>
             </li>
             <li>

@@ -1,11 +1,11 @@
 {
-  "version": "4.0.15",
+  "version": "4.0.16",
   "zip": {
     "filesize": 18.29,
-    "md5": "f96fc92d15a90eb52e468617dd41b7af"
+    "md5": "4c159ac45aabf7bb24db197300db0e71"
   },
   "targz": {
     "filesize": 14.96,
-    "md5": "57d2753d84a648427358aff1ed35cfd3"
+    "md5": "bfefd82bdefc34c054367cfd260e3377"
   }
 }
