@@ -14,8 +14,8 @@ describe('getMarkdownContent', () => {
   });
 
   it('should return null if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/file.md');
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/file.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
     const result = getMarkdownContent('file.md');
 
@@ -23,9 +23,9 @@ describe('getMarkdownContent', () => {
   });
 
   it('should return null on error', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/file.md');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockImplementation(() => {
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/file.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
       throw new Error('Read error');
     });
 
@@ -41,8 +41,8 @@ describe('getHandlebarsContent', () => {
   });
 
   it('should return null if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/file.hbs');
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/file.hbs');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
     const result = getHandlebarsContent('file.hbs');
 
@@ -50,9 +50,9 @@ describe('getHandlebarsContent', () => {
   });
 
   it('should return null on error', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/file.hbs');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockImplementation(() => {
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/file.hbs');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
       throw new Error('Read error');
     });
 

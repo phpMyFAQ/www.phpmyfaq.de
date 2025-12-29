@@ -55,7 +55,7 @@ describe('formatReleaseDate', () => {
 
 describe('getSiteConfig', () => {
   beforeEach(() => {
-    delete process.env.NODE_ENV;
+    vi.unstubAllEnvs();
   });
 
   it('should return development config by default', () => {
@@ -65,14 +65,14 @@ describe('getSiteConfig', () => {
   });
 
   it('should return staging config when NODE_ENV is staging', () => {
-    process.env.NODE_ENV = 'staging';
+    vi.stubEnv('NODE_ENV', 'staging');
     const config = getSiteConfig();
     expect(config.domain).toBe('https://staging.phpmyfaq.de');
     expect(config.siteUrl).toBe('https://staging.phpmyfaq.de');
   });
 
   it('should return production config when NODE_ENV is production', () => {
-    process.env.NODE_ENV = 'production';
+    vi.stubEnv('NODE_ENV', 'production');
     const config = getSiteConfig();
     expect(config.domain).toBe('https://www.phpmyfaq.de');
     expect(config.siteUrl).toBe('https://www.phpmyfaq.de');
@@ -85,8 +85,8 @@ describe('getVersions', () => {
   });
 
   it('should return null if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/versions.json');
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/versions.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
     const result = getVersions();
 
@@ -101,9 +101,9 @@ describe('getVersions', () => {
       development_released: '2025-10-04',
     };
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/versions.json');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockData));
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/versions.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(mockData));
 
     const result = getVersions();
 
@@ -111,9 +111,9 @@ describe('getVersions', () => {
   });
 
   it('should return null on error', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/versions.json');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockImplementation(() => {
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/versions.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
       throw new Error('Read error');
     });
 
@@ -129,8 +129,8 @@ describe('getStableInfo', () => {
   });
 
   it('should return null if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/stable.json');
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/stable.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
     const result = getStableInfo();
 
@@ -144,9 +144,9 @@ describe('getStableInfo', () => {
       targz: { filesize: 11.2, md5: 'def456' },
     };
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/stable.json');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockData));
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/stable.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(mockData));
 
     const result = getStableInfo();
 
@@ -160,8 +160,8 @@ describe('getDevelopmentInfo', () => {
   });
 
   it('should return null if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/development.json');
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/development.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
     const result = getDevelopmentInfo();
 
@@ -175,9 +175,9 @@ describe('getDevelopmentInfo', () => {
       targz: { filesize: 12.1, md5: 'jkl012' },
     };
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/development.json');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(JSON.stringify(mockData));
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/development.json');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(mockData));
 
     const result = getDevelopmentInfo();
 

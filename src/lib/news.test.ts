@@ -12,8 +12,8 @@ describe('parseNewsFile', () => {
   });
 
   it('should return empty array if file does not exist', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
-    vi.mocked(fs.existsSync).mockReturnValue(false);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/2025.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
     const result = parseNewsFile('2025');
 
@@ -39,9 +39,9 @@ The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.0.13](/download).
 The phpMyFAQ Team would like to announce [phpMyFAQ 4.0.12](/download).
 `;
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/2025.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(mockContent);
 
     const result = parseNewsFile('2025');
 
@@ -72,9 +72,9 @@ We're excited to announce the release.
 The phpMyFAQ Team is pleased to announce.
 `;
 
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent);
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/2025.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(mockContent);
 
     const result = parseNewsFile('2025');
 
@@ -84,9 +84,9 @@ The phpMyFAQ Team is pleased to announce.
   });
 
   it('should return empty array on error', () => {
-    vi.mocked(path.join).mockReturnValue('/mock/path/2025.md');
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockImplementation(() => {
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/2025.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
       throw new Error('Read error');
     });
 
@@ -135,9 +135,9 @@ News 6
 News 7
 `;
 
-    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`);
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent2025);
+    vi.spyOn(path, 'join').mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(mockContent2025);
 
     const result = getRecentNews(6);
 
@@ -177,11 +177,12 @@ News 5
 News 6
 `;
 
-    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`);
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockImplementation((path: string) => {
-      if (path.includes('2026.md')) return mockContent2026;
-      if (path.includes('2025.md')) return mockContent2025;
+    vi.spyOn(path, 'join').mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockImplementation((filePath: fs.PathOrFileDescriptor) => {
+      const pathStr = String(filePath);
+      if (pathStr.includes('2026.md')) return mockContent2026;
+      if (pathStr.includes('2025.md')) return mockContent2025;
       return '';
     });
 
@@ -211,9 +212,9 @@ Middle news
 Older news
 `;
 
-    vi.mocked(path.join).mockImplementation((_, __, filename) => `/mock/path/${filename}`);
-    vi.mocked(fs.existsSync).mockReturnValue(true);
-    vi.mocked(fs.readFileSync).mockReturnValue(mockContent);
+    vi.spyOn(path, 'join').mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(mockContent);
 
     const result = getRecentNews(3);
 
