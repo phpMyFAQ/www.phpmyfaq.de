@@ -44,7 +44,7 @@ export default function FeaturesPage() {
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              <a href="/translations">40+ languages</a> incl. RTL layouts for Arabic, Farsi and Hebrew
+              <a href="/translations">40+ languages</a> incl. RTL layouts for Arabic, Farsi, Urdu, and Hebrew
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
@@ -53,6 +53,10 @@ export default function FeaturesPage() {
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
               AI ready with an integrated MCP server
+            </li>
+            <li className="mb-2">
+              <i className="fas fa-check text-success me-2"></i>
+              Plugin system to extend phpMyFAQ&apos;s functionality
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
@@ -75,7 +79,7 @@ export default function FeaturesPage() {
 
       <div className="row g-4 mb-4">
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-edit fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">FAQ Content Management System</h3>
@@ -85,7 +89,7 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-users fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">User and group-based permissions</h3>
@@ -96,7 +100,7 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-search fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Powerful Search</h3>
@@ -110,7 +114,7 @@ export default function FeaturesPage() {
 
       <div className="row g-4 mb-4">
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-sign-in-alt fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">LDAP and HTTP authentication with SSO support</h3>
@@ -121,7 +125,7 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-cloud fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Active Directory and EntraID Support</h3>
@@ -132,7 +136,7 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-retweet fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Community support</h3>
@@ -146,7 +150,7 @@ export default function FeaturesPage() {
 
       <div className="row g-4 mb-4">
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-chart-bar fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Statistics</h3>
@@ -157,14 +161,14 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-code-branch fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Revision system</h3>
           <p>Store the old entries in wiki-like revisions, so you can switch back to old versions of the FAQ entry.</p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-download fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Backup and Restore</h3>
@@ -174,7 +178,7 @@ export default function FeaturesPage() {
 
       <div className="row g-4 mb-4">
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-comment fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">User comments</h3>
@@ -183,7 +187,7 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-lightbulb fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Smart answering</h3>
@@ -193,7 +197,7 @@ export default function FeaturesPage() {
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fab fa-google fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Search engine optimization</h3>
@@ -207,29 +211,38 @@ export default function FeaturesPage() {
 
       <div className="row g-4">
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-file-pdf fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Export and Import your FAQs</h3>
           <p>
-            Export as PDFs including a Table of Contents, and JSON files
-            <br />
-            Import FAQs in CSV format.
+            Export as PDFs including a Table of Contents, and JSON files. Import your existing FAQs in CSV format.
           </p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-shield-alt fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">Advanced spam protection</h3>
           <p>phpMyFAQ uses graphical captcha, bad word lists, and IPv4/IPv6 banlists to prevent spam.</p>
         </div>
         <div className="col-md-4 col-sm-6">
-          <div className="text-center mb-3">
+          <div className="mb-3">
             <i className="fas fa-robot fa-3x" style={{ color: '#ff6600' }}></i>
           </div>
           <h3 className="h5">MCP server</h3>
           <p>phpMyFAQ is AI ready with an integrated MCP server, so you can use phpMyFAQ together with AI clients.</p>
+        </div>
+      </div>
+      <div className="row g-4">
+        <div className="col-md-4 col-sm-6">
+          <div className="mb-3">
+            <i className="fas fa-puzzle-piece fa-3x" style={{ color: '#ff6600' }}></i>
+          </div>
+          <h3 className="h5">Plugin management</h3>
+          <p>
+            phpMyFAQ supports a plugin system to extend its functionality. You can easily install, and remove plugins.
+          </p>
         </div>
       </div>
     </PageLayout>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 // Remove SCSS bootstrap import and set Bootstrap theme via CSS variables instead
 :root {
   --bs-primary: #ff6600;
@@ -76,6 +80,53 @@ $info: #17a2b8;
   --color-text-muted: #a0a0a0;
   --color-border: #404040;
   --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+[class*='header'],
+[class*='Header'] {
+  background-color: #333333 !important;
+}
+
+[class*='header'] a,
+[class*='Header'] a,
+[class*='header'] nav a,
+[class*='Header'] nav a {
+  &:hover {
+    color: #ff6600 !important;
+  }
+}
+
+// Dark mode - same as light mode
+[data-theme='dark'] {
+  [class*='header'],
+  [class*='Header'] {
+    background-color: #333333 !important;
+  }
+
+  [class*='header'] a,
+  [class*='Header'] a,
+  [class*='header'] nav a,
+  [class*='Header'] nav a {
+    &:hover {
+      color: #ff6600 !important;
+    }
+  }
+}
+
+// Active navigation links - better contrast
+[class*='header'] nav a[class*='active'],
+[class*='Header'] nav a[class*='active'],
+[class*='header'] nav a.active,
+[class*='Header'] nav a.active {
+  color: #ffffff !important;
+  font-weight: 600;
+  border-bottom: 2px solid #ff6600 !important;
+  transition: border-bottom-color 0.3s ease !important;
+
+  &:hover {
+    color: #ffffff !important;
+    border-bottom-color: #ff8533 !important;
+  }
 }
 
 * {
@@ -230,7 +281,7 @@ h6 {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  background: #667eea;
+  background-color: #ff6600 !important;
   color: white;
   border-radius: 50%;
   margin: 0 0.5rem;
@@ -239,7 +290,7 @@ h6 {
 }
 
 .social-icons a:hover {
-  background: #5a6fd8;
+  background-color: #ff8533 !important;
   transform: translateY(-2px);
 }
 
