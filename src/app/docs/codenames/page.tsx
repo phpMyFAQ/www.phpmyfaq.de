@@ -171,7 +171,7 @@ export default function CodenamesPage() {
           <h2>phpMyFAQ 4.x series (2024 - today)</h2>
           <ul>
             <li>
-              <strong>phpMyFAQ 4.0.x</strong> (2024-today, 14 releases so far)
+              <strong>phpMyFAQ 4.0.x</strong> (2024-2026, 17 releases so far)
               <br />
               Codename:{' '}
               <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Pallas_(Titan)">
@@ -180,7 +180,7 @@ export default function CodenamesPage() {
               , the titan of warcraft in Greek mythology.
             </li>
             <li>
-              <strong>phpMyFAQ 4.1.x</strong> (2025?)
+              <strong>phpMyFAQ 4.1.x</strong> (2026)
               <br />
               Codename:{' '}
               <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Porus_(mythology)">
@@ -196,6 +196,33 @@ export default function CodenamesPage() {
                 Palaimon
               </a>
               , a prince in Greek mythology.
+            </li>
+            <li>
+              <strong>phpMyFAQ 4.3.x</strong>
+              <br />
+              Codename:{' '}
+              <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Phaethon">
+                Phaethon
+              </a>
+              , In Greek mythology, the son of Helios who attempted to drive the sun chariot.
+            </li>
+            <li>
+              <strong>phpMyFAQ 4.4.x</strong>
+              <br />
+              Codename:{' '}
+              <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Perseus">
+                Perseus
+              </a>
+              , a hero in Greek mythology.
+            </li>
+            <li>
+              <strong>phpMyFAQ 4.5.x</strong>
+              <br />
+              Codename:{' '}
+              <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Priam">
+                Priam
+              </a>
+              , the last king of Troy.
             </li>
           </ul>
         </div>
