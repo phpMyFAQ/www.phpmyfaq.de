@@ -24,6 +24,13 @@ export default function DocsIndexPage() {
           <h3>Current versions</h3>
           <ul>
             <li>
+              <a target="_blank" href="https://phpmyfaq.readthedocs.io/en/main/">
+                <strong>phpMyFAQ 4.2</strong>
+              </a>
+              <br />
+              <small>Currently in development, minimum requirement: PHP 8.4+ and a database</small>
+            </li>
+            <li>
               <a target="_blank" href="https://phpmyfaq.readthedocs.io/en/4.1/">
                 <strong>phpMyFAQ 4.1</strong>
               </a>
