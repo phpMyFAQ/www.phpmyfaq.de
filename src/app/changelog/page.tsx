@@ -19,11 +19,11 @@ export default function ChangelogPage() {
               dangerouslySetInnerHTML={{
                 __html: `<h2 className="mt-5 mb-3">
       phpMyFAQ 4.1.x
-
+    </h2>
 
     <h3 className="mt-4 mb-2">
-      <a id="4.1.0-RC"></a>
-      phpMyFAQ 4.1.0-RC - 2025-12-29
+      <a id="4.1.0-RC.2"></a>
+      phpMyFAQ 4.1.0-RC.2 - 2026-01-06
     </h3>
     <ul className="list-unstyled ms-3">
       <li className="mb-1">changed PHP requirement to PHP 8.3 or later</li>
@@ -51,22 +51,7 @@ export default function ChangelogPage() {
       <li className="mb-1">added experimental support for PHP 8.6</li>
       <li className="mb-1">improved online update feature</li>
       <li className="mb-1">improved experimental plugin manager</li>
-      <li className="mb-1">updated Spanish translation</li>
-      <li className="mb-1">updated Japanese translation</li>
-      <li className="mb-1">updated French translation</li>
-      <li className="mb-1">updated Portuguese and Brazilian Portuguese translation</li>
-      <li className="mb-1">updated Turkish translation</li>
-      <li className="mb-1">updated Dutch translation</li>
-      <li className="mb-1">updated Norwegian (Bokmål) translation</li>
-      <li className="mb-1">updated Italian translation</li>
-      <li className="mb-1">updated Finnish translation</li>
-      <li className="mb-1">updated Chinese (Simplified) and Chinese (Traditional) translations</li>
-      <li className="mb-1">updated Hungarian translation</li>
-      <li className="mb-1">updated Mongolian translation</li>
-      <li className="mb-1">updated Arabic translation</li>
-      <li className="mb-1">updated Basque translation</li>
-      <li className="mb-1">updated Bengali translation</li>
-      <li className="mb-1">updated Bosnian translation</li>
+      <li className="mb-1">updated all translations</li>
       <li className="mb-1">updated to PHPUnit v12</li>
       <li className="mb-1">migrated codebase to use PHP 8.3 language features</li>
       <li className="mb-1">migrated from WYSIWYG editor from TinyMCE to Jodit Editor</li>

@@ -45,7 +45,7 @@ export default function Sponsors() {
                 cashoutbettingsites.co.uk
               </a>
               <br />
-              {/* 2026-01-05 */}
+              {/* 2027-01-05 */}
               Get essential insights and expert tips before playing in
               <a href="https://www.bogdancazino.ro/">casino online Romania</a>
               <br />
@@ -70,7 +70,7 @@ export default function Sponsors() {
                 casino recensies
               </a>
               <br />
-              {/* 2026-01-02 */}
+              {/* 2026-01-02 - XXX */}
               At uusimmatkasinot.com you will find the best new online casinos,
               <a target="_blank" href="https://uusimmatkasinot.com/">
                 uudet nettikasinot

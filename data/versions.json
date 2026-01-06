@@ -1,8 +1,8 @@
 {
   "stable": "4.0.16",
   "stable_released": "2025-12-29",
-  "development": "4.1.0-RC",
-  "development_released": "2025-12-29",
-  "nightly": "nightly-2025-12-28",
-  "nightly_released": "2025-12-28"
+  "development": "4.1.0-RC.2",
+  "development_released": "2026-01-06",
+  "nightly": "nightly-2026-01-05",
+  "nightly_released": "2026-01-05"
 }
