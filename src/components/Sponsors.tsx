@@ -45,10 +45,6 @@ export default function Sponsors() {
                 cashoutbettingsites.co.uk
               </a>
               <br />
-              {/* 2027-01-05 */}
-              Get essential insights and expert tips before playing in
-              <a href="https://www.bogdancazino.ro/">casino online Romania</a>
-              <br />
               {/* 2026-12-11 */}
               Für ein optimales Spielerlebnis in Casinos
               <a target="_blank" href="https://neue-casinos24.com/casino-ohne-oasis">

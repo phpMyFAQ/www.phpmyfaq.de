@@ -22,8 +22,8 @@ export default function ChangelogPage() {
     </h2>
 
     <h3 className="mt-4 mb-2">
-      <a id="4.1.0-RC.2"></a>
-      phpMyFAQ 4.1.0-RC.2 - 2026-01-06
+      <a id="4.1.0-RC.3"></a>
+      phpMyFAQ 4.1.0-RC.3 - 2026-01-23
     </h3>
     <ul className="list-unstyled ms-3">
       <li className="mb-1">changed PHP requirement to PHP 8.3 or later</li>
@@ -63,6 +63,16 @@ export default function ChangelogPage() {
     <h2 className="mt-5 mb-3">
       phpMyFAQ 4.0.x
     </h2>
+
+    <h3 className="mt-4 mb-2">
+      <a id="4.0.17"></a>
+      phpMyFAQ 4.0.17 - 2026-01-23
+    </h3>
+    <ul className="list-unstyled ms-3">
+      <li className="mb-1">fixed security vulnerabilities</li>
+      <li className="mb-1">updated third party dependencies</li>
+      <li className="mb-1">fixed bugs</li>
+    </ul>
 
     <h3 className="mt-4 mb-2">
       <a id="4.0.16"></a>
