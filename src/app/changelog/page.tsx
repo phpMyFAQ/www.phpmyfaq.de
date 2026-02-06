@@ -22,8 +22,8 @@ export default function ChangelogPage() {
     </h2>
 
     <h3 className="mt-4 mb-2">
-      <a id="4.1.0-RC.3"></a>
-      phpMyFAQ 4.1.0-RC.3 - 2026-01-23
+      <a id="4.1.0-RC.4"></a>
+      phpMyFAQ 4.1.0-RC.4 - 2026-02-06
     </h3>
     <ul className="list-unstyled ms-3">
       <li className="mb-1">changed PHP requirement to PHP 8.3 or later</li>

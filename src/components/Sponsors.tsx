@@ -14,23 +14,12 @@ export default function Sponsors() {
               </a>{' '}
               in Finnish, on Kasinohai
               <br />
-              {/* 2025-12-31 - asked */}
-              <a target="_blank" href="https://www.sportgokken.eu/beste-goksites-nederland/">
-                Goksites Nederland
-              </a>
-              <br />
-              {/* 2025-12-31 - asked  */}
-              Holen Sie sich eine Liste mit dem besten{' '}
-              <a target="_blank" href="https://casino-bonus.com/de/">
-                Casino Bonus
-              </a>
-              ohne Einzahlung bei Casino Bonus Deutschland.
-              <br />
-              Looking for an online casino? Then we recommend comparing the best online casinos by visiting
-              <a target="_blank" href="https://casinoonline.casino/">
-                Casino Online
-              </a>
-              . They have the most updated list of trusted sites.
+              {/* 2027-02-02 */}
+              Find the best Zimpler casinos,{' '}
+              <a target="_blank" href="https://kasinokurko.com/">
+                Zimpler kasinot
+              </a>{' '}
+              in Finnish, on KasinoKurko
               <br />
               {/* 2026-02-27 */}
               Lista di{' '}
