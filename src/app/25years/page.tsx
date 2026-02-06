@@ -16,7 +16,9 @@ const milestones = [
   { year: '2009', title: 'Migrating to Git' },
   { year: '2011', title: 'Celebrating 10 Years' },
   { year: '2013', title: 'phpMyFAQ 2.8 & MPL 2.0' },
+  { year: '2016', title: 'Celebrating 15 Years' },
   { year: '2020', title: 'phpMyFAQ 3.0' },
+  { year: '2021', title: 'Celebrating 20 Years' },
   { year: '2024', title: 'phpMyFAQ 4.0' },
   { year: '2026', title: '25 Years & Still Going' },
 ];
@@ -39,6 +41,11 @@ export default function TwentyFiveYearsPage() {
         What started as a small PHP 3 script for an unofficial FAQ at a German hosting company has grown into a mature,
         multilingual open-source FAQ platform used around the world. Twenty-five years of continuous development,
         community contributions, and a passion for making knowledge accessible.
+      </p>
+      <p>
+        Knowledge is evolving – and so is phpMyFAQ. Look forward with the upcoming 4.1 and 4.2 releases to a future where 
+        we combine modern intelligence with AI Agent support via MCP and intuitive user experience to take self-service 
+        support to a whole new level.
       </p>
 
       {/* Timeline */}
