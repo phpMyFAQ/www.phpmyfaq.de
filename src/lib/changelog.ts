@@ -36,7 +36,7 @@ export async function getChangelogContent(): Promise<ChangelogData> {
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const htmlContent = marked.parse(content);
+  const htmlContent = marked.parse(content) as string;
 
   return {
     content: htmlContent,

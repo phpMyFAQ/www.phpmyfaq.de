@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import styles from './Header.module.scss';
@@ -23,7 +24,7 @@ export default function Header() {
         <div className={styles.headerContent}>
           <div className={styles.logo}>
             <Link href="/">
-              <img src="/images/logo-transparent.svg" width="199" height="50" alt="Logo of phpMyFAQ" />
+              <Image src="/images/logo-transparent.svg" width={199} height={50} alt="Logo of phpMyFAQ" unoptimized />
             </Link>
             <span className="visually-hidden">phpMyFAQ</span>
           </div>
