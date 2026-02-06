@@ -1,0 +1,215 @@
+// Anniversary badge
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+// Timeline
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+    transform: translateX(-50%);
+  }
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 2.5rem;
+
+  &:nth-child(odd) {
+    left: 0;
+    text-align: right;
+    padding-right: 2.5rem;
+    padding-left: 0;
+  }
+
+  &:nth-child(even) {
+    left: 50%;
+    text-align: left;
+    padding-left: 2.5rem;
+    padding-right: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary, #ff6600);
+    border-radius: 50%;
+    border: 2px solid var(--color-bg, #ffffff);
+    box-shadow: 0 0 0 2px var(--color-primary, #ff6600);
+    z-index: 1;
+  }
+
+  &:nth-child(odd)::before {
+    right: -6px;
+  }
+
+  &:nth-child(even)::before {
+    left: -6px;
+  }
+}
+
+.timelineYear {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.timelineTitle {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin: 0;
+  font-weight: 400;
+}
+
+// Stats grid
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.statCard {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--color-shadow);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+// Thank you section
+.thankYouList {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+
+  li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text);
+    line-height: 1.6;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Dark mode
+[data-theme='dark'] {
+  .badge {
+    box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
+  }
+
+  .statCard {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+  }
+}
+
+// Responsive: tablet
+@media (max-width: 991px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Responsive: mobile
+@media (max-width: 767px) {
+  .timeline {
+    &::before {
+      left: 0;
+    }
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding-left: 2rem !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+
+    &:nth-child(odd),
+    &:nth-child(even) {
+      left: 0;
+    }
+
+    &:nth-child(odd)::before,
+    &:nth-child(even)::before {
+      left: -6px;
+      right: auto;
+    }
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

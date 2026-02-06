@@ -43,6 +43,9 @@ export default function Footer() {
                   <Link href="/references">Who uses phpMyFAQ?</Link>
                 </li>
                 <li>
+                  <Link href="/25years">25 years phpMyFAQ (2026)</Link>
+                </li>
+                <li>
                   <Link href="/20years">20 years phpMyFAQ (2021)</Link>
                 </li>
                 <li>
