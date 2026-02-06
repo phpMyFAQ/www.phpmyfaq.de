@@ -8,6 +8,14 @@ const nextConfig = {
   output: isE2E ? undefined : 'export',
   reactStrictMode: true,
   trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: '/api/news/:path',
+        destination: '/api/news/:path.json',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

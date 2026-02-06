@@ -14,6 +14,20 @@ DirectoryIndex index.html
   # If the request is a directory, serve its index.html
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^(.*/)$ $1index.html [L]
+
+  # Map /api/news/* to /api/news/*.json (clean URLs for API)
+  RewriteCond %{REQUEST_URI} ^/api/news/([^/]+)/?$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/api/news/%1.json -f
+  RewriteRule ^api/news/([^/]+)/?$ /api/news/$1.json [L]
 </IfModule>
+
+# JSON API headers
+<FilesMatch "\.json$">
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/json"
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
 
 # Do NOT block index.txt; Next.js may fetch RSC flight data from it.

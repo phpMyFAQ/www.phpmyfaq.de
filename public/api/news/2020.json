@@ -1,0 +1,55 @@
+{
+  "generated": "2026-02-06T13:30:02.464Z",
+  "year": "2020",
+  "total": 12,
+  "news": [
+    {
+      "date": "2020-12-23",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.0.7](/download) and\n[phpMyFAQ 3.1.0-alpha.3](/download), the \"Valéry Giscard d’Estaing\" releases. phpMyFAQ 3.0.7 fixes a XSS vulnerability\nand adds the TOC plugin for TinyMCE. We removed support for deprecated data-vocabulary.org schema and the Travis CI\nbuild and we switched to Github Actions. We updated our dependencies and we fixed all reported issues. In\nphpMyFAQ 3.1.0-alpha.3 we added the possibility to login via email address and mail notifications for new FAQs in admin\nsection. We also improved the build of our application. We updated our dependencies and we fixed all reported issues.\nHappy holidays, stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2020-11-27",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.0.6](/download), the \"Diego Armando Maradona\" release. This release\nsupports PHP 8.0 and we fixed all reported issues. Stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2020-11-15",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.0-alpha.2](/download), the \"Four Seasons\nTotal Landscaping\" release. We fixed some blocking issues in the install and update scripts. Stay healthy and take care\nof yourself and families!"
+    },
+    {
+      "date": "2020-11-12",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.1.0-alpha](/download), the \"Sean Connery\" release. We changed the\nPHP requirement to PHP 7.3+, and we added support for PHP 8.0. We added support for Elasticsearch v6+, drag and drop\nsorting for main categories, the possibility to add users without a password, export of all users as CSV, and a opt-in\nfor displaying user data. We switched to ChartJS as new charting library, and a added new REST API v2.1 to register\nusers and add FAQs via API client tokens. We removed several deprecated and rarely used functionality like the REST API\nv1, the RSS support, the rewrite support for IIS, password hashing with MD5 and SHA-1 and the OpenSearch support. Stay\nhealthy and take care of yourself and families!"
+    },
+    {
+      "date": "2020-10-17",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.0.5](/download), the \"Ruth Bader Ginsburg\"\nrelease. We updated the bundled third party dependencies, and we fixed all reported issues. Stay healthy and take care\nof yourself and families!"
+    },
+    {
+      "date": "2020-07-26",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.0.4](/download), the \"Peter Green\" release. We extended the default\nsession timeout for the administration backend, we updated our dependencies, and we fixed all reported issues. Stay\nhealthy and take care of yourself and families!"
+    },
+    {
+      "date": "2020-05-21",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.0.3](/download), the \"Michel Piccoli\" release.\nWe improved the editing of FAQs in the admin backend and updated to Bootstrap v4.5. We updated our dependencies and\nwe fixed all reported issues. Stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2020-03-17",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.0.1](/download), the \"Max von Sydow\" release.\nWe re-added tag cloud on several pages, we fixed some minor bugs and especially issues for PostgreSQL. We updated all of\nour bundled dependencies. Stay save!"
+    },
+    {
+      "date": "2020-02-16",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.0.0](/download), the \"李文亮 (Li Wenliang)\" release. This new major\nversion after more than 3 years adds several improvements and new features. We changed PHP requirement to PHP 7.2 or\nlater, we added PHP namespaces, Docker support, support for Elasticsearch v5+, a LDAP configuration frontend, a\nconfiguration for enable/disable XML sitemap, support for category images, support for categories on homepage, a filter\nfunctionality in templates, an improved attachment overview, HTML5 export, support for EU General Data Protection\nRegulation, a multiple attachment upload, a 404 page template, a Mongolian translation, support for adding own meta\ncontent in templates and we added new REST API v2 (including login). We improved sticky records and the brute force\nprotection handling. We switched the CSS development from LESS to SCSS and the template variable syntax is now\ncompatible with Twig/Handlebars. We updated the Turkish translation and all bundled dependencies. With v3.0 we\ndeprecated RSS feeds and the old REST API v1. We removed the translation admin frontend, the XHTML export, support for\next/mssql the bundled Symfony ClassLoader, Bower (now using Yarn only), Grunt (now using Webpack) and Modernizr. We\nremoved share on Facebook link and the Facebook Like Button support."
+    },
+    {
+      "date": "2020-01-24",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.0.0-RC.2](/download), the \"Terry Jones\" release.\nWe fixed a lot of issue found by our test users of the first RC release and we updated all of our bundled\ndependencies. Please don't use this version in production systems, but test this version and please report bugs!"
+    },
+    {
+      "date": "2020-01-04",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.0.0-RC](/download), the \"Jan Fedder\" release. This first release\ncandidate adds a new REST API and we migrated from Grunt to Webpack. We fixed a lot of issue found by our test users of\nthe third beta release and we updated almost all of our bundled dependencies. Please don't use this version in production\nsystems, but test this version and please report bugs!"
+    },
+    {
+      "date": "2019-04-16",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.0.2](/download), the \"Stirling Moss\" release. We improved the\nhandling of multiple homepage categories and the editing of FAQs in the admin backend. We updated our dependencies and\nwe fixed all reported issues. Stay healthy and take care of yourself and families!"
+    }
+  ]
+}

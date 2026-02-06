@@ -1,0 +1,47 @@
+{
+  "generated": "2026-02-06T13:30:02.464Z",
+  "years": [
+    {
+      "year": "2026",
+      "count": 3,
+      "firstDate": "2026-01-06",
+      "lastDate": "2026-02-06"
+    },
+    {
+      "year": "2025",
+      "count": 21,
+      "firstDate": "2025-01-02",
+      "lastDate": "2025-12-29"
+    },
+    {
+      "year": "2024",
+      "count": 18,
+      "firstDate": "2024-01-02",
+      "lastDate": "2024-12-13"
+    },
+    {
+      "year": "2023",
+      "count": 20,
+      "firstDate": "2023-01-15",
+      "lastDate": "2023-11-24"
+    },
+    {
+      "year": "2022",
+      "count": 13,
+      "firstDate": "2022-01-17",
+      "lastDate": "2022-12-11"
+    },
+    {
+      "year": "2021",
+      "count": 5,
+      "firstDate": "2021-02-12",
+      "lastDate": "2021-10-22"
+    },
+    {
+      "year": "2020",
+      "count": 12,
+      "firstDate": "2019-04-16",
+      "lastDate": "2020-12-23"
+    }
+  ]
+}

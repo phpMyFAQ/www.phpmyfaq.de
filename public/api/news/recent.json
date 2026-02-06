@@ -1,0 +1,46 @@
+{
+  "generated": "2026-02-06T13:30:02.464Z",
+  "limit": 10,
+  "news": [
+    {
+      "date": "2026-02-06",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.4](/download), the \"Rita Süssmuth\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
+    },
+    {
+      "date": "2026-01-23",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.0.17](/download) and [phpMyFAQ 4.1.0-RC.3](/download),\nthe \"Renée Good\" releases.\nThese releases fix security vulnerabilities, update all third party dependencies, and fix all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-01-23)."
+    },
+    {
+      "date": "2026-01-06",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.2](/download), the \"Brigitte Bardot\" release.\nThis release fixes all reported bugs, we updated all translations with Claude Code, and we updated our third party \ndependencies."
+    },
+    {
+      "date": "2025-12-29",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.0-RC](/download),\nthe \"Chris Rea\" release.\nThis release fixes security vulnerabilities, improves the experimental plugin manager, fixes all reported bugs, and \nupdates our third party dependencies.\nWe also updated various bundled translations.\nAdditionally, we also released [phpMyFAQ 4.0.16](/download), the \"Perry Bamonte\" release, \nwhich fixes the same security vulnerabilities.\n[Click here to find a detailed security advisory](/security/advisory-2025-12-29)."
+    },
+    {
+      "date": "2025-12-22",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.0.15](/download), the \"Rosa von Praunheim\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
+    },
+    {
+      "date": "2025-12-16",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.0-beta.2](/download),\nthe \"Rob Reiner\" release.\nThis release fixes all reported bugs, improves A11Y, updates Vitest to version 4, and some translations.\nAdditionally, we updated our third party dependencies."
+    },
+    {
+      "date": "2025-11-22",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-beta](/download), the \"Kessler Twins\" release.\nThis first beta release is now feature-complete and introduces full support for PHP 8.5,\nfixes the reported bugs, and we updated our third party dependencies.\nWe added a high-contrast mode for better accessibility.\nIn addition, we already prepared phpMyFAQ for PHP 8.6 by fixing deprecations."
+    },
+    {
+      "date": "2025-11-15",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.0.14](/download),\nthe \"Ace Frehley\" release.\nThis release fixes a security vulnerability, fixes the reported bugs, and we updated our third party dependencies.\n[Click here to find a detailed security advisory](/security/advisory-2025-11-15)."
+    },
+    {
+      "date": "2025-10-12",
+      "content": "After eleven years we finally re-built our website from scratch.\nThe content is still the same, but the design is now modern and responsive.\nWe also migrated from the old Assemble-based site to a new static site based on Next.js.\nWe made heavy use of Anthropic's Claude Code to help us with the content migration."
+    },
+    {
+      "date": "2025-10-04",
+      "content": "We’re excited to announce the release of [phpMyFAQ 4.1.0-alpha.3](/download), the \"Jane Goodall\" release.\nThis version introduces several new features and experimental improvements.\nYou can now edit the llms.txt configuration file and benefit from full EU Data Act 2025 compliance.\nA new dark/light mode toggle enhances the user experience.\nIn addition, this release adds experimental support for PHP 8.5, FrankenPHP, LDAP group integration, MCP Server,\nupdates via the command line, .env file configuration, and Mago."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "generated": "2026-02-06T13:30:02.464Z",
+  "year": "2022",
+  "total": 13,
+  "news": [
+    {
+      "date": "2022-12-11",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.1.9](/download), the \"Irene Cara\" release. This release fixes\nmultiple vulnerabilities, we updated bundled dependencies, and we fixed all reported issues.\n[Click here to find a detailed security advisory](/security/advisory-2022-12-11)."
+    },
+    {
+      "date": "2022-10-24",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.8](/download), the \"Mahsa Amini\" release.\nThis release fixes multiple vulnerabilities, and we fixed all reported issues. [Click here to find a detailed security\nadvisory](/security/advisory-2022-10-24)."
+    },
+    {
+      "date": "2022-10-02",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.7](/download), the \"Elisabeth II.\" release.\nThis release fixes a CSRF vulnerability, and we fixed all reported issues. [Click here to find a detailed security\nadvisory](/security/advisory-2022-10-02)."
+    },
+    {
+      "date": "2022-07-23",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.1.6](/download), the \"Uwe Seeler\" release. This release fixes a\nstored XSS vulnerability, and we fixed all reported issues."
+    },
+    {
+      "date": "2022-06-27",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.5](/download), the \"Andrew Fletcher\" release.\nphpMyFAQ 3.1.5 adds compatibility with Elasticsearch v8+, adds trust of self-signed certificates with MS SQL, and we\nfixed all reported issues."
+    },
+    {
+      "date": "2022-04-25",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.1.4](/download), the \"#staywithukraine\" release. This release fixes\nan issue introduced with phpMyFAQ 3.1.3 yesterday. Stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2022-04-24",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.3](/download), the \"Taylor Hawkins\" release.\nphpMyFAQ 3.1.3 fixes a login issue when using LDAP and we fixed all reported issues."
+    },
+    {
+      "date": "2022-03-16",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.1.2](/download), the \"William Hurt\" release. We updated our\ndependencies and we fixed all reported issues."
+    },
+    {
+      "date": "2022-02-14",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.1](/download), the \"Ivan Reitman\" release.\nThis release fixes an issue introduced with the final phpMyFAQ 3.1.0. We also updated the third party dependencies. Stay\nhealthy and take care of yourself and families!"
+    },
+    {
+      "date": "2022-02-12",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.1.0](/download) on the 21st birthday of the project, the \"Louie\nAnderson\" release. This new major version after more than 2 years adds several improvements and new features. We changed\nthe minimum PHP version to v7.4. We added support for PHP 8.0 and PHP 8.1 and Elasticsearch v6+. We also added support\nfor the following new features: drag'n'drop sorting for main categories, possibility to add users without a password and\nexport of all users as CSV. We added ChartJS as new charting library. The new REST API v2.1 allows you to register users\nand add FAQs and we added API client tokens for REST API v2.1. We also added an opt-in for displaying user data, a mail\nnotifications for new FAQs in admin section and the possibility to login via email address. We updated Bootstrap to\nv4.6 and Composer to v2. Additionally, we support the Twitter API v2. We removed the support for the old REST API v1,\nRSS support, rewrite support for IIS, password hashing with MD5 and SHA-1, OpenSearch support, XML export, auto-save for\nFAQs during editing and obsolete DbUnit tests. Stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2022-01-22",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.1.0-RC](/download), the \"Meat Loaf\" release and\n[phpMyFAQ 3.0.12](/download), the \"Louie Anderson\" release. phpMyFAQ 3.1.0-RC is a release candidate without any new\nfeatures since the beta release last year but with a lot of improvements and bugfixes. The minimum PHP version is now\nv7.4. phpMyFAQ 3.0.12 fixes an issue introduced in phpMyFAQ 3.0.10 that broke the authentication when using the LDAP or\nAD authentication. Stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2022-01-18",
+      "content": "---\n\nThe phpMyFAQ Team is pleased to announce [phpMyFAQ 3.0.11](/download), the \"Desmond Tutu\" release. This release fixes\nan issue introduced with phpMyFAQ 3.0.10 yesterday. Stay healthy and take care of yourself and families!"
+    },
+    {
+      "date": "2022-01-17",
+      "content": "---\n\nThe phpMyFAQ Team would like to announce the availability of [phpMyFAQ 3.0.10](/download), the \"Sidney Poitier\" release.\nphpMyFAQ 3.0.10 fixes multiple cross-site request forgery (CSRF) and cross-site scripting (XSS) vulnerabilities. We\nupdated our dependencies and we fixed all reported issues. Happy new year 2022, stay healthy and take care of yourself\nand families!"
+    }
+  ]
+}

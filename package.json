@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run generate:news-api",
     "build": "next build",
     "postbuild": "cp -f static/.htaccess out/.htaccess || true",
     "lint": "eslint .",
@@ -18,6 +19,7 @@
     "test:e2e:headed": "PLAYWRIGHT_TEST=1 playwright test --headed",
     "fetch:versions": "npx tsx scripts/fetch-versions.ts",
     "fetch:downloads": "npx tsx scripts/fetch-downloads.ts",
+    "generate:news-api": "npx tsx scripts/generate-news-api.ts",
     "update:data": "npm run fetch:versions && npm run fetch:downloads",
     "prepare": "husky",
     "format": "prettier --write .",
