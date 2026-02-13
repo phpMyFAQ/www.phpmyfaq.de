@@ -1,8 +1,9 @@
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'News archive',
   'News archive overview about all news about phpMyFAQ since 2001',
 );
@@ -13,6 +14,14 @@ export default function NewsPage() {
       <div className="row">
         <div className="col-12">
           <ul className="list-unstyled">
+            <li className="mb-4">
+              <h2>
+                <Link href="/news/2026">2026</Link>
+              </h2>
+              <h3 className="text-muted">
+                Working hard on phpMyFAQ 4.1, getting all ready for PHP 8.6, started working on phpMyFAQ 4.2
+              </h3>
+            </li>
             <li className="mb-4">
               <h2>
                 <Link href="/news/2025">2025</Link>
