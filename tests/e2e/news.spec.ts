@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const years = Array.from({ length: 25 }, (_, i) => 2001 + i);
+const years = Array.from({ length: 26 }, (_, i) => 2001 + i);
 
 test.describe('News Pages', () => {
   test('news index page should load', async ({ page }) => {
@@ -14,7 +14,7 @@ test.describe('News Pages', () => {
   for (const year of years) {
     test(`news page for ${year} should load and display content`, async ({ page }) => {
       await page.goto(`/news/${year}`);
-      await expect(page.locator('h1')).toContainText(`phpMyFAQ news from ${year}`);
+      await expect(page.locator('h1')).toContainText(`phpMyFAQ News from ${year}`);
       await expect(page.locator('nav[aria-label="breadcrumb"]')).toBeVisible();
       await expect(page.getByRole('link', { name: 'News', exact: true })).toBeVisible();
       await expect(page.locator('.breadcrumb-item.active')).toContainText(year.toString());
@@ -34,8 +34,8 @@ test.describe('News Pages', () => {
     expect(response?.status()).toBe(404);
   });
 
-  test('future year beyond 2025 should return 404', async ({ page }) => {
-    const response = await page.goto('/news/2026');
+  test('future year beyond 2026 should return 404', async ({ page }) => {
+    const response = await page.goto('/news/2027');
     expect(response?.status()).toBe(404);
   });
 
@@ -55,7 +55,7 @@ test.describe('News Pages', () => {
 
   test('older years (2001-2010) with bold date format should display correctly', async ({ page }) => {
     await page.goto('/news/2001');
-    await expect(page.locator('h1')).toContainText('phpMyFAQ news from 2001');
+    await expect(page.locator('h1')).toContainText('phpMyFAQ News from 2001');
     const dateHeaders = page.locator('h3');
     await expect(dateHeaders.first()).toBeVisible();
     const firstDateText = await dateHeaders.first().textContent();
@@ -64,7 +64,7 @@ test.describe('News Pages', () => {
 
   test('newer years (2020+) with ### format should display correctly', async ({ page }) => {
     await page.goto('/news/2020');
-    await expect(page.locator('h1')).toContainText('phpMyFAQ news from 2020');
+    await expect(page.locator('h1')).toContainText('phpMyFAQ News from 2020');
     const dateHeaders = page.locator('h3');
     await expect(dateHeaders.first()).toBeVisible();
     const firstDateText = await dateHeaders.first().textContent();
