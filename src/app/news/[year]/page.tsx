@@ -15,7 +15,7 @@ interface NewsYearPageProps {
   }>;
 }
 
-// Function to read and parse markdown content
+// Function to read and parse Markdown content
 function getNewsContent(year: string): string | null {
   try {
     const filePath = join(process.cwd(), 'content/news', `${year}.md`);
@@ -35,7 +35,7 @@ function getNewsContent(year: string): string | null {
 function parseNewsContent(content: string): React.JSX.Element[] {
   // Handle three formats:
   // 1. ###YYYY-MM-DD or ### YYYY-MM-DD (newer format)
-  // 2. **YYYY-MM-DD** (older format with bold markdown)
+  // 2. **YYYY-MM-DD** (older format with bold Markdown)
   const dateRegex = /(?:###\s*|\*\*)(\d{4}-\d{2}-\d{2})(?:\*\*)?/g;
   const dates: string[] = [];
   let match;
@@ -56,7 +56,7 @@ function parseNewsContent(content: string): React.JSX.Element[] {
 
     const date = dates[i - 1] || '';
 
-    // Process content - convert markdown links to JSX and clean up separators
+    // Process content - convert Markdown links to JSX and clean up separators
     const processedContent = section
       .replace(/^\*\s*\*\s*\*/gm, '') // Remove separator lines
       .replace(
@@ -81,14 +81,14 @@ function parseNewsContent(content: string): React.JSX.Element[] {
 }
 
 export async function generateStaticParams() {
-  // Generate params for all years from 2001 to 2025
-  const years = Array.from({ length: 25 }, (_, i) => 2001 + i);
+  // Generate params for all years from 2001 to 2026
+  const years = Array.from({ length: 26 }, (_, i) => 2001 + i);
   return years.map((year) => ({ year: year.toString() }));
 }
 
 export async function generateMetadata({ params }: NewsYearPageProps): Promise<Metadata> {
   const { year } = await params;
-  return generatePageMetadata(`phpMyFAQ news from ${year}`, `What happened this year so far?`);
+  return generatePageMetadata(`phpMyFAQ News from ${year}`, `What happened this year so far?`);
 }
 
 export default async function NewsYearPage({ params }: NewsYearPageProps) {
@@ -100,7 +100,7 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
   }
 
   const yearNum = parseInt(year);
-  if (yearNum < 2001 || yearNum > 2025) {
+  if (yearNum < 2001 || yearNum > 2026) {
     notFound();
   }
 
@@ -113,7 +113,7 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
   const newsElements = parseNewsContent(content);
 
   return (
-    <PageLayout title={`phpMyFAQ news from ${year}`}>
+    <PageLayout title={`phpMyFAQ News from ${year}`}>
       <div className="row">
         <div className="col-12">
           <nav aria-label="breadcrumb">

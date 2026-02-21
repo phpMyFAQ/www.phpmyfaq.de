@@ -26,7 +26,7 @@ describe('RecentNews', () => {
 
     render(<RecentNews />);
 
-    expect(screen.getByText('Latest phpMyFAQ news')).toBeInTheDocument();
+    expect(screen.getByText('Latest phpMyFAQ News')).toBeInTheDocument();
     expect(screen.getByText('2025-10-04')).toBeInTheDocument();
     expect(screen.getByText('2025-10-03')).toBeInTheDocument();
   });
@@ -70,7 +70,7 @@ describe('RecentNews', () => {
 
     render(<RecentNews />);
 
-    expect(screen.getByText('Latest phpMyFAQ news')).toBeInTheDocument();
+    expect(screen.getByText('Latest phpMyFAQ News')).toBeInTheDocument();
     expect(screen.queryByText(/2025-/)).not.toBeInTheDocument();
   });
 });

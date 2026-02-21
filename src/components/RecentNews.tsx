@@ -12,16 +12,16 @@ export default function RecentNews() {
   return (
     <section id="news" className="news">
       <div className="container mt-5">
-        <h2 className="mb-2">
+        <h2 className="mb-4">
           <a id="latest-news"></a>
-          Latest phpMyFAQ news
+          Latest phpMyFAQ News
         </h2>
         <div className="row">
           {newsItems.map((item, index) => (
             <div key={index} className="col-lg-4 col-md-6 col-xs-12 mb-4">
               <div className="news-item">
-                <h3>{item.date}</h3>
-                <hr />
+                <h3 className={'mb-2'}>{item.date}</h3>
+                <hr className={'mb-2'} />
                 <div className="news-content" dangerouslySetInnerHTML={{ __html: formatContent(item.content) }} />
               </div>
             </div>

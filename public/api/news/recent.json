@@ -1,7 +1,11 @@
 {
-  "generated": "2026-02-13T13:07:50.843Z",
+  "generated": "2026-02-21T08:35:04.694Z",
   "limit": 10,
   "news": [
+    {
+      "date": "2026-02-21",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.0-RC.6](/download),\nthe \"Eric Dane\" releases.\nThis release fixes all reported bugs, and we updated our third party dependencies."
+    },
     {
       "date": "2026-02-13",
       "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.5](/download), the \"James Van Der Beek\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
@@ -37,10 +41,6 @@
     {
       "date": "2025-11-22",
       "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-beta](/download), the \"Kessler Twins\" release.\nThis first beta release is now feature-complete and introduces full support for PHP 8.5,\nfixes the reported bugs, and we updated our third party dependencies.\nWe added a high-contrast mode for better accessibility.\nIn addition, we already prepared phpMyFAQ for PHP 8.6 by fixing deprecations."
-    },
-    {
-      "date": "2025-11-15",
-      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.0.14](/download),\nthe \"Ace Frehley\" release.\nThis release fixes a security vulnerability, fixes the reported bugs, and we updated our third party dependencies.\n[Click here to find a detailed security advisory](/security/advisory-2025-11-15)."
     }
   ]
 }

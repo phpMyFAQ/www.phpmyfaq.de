@@ -1,8 +1,12 @@
 {
-  "generated": "2026-02-13T13:07:50.843Z",
+  "generated": "2026-02-21T08:35:04.694Z",
   "year": "2026",
-  "total": 5,
+  "total": 6,
   "news": [
+    {
+      "date": "2026-02-21",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.0-RC.6](/download),\nthe \"Eric Dane\" releases.\nThis release fixes all reported bugs, and we updated our third party dependencies."
+    },
     {
       "date": "2026-02-13",
       "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.5](/download), the \"James Van Der Beek\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
