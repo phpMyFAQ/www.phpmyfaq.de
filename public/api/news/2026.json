@@ -1,8 +1,12 @@
 {
-  "generated": "2026-02-11T17:55:59.118Z",
+  "generated": "2026-02-13T13:07:50.843Z",
   "year": "2026",
-  "total": 4,
+  "total": 5,
   "news": [
+    {
+      "date": "2026-02-13",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.5](/download), the \"James Van Der Beek\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
+    },
     {
       "date": "2026-02-12",
       "content": "Today [25 years](/25years) ago, Thorsten Rinne and Bastian Pöttner started with the development of phpMyFAQ. \nWe would like to say thank-you to everyone who helped with the development and every one of our users! \nHappy 25th birthday, phpMyFAQ!"

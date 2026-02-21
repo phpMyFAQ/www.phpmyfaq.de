@@ -1,7 +1,11 @@
 {
-  "generated": "2026-02-11T17:55:59.118Z",
+  "generated": "2026-02-13T13:07:50.843Z",
   "limit": 10,
   "news": [
+    {
+      "date": "2026-02-13",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.5](/download), the \"James Van Der Beek\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
+    },
     {
       "date": "2026-02-12",
       "content": "Today [25 years](/25years) ago, Thorsten Rinne and Bastian Pöttner started with the development of phpMyFAQ. \nWe would like to say thank-you to everyone who helped with the development and every one of our users! \nHappy 25th birthday, phpMyFAQ!"
@@ -37,10 +41,6 @@
     {
       "date": "2025-11-15",
       "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.0.14](/download),\nthe \"Ace Frehley\" release.\nThis release fixes a security vulnerability, fixes the reported bugs, and we updated our third party dependencies.\n[Click here to find a detailed security advisory](/security/advisory-2025-11-15)."
-    },
-    {
-      "date": "2025-10-12",
-      "content": "After eleven years we finally re-built our website from scratch.\nThe content is still the same, but the design is now modern and responsive.\nWe also migrated from the old Assemble-based site to a new static site based on Next.js.\nWe made heavy use of Anthropic's Claude Code to help us with the content migration."
     }
   ]
 }

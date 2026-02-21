@@ -6,7 +6,7 @@ canonical: changelog
 
 ## phpMyFAQ 4.1.x
 
-### phpMyFAQ 4.1.0-RC.5 - 2026-02-13 {#4.1.0-RC.5}
+### phpMyFAQ 4.1.0-RC.6 - 2026-02-21 {#4.1.0-RC.6}
 
 - changed PHP requirement to PHP 8.3 or later
 - added configuration to edit robots.txt
