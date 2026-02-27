@@ -9,7 +9,7 @@ export default function Hero() {
         </h2>
 
         <p className="intro">
-          phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.2+
+          phpMyFAQ is a mobile-friendly, feature-rich, AI-ready, and scalable open source FAQ web app for PHP 8.2+
         </p>
 
         <div className="btns">

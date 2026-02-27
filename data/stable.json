@@ -1,11 +1,11 @@
 {
-  "version": "4.0.17",
+  "version": "4.0.18",
   "zip": {
-    "filesize": 18.3,
-    "md5": "bae7813f86d4de85476cce672b775af4"
+    "filesize": 18.31,
+    "md5": "8ea4b20c0ab7170677a553ccaa796be9"
   },
   "targz": {
     "filesize": 14.96,
-    "md5": "74fd4acbcbd964e6d7f3b43a5d765b7b"
+    "md5": "11948a382f59bc8701edd153c3f74fa1"
   }
 }

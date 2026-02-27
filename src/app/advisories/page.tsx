@@ -15,6 +15,16 @@ export default function AdvisoriesPage() {
         <div className="col-12">
           <p>Here you can find our advisories:</p>
 
+          <h2>2026</h2>
+          <ul>
+            <li>
+              <Link href="/security/advisory-2026-02-27">Security Advisory 2026-02-27</Link>
+            </li>
+            <li>
+              <Link href="/security/advisory-2026-01-23">Security Advisory 2026-01-23</Link>
+            </li>
+          </ul>
+
           <h2>2025</h2>
           <ul>
             <li>
@@ -30,7 +40,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2025-01-02">Security Advisory 2025-01-02</Link>
             </li>
           </ul>
-
           <h2>2024</h2>
           <ul>
             <li>
@@ -49,7 +58,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2024-02-05">Security Advisory 2024-02-05</Link>
             </li>
           </ul>
-
           <h2>2023</h2>
           <ul>
             <li>
@@ -80,7 +88,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2023-01-15">Security Advisory 2023-01-15</Link>
             </li>
           </ul>
-
           <h2>2022</h2>
           <ul>
             <li>
@@ -99,28 +106,24 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2022-01-17">Security Advisory 2022-01-17</Link>
             </li>
           </ul>
-
           <h2>2021</h2>
           <ul>
             <li>
               <Link href="/security/advisory-2021-10-22">Security Advisory 2021-10-22</Link>
             </li>
           </ul>
-
           <h2>2020</h2>
           <ul>
             <li>
               <Link href="/security/advisory-2020-12-23">Security Advisory 2020-12-23</Link>
             </li>
           </ul>
-
           <h2>2018</h2>
           <ul>
             <li>
               <Link href="/security/advisory-2018-09-02">Security Advisory 2018-09-02</Link>
             </li>
           </ul>
-
           <h2>2017</h2>
           <ul>
             <li>
@@ -136,7 +139,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2017-01-27">Security Advisory 2017-01-27</Link>
             </li>
           </ul>
-
           <h2>2016</h2>
           <ul>
             <li>
@@ -146,7 +148,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2016-04-11">Security Advisory 2016-04-11</Link>
             </li>
           </ul>
-
           <h2>2014</h2>
           <ul>
             <li>
@@ -159,7 +160,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2014-02-04">Security Advisory 2014-02-04</Link>
             </li>
           </ul>
-
           <h2>2013</h2>
           <ul>
             <li>
@@ -169,14 +169,12 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2013-11-18">Security Advisory 2013-11-18</Link>
             </li>
           </ul>
-
           <h2>2012</h2>
           <ul>
             <li>
               <Link href="/security/advisory-2012-04-14">Security Advisory 2012-04-14</Link>
             </li>
           </ul>
-
           <h2>2011</h2>
           <ul>
             <li>
@@ -186,7 +184,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2011-09-28">Security Advisory 2011-09-28</Link>
             </li>
           </ul>
-
           <h2>2010</h2>
           <ul>
             <li>
@@ -196,7 +193,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2010-09-28">Security Advisory 2010-09-28</Link>
             </li>
           </ul>
-
           <h2>2009</h2>
           <ul>
             <li>
@@ -209,21 +205,18 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2009-06-02">Security Advisory 2009-06-02</Link>
             </li>
           </ul>
-
           <h2>2008</h2>
           <ul>
             <li>
               <Link href="/security/advisory-2008-09-11">Security Advisory 2008-09-11</Link>
             </li>
           </ul>
-
           <h2>2007</h2>
           <ul>
             <li>
               <Link href="/security/advisory-2007-02-18">Security Advisory 2007-02-18</Link>
             </li>
           </ul>
-
           <h2>2006</h2>
           <ul>
             <li>
@@ -233,7 +226,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2006-04-21">Security Advisory 2006-04-21</Link>
             </li>
           </ul>
-
           <h2>2005</h2>
           <ul>
             <li>
@@ -252,7 +244,6 @@ export default function AdvisoriesPage() {
               <Link href="/security/advisory-2005-03-06">Security Advisory 2005-03-06</Link>
             </li>
           </ul>
-
           <h2>2004</h2>
           <ul>
             <li>

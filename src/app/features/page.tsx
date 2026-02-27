@@ -10,8 +10,8 @@ export default function FeaturesPage() {
   return (
     <PageLayout title="phpMyFAQ Features">
       <p className="lead text-center mb-5">
-        phpMyFAQ is a mobile-friendly, multilingual, scalable, completely database-driven FAQ software and offers the
-        following features - from single FAQ sites up to enterprise ready integrations:
+        phpMyFAQ is a mobile-friendly, multilingual, AI-ready, scalable, completely database-driven FAQ software and
+        offers the following features - from single FAQ sites up to enterprise ready integrations:
       </p>
 
       {/* Core Features */}
@@ -25,7 +25,8 @@ export default function FeaturesPage() {
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              Supports MySQL, MariaDB, PostgreSQL, MS SQL Server, SQLite3, Azure SQL, Elasticsearch, and OpenSearch
+              Supports MySQL, MariaDB, PostgreSQL, MS SQL Server, SQLite3, Azure SQL, Elasticsearch, OpenSearch, and
+              Redis databases
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
@@ -33,7 +34,7 @@ export default function FeaturesPage() {
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              Mobile first, touch-friendly HTML5/CSS3 layout based on{' '}
+              Mobile first, touch-friendly, and accessible HTML5/CSS3 layout based on{' '}
               <a href="https://getbootstrap.com/" target="_blank" rel="nofollow">
                 Bootstrap
               </a>
@@ -48,7 +49,7 @@ export default function FeaturesPage() {
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>
-              Simple installation and configuration
+              Simple installation, configuration, and update process with a web-based installer and updater
             </li>
             <li className="mb-2">
               <i className="fas fa-check text-success me-2"></i>

@@ -16,6 +16,12 @@ layout: none
       <div class="col-xs-12">
         Here you can find our advisories:
 
+        ## 2026
+        <ul>
+            <li><a href="/security/advisory-2026-02-27">Security Advisory 2026-02-27</a></li>
+            <li><a href="/security/advisory-2026-01-23">Security Advisory 2026-01-23</a></li>
+        </ul>
+
         ## 2025
         <ul>
           <li><a href="/security/advisory-2025-12-29">Security Advisory 2025-12-29</a></li>
