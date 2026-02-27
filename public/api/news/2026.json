@@ -1,8 +1,12 @@
 {
-  "generated": "2026-02-24T07:08:57.637Z",
+  "generated": "2026-02-27T12:20:51.530Z",
   "year": "2026",
-  "total": 6,
+  "total": 7,
   "news": [
+    {
+      "date": "2026-02-27",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.0.18](/download) and [phpMyFAQ 4.1.0-RC.7](/download), \nthe \"Jesse Jackson\" releases.\nThese releases fix security vulnerabilities, update all third party dependencies, and fix all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-02-27)."
+    },
     {
       "date": "2026-02-21",
       "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.0-RC.6](/download),\nthe \"Eric Dane\" releases.\nThis release fixes all reported bugs, and we updated our third party dependencies."
