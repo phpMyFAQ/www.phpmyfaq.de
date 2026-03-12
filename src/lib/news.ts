@@ -42,7 +42,7 @@ export function parseNewsFile(year: string): NewsItem[] {
       const next = matches[i + 1];
 
       const startIndex = current.index;
-      // Calculate how much to subtract for next header
+      // Calculate how much to subtract for the next header
       // We need to find the position right before the next "###" line
       let endIndex: number;
       if (next) {

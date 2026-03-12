@@ -5,8 +5,9 @@ export default function RecentNews() {
   const newsItems = getRecentNews(6);
 
   const formatContent = (content: string) => {
-    // Simple markdown-like formatting for links
-    return content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    return content
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\n/g, '<br>');
   };
 
   return (
