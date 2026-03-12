@@ -5,11 +5,11 @@ export default function Hero() {
     <section className="promo offset-header">
       <div className="container text-center">
         <h2 className="title">
-          phpMy<span className="highlight">FAQ</span> 4.0
+          phpMy<span className="highlight">FAQ</span> 4.1
         </h2>
 
         <p className="intro">
-          phpMyFAQ is a mobile-friendly, feature-rich, AI-ready, and scalable open source FAQ web app for PHP 8.2+
+          phpMyFAQ is a mobile-friendly, feature-rich, AI-ready, and scalable open source FAQ web app for PHP 8.3+
         </p>
 
         <div className="btns">

@@ -19,7 +19,7 @@ export default function NewsPage() {
                 <Link href="/news/2026">2026</Link>
               </h2>
               <h3 className="text-muted">
-                Working hard on phpMyFAQ 4.1, getting all ready for PHP 8.6, started working on phpMyFAQ 4.2
+                Finally, releasing phpMyFAQ 4.1, getting all ready for PHP 8.6, started working on phpMyFAQ 4.2
               </h3>
             </li>
             <li className="mb-4">
