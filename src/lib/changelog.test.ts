@@ -104,7 +104,7 @@ title: Changelog
 
     const result = await getChangelogContent();
 
-    expect(result.content).toContain('<ul class="ms-3">');
+    expect(result.content).toContain('<ul class="ms-3" style="list-style-type: disc">');
     expect(result.content).toContain('<li class="mb-1">first item</li>');
     expect(result.content).toContain('<li class="mb-1">second item</li>');
   });

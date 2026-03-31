@@ -25,7 +25,7 @@ const renderer = {
   },
   list(token: Tokens.List): string {
     const body = token.items.map((item) => `<li class="mb-1">${item.tokens.map((t) => ('text' in t ? t.text : '')).join('')}</li>`).join('\n');
-    return `<ul class="ms-3">\n${body}\n</ul>\n`;
+    return `<ul class="ms-3" style="list-style-type: disc">\n${body}\n</ul>\n`;
   },
 };
 
