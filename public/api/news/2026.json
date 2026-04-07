@@ -1,8 +1,12 @@
 {
-  "generated": "2026-03-12T14:42:28.305Z",
+  "generated": "2026-03-31T17:17:06.072Z",
   "year": "2026",
-  "total": 8,
+  "total": 9,
   "news": [
+    {
+      "date": "2026-03-31",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.1](/download), the \"Chuck Norris\" releases.\nThis release fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-03-31)."
+    },
     {
       "date": "2026-03-12",
       "content": "[phpMyFAQ 4.1.0](/download), the \"Neil Sedaka\" release, is here. This release brings a modernized platform with PHP 8.3+ \nsupport, TypeScript, Vite 7, Vitest 4, Jodit Editor, Symfony routing in the admin backend, and many new administration \nfeatures. It also adds OpenSearch, .env support, accessibility improvements with dark mode/light mode/high contrast, \nupdated translations, and several experimental features such as FrankenPHP, MCP Server, LDAP group support, CLI updates, \nand support for PHP 8.5/8.6.\n\nWith this release, phpMyFAQ takes a big architectural step forward and is fully prepared for modern PHP environments, \nenterprise integration, and AI-driven workflows.\n\nWe also released [phpMyFAQ 4.0.19](/download), the last bugfix release for the 4.0 branch, which includes all fixes and \nupdates to third party dependencies."

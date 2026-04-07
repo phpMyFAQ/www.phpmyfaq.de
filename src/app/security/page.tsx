@@ -9,7 +9,7 @@ export const metadata: Metadata = generatePageMetadata(
   'We seriously take care about any security issues found in phpMyFAQ or bundled components. This page provides links to all our security advisories.',
 );
 
-export default function AdvisoriesPage() {
+export default function SecurityPage() {
   const advisoriesByYear = getAdvisoriesByYear();
 
   return (

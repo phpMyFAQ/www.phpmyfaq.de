@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
@@ -13,7 +13,7 @@ interface SecurityAdvisoryPageProps {
   }>;
 }
 
-// Function to read and parse markdown content
+// Function to read and parse Markdown content
 function getAdvisoryContent(advisory: string): { title: string; description: string; content: string } | null {
   try {
     const filePath = join(process.cwd(), 'content/security', `${advisory}.md`);
@@ -41,15 +41,11 @@ function getAdvisoryContent(advisory: string): { title: string; description: str
 }
 
 export async function generateStaticParams() {
-  // Read all security advisory files from the content/security directory
-  const { readdirSync } = await import('fs');
-  const { join } = await import('path');
-
   const securityDir = join(process.cwd(), 'content/security');
   const files = readdirSync(securityDir);
 
   return files
-    .filter((file) => file.endsWith('.md'))
+    .filter((file) => file.startsWith('advisory-') && file.endsWith('.md'))
     .map((file) => ({
       advisory: file.replace('.md', ''),
     }));
@@ -90,7 +86,7 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <Link href="/advisories">Security Advisories</Link>
+                <Link href="/security">Security Advisories</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 {advisory}

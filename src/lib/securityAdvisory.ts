@@ -1,3 +1,39 @@
+import { readdirSync, readFileSync } from 'fs';
+import { join } from 'path';
+
+// Reads all advisory markdown files from content/security/ and returns them grouped by year (descending)
+export function getAdvisoriesByYear(): { year: string; advisories: { slug: string; title: string }[] }[] {
+  const securityDir = join(process.cwd(), 'content/security');
+  const files = readdirSync(securityDir)
+    .filter((file) => file.startsWith('advisory-') && file.endsWith('.md'));
+
+  const advisories = files.map((file) => {
+    const slug = file.replace('.md', '');
+    const content = readFileSync(join(securityDir, file), 'utf-8');
+    const titleMatch = content.match(/title:\s*(.+)/);
+    const title = titleMatch ? titleMatch[1].trim() : `Security Advisory ${slug.replace('advisory-', '')}`;
+    const dateMatch = slug.match(/^advisory-(\d{4})/);
+    const year = dateMatch ? dateMatch[1] : 'Unknown';
+    return { slug, title, year };
+  });
+
+  // Group by year
+  const grouped = new Map<string, { slug: string; title: string }[]>();
+  for (const advisory of advisories) {
+    const list = grouped.get(advisory.year) || [];
+    list.push({ slug: advisory.slug, title: advisory.title });
+    grouped.set(advisory.year, list);
+  }
+
+  // Sort years descending, advisories within each year descending by slug
+  return Array.from(grouped.entries())
+    .sort(([a], [b]) => b.localeCompare(a))
+    .map(([year, items]) => ({
+      year,
+      advisories: items.sort((a, b) => b.slug.localeCompare(a.slug)),
+    }));
+}
+
 // Parser für Security-Advisory-Markdown in einen HTML-String
 // - Gruppiert aufeinanderfolgende Metadaten-Zeilen (**Label:** Wert) in ein gemeinsames <dl class="dl-horizontal">
 // - Belässt vorhandenes HTML unverändert
