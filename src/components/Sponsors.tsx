@@ -7,7 +7,7 @@ export default function Sponsors() {
             <div className="text-center" style={{ fontSize: '10px', marginTop: '20px' }}>
               <strong>SPONSORED BY</strong>
               <br />
-              {/* 2026-04-21 */}
+              {/* 2026-04-21 -> Valeria */}
               Find the best online casinos,{' '}
               <a target="_blank" href="https://www.kasinohai.com/parhaat-nettikasinot">
                 parhaat nettikasinot
@@ -20,13 +20,6 @@ export default function Sponsors() {
                 Zimpler kasinot
               </a>{' '}
               in Finnish, on KasinoKurko
-              <br />
-              {/* 2026-02-27 */}
-              Lista di{' '}
-              <a target="_blank" href="https://www.papasangre.com/">
-                casinò non AAMS
-              </a>{' '}
-              che accettano giocatori italiani.
               <br />
               {/* 2026-12-11 */}
               For the best in-play and cash out betting sites online, visit
@@ -54,13 +47,6 @@ export default function Sponsors() {
               <a target="_blank" href="https://nieuwe-casinos.net/casino-reviews">
                 casino recensies
               </a>
-              <br />
-              {/* 2026-01-02 - XXX */}
-              At uusimmatkasinot.com you will find the best new online casinos,
-              <a target="_blank" href="https://uusimmatkasinot.com/">
-                uudet nettikasinot
-              </a>
-              , in all imaginable categories
               <br />
             </div>
           </div>

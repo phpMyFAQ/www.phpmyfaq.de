@@ -6,6 +6,12 @@ canonical: changelog
 
 ## phpMyFAQ 4.1.x
 
+### phpMyFAQ 4.1.2 - 2026-04-28 {#4.1.2}
+
+- fixed security vulnerabilities
+- updated third party dependencies
+- fixed bugs
+
 ### phpMyFAQ 4.1.1 - 2026-03-31 {#4.1.1}
 
 - fixed security vulnerabilities

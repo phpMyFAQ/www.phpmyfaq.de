@@ -20,7 +20,7 @@ export default function RequirementsPage() {
                   <h5 className="card-title">PHP Requirements</h5>
                   <ul>
                     <li>
-                      <strong>PHP 8.2+</strong> (8.3+ recommended)
+                      <strong>PHP 8.3+</strong> (8.5+ recommended)
                     </li>
                     <li>Extensions: PDO, cURL, GD/ImageMagick, mbstring</li>
                     <li>Optional: LDAP, XML, ZIP, Fileinfo</li>
@@ -44,7 +44,7 @@ export default function RequirementsPage() {
                     <li>
                       <strong>IIS 10+</strong> with URL Rewrite Module
                     </li>
-                    <li>HTTPS support recommended</li>
+                    <li>HTTPS support</li>
                   </ul>
                 </div>
               </div>
@@ -70,7 +70,7 @@ export default function RequirementsPage() {
                       <strong>Microsoft SQL Server 2019+</strong>
                     </li>
                     <li>
-                      <strong>Microsoft SQL Server 2019+</strong>
+                      <strong>Azure SQL</strong>
                     </li>
                   </ul>
                 </div>
