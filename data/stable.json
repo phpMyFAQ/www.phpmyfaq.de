@@ -1,1 +1,11 @@
-"The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge."
+{
+  "version": "4.1.2",
+  "zip": {
+    "filesize": 18.81,
+    "md5": "b454eb68eaa6171846a244098dbb8fbf"
+  },
+  "targz": {
+    "filesize": 14.6,
+    "md5": "e36c15bed6f5b403c90606242174e7fa"
+  }
+}

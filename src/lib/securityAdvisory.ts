@@ -1,5 +1,8 @@
 import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
+import { marked } from 'marked';
+
+const renderInline = (text: string): string => marked.parseInline(text) as string;
 
 // Reads all advisory markdown files from content/security/ and returns them grouped by year (descending)
 export function getAdvisoriesByYear(): { year: string; advisories: { slug: string; title: string }[] }[] {
@@ -69,17 +72,17 @@ export function parseAdvisoryToHTML(content: string): string {
     // Überschriften
     if (l.startsWith('#### ')) {
       closeDlIfOpen();
-      htmlParts.push(`<h4>${l.substring(5)}</h4>`);
+      htmlParts.push(`<h4>${renderInline(l.substring(5))}</h4>`);
       continue;
     }
     if (l.startsWith('### ')) {
       closeDlIfOpen();
-      htmlParts.push(`<h3>${l.substring(4)}</h3>`);
+      htmlParts.push(`<h3>${renderInline(l.substring(4))}</h3>`);
       continue;
     }
     if (l.startsWith('## ')) {
       closeDlIfOpen();
-      htmlParts.push(`<h2>${l.substring(3)}</h2>`);
+      htmlParts.push(`<h2>${renderInline(l.substring(3))}</h2>`);
       continue;
     }
 
@@ -97,13 +100,13 @@ export function parseAdvisoryToHTML(content: string): string {
         inDl = true;
       }
 
-      htmlParts.push(`<dt>${labelRaw}:</dt><dd>${value}</dd>`);
+      htmlParts.push(`<dt>${labelRaw}:</dt><dd>${renderInline(value)}</dd>`);
       continue;
     }
 
     // Standard: Absatz
     closeDlIfOpen();
-    htmlParts.push(`<p>${l}</p>`);
+    htmlParts.push(`<p>${renderInline(l)}</p>`);
   }
 
   // Offenes DL schließen
