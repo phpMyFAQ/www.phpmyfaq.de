@@ -168,10 +168,10 @@ export default function CodenamesPage() {
           </ul>
         </div>
         <div className="col-lg-6 col-md-6">
-          <h2>phpMyFAQ 4.x series (2024 - today)</h2>
+          <h2>phpMyFAQ 4.x series (2024 - 2026)</h2>
           <ul>
             <li>
-              <strong>phpMyFAQ 4.0.x</strong> (2024-2026, 17 releases so far)
+              <strong>phpMyFAQ 4.0.x</strong> (2024-2026, 20 releases)
               <br />
               Codename:{' '}
               <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Pallas_(Titan)">
@@ -180,7 +180,7 @@ export default function CodenamesPage() {
               , the titan of warcraft in Greek mythology.
             </li>
             <li>
-              <strong>phpMyFAQ 4.1.x</strong> (2026)
+              <strong>phpMyFAQ 4.1.x</strong> (2026 - today, 3 releases so far)
               <br />
               Codename:{' '}
               <a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/Porus_(mythology)">

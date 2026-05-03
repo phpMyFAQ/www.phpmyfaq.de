@@ -40,11 +40,6 @@ export default function DonationsPage() {
               </a>
             </li>
             <li>
-              <a rel="nofollow" href="https://www.amazon.de/hz/wishlist/ls/3AZCSL908ACN9">
-                Jan&apos;s wishlist on amazon.de
-              </a>
-            </li>
-            <li>
               <a rel="nofollow" href="https://www.amazon.de/hz/wishlist/ls/FGS7DWAJIRLD">
                 Florian&apos;s wishlist on amazon.de
               </a>

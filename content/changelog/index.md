@@ -146,7 +146,7 @@ canonical: changelog
 ### phpMyFAQ 4.0.3 - 2025-01-03 {#4.0.3}
 
 - fixed installation bug introduced with v4.0.2
-- fixed minor bug
+- fixed a minor bug
 
 ### phpMyFAQ 4.0.2 - 2025-01-02 {#4.0.2}
 
@@ -159,7 +159,7 @@ canonical: changelog
 
 - fixed security vulnerability
 - improved update handling of .htaccess file
-- updated 3rd party dependencies
+- updated third party dependencies
 - fixed minor bugs
 
 ### phpMyFAQ 4.0.0 - 2024-12-06 {#4.0.0}
@@ -167,16 +167,16 @@ canonical: changelog
 - changed PHP requirement to PHP 8.2 or later
 - changed rewrite rules for Apache and nginx as mandatory requirement
 - changed folder structure
-- added Twig as new template engine
+- added Twig as the new template engine
 - added Symfony Routing
 - added trending FAQs
-- added new frontend layout
+- added a new frontend layout
 - added new admin configuration frontend
-- added new admin category management frontend with full drag and drop sorting support
+- added a new admin category management frontend with full drag and drop sorting support
 - added new admin FAQ management frontend
 - added possibility to sort sticky FAQs
 - added possibility to enable/disable cookie consent
-- added experimental online update feature
+- added an experimental online update feature
 - added new REST API v3 with OpenAPI specification
 - added Kubernetes manifest samples
 - added experimental import of FAQs from CSV
@@ -189,7 +189,7 @@ canonical: changelog
 - added experimental support for WebAuthn / Passkeys
 - improved installation and update
 - improved SEO support
-- improved session timout warning for admins
+- improved session timeout warning for admins
 - removed Twitter/X support
 - removed support for adding own meta-content in templates
 - removed REST API v2
@@ -258,7 +258,7 @@ canonical: changelog
 - fixed multiple vulnerabilities
 - fixed minor bugs
 
-### phpMyFAQ 3.2.0 - 2023-09-04 (Codename: [Pontus](https://en.wikipedia.org/wiki/Pontus_(mythology))) {#3.2.0}
+### phpMyFAQ 3.2.0 - 2023-09-04 {#3.2.0}
 
 - changed PHP requirement to PHP 8.1.0 or later
 - changed to HTTPS as new default
@@ -268,7 +268,7 @@ canonical: changelog
 - changed PostgreSQL requirement to 10.0 or later
 - changed MS SQL Server requirement to 2016 or later
 - added support for PHP 8.2
-- added 2FA (Two Factor Authentication)
+- added 2FA (Two-Factor Authentication)
 - added experimental Azure AD login
 - added option to use Google ReCaptcha
 - added REST API v2.2 to fetch groups, add categories, and update FAQs
@@ -385,7 +385,7 @@ canonical: changelog
 - fixed enabled debug mode
 - updated bundled dependencies
 
-### phpMyFAQ 3.1.0 - 2022-02-12 (Codename: [Poseidon](https://en.wikipedia.org/wiki/Poseidon)) {#3.1.0}
+### phpMyFAQ 3.1.0 - 2022-02-12 {#3.1.0}
 
 - Happy 21st Birthday, phpMyFAQ!
 - changed PHP requirement to PHP 7.4+
@@ -394,7 +394,7 @@ canonical: changelog
 - added drag and drop sorting for main categories
 - added possibility to add users without a password
 - added export of all users as CSV
-- added ChartJS as new charting library
+- added ChartJS as the new charting library
 - added REST API v2.1 to register users and add FAQs
 - added API client tokens for REST API v2.1
 - added opt-in for displaying user data
@@ -441,7 +441,7 @@ canonical: changelog
 
 - fixed XSS vulnerability ([advisory](/security/advisory-2020-12-23))
 - added TOC plugin for TinyMCE
-- removed support for deprecated data-vocabulary.org schema
+- removed support for the deprecated data-vocabulary.org schema
 - removed Travis CI build, switched to Github Actions
 - fixed minor bugs
 
@@ -478,7 +478,7 @@ canonical: changelog
 - fixed minor bugs
 - fixed update issues for PostgreSQL
 
-### phpMyFAQ 3.0.0 - 2020-02-16 (Codename: [Phobos](http://en.wikipedia.org/wiki/Phobos_%28moon%29)) {#3.0.0}
+### phpMyFAQ 3.0.0 - 2020-02-16 {#3.0.0}
 
 - changed PHP requirement to PHP 7.2+
 - added PHP namespaces
@@ -494,9 +494,9 @@ canonical: changelog
 - added HTML5 export
 - added support for EU General Data Protection Regulation
 - added multiple attachment upload
-- added 404 page template
+- added 404-page template
 - added Mongolian translation
-- added support for adding own meta content in templates
+- added support for adding own meta-content in templates
 - added new REST API v2 (includes login)
 - improved sticky records
 - improved brute force handling
@@ -553,7 +553,7 @@ canonical: changelog
 ### phpMyFAQ 2.9.8 - 2017-07-12 {#2.9.8}
 
 - fixed improper restriction ([advisory](/security/advisory-2017-07-12))
-- add LDAP search in sub groups (Thorsten
+- add LDAP search in subgroups (Thorsten
 - updated French translation
 - fixed minor bugs
 
@@ -597,14 +597,14 @@ canonical: changelog
 - updated bundled Typeahead.js to version 0.11.0
 - fixed minor bugs
 
-### phpMyFAQ 2.9.0 - 2016-05-13 (Codename: [Proteus](http://en.wikipedia.org/wiki/Proteus%28moon%29)) {#2.9.0}
+### phpMyFAQ 2.9.0 - 2016-05-13 {#2.9.0}
 
 - ready for PHP 7
 - changed [PHP requirement](/requirements) to PHP 5.5+ and PHP 7
 - added support for HHVM 3.4.2+
 - added support for Elasticsearch
-- added new mobile first, touch-friendly default layout
-- added tag intersection based search
+- added a new mobile-first, touch-friendly default layout
+- added tag intersection-based search
 - added support for Markdown
 - added permissions for guests
 - added support for multiple LDAP/AD servers
@@ -623,19 +623,19 @@ canonical: changelog
 - added configuration to disable smart answering
 - added tag management frontend
 - added full support for SQLite3
-- added control for meta robots handling
+- added control for meta-robots handling
 - added configuration for auto-activation of new users
 - added support for SMTP
 - added bundled Twitter Typeahead.js
 - added support for custom headers and footers in PDF exports
-- added support for language specific open questions
-- added moderator groups to categories
+- added support for language-specific open questions
+- added moderator groups to categorize
 - added FAQ overview page
 - added JSON export
 - added private notes to FAQs
 - added experimental support for bcrypt
 - extended REST/JSON API
-- added simple bash based backup script
+- added a simple bash-based backup script
 - code base PSR-1 and PSR-2 compatible
 - updated bundled Symfony ClassLoader to version 2.6.13
 - updated bundled jQuery to version 1.11.2
@@ -651,7 +651,7 @@ canonical: changelog
 - removed bundled SyntaxHighlighter
 - dropped support for ext/mysql
 - dropped support for SQLite2
-- dropped support for Zeus Webserver, IIS 6 and lighttpd
+- dropped support for Zeus Webserver, IIS 6, and lighttpd
 - fixed a lot of minor bugs
 
 ## phpMyFAQ 2.8.x
@@ -734,7 +734,7 @@ canonical: changelog
 
 ### phpMyFAQ 2.8.17 - 2014-11-05 {#2.8.17}
 
-- fixed typo in update script
+- fixed typo in the update script
 
 ### phpMyFAQ 2.8.16 - 2014-11-03 {#2.8.16}
 
@@ -780,7 +780,7 @@ canonical: changelog
 - dropped support for Internet Explorer 7 and 8
 - updated Brazilian Portuguese translation
 - updated bundled TinyMCE to version 3.5.11
-- updated bundled TCPDF library to version 6.0.078
+- updated the bundled TCPDF library to version 6.0.078
 - fixed some minor bugs
 
 ### phpMyFAQ 2.8.9 - 2014-04-28 {#2.8.9}
@@ -850,7 +850,7 @@ canonical: changelog
 - fixed Arabic translation
 - fixed some minor bugs
 
-### phpMyFAQ 2.8.0 - 2013-05-21 (Codename: [Perdita](http://en.wikipedia.org/wiki/Perdita_%28moon%29)) {#2.8.0}
+### phpMyFAQ 2.8.0 - 2013-05-21 {#2.8.0}
 
 - changed PHP [requirement](/requirements) to PHP 5.3.3 and later
 - phpMyFAQ is now licensed under the terms of Mozilla Public License 2.0
@@ -876,7 +876,7 @@ canonical: changelog
 - improved CSS development with LESS
 - improved minified CSS output
 - simplified the link verification
-- dropped support for IBM DB2, Interbase/Firebird and Sybase
+- dropped support for IBM DB2, Interbase/Firebird, and Sybase
 - dropped support for PHP register_globals and magic_quotes_gpc
 - dropped support for Google Translate API v1
 - dropped support for Delicious
@@ -973,7 +973,7 @@ canonical: changelog
 - added table of contents in PDF exports
 - fixed some bugs
 
-### phpMyFAQ 2.7.0 - 2011-09-30 (Codename: [Prospero](http://en.wikipedia.org/wiki/Prospero_%28moon%29)) {#2.7.0}
+### phpMyFAQ 2.7.0 - 2011-09-30 {#2.7.0}
 
 - changed PHP [requirement](/requirements) to PHP 5.2.3
 - dropped support for MySQL 4.1
@@ -1149,7 +1149,7 @@ canonical: changelog
 
 - fixed various mail issues
 - improved links rewriting
-- improved sitemap for Chinese, Japanese and Korean content
+- improved sitemap for Chinese, Japanese, and Korean content
 - improved meta keyword handling
 - updated Portuguese translation
 - updated French translation
@@ -1158,7 +1158,7 @@ canonical: changelog
 ### phpMyFAQ 2.6.2 - 2010-02-01 {#2.6.2}
 
 - fixed update script issue
-- fixed display of Chinese, Japanese and Korean content in PDFs
+- fixed display of Chinese, Japanese, and Korean content in PDFs
 - fixed issues with RSS feeds
 - fixed broken Spanish translation
 - updated French translation
@@ -1201,7 +1201,7 @@ canonical: changelog
 
 - improved glossary detection
 - updated Dutch translation
-- updated Indonasian translation
+- updated Indonesian translation
 - updated Chinese (Simplified) translation
 - updated Japanese translation
 - updated Norwegian Bokmal translation
@@ -1257,7 +1257,7 @@ canonical: changelog
 - improved svn2package script
 - many minor bugfixes
 
-### phpMyFAQ 2.5.0 - 2009-07-21 (Codename: [Pandora](http://en.wikipedia.org/wiki/Pandora_%28moon%29)) {#2.5.0}
+### phpMyFAQ 2.5.0 - 2009-07-21 {#2.5.0}
 
 - changed PHP [requirement](/requirements) to PHP 5.2
 - dropped support for MySQL 4.0 and MaxDB
@@ -1335,7 +1335,7 @@ canonical: changelog
 
 - updated English and Turkish translation and switched to UTF-8
 - updated Simplified Chinese translation
-- fixed possible infinity loop bug in categories
+- fixed a possible infinity loop bug in categories
 - fixed permission bypass issue
 - many minor bugfixes
 
@@ -1353,7 +1353,7 @@ canonical: changelog
 - fixed content deletion bug
 - fixed SVN export script
 - improved comment spam protection
-- re-added missing css color file
+- re-added a missing CSS color file
 - minor bugfixes
 
 ### phpMyFAQ 2.0.8 - 2008-09-11 {#2.0.8}
@@ -1391,14 +1391,14 @@ canonical: changelog
 
 ### phpMyFAQ 2.0.3 - 2007-08-18 {#2.0.3}
 
-- some permission related fixes
-- some glossary related fixes
+- some permission-related fixes
+- some glossary-related fixes
 - many minor bugfixes
 
 ### phpMyFAQ 2.0.2 - 2007-07-08 {#2.0.2}
 
 - some performance improvements
-- some permission related fixes
+- some permission-related fixes
 - some update fixes
 - updated Danish translation
 - some minor bugfixes
@@ -1411,7 +1411,7 @@ canonical: changelog
 - updated Japanese translation
 - many minor bugfixes
 
-### phpMyFAQ 2.0.0 - 2007-05-22 (Codename: [Prometheus](http://en.wikipedia.org/wiki/Prometheus_%28moon%29)) {#2.0.0}
+### phpMyFAQ 2.0.0 - 2007-05-22 {#2.0.0}
 
 - added rewritten and enhanced user management
 - added rewritten and enhanced authorization management
@@ -1430,24 +1430,24 @@ canonical: changelog
 - added DiggIt! link
 - added Microsummaries
 - added OpenSearch support
-- added "submit translation" link
+- added a "submit translation" link
 - added experimental support for Oracle
 - added experimental support for Interbase/Firebird
-- added sorting by id, title and date for records in admin backend
+- added sorting by id, title, and date for records in admin backend
 - added comment administration frontend
 - added configurable simple reordering of records
-- added questionnaire for statistics in installer
+- added questionnaire for statistics in the installer
 - added Ajax-powered Instant Response
 - added editable default values for record configuration
 - added blacklist for search bots
-- added stylesheets for right-to-left text-direction
+- added stylesheets for a right-to-left text-direction
 - improved export functions
 - improved URL rewrite functions
 - improved category management
 - improved administration backend
 - updated Arabic translation
 - updated German translation
-- updated Hewbrew translation
+- updated Hebrew translation
 - updated Italian translation
 - updated Japanese translation
 - updated Spanish translation
@@ -1545,7 +1545,7 @@ canonical: changelog
 - updated Danish translation
 - fixed some minor bugs
 
-### phpMyFAQ 1.6.0 - 2006-04-21 (Codename: [Pluto](http://en.wikipedia.org/wiki/Pluto)) {#1.6.0}
+### phpMyFAQ 1.6.0 - 2006-04-21 {#1.6.0}
 
 - fixed security issue ([advisory](/security/advisory-2006-04-21))
 - added unique solution id
@@ -1634,7 +1634,7 @@ canonical: changelog
 - improved image handling in PDF export
 - fixed some minor bugs
 
-### phpMyFAQ 1.5.0 - 2005-08-20 (Codename: [Phoebe](http://en.wikipedia.org/wiki/Phoebe_%28moon%29)) {#1.5.0}
+### phpMyFAQ 1.5.0 - 2005-08-20 {#1.5.0}
 
 - full support for PostgreSQL databases
 - full support for Sybase databases
@@ -1646,7 +1646,7 @@ canonical: changelog
 - mod_rewrite support
 - faster template engine parses PHP code
 - rewritten PDF export
-- complete XML, XHTML and DocBook XML exports
+- complete XML, XHTML, and DocBook XML exports
 - better RSS support
 - updated bundled htmlArea and bundled NET_IDNA class
 - PHP 5.x compatible
@@ -1735,7 +1735,7 @@ canonical: changelog
 
 - fixed security vulnerability ([advisory](/security/advisory-2004-07-27))
 
-### phpMyFAQ 1.4.0 - 2004-07-22 (Codename: [Pan](http://en.wikipedia.org/wiki/Pan_%28moon%29)) {#1.4.0}
+### phpMyFAQ 1.4.0 - 2004-07-22 {#1.4.0}
 
 - added WYSIWYG Editor
 - added Image Manager
@@ -1890,14 +1890,14 @@ canonical: changelog
 ### phpMyFAQ 1.3.1 - 2003-05-02 {#1.3.1}
 
 - added FAQ record preview
-- added RSS feeds for Top10, news and latest records
-- added system information in admin backend
+- added RSS feeds for Top10, news, and latest records
+- added system information in the admin backend
 - added French translation
-- improved navigation in admin backend
+- improved navigation in the admin backend
 - fixed bug in session search
 - fixed some bugs when creating new FAQ records
 - fixed some cookie problems
-- fixed wrong link at send2friend function
+- fixed the wrong link at send2friend function
 - fixed delimiter bug in Apache2 and PHP 4.3
 - fixed many bugs
 
@@ -1958,7 +1958,7 @@ canonical: changelog
 
 - phpMyFAQ is now Open Source
 - added template engine for own layouts
-- fully compatible for PHP 4.1, PHP 4.2 and PHP 4.3 (register_globals=off)
+- fully compatible for PHP 4.1, PHP 4.2, and PHP 4.3 (register_globals=off)
 - color and font definitions based on CSS
 - improved SQL queries
 - improved search engine

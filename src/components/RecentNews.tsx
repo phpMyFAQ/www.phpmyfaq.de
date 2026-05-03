@@ -1,43 +1,35 @@
 import Link from 'next/link';
 import { getRecentNews } from '@/lib/news';
+import styles from './RecentNews.module.scss';
 
 export default function RecentNews() {
   const newsItems = getRecentNews(6);
 
   const formatContent = (content: string) => {
-    return content
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-      .replace(/\n/g, '<br>');
+    return content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>').replace(/\n/g, '<br>');
+  };
+
+  const formatDate = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   };
 
   return (
-    <section id="news" className="news">
-      <div className="container mt-5">
-        <h2 className="mb-4">
-          <a id="latest-news"></a>
-          Latest phpMyFAQ News
-        </h2>
-        <div className="row">
+    <section id="news" className={styles.section}>
+      <div className="container">
+        <h2 className={styles.heading}>Latest News</h2>
+        <div className={styles.grid}>
           {newsItems.map((item, index) => (
-            <div key={index} className="col-lg-4 col-md-6 col-xs-12 mb-4">
-              <div className="news-item">
-                <h3 className={'mb-2'}>{item.date}</h3>
-                <hr className={'mb-2'} />
-                <div className="news-content" dangerouslySetInnerHTML={{ __html: formatContent(item.content) }} />
-              </div>
-            </div>
+            <article key={index} className={styles.card}>
+              <time className={styles.date} dateTime={item.date}>
+                {formatDate(item.date)}
+              </time>
+              <div className={styles.content} dangerouslySetInnerHTML={{ __html: formatContent(item.content) }} />
+            </article>
           ))}
         </div>
-        <div className="row">
-          <div className="col-lg-12">
-            <p>
-              Looking for older news? Take a look at our <Link href="/news/">news archive</Link>.
-            </p>
-            <div className="icon-holder text-center">
-              <i className="fas fa-smile"></i>
-            </div>
-          </div>
-        </div>
+        <p className={styles.footer}>
+          <Link href="/news/">View full news archive &rarr;</Link>
+        </p>
       </div>
     </section>
   );

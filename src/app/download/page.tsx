@@ -228,7 +228,7 @@ export default function DownloadPage() {
                   </div>
                   <ul className="list-unstyled mb-3">
                     <li className="mb-2">
-                      <i className="fas fa-check text-success me-2"></i>PHP 8.2 or higher
+                      <i className="fas fa-check text-success me-2"></i>PHP 8.3 or higher
                     </li>
                     <li className="mb-2">
                       <i className="fas fa-check text-success me-2"></i>Web server (Apache, Nginx, IIS)

@@ -2,52 +2,43 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="promo offset-header">
-      <div className="container text-center">
-        <h2 className="title">
+    <section className="promo">
+      <div className="container">
+        <h1 className="title">
           phpMy<span className="highlight">FAQ</span> 4.1
-        </h2>
+        </h1>
 
         <p className="intro">
-          phpMyFAQ is a mobile-friendly, feature-rich, AI-ready, and scalable open source FAQ web app for PHP 8.3+
+          A mobile-friendly, feature-rich, AI-ready open source FAQ web app for PHP 8.3+. Free since 2001.
         </p>
 
         <div className="btns">
-          <Link href="/demo" className="btn btn-outline-light me-2">
-            Demo
-          </Link>
-          <Link href="/download" className="btn btn-light">
+          <Link href="/download" className="btn btn-light me-3">
             Download phpMyFAQ
           </Link>
+          <Link href="/demo" className="btn btn-outline-light">
+            Live Demo
+          </Link>
         </div>
-        <p className="love-phpmyfaq">
-          We really think you will like this knowledge base script. Knowledge is free, and so is phpMyFAQ. Since 2001.
-        </p>
 
         <ul className="meta list-inline">
           <li className="list-inline-item">
-            <a
-              className="btn btn-outline-light"
-              rel="nofollow"
-              target="_blank"
-              href="https://github.com/thorsten/phpMyFAQ"
-            >
-              View on GitHub
+            <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ">
+              GitHub
             </a>
           </li>
+          <li className="list-inline-item">&middot;</li>
           <li className="list-inline-item">
-            <Link className="btn btn-outline-light" href="/documentation">
-              Documentation
-            </Link>
+            <Link href="/documentation">Documentation</Link>
           </li>
+          <li className="list-inline-item">&middot;</li>
           <li className="list-inline-item">
-            <a
-              className="btn btn-outline-light"
-              rel="nofollow"
-              target="_blank"
-              href="https://github.com/thorsten/phpMyFAQ/issues"
-            >
-              Issues on GitHub
+            <Link href="/features">Features</Link>
+          </li>
+          <li className="list-inline-item">&middot;</li>
+          <li className="list-inline-item">
+            <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ/issues">
+              Report an issue
             </a>
           </li>
         </ul>

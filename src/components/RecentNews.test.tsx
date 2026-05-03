@@ -26,9 +26,9 @@ describe('RecentNews', () => {
 
     render(<RecentNews />);
 
-    expect(screen.getByText('Latest phpMyFAQ News')).toBeInTheDocument();
-    expect(screen.getByText('2025-10-04')).toBeInTheDocument();
-    expect(screen.getByText('2025-10-03')).toBeInTheDocument();
+    expect(screen.getByText('Latest News')).toBeInTheDocument();
+    expect(screen.getByText('October 4, 2025')).toBeInTheDocument();
+    expect(screen.getByText('October 3, 2025')).toBeInTheDocument();
   });
 
   it('should convert markdown links to HTML', () => {
@@ -61,7 +61,7 @@ describe('RecentNews', () => {
 
     render(<RecentNews />);
 
-    const archiveLink = screen.getByText('news archive');
+    const archiveLink = screen.getByText(/news archive/i);
     expect(archiveLink.closest('a')).toHaveAttribute('href', '/news');
   });
 
@@ -70,7 +70,7 @@ describe('RecentNews', () => {
 
     render(<RecentNews />);
 
-    expect(screen.getByText('Latest phpMyFAQ News')).toBeInTheDocument();
+    expect(screen.getByText('Latest News')).toBeInTheDocument();
     expect(screen.queryByText(/2025-/)).not.toBeInTheDocument();
   });
 });

@@ -9,7 +9,7 @@ test.describe('Dynamic Download Functionality', () => {
 
   test('external links work correctly', async ({ page }) => {
     await page.goto('/download');
-    const githubLink = page.locator('a[href="https://github.com/thorsten/phpMyFAQ"]').first();
+    const githubLink = page.locator('.social-icons a[href="https://github.com/thorsten/phpMyFAQ"]');
     await expect(githubLink).toBeVisible();
     await expect(githubLink).toHaveAttribute('target', '_blank');
     await expect(githubLink).toHaveAttribute('rel', 'nofollow');

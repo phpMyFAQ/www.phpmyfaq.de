@@ -62,6 +62,16 @@ export default function Header() {
             </nav>
 
             <div className={styles.themeToggleContainer}>
+              <a
+                className={styles.githubLink}
+                href="https://github.com/thorsten/phpMyFAQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="phpMyFAQ on GitHub"
+                title="phpMyFAQ on GitHub"
+              >
+                <i className="fab fa-github" aria-hidden="true"></i>
+              </a>
               <ThemeToggle />
             </div>
           </div>

@@ -17,8 +17,8 @@ test.describe('Page Content Tests', () => {
     await expect(page.locator('h1')).toContainText('phpMyFAQ Features');
 
     // Check features lists
-    await expect(page.locator('h3').filter({ hasText: 'Core Features' })).toBeVisible();
-    await expect(page.locator('h3').filter({ hasText: 'Advanced Features' })).toBeVisible();
+    await expect(page.locator('h2').filter({ hasText: 'Core Features' })).toBeVisible();
+    await expect(page.locator('h2').filter({ hasText: 'Advanced Features' })).toBeVisible();
   });
 
   test('documentation page displays correctly', async ({ page }) => {
@@ -41,8 +41,8 @@ test.describe('Page Content Tests', () => {
     await expect(page.locator('h1')).toContainText('Support');
 
     // Check support sections
-    await expect(page.locator('h5').filter({ hasText: 'Community Support' })).toBeVisible();
-    await expect(page.locator('h5').filter({ hasText: 'Professional Support' })).toBeVisible();
+    await expect(page.locator('h3').filter({ hasText: 'Community Support' })).toBeVisible();
+    await expect(page.locator('h3').filter({ hasText: 'Professional Support' })).toBeVisible();
   });
 
   test('all pages return 200 status (no 404 errors)', async ({ page }) => {
