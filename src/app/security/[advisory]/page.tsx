@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import { parseAdvisoryToHTML } from '@/lib/securityAdvisory';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import styles from '../advisory.module.scss';
 
 interface SecurityAdvisoryPageProps {
   params: Promise<{
@@ -83,18 +84,18 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
     <PageLayout title={advisoryData.title}>
       <div className="row">
         <div className="col-12">
-          <nav aria-label="breadcrumb">
+          <nav aria-label="breadcrumb" className={styles.breadcrumbNav}>
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
                 <Link href="/security">Security Advisories</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                {advisory}
+                Security Advisory {advisory.replace('advisory-', '')}
               </li>
             </ol>
           </nav>
 
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <div className={styles.advisoryBody} dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </PageLayout>
