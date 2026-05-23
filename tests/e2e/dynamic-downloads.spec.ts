@@ -13,9 +13,8 @@ test.describe('Dynamic Download Functionality', () => {
     await expect(githubLink).toBeVisible();
     await expect(githubLink).toHaveAttribute('target', '_blank');
     await expect(githubLink).toHaveAttribute('rel', 'nofollow');
-    const olderVersionsLink = page.locator('a[href="https://github.com/thorsten/phpMyFAQ/releases"]');
-    await expect(olderVersionsLink).toBeVisible();
-    await expect(olderVersionsLink).toHaveAttribute('target', '_blank');
+    const archiveLink = page.locator('.older-versions-box a[href="/archive"]');
+    await expect(archiveLink).toBeVisible();
   });
 
   test('internal navigation links work', async ({ page }) => {

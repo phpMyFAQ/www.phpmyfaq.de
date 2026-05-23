@@ -306,7 +306,7 @@ export default function DownloadPage() {
             <i className="fas fa-archive fa-2x mb-3" style={{ color: '#6c757d' }}></i>
             <h5>Looking for Older Versions?</h5>
             <p className="mb-3">
-              Every release since 2.0.0 is available in our
+              Every release since 1.2.0 is available in our
               <a href="/archive" className="text-decoration-none fw-bold">
                 {' '}
                 download archive
