@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { getArchiveReleases, countReleases } from './archive';
+import { getArchiveReleases, countReleases, countDownloadableReleases } from './archive';
 import fs from 'fs';
 import path from 'path';
 
@@ -26,11 +26,27 @@ title: phpMyFAQ Changelog
 
 - first 2.x release
 
-## phpMyFAQ 1.6.x
+## phpMyFAQ 1.2.x
 
-### phpMyFAQ 1.6.0 - 2006-04-21 {#1.6.0}
+### phpMyFAQ 1.2.5b - 2003-03-24 {#1.2.5b}
 
-- legacy release
+- legacy zip-only release
+
+### phpMyFAQ 1.2.0 - 2002-10-09 {#1.2.0}
+
+- oldest downloadable release
+
+## phpMyFAQ 1.1.x
+
+### phpMyFAQ 1.1.0 - 2002-02-11 {#1.1.0}
+
+- reference-only release
+
+## phpMyFAQ 0.x
+
+### phpMyFAQ 0.1 - 2001-02-12 {#0.1}
+
+- the very first build
 `;
 
 describe('getArchiveReleases', () => {
@@ -40,11 +56,23 @@ describe('getArchiveReleases', () => {
     vi.spyOn(fs, 'readFileSync').mockReturnValue(MOCK_CHANGELOG);
   });
 
-  it('excludes versions older than 2.0.0', async () => {
+  it('includes releases down to 1.2.0', async () => {
     const groups = await getArchiveReleases();
     const versions = groups.flatMap((g) => g.releases.map((r) => r.version));
-    expect(versions).toContain('2.0.0');
-    expect(versions).not.toContain('1.6.0');
+    expect(versions).toContain('1.2.0');
+    expect(versions).toContain('1.2.5b');
+  });
+
+  it('lists 0.x, 1.0 and 1.1 releases for reference but without downloads', async () => {
+    const groups = await getArchiveReleases();
+    const v110 = groups.flatMap((g) => g.releases).find((r) => r.version === '1.1.0');
+    const v01 = groups.flatMap((g) => g.releases).find((r) => r.version === '0.1');
+    expect(v110?.zipUrl).toBeNull();
+    expect(v110?.targzUrl).toBeNull();
+    expect(v01?.zipUrl).toBeNull();
+    const legacyGroups = groups.filter((g) => !g.downloadable).map((g) => g.slug);
+    expect(legacyGroups).toContain('1.1');
+    expect(legacyGroups).toContain('0');
   });
 
   it('excludes pre-release versions such as RC builds', async () => {
@@ -54,23 +82,30 @@ describe('getArchiveReleases', () => {
     expect(versions).not.toContain('4.1.0-RC.7');
   });
 
-  it('builds download URLs and changelog anchors for each release', async () => {
+  it('offers ZIP only for 1.x downloads and ZIP + tar.gz for 2.x and newer', async () => {
     const groups = await getArchiveReleases();
-    const release = groups.flatMap((g) => g.releases).find((r) => r.version === '2.0.0');
-    expect(release).toBeDefined();
-    expect(release?.zipUrl).toBe('https://download.phpmyfaq.de/phpMyFAQ-2.0.0.zip');
-    expect(release?.targzUrl).toBe('https://download.phpmyfaq.de/phpMyFAQ-2.0.0.tar.gz');
-    expect(release?.changelogAnchor).toBe('2.0.0');
+    const all = groups.flatMap((g) => g.releases);
+    const v120 = all.find((r) => r.version === '1.2.0');
+    expect(v120?.zipUrl).toBe('https://download.phpmyfaq.de/phpMyFAQ-1.2.0.zip');
+    expect(v120?.targzUrl).toBeNull();
+
+    const v200 = all.find((r) => r.version === '2.0.0');
+    expect(v200?.zipUrl).toBe('https://download.phpmyfaq.de/phpMyFAQ-2.0.0.zip');
+    expect(v200?.targzUrl).toBe('https://download.phpmyfaq.de/phpMyFAQ-2.0.0.tar.gz');
+    expect(v200?.changelogAnchor).toBe('2.0.0');
   });
 
   it('produces a slug without the .x suffix', async () => {
     const groups = await getArchiveReleases();
     expect(groups.map((g) => g.slug)).toContain('4.1');
-    expect(groups.map((g) => g.slug)).toContain('2.0');
+    expect(groups.map((g) => g.slug)).toContain('1.2');
   });
 
-  it('counts releases across all groups', async () => {
+  it('counts all releases and downloadable releases separately', async () => {
     const groups = await getArchiveReleases();
-    expect(countReleases(groups)).toBe(2);
+    // 4.1.0, 2.0.0, 1.2.5b, 1.2.0, 1.1.0, 0.1
+    expect(countReleases(groups)).toBe(6);
+    // everything except 1.1.0 and 0.1
+    expect(countDownloadableReleases(groups)).toBe(4);
   });
 });

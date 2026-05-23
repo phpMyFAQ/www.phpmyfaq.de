@@ -61,33 +61,47 @@ export default function ArchiveView({ groups }: ArchiveViewProps) {
                 </span>
                 <h2>phpMyFAQ {group.name}</h2>
                 <span className={styles.groupMeta}>
-                  {group.releases.length} {group.releases.length === 1 ? 'release' : 'releases'}
+                  {group.downloadable
+                    ? `${group.releases.length} ${group.releases.length === 1 ? 'release' : 'releases'}`
+                    : 'reference only'}
                 </span>
               </button>
 
               {isOpen && (
-                <ul className={styles.releases}>
-                  {group.releases.map((release) => (
-                    <li key={release.version} className={styles.release}>
-                      <div className={styles.releaseInfo}>
-                        <span className={styles.version}>{release.version}</span>
-                        <time className={styles.date}>{formatDate(release.date)}</time>
-                      </div>
-                      <div className={styles.actions}>
-                        <a className={styles.download} href={release.zipUrl} download>
-                          <i className="fas fa-file-zipper" aria-hidden="true"></i> ZIP
-                        </a>
-                        <a className={styles.download} href={release.targzUrl} download>
-                          <i className="fas fa-file-archive" aria-hidden="true"></i> TAR.GZ
-                        </a>
-                        <a className={styles.notes} href={`/changelog#${release.changelogAnchor}`}>
-                          <i className="fas fa-file-lines" aria-hidden="true"></i>
-                          <span className={styles.notesLabel}> Release notes</span>
-                        </a>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <>
+                  {!group.downloadable && (
+                    <p className={styles.legacyNote}>
+                      These early releases predate the download archive and are listed for historical reference only — no
+                      download packages are available.
+                    </p>
+                  )}
+                  <ul className={styles.releases}>
+                    {group.releases.map((release) => (
+                      <li key={release.version} className={styles.release}>
+                        <div className={styles.releaseInfo}>
+                          <span className={styles.version}>{release.version}</span>
+                          <time className={styles.date}>{formatDate(release.date)}</time>
+                        </div>
+                        <div className={styles.actions}>
+                          {release.zipUrl && (
+                            <a className={styles.download} href={release.zipUrl} download>
+                              <i className="fas fa-file-zipper" aria-hidden="true"></i> ZIP
+                            </a>
+                          )}
+                          {release.targzUrl && (
+                            <a className={styles.download} href={release.targzUrl} download>
+                              <i className="fas fa-file-archive" aria-hidden="true"></i> TAR.GZ
+                            </a>
+                          )}
+                          <a className={styles.notes} href={`/changelog#${release.changelogAnchor}`}>
+                            <i className="fas fa-file-lines" aria-hidden="true"></i>
+                            <span className={styles.notesLabel}> Release notes</span>
+                          </a>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </>
               )}
             </section>
           );
