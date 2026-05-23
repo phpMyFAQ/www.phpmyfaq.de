@@ -1,0 +1,125 @@
+.era {
+  margin-top: 2rem;
+
+  &:first-of-type {
+    margin-top: 1rem;
+  }
+}
+
+.eraHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+
+  // Trailing rule that fills the remaining width.
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+}
+
+.eraTitle {
+  margin: 0 !important;
+  font-size: 1.2rem !important;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.eraSpan {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg);
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+
+  // Accent bar along the top, revealed on hover.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.18s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 18px var(--color-shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .year {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.year {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.15s ease;
+}
+
+.summary {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.badge {
+  align-self: flex-start;
+  margin-top: 0.2rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-bg-secondary);
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
