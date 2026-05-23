@@ -1,0 +1,243 @@
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ---- Sidebar ---- */
+
+.sidebar {
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+}
+
+.sidebarTitle {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0 0.6rem 0.5rem;
+}
+
+.sidebarList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: var(--color-bg-secondary);
+    color: var(--color-primary);
+  }
+}
+
+.sidebarCount {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg-secondary);
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+}
+
+.sidebarLink:hover .sidebarCount {
+  background: var(--color-background, #fff);
+}
+
+/* ---- Content ---- */
+
+.content {
+  min-width: 0;
+}
+
+.group {
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  scroll-margin-top: 1.5rem;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 0;
+  background: var(--color-bg-secondary);
+  cursor: pointer;
+  text-align: left;
+
+  h2 {
+    font-size: 1.15rem !important;
+    font-weight: 600;
+    margin: 0 !important;
+    color: var(--color-text);
+  }
+}
+
+.chevron {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: transform 0.18s ease;
+
+  &[data-open='true'] {
+    transform: rotate(90deg);
+  }
+}
+
+.groupMeta {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.releases {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.6rem 0.6rem;
+}
+
+.release {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid var(--color-border);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    background: var(--color-bg-secondary);
+    border-radius: 8px;
+  }
+}
+
+.releaseInfo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.version {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.download,
+.notes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.download {
+  color: var(--color-primary);
+  background: transparent;
+
+  &:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+  }
+}
+
+.notes {
+  color: var(--color-text-muted);
+  background: transparent;
+
+  &:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sidebar {
+    position: static;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 0.6rem;
+  }
+
+  .sidebarList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    max-height: none;
+  }
+
+  .sidebarLink {
+    width: auto;
+  }
+
+  .release {
+    align-items: flex-start;
+  }
+
+  .notesLabel {
+    display: none;
+  }
+}

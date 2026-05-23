@@ -23,6 +23,9 @@ export default function Footer() {
                   <Link href="/changelog">Changelog</Link>
                 </li>
                 <li>
+                  <Link href="/archive">Download Archive</Link>
+                </li>
+                <li>
                   <Link href="/advisories">Security Advisories</Link>
                 </li>
                 <li>

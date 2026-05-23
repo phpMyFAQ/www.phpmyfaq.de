@@ -37,6 +37,7 @@ describe('Footer', () => {
     expect(screen.getByText('Requirements')).toBeInTheDocument();
     expect(screen.getByText('Download')).toBeInTheDocument();
     expect(screen.getByText('Changelog')).toBeInTheDocument();
+    expect(screen.getByText('Download Archive')).toBeInTheDocument();
     expect(screen.getByText('Translations')).toBeInTheDocument();
   });
 
