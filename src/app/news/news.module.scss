@@ -53,7 +53,8 @@
   border: 1px solid var(--color-border);
   border-radius: 12px;
   background: var(--color-bg);
-  text-decoration: none;
+  // Override the PageLayout content link styles (incl. its hover underline).
+  text-decoration: none !important;
   overflow: hidden;
   transition:
     border-color 0.15s ease,
@@ -77,7 +78,6 @@
     border-color: var(--color-primary);
     box-shadow: 0 6px 18px var(--color-shadow);
     transform: translateY(-2px);
-    text-decoration: none;
 
     &::before {
       transform: scaleX(1);
