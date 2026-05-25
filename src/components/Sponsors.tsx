@@ -7,10 +7,10 @@ export default function Sponsors() {
             <div className="text-center" style={{ fontSize: '10px', marginTop: '20px' }}>
               <strong>SPONSORED BY</strong>
               <br />
-              {/* 2026-04-21 -> Valeria */}
+              {/* 2026-04-21 -> Claus */}
               Find the best online casinos,{' '}
               <a target="_blank" href="https://www.kasinohai.com/parhaat-nettikasinot">
-                parhaat nettikasinot
+                Kasinohai
               </a>{' '}
               in Finnish, on Kasinohai
               <br />
