@@ -1,8 +1,12 @@
 {
-  "generated": "2026-05-24T12:13:41.614Z",
+  "generated": "2026-05-25T07:40:08.242Z",
   "year": "2026",
-  "total": 11,
+  "total": 12,
   "news": [
+    {
+      "date": "2026-05-25",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.4](/download), the \"Luna Jordan\" releases.\nThis release fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-05-25)."
+    },
     {
       "date": "2026-05-14",
       "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.3](/download), the \"Alessandro Zanardi\" releases.\nThis release fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-05-14)."
