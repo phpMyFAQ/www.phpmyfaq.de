@@ -1,7 +1,11 @@
 {
-  "generated": "2026-05-25T07:40:08.242Z",
+  "generated": "2026-06-14T10:28:00.140Z",
   "limit": 10,
   "news": [
+    {
+      "date": "2026-06-14",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.5](/download), the \"Alan Hale\" releases.\nThis release fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-06-14)."
+    },
     {
       "date": "2026-05-25",
       "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.4](/download), the \"Luna Jordan\" releases.\nThis release fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs.\n[Click here to find a detailed security advisory](/security/advisory-2026-05-25)."
@@ -37,10 +41,6 @@
     {
       "date": "2026-02-12",
       "content": "Today [25 years](/25years) ago, Thorsten Rinne and Bastian Pöttner started with the development of phpMyFAQ. \nWe would like to say thank-you to everyone who helped with the development and every one of our users! \nHappy 25th birthday, phpMyFAQ!"
-    },
-    {
-      "date": "2026-02-06",
-      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.4](/download), the \"Rita Süssmuth\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
     }
   ]
 }
