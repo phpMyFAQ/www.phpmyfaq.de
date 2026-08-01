@@ -7,7 +7,7 @@ test.describe('News Pages', () => {
     await page.goto('/news');
     await expect(page.locator('h1')).toContainText('News');
     for (const year of years) {
-      await expect(page.getByRole('link', { name: year.toString(), exact: true })).toBeVisible();
+      await expect(page.locator(`a[href="/news/${year}/"]`)).toBeVisible();
     }
   });
 
