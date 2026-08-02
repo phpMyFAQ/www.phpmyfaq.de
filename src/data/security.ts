@@ -15,12 +15,12 @@ export interface SupportedVersion {
 export const supportedVersions: SupportedVersion[] = [
   { version: '4.2.x', status: 'Active development', securityUntil: '—', php: '8.4+' },
   { version: '4.1.x', status: 'Active support', securityUntil: '12 months after 4.2.0', php: '8.3+' },
-  { version: '4.0.x', status: 'Security fixes only', securityUntil: '2027-03-12', php: '8.2+' },
+  { version: '4.0.x', status: 'End of life', securityUntil: 'ended 2026-01-31', php: '8.2+' },
   { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2025-12-06', php: '—' },
 ];
 
 // First release shipping sbom.cdx.json — confirm against the application repository.
-export const sbomSinceVersion = '4.1.0';
+export const sbomSinceVersion = '4.2.0';
 
 // PHPStan level enforced in CI — confirm against the application repository.
 export const phpstanLevel = 9;
