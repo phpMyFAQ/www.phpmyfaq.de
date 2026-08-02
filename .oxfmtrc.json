@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    ".next/",
+    "out/",
+    "dist/",
+    "coverage/",
+    "playwright-report/",
+    "node_modules/",
+    "*.lock",
+    "pnpm-lock.yaml",
+    "*.min.js",
+    "*.min.css"
+  ]
+}
