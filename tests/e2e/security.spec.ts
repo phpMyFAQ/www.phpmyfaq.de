@@ -41,9 +41,15 @@ test.describe('Security policy page', () => {
   test('the homepage footer links to both the policy and the advisory list', async ({ page }) => {
     await page.goto('/');
 
+    // Scope to the footer links region itself (Footer.tsx's <section> holding the "Getting started" /
+    // "Resources" / "Misc" link lists), identified via its visually-hidden heading. This is deliberately
+    // narrower than the page-wide search used before review: a link matching elsewhere on the homepage
+    // (e.g. moved into the header nav) must NOT satisfy this assertion.
+    const footerLinksRegion = page.locator('section', { has: page.getByText('Other interesting links') });
+
     // next/link appends a trailing slash (trailingSlash: true in next.config.mjs), so match both forms —
     // same pattern already used in tests/e2e/navigation.spec.ts.
-    await expect(page.locator('a[href="/security"], a[href="/security/"]').first()).toBeVisible();
-    await expect(page.locator('a[href="/advisories"], a[href="/advisories/"]').first()).toBeVisible();
+    await expect(footerLinksRegion.locator('a[href="/security"], a[href="/security/"]').first()).toBeVisible();
+    await expect(footerLinksRegion.locator('a[href="/advisories"], a[href="/advisories/"]').first()).toBeVisible();
   });
 });
