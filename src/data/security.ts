@@ -15,7 +15,7 @@ export interface SupportedVersion {
 export const supportedVersions: SupportedVersion[] = [
   { version: '4.2.x', status: 'Active development', securityUntil: '—', php: '8.4+' },
   { version: '4.1.x', status: 'Active support', securityUntil: '12 months after 4.2.0', php: '8.3+' },
-  { version: '4.0.x', status: 'End of life', securityUntil: 'ended 2026-01-31', php: '8.2+' },
+  { version: '4.0.x', status: 'End of life', securityUntil: 'ended 2026-06-12', php: '8.2+' },
   { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2025-12-06', php: '—' },
 ];
 
@@ -33,7 +33,7 @@ export const contactEmail = 'security@phpmyfaq.de';
 export const advisoryReportUrl = 'https://github.com/thorsten/phpMyFAQ/security/advisories/new';
 export const hardeningDocsUrl = 'https://phpmyfaq.readthedocs.io/en/main/';
 
-// SECURITY.md in the application repository — the full disclosure policy the
+// SECURITY.md in the application repository — the full disclosure policy on the
 // website page summarises. Also listed as a Policy entry in security.txt.
 export const securityPolicyUrl = 'https://github.com/thorsten/phpMyFAQ/blob/main/SECURITY.md';
 
