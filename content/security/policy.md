@@ -52,10 +52,10 @@ of life receive no fixes of any kind, including for critical vulnerabilities.
 ## Software Bill of Materials
 
 Every release since {{sbomSinceVersion}} ships a CycloneDX SBOM covering both PHP
-and JavaScript dependencies, attached as an asset to the GitHub release and
-included in the distribution package as `sbom.cdx.json`. Earlier releases do not
-include one; for earlier supported 4.1.x releases we generate an SBOM on request
-for Business and Enterprise customers.
+and JavaScript dependencies, attached to the GitHub release as
+`phpMyFAQ-<version>.sbom.json` — for example `phpMyFAQ-{{sbomSinceVersion}}.sbom.json`.
+Earlier releases do not include one; for earlier supported 4.1.x releases we
+generate an SBOM on request for Business and Enterprise customers.
 
 ## Secure development
 
