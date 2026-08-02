@@ -29,6 +29,9 @@ export default function Footer() {
                   <Link href="/advisories">Security Advisories</Link>
                 </li>
                 <li>
+                  <Link href="/security">Security</Link>
+                </li>
+                <li>
                   <Link href="/translations">Translations</Link>
                 </li>
               </ul>

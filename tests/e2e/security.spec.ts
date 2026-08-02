@@ -37,4 +37,13 @@ test.describe('Security policy page', () => {
     const response = await page.goto(href as string);
     expect(response?.status()).toBe(200);
   });
+
+  test('the homepage footer links to both the policy and the advisory list', async ({ page }) => {
+    await page.goto('/');
+
+    // next/link appends a trailing slash (trailingSlash: true in next.config.mjs), so match both forms —
+    // same pattern already used in tests/e2e/navigation.spec.ts.
+    await expect(page.locator('a[href="/security"], a[href="/security/"]').first()).toBeVisible();
+    await expect(page.locator('a[href="/advisories"], a[href="/advisories/"]').first()).toBeVisible();
+  });
 });

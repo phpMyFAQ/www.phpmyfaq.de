@@ -55,7 +55,9 @@ export default function AdvisoriesPage() {
     <PageLayout title="List of Security Advisories">
       <p className={styles.intro}>
         We take any security issues found in phpMyFAQ or bundled components seriously. Below are all published security
-        advisories, grouped by year and ordered from newest to oldest.
+        advisories, grouped by year and ordered from newest to oldest. See our{' '}
+        <Link href="/security">security page</Link> for how to report a vulnerability and how long each release is
+        supported.
       </p>
 
       {advisoriesByYear.map(({ year, advisories }) => (

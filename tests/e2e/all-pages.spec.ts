@@ -62,6 +62,7 @@ test.describe('All Pages Accessibility Tests', () => {
       '/download',
       '/changelog',
       '/advisories',
+      '/security',
       '/translations',
       '/news',
       '/donations',

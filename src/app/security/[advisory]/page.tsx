@@ -87,7 +87,7 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
           <nav aria-label="breadcrumb" className={styles.breadcrumbNav}>
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <Link href="/security">Security Advisories</Link>
+                <Link href="/advisories">Security Advisories</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 Security Advisory {advisory.replace('advisory-', '')}

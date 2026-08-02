@@ -104,6 +104,10 @@ export default function SupportPage() {
           <i className={`fas fa-shield-alt ${styles.resourceIcon}`}></i>
           <span>Security Advisories</span>
         </Link>
+        <Link href="/security" className={styles.resourceItem}>
+          <i className={`fas fa-user-shield ${styles.resourceIcon}`}></i>
+          <span>Security Policy</span>
+        </Link>
         <Link href="/translations" className={styles.resourceItem}>
           <i className={`fas fa-globe ${styles.resourceIcon}`}></i>
           <span>Translations</span>
