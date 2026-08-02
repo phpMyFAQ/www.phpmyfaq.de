@@ -71,8 +71,8 @@ export default function ArchiveView({ groups }: ArchiveViewProps) {
                 <>
                   {!group.downloadable && (
                     <p className={styles.legacyNote}>
-                      These early releases predate the download archive and are listed for historical reference only — no
-                      download packages are available.
+                      These early releases predate the download archive and are listed for historical reference only —
+                      no download packages are available.
                     </p>
                   )}
                   <ul className={styles.releases}>

@@ -53,7 +53,8 @@ const advancedFeatures = [
   {
     icon: 'fas fa-code-branch',
     title: 'Revision system',
-    description: 'Store old entries in wiki-like revisions, so you can switch back to previous versions of an FAQ entry.',
+    description:
+      'Store old entries in wiki-like revisions, so you can switch back to previous versions of an FAQ entry.',
   },
   {
     icon: 'fas fa-download',
@@ -90,7 +91,8 @@ const advancedFeatures = [
   {
     icon: 'fas fa-robot',
     title: 'MCP server',
-    description: 'phpMyFAQ is AI-ready with an integrated MCP server, so you can use phpMyFAQ together with AI clients.',
+    description:
+      'phpMyFAQ is AI-ready with an integrated MCP server, so you can use phpMyFAQ together with AI clients.',
   },
   {
     icon: 'fas fa-puzzle-piece',

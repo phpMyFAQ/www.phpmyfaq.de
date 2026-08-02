@@ -4,7 +4,7 @@
 
 `src/app/security/page.tsx` and `src/app/advisories/page.tsx` are byte-identical
 duplicates. Both render the list of security advisories grouped by year. There is
-no page describing *how* the project handles security — vulnerability reporting,
+no page describing _how_ the project handles security — vulnerability reporting,
 support windows, SBOM, or Cyber Resilience Act obligations.
 
 ## Goal
@@ -17,11 +17,11 @@ support windows, SBOM, or Cyber Resilience Act obligations.
 
 ## Route map
 
-| Route | Before | After |
-|---|---|---|
-| `/advisories` | advisory list | advisory list (unchanged) |
-| `/security` | duplicate advisory list | security policy page |
-| `/security/<slug>` | advisory detail | advisory detail (unchanged) |
+| Route              | Before                  | After                       |
+| ------------------ | ----------------------- | --------------------------- |
+| `/advisories`      | advisory list           | advisory list (unchanged)   |
+| `/security`        | duplicate advisory list | security policy page        |
+| `/security/<slug>` | advisory detail         | advisory detail (unchanged) |
 
 `/security/page.tsx` and `/security/[advisory]/page.tsx` coexist in Next.js: the
 static segment wins over the dynamic one.
@@ -74,12 +74,12 @@ Prefilled values, derived from release dates in `content/changelog/index.md`
 (4.1.0 → 2026-03-12, 4.0.0 → 2024-12-06, 3.2.0 → 2023-09-04) and the stated
 policy "security fixes for at least 12 months after the following minor release":
 
-| Version | Status | Security fixes until | PHP |
-|---|---|---|---|
-| 4.2.x | Active development | — | 8.4+ |
-| 4.1.x | Active support | 12 months after 4.2.0 | 8.3+ |
-| 4.0.x | Security fixes only | 2027-03-12 | 8.2+ |
-| 3.2.x | End of life | ended 2025-12-06 | — |
+| Version | Status              | Security fixes until  | PHP  |
+| ------- | ------------------- | --------------------- | ---- |
+| 4.2.x   | Active development  | —                     | 8.4+ |
+| 4.1.x   | Active support      | 12 months after 4.2.0 | 8.3+ |
+| 4.0.x   | Security fixes only | 2027-03-12            | 8.2+ |
+| 3.2.x   | End of life         | ended 2025-12-06      | —    |
 
 `pgpFingerprint` is `null` until the real fingerprint is supplied. When null, the
 PGP parenthetical is omitted from the rendered contact line rather than printing a

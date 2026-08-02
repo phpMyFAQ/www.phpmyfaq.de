@@ -46,14 +46,10 @@ export default function PrivacyPage() {
           <h3 id="dsg-general-datatype">Arten der verarbeiteten Daten:</h3>
           <p>
             - Bestandsdaten (z.B., Namen, Adressen).
-            <br />
-            - Kontaktdaten (z.B., E-Mail, Telefonnummern).
-            <br />
-            - Inhaltsdaten (z.B., Texteingaben, Fotografien, Videos).
-            <br />
-            - Nutzungsdaten (z.B., besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten).
-            <br />
-            - Meta-/Kommunikationsdaten (z.B., Geräte-Informationen, IP-Adressen).
+            <br />- Kontaktdaten (z.B., E-Mail, Telefonnummern).
+            <br />- Inhaltsdaten (z.B., Texteingaben, Fotografien, Videos).
+            <br />- Nutzungsdaten (z.B., besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten).
+            <br />- Meta-/Kommunikationsdaten (z.B., Geräte-Informationen, IP-Adressen).
             <br />
           </p>
           <h3 id="dsg-general-datasubjects">Kategorien betroffener Personen</h3>
@@ -65,12 +61,9 @@ export default function PrivacyPage() {
           <h3 id="dsg-general-purpose">Zweck der Verarbeitung</h3>
           <p>
             - Zurverfügungstellung des Onlineangebotes, seiner Funktionen und Inhalte.
-            <br />
-            - Beantwortung von Kontaktanfragen und Kommunikation mit Nutzern.
-            <br />
-            - Sicherheitsmaßnahmen.
-            <br />
-            - Reichweitenmessung/Marketing
+            <br />- Beantwortung von Kontaktanfragen und Kommunikation mit Nutzern.
+            <br />- Sicherheitsmaßnahmen.
+            <br />- Reichweitenmessung/Marketing
             <br />
             <span className="tsmcom"></span>
           </p>

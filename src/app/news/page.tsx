@@ -30,21 +30,48 @@ const ERAS: Era[] = [
     label: 'phpMyFAQ 4.x',
     span: '2024 – 2026',
     years: [
-      { year: 2026, summary: 'Finally, releasing phpMyFAQ 4.1, getting all ready for PHP 8.6, started working on phpMyFAQ 4.2', tag: 'v4.1' },
+      {
+        year: 2026,
+        summary: 'Finally, releasing phpMyFAQ 4.1, getting all ready for PHP 8.6, started working on phpMyFAQ 4.2',
+        tag: 'v4.1',
+      },
       { year: 2025, summary: 'Working hard on phpMyFAQ 4.1, getting all ready for PHP 8.5' },
-      { year: 2024, summary: 'Finally, releasing phpMyFAQ 4.0, getting all ready for PHP 8.4, started working on phpMyFAQ 4.1', tag: 'v4.0' },
+      {
+        year: 2024,
+        summary: 'Finally, releasing phpMyFAQ 4.0, getting all ready for PHP 8.4, started working on phpMyFAQ 4.1',
+        tag: 'v4.0',
+      },
     ],
   },
   {
     label: 'phpMyFAQ 3.x',
     span: '2018 – 2023',
     years: [
-      { year: 2023, summary: 'Finally, releasing phpMyFAQ 3.2, getting all ready for PHP 8.3, started working on phpMyFAQ 4.0', tag: 'v3.2' },
-      { year: 2022, summary: 'Finally, releasing phpMyFAQ 3.1, getting all ready for PHP 8.2, working hard on phpMyFAQ 3.2' },
-      { year: 2021, summary: 'Still struggling with the Corona pandemic, getting all ready for PHP 8.1, working hard on phpMyFAQ 3.1' },
-      { year: 2020, summary: 'Finally releasing phpMyFAQ 3.0, struggling with the Corona pandemic, getting all ready for PHP 8.0 and working hard on phpMyFAQ 3.1', tag: 'v3.0' },
+      {
+        year: 2023,
+        summary: 'Finally, releasing phpMyFAQ 3.2, getting all ready for PHP 8.3, started working on phpMyFAQ 4.0',
+        tag: 'v3.2',
+      },
+      {
+        year: 2022,
+        summary: 'Finally, releasing phpMyFAQ 3.1, getting all ready for PHP 8.2, working hard on phpMyFAQ 3.2',
+      },
+      {
+        year: 2021,
+        summary:
+          'Still struggling with the Corona pandemic, getting all ready for PHP 8.1, working hard on phpMyFAQ 3.1',
+      },
+      {
+        year: 2020,
+        summary:
+          'Finally releasing phpMyFAQ 3.0, struggling with the Corona pandemic, getting all ready for PHP 8.0 and working hard on phpMyFAQ 3.1',
+        tag: 'v3.0',
+      },
       { year: 2019, summary: 'Working hard on phpMyFAQ 3.0 and dropped support for PHP 5.' },
-      { year: 2018, summary: 'Finally, added PHP namespaces and Docker support for the upcoming phpMyFAQ 3.0 milestone' },
+      {
+        year: 2018,
+        summary: 'Finally, added PHP namespaces and Docker support for the upcoming phpMyFAQ 3.0 milestone',
+      },
     ],
   },
   {
@@ -57,7 +84,11 @@ const ERAS: Era[] = [
       { year: 2014, summary: 'Improving the 2.8 version and working hard on phpMyFAQ 2.9' },
       { year: 2013, summary: 'Using PHP 5.3 and Bootstrap for phpMyFAQ 2.8' },
       { year: 2012, summary: 'Improving the 2.7 version and working on phpMyFAQ 2.8' },
-      { year: 2011, summary: 'Celebrated 10 years of phpMyFAQ, worked on better usability and HTML5 support with phpMyFAQ 2.7', tag: '10 years' },
+      {
+        year: 2011,
+        summary: 'Celebrated 10 years of phpMyFAQ, worked on better usability and HTML5 support with phpMyFAQ 2.7',
+        tag: '10 years',
+      },
       { year: 2010, summary: "Everything's UTF-8 encoded now with phpMyFAQ 2.6" },
       { year: 2009, summary: 'Using PHP 5.2 with phpMyFAQ 2.5' },
       { year: 2008, summary: 'Improving the 2.0 version and working on phpMyFAQ 2.5' },
@@ -72,7 +103,10 @@ const ERAS: Era[] = [
       { year: 2005, summary: 'Support for PHP 5, PostgreSQL, MS SQL and SEO optimized URLs with 1.5' },
       { year: 2004, summary: 'Now with a WYSIWYG editor and XHTML support with phpMyFAQ 1.4' },
       { year: 2003, summary: 'Adding simple multi-language and PDF support in phpMyFAQ 1.3' },
-      { year: 2002, summary: 'New features and PHP 4 support with phpMyFAQ 1.1 and going open source with phpMyFAQ 1.2' },
+      {
+        year: 2002,
+        summary: 'New features and PHP 4 support with phpMyFAQ 1.1 and going open source with phpMyFAQ 1.2',
+      },
     ],
   },
   {

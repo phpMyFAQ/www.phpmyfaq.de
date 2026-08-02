@@ -66,9 +66,7 @@ export default function StandardsPage() {
           </ul>
 
           <h2>TypeScript</h2>
-          <p>
-            We're using TypeScript for client-side code. Please follow the official TypeScript coding guidelines.
-          </p>
+          <p>We're using TypeScript for client-side code. Please follow the official TypeScript coding guidelines.</p>
         </div>
       </div>
     </PageLayout>

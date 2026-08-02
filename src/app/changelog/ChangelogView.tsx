@@ -16,7 +16,12 @@ function formatDate(date: string): string {
 
 // Maps the leading verb of a changelog entry to a category for colour-coded tags.
 function itemCategory(html: string): string {
-  const word = html.replace(/<[^>]+>/g, '').trim().split(/\s+/)[0]?.toLowerCase() ?? '';
+  const word =
+    html
+      .replace(/<[^>]+>/g, '')
+      .trim()
+      .split(/\s+/)[0]
+      ?.toLowerCase() ?? '';
   if (['added', 'new'].includes(word)) return 'added';
   if (['fixed'].includes(word)) return 'fixed';
   if (['removed', 'dropped', 'changed', 'switched'].includes(word)) return 'changed';

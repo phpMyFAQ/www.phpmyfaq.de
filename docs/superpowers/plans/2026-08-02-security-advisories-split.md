@@ -24,11 +24,13 @@
 ### Task 1: Security policy data and renderer
 
 **Files:**
+
 - Create: `src/data/security.ts`
 - Create: `src/lib/securityPolicy.ts`
 - Test: `src/lib/securityPolicy.test.ts`
 
 **Interfaces:**
+
 - Consumes: nothing from earlier tasks.
 - Produces:
   - `src/data/security.ts` — `interface SupportedVersion { version: string; status: string; securityUntil: string; php: string }`, `supportedVersions: SupportedVersion[]`, `sbomSinceVersion: string`, `phpstanLevel: number`, `pgpFingerprint: string | null`, `contactEmail: string`, `advisoryReportUrl: string`, `hardeningDocsUrl: string`, `lastReviewed: string`
@@ -222,10 +224,12 @@ git commit --no-verify -m "feat: add security policy data and renderer"
 ### Task 2: Policy markdown content
 
 **Files:**
+
 - Create: `content/security/policy.md`
 - Test: `src/lib/securityAdvisory.test.ts` (create)
 
 **Interfaces:**
+
 - Consumes: the tokens defined in `substituteTokens()` from Task 1 — `{{supportedVersionsTable}}`, `{{sbomSinceVersion}}`, `{{phpstanLevel}}`, `{{pgpFingerprint}}`, `{{contactEmail}}`, `{{advisoryReportUrl}}`, `{{hardeningDocsUrl}}`, `{{lastReviewed}}`.
 - Produces: `content/security/policy.md` with frontmatter `title: Security` and a `description` string, consumed by Task 3.
 
@@ -360,12 +364,14 @@ git commit -m "feat: add security policy content and renderer"
 ### Task 3: Replace the `/security` page
 
 **Files:**
+
 - Modify: `src/app/security/page.tsx` (full rewrite — currently a byte-identical copy of `src/app/advisories/page.tsx`)
 - Create: `src/app/security/security.module.scss`
 - Modify: `tests/e2e/all-pages.spec.ts:12` area (add a `/security` entry)
 - Test: `tests/e2e/security.spec.ts` (create)
 
 **Interfaces:**
+
 - Consumes: `getSecurityPolicy()` from `@/lib/securityPolicy` (Task 1), `content/security/policy.md` (Task 2).
 - Produces: `/security` rendering the policy page with document title `Security - phpMyFAQ`.
 
@@ -543,6 +549,7 @@ git commit -m "feat: replace duplicate advisory list on /security with security 
 ### Task 4: Re-point links to the split pages
 
 **Files:**
+
 - Modify: `src/components/Footer.tsx:29` area
 - Modify: `src/app/security/[advisory]/page.tsx:90`
 - Modify: `src/app/advisories/page.tsx` (intro paragraph)
@@ -551,6 +558,7 @@ git commit -m "feat: replace duplicate advisory list on /security with security 
 - Modify: `tests/e2e/all-pages.spec.ts` (footer link list)
 
 **Interfaces:**
+
 - Consumes: the `/security` policy page from Task 3.
 - Produces: no new exports. Every in-site link that means "the list" points at `/advisories`; every link that means "the policy" points at `/security`.
 
@@ -563,12 +571,12 @@ In `tests/e2e/all-pages.spec.ts`, in the `footerLinks` array of the `all footer 
 The `footerLinks` list only fetches URLs, so it cannot tell whether the link is actually in the footer. Add a real assertion to `tests/e2e/security.spec.ts`:
 
 ```ts
-  test('the homepage footer links to both the policy and the advisory list', async ({ page }) => {
-    await page.goto('/');
+test('the homepage footer links to both the policy and the advisory list', async ({ page }) => {
+  await page.goto('/');
 
-    await expect(page.locator('a[href="/security"]').first()).toBeVisible();
-    await expect(page.locator('a[href="/advisories"]').first()).toBeVisible();
-  });
+  await expect(page.locator('a[href="/security"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/advisories"]').first()).toBeVisible();
+});
 ```
 
 Run: `pnpm test:e2e tests/e2e/security.spec.ts -g "homepage footer links"`
@@ -579,9 +587,9 @@ Expected: FAIL — the homepage has no `/security` link yet.
 In `src/components/Footer.tsx`, in the "Getting started" list, insert directly after the `/advisories` `<li>`:
 
 ```tsx
-                <li>
-                  <Link href="/security">Security</Link>
-                </li>
+<li>
+  <Link href="/security">Security</Link>
+</li>
 ```
 
 - [ ] **Step 4: Fix the advisory detail breadcrumb**
@@ -589,13 +597,13 @@ In `src/components/Footer.tsx`, in the "Getting started" list, insert directly a
 In `src/app/security/[advisory]/page.tsx` line 90, the breadcrumb points at what is now the policy page. Change:
 
 ```tsx
-                <Link href="/security">Security Advisories</Link>
+<Link href="/security">Security Advisories</Link>
 ```
 
 to:
 
 ```tsx
-                <Link href="/advisories">Security Advisories</Link>
+<Link href="/advisories">Security Advisories</Link>
 ```
 
 - [ ] **Step 5: Cross-link from the advisory list**
@@ -603,20 +611,20 @@ to:
 In `src/app/advisories/page.tsx`, replace the intro paragraph:
 
 ```tsx
-      <p className={styles.intro}>
-        We take any security issues found in phpMyFAQ or bundled components seriously. Below are all published security
-        advisories, grouped by year and ordered from newest to oldest.
-      </p>
+<p className={styles.intro}>
+  We take any security issues found in phpMyFAQ or bundled components seriously. Below are all published security
+  advisories, grouped by year and ordered from newest to oldest.
+</p>
 ```
 
 with:
 
 ```tsx
-      <p className={styles.intro}>
-        We take any security issues found in phpMyFAQ or bundled components seriously. Below are all published security
-        advisories, grouped by year and ordered from newest to oldest. See our <Link href="/security">security page</Link>{' '}
-        for how to report a vulnerability and how long each release is supported.
-      </p>
+<p className={styles.intro}>
+  We take any security issues found in phpMyFAQ or bundled components seriously. Below are all published security
+  advisories, grouped by year and ordered from newest to oldest. See our <Link href="/security">security page</Link> for
+  how to report a vulnerability and how long each release is supported.
+</p>
 ```
 
 `Link` is already imported in that file.
@@ -626,10 +634,10 @@ with:
 In `src/app/support/page.tsx`, in the "Additional Resources" grid, insert directly after the `/advisories` resource item:
 
 ```tsx
-        <Link href="/security" className={styles.resourceItem}>
-          <i className={`fas fa-user-shield ${styles.resourceIcon}`}></i>
-          <span>Security Policy</span>
-        </Link>
+<Link href="/security" className={styles.resourceItem}>
+  <i className={`fas fa-user-shield ${styles.resourceIcon}`}></i>
+  <span>Security Policy</span>
+</Link>
 ```
 
 - [ ] **Step 7: Add the second policy URL to security.txt**
@@ -674,9 +682,11 @@ git commit -m "chore: add website security policy URL to security.txt"
 ### Task 5: Verify the static export
 
 **Files:**
+
 - No source changes. Verification only.
 
 **Interfaces:**
+
 - Consumes: everything from Tasks 1–4.
 - Produces: confidence that `next build` emits `/security` as a policy page and every `/security/<slug>` advisory page alongside it.
 

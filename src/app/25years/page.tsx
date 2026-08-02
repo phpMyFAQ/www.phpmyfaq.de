@@ -43,9 +43,9 @@ export default function TwentyFiveYearsPage() {
         community contributions, and a passion for making knowledge accessible.
       </p>
       <p>
-        Knowledge is evolving – and so is phpMyFAQ. Look forward with the upcoming 4.1 and 4.2 releases to a future where 
-        we combine modern intelligence with AI Agent support via MCP and intuitive user experience to take self-service 
-        support to a whole new level.
+        Knowledge is evolving – and so is phpMyFAQ. Look forward with the upcoming 4.1 and 4.2 releases to a future
+        where we combine modern intelligence with AI Agent support via MCP and intuitive user experience to take
+        self-service support to a whole new level.
       </p>
 
       {/* Timeline */}
