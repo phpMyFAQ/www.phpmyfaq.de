@@ -10,6 +10,7 @@ test.describe('All Pages Accessibility Tests', () => {
     { path: '/requirements', title: 'Requirements - phpMyFAQ' },
     { path: '/changelog', title: 'Changelog - phpMyFAQ' },
     { path: '/advisories', title: 'List of Security Advisories - phpMyFAQ' },
+    { path: '/security', title: 'Security - phpMyFAQ' },
     { path: '/translations', title: 'Translations - phpMyFAQ' },
     { path: '/20years', title: '20 Years phpMyFAQ - phpMyFAQ' },
     { path: '/15years', title: '15 Years phpMyFAQ - phpMyFAQ' },
