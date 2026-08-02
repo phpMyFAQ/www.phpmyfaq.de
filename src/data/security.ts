@@ -26,8 +26,8 @@ export const supportedVersions: SupportedVersion[] = [
   { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2025-03-06', php: '—' },
 ];
 
-// First release shipping sbom.cdx.json — confirm against the application repository.
-export const sbomSinceVersion = '4.2.0';
+// First release shipping sbom.cdx.json.
+export const sbomSinceVersion = '4.1.7';
 
 // PHPStan level enforced in CI — confirm against the application repository.
 export const phpstanLevel = 9;

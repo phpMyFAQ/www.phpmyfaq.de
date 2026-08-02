@@ -53,8 +53,8 @@ support is available](/support).
 Every release since {{sbomSinceVersion}} ships a CycloneDX SBOM covering both PHP
 and JavaScript dependencies, attached as an asset to the GitHub release and
 included in the distribution package as `sbom.cdx.json`. Earlier releases do not
-include one; for supported 4.1.x releases we generate an SBOM on request for
-Business and Enterprise customers.
+include one; for earlier supported 4.1.x releases we generate an SBOM on request
+for Business and Enterprise customers.
 
 ## Secure development
 
