@@ -10,6 +10,7 @@ import {
   contactEmail,
   advisoryReportUrl,
   hardeningDocsUrl,
+  securityPolicyUrl,
   lastReviewed,
 } from '@/data/security';
 
@@ -43,6 +44,7 @@ export function substituteTokens(markdown: string): string {
     contactEmail,
     advisoryReportUrl,
     hardeningDocsUrl,
+    securityPolicyUrl,
     lastReviewed,
   };
 

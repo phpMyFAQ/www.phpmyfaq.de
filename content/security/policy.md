@@ -14,7 +14,8 @@ The advisories themselves are listed on our
 Please do not open a public GitHub issue for security problems.
 
 - Preferred: GitHub Security Advisories → [Report a vulnerability]({{advisoryReportUrl}})
-- Alternative: [{{contactEmail}}](mailto:{{contactEmail}}){{pgpFingerprint}}
+- Alternative: [{{contactEmail}}](mailto:{{contactEmail}}) {{pgpFingerprint}}
+- Machine-readable: [security.txt](/.well-known/security.txt)
 
 What to expect:
 
@@ -27,8 +28,11 @@ What to expect:
 | Public advisory             | with the fixing release |
 
 We request coordinated disclosure and ask you not to publish details before the
-advisory is out. We credit every reporter who wants to be credited. We do not
-currently operate a paid bug bounty.
+advisory is out. The targets above describe when we aim to ship a fix; our
+disclosure window, documented in full in [SECURITY.md]({{securityPolicyUrl}}),
+allows up to 90 days from the initial report where a fix requires more time.
+We credit every reporter who wants to be credited. We do not currently operate
+a paid bug bounty.
 
 Safe harbour: we will not pursue legal action against researchers who act in good
 faith, stay within the scope of a test installation they control, and do not
@@ -38,16 +42,19 @@ access or exfiltrate third-party data.
 
 {{supportedVersionsTable}}
 
-Our policy: every minor release receives security fixes for at least 12 months
-after the following minor release is published. Every major release is supported
-for at least 24 months from its stable release. [Commercial support is
-available](/support).
+Our policy: every stable release receives security fixes for at least 12 months
+from its release date, and until at least 3 months after the following minor
+release reaches stable — whichever is later. Releases past end of life receive
+no fixes of any kind, including for critical vulnerabilities. [Commercial
+support is available](/support).
 
 ## Software Bill of Materials
 
 Every release since {{sbomSinceVersion}} ships a CycloneDX SBOM covering both PHP
 and JavaScript dependencies, attached as an asset to the GitHub release and
-included in the distribution package as `sbom.cdx.json`.
+included in the distribution package as `sbom.cdx.json`. Earlier releases do not
+include one; for supported 4.1.x releases we generate an SBOM on request for
+Business and Enterprise customers.
 
 ## Secure development
 

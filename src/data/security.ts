@@ -32,4 +32,9 @@ export const pgpFingerprint: string | null = null;
 export const contactEmail = 'security@phpmyfaq.de';
 export const advisoryReportUrl = 'https://github.com/thorsten/phpMyFAQ/security/advisories/new';
 export const hardeningDocsUrl = 'https://phpmyfaq.readthedocs.io/en/main/';
+
+// SECURITY.md in the application repository — the full disclosure policy the
+// website page summarises. Also listed as a Policy entry in security.txt.
+export const securityPolicyUrl = 'https://github.com/thorsten/phpMyFAQ/blob/main/SECURITY.md';
+
 export const lastReviewed = '2026-08-02';
