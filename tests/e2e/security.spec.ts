@@ -38,6 +38,21 @@ test.describe('Security policy page', () => {
     expect(response?.status()).toBe(200);
   });
 
+  test('the breadcrumb on an advisory detail page navigates back to the advisory list', async ({ page }) => {
+    await page.goto('/advisories');
+    const first = page.locator('a[href^="/security/advisory-"]').first();
+    const href = await first.getAttribute('href');
+    await page.goto(href as string);
+
+    const breadcrumb = page.getByRole('navigation', { name: 'breadcrumb' });
+    const breadcrumbLink = breadcrumb.locator('a[href="/advisories"], a[href="/advisories/"]');
+    await expect(breadcrumbLink).toHaveText('Security Advisories');
+
+    await breadcrumbLink.click();
+    await expect(page).toHaveURL(/\/advisories\/?$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'List of Security Advisories' })).toBeVisible();
+  });
+
   test('the homepage footer links to both the policy and the advisory list', async ({ page }) => {
     await page.goto('/');
 

@@ -46,7 +46,7 @@ export function substituteTokens(markdown: string): string {
     lastReviewed,
   };
 
-  return markdown.replace(/\{\{(\w+)\}\}/g, (match, key: string) => (key in tokens ? tokens[key] : match));
+  return markdown.replace(/\{\{(\w+)\}\}/g, (match, key: string) => (Object.hasOwn(tokens, key) ? tokens[key] : match));
 }
 
 export function getSecurityPolicy(): SecurityPolicy {

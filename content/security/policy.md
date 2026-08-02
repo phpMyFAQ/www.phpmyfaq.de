@@ -4,7 +4,7 @@ description: How the phpMyFAQ project handles security — vulnerability reporti
 ---
 
 phpMyFAQ has published a public security advisory for every fixed vulnerability
-since 2003. This page describes how we handle security — how to report an issue,
+since 2004. This page describes how we handle security — how to report an issue,
 how long each release is supported, and what documentation we provide for audits.
 The advisories themselves are listed on our
 [security advisories page](/advisories).
@@ -40,8 +40,8 @@ access or exfiltrate third-party data.
 
 Our policy: every minor release receives security fixes for at least 12 months
 after the following minor release is published. Every major release is supported
-for at least 24 months from its stable release. [Extended support for older
-versions is available commercially](/support).
+for at least 24 months from its stable release. [Commercial support is
+available](/support).
 
 ## Software Bill of Materials
 
@@ -53,9 +53,8 @@ included in the distribution package as `sbom.cdx.json`.
 
 - Dependencies monitored and updated via Dependabot
 - Static analysis (PHPStan level {{phpstanLevel}}) enforced in CI
-- Release artifacts published with SHA-256 checksums
 - Two-factor authentication required for all accounts with write access
-- [Hardening recommendations]({{hardeningDocsUrl}}) in the documentation
+- [Documentation]({{hardeningDocsUrl}}) covering installation and configuration
 
 ## Regulatory
 
@@ -63,7 +62,6 @@ phpMyFAQ is developed as a free and open source project. For the commercial
 offerings listed under [Support](/support), phpMyFAQ acts as a manufacturer
 within the meaning of Regulation (EU) 2024/2847 (Cyber Resilience Act). Our
 vulnerability handling process, support periods and SBOM provision are documented
-on this page. Reporting obligations under Article 14 are covered by the process
-above.
+on this page.
 
 Last reviewed: {{lastReviewed}}

@@ -28,6 +28,14 @@ describe('substituteTokens', () => {
   it('leaves unknown tokens untouched', () => {
     expect(substituteTokens('{{nopeNotAToken}}')).toBe('{{nopeNotAToken}}');
   });
+
+  it('does not resolve prototype property names as tokens', () => {
+    expect(substituteTokens('{{constructor}}')).toBe('{{constructor}}');
+  });
+
+  it('expands the pgpFingerprint token to an empty string while the key is null', () => {
+    expect(substituteTokens('mail{{pgpFingerprint}}')).toBe('mail');
+  });
 });
 
 describe('getSecurityPolicy', () => {

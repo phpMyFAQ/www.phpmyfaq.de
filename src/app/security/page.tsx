@@ -15,9 +15,7 @@ export const metadata: Metadata = generatePageMetadata(
 export default function SecurityPage() {
   return (
     <PageLayout title="Security">
-      <div className={styles.tableWrapper}>
-        <div className={styles.policy} dangerouslySetInnerHTML={{ __html: policy.content }} />
-      </div>
+      <div className={styles.policy} dangerouslySetInnerHTML={{ __html: policy.content }} />
     </PageLayout>
   );
 }

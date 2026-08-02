@@ -14,7 +14,7 @@ export interface SupportedVersion {
 // 3.2.0: 2023-09-04).
 export const supportedVersions: SupportedVersion[] = [
   { version: '4.2.x', status: 'Active development', securityUntil: '—', php: '8.4+' },
-  { version: '4.1.x', status: 'Active support', securityUntil: 'TBD (12 months after 4.2.0)', php: '8.3+' },
+  { version: '4.1.x', status: 'Active support', securityUntil: '12 months after 4.2.0', php: '8.3+' },
   { version: '4.0.x', status: 'Security fixes only', securityUntil: '2027-03-12', php: '8.2+' },
   { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2025-12-06', php: '—' },
 ];
