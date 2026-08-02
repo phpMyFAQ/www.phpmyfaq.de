@@ -8,15 +8,22 @@ export interface SupportedVersion {
   php: string;
 }
 
-// Policy: a minor release receives security fixes for at least 12 months after
-// the following minor release is published. Dates derived from the release dates
-// in content/changelog/index.md (4.1.0: 2026-03-12, 4.0.0: 2024-12-06,
-// 3.2.0: 2023-09-04).
+// Policy (see content/security/policy.md): a stable release receives security
+// fixes for at least 12 months from its release date, and until at least 3
+// months after the following minor release reaches stable — whichever is later.
+// Dates derived from the release dates in content/changelog/index.md
+// (4.1.0: 2026-03-12, 4.0.0: 2024-12-06, 3.2.0: 2023-09-04).
+//
+// 4.1.x: max(2026-03-12 + 12m, 4.2.0 + 3m) — 2027-03-12 unless 4.2.0 ships
+//   after 2026-12-12, in which case this date moves out and must be updated.
+// 4.0.x: max(2025-12-06, 2026-03-12 + 3m) = 2026-06-12.
+// 3.2.x: max(2024-09-04, 2024-12-06 + 3m) = 2025-03-06, counting 4.0.0 as the
+//   following stable release.
 export const supportedVersions: SupportedVersion[] = [
   { version: '4.2.x', status: 'Active development', securityUntil: '—', php: '8.4+' },
-  { version: '4.1.x', status: 'Active support', securityUntil: '12 months after 4.2.0', php: '8.3+' },
+  { version: '4.1.x', status: 'Active support', securityUntil: '2027-03-12', php: '8.3+' },
   { version: '4.0.x', status: 'End of life', securityUntil: 'ended 2026-06-12', php: '8.2+' },
-  { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2025-12-06', php: '—' },
+  { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2025-03-06', php: '—' },
 ];
 
 // First release shipping sbom.cdx.json — confirm against the application repository.
