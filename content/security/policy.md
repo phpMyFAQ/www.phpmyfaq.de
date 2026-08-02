@@ -45,7 +45,7 @@ access or exfiltrate third-party data.
 Our policy: every stable release receives security fixes for at least 12 months
 from its release date, and until at least 3 months after the following minor
 release reaches stable — whichever is later. This rule applies from 4.1.x
-onwards; releases that reached end of life earlier predate it. Releases past end
+onwards; releases that reached the end of life earlier predate it. Releases past end
 of life receive no fixes of any kind, including for critical vulnerabilities.
 [Commercial support is available](/support).
 
@@ -53,7 +53,7 @@ of life receive no fixes of any kind, including for critical vulnerabilities.
 
 Every release since {{sbomSinceVersion}} ships a CycloneDX SBOM covering both PHP
 and JavaScript dependencies, attached to the GitHub release as
-`phpMyFAQ-<version>.sbom.json` — for example `phpMyFAQ-{{sbomSinceVersion}}.sbom.json`.
+`phpMyFAQ-<version>.sbom.cdx.json` — for example `phpMyFAQ-{{sbomSinceVersion}}.sbom.cdx.json`.
 Earlier releases do not include one; for earlier supported 4.1.x releases we
 generate an SBOM on request for Business and Enterprise customers.
 
@@ -61,7 +61,7 @@ generate an SBOM on request for Business and Enterprise customers.
 
 - Dependencies monitored and updated via Dependabot
 - Static analysis (PHPStan level {{phpstanLevel}}) enforced in CI
-- Two-factor authentication required for all accounts with write access
+- Two-factor authentication is required for all accounts with write access
 - [Documentation]({{hardeningDocsUrl}}) covering installation and configuration
 
 ## Regulatory
@@ -69,7 +69,7 @@ generate an SBOM on request for Business and Enterprise customers.
 phpMyFAQ is developed as a free and open source project. For the commercial
 offerings listed under [Support](/support), phpMyFAQ acts as a manufacturer
 within the meaning of Regulation (EU) 2024/2847 (Cyber Resilience Act). Our
-vulnerability handling process, support periods and SBOM provision are documented
+vulnerability handling process, support periods, and SBOM provision are documented
 on this page.
 
 Last reviewed: {{lastReviewed}}
