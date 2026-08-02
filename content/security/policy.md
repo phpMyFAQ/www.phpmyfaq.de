@@ -44,9 +44,10 @@ access or exfiltrate third-party data.
 
 Our policy: every stable release receives security fixes for at least 12 months
 from its release date, and until at least 3 months after the following minor
-release reaches stable — whichever is later. Releases past end of life receive
-no fixes of any kind, including for critical vulnerabilities. [Commercial
-support is available](/support).
+release reaches stable — whichever is later. This rule applies from 4.1.x
+onwards; releases that reached end of life earlier predate it. Releases past end
+of life receive no fixes of any kind, including for critical vulnerabilities.
+[Commercial support is available](/support).
 
 ## Software Bill of Materials
 
