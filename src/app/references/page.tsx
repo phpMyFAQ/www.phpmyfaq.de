@@ -1,7 +1,11 @@
 import PageLayout from '@/components/PageLayout';
+import { Metadata } from 'next';
 import { generatePageMetadata } from '@/components/PageLayout';
 
-export const metadata = generatePageMetadata('Who uses phpMyFAQ?', 'Organizations and websites using phpMyFAQ');
+export const metadata: Metadata = generatePageMetadata(
+  'Who uses phpMyFAQ?',
+  'Organizations and websites using phpMyFAQ',
+);
 
 export default function ReferencesPage() {
   return (

@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Documentation archive',
   'Archive of old, unmaintained versions of phpMyFAQ documentation',
 );

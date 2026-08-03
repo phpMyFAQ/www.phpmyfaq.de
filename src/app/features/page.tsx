@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import styles from './features.module.scss';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Features',
   'phpMyFAQ is a mobile-friendly, multilingual, scalable, completely database-driven FAQ software and offers features from single FAQ sites up to enterprise ready integrations',
 );

@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout';
+import { Metadata } from 'next';
 import { generatePageMetadata } from '@/components/PageLayout';
 
-export const metadata = generatePageMetadata('Terms of Service', 'Terms of service for phpmyfaq.de');
+export const metadata: Metadata = generatePageMetadata('Terms of Service', 'Terms of service for phpmyfaq.de');
 
 export default function TermsPage() {
   return (

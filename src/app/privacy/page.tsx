@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
+import { Metadata } from 'next';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Privacy Notice',
   'Privacy policy and data protection information for phpMyFAQ website users',
 );

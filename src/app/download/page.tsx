@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import {
@@ -10,7 +11,7 @@ import {
   formatReleaseDate,
 } from '@/lib/data';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Download',
   'Download the latest version of phpMyFAQ - the open source FAQ system',
 );

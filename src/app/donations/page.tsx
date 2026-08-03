@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout';
+import { Metadata } from 'next';
 import { generatePageMetadata } from '@/components/PageLayout';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Donations',
   'phpMyFAQ is an Open Source software project. Nobody is paying us for the work on phpMyFAQ so all development and support is done in our sparetime.',
 );

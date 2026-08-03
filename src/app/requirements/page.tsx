@@ -1,7 +1,8 @@
 import PageLayout from '@/components/PageLayout';
+import { Metadata } from 'next';
 import { generatePageMetadata } from '@/components/PageLayout';
 
-export const metadata = generatePageMetadata(
+export const metadata: Metadata = generatePageMetadata(
   'Requirements',
   'System requirements for phpMyFAQ installation and hosting',
 );
