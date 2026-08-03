@@ -1,0 +1,17 @@
+/*
+ * Tailwind v4 entry point.
+ *
+ * Kept as plain CSS rather than folded into globals.scss: Sass would try to
+ * resolve `@import 'tailwindcss'` itself instead of leaving it for PostCSS.
+ * Theme and content sources are configured here — v4 has no JS config file.
+ */
+@import 'tailwindcss';
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}

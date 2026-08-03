@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import ClientLayout from '@/components/ClientLayout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import './tailwind.css';
 import './globals.scss';
 
 export const metadata: Metadata = {
