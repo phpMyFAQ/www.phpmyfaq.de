@@ -8,7 +8,8 @@ const nextConfig = {
   output: isE2E ? undefined : 'export',
   reactStrictMode: true,
   // TypeScript 7 no longer exposes the compiler API Next.js used; run the
-  // TypeScript CLI during the build instead.
+  // TypeScript CLI instead. This flag panics the Turbopack dev server, so
+  // `next dev` runs on webpack (see the dev script in package.json).
   experimental: {
     useTypeScriptCli: true,
   },

@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.34.5",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "prebuild": "npm run generate:news-api",
     "build": "next build",
     "postbuild": "cp -f static/.htaccess out/.htaccess || true",
