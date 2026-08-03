@@ -23,16 +23,23 @@ export default function DownloadPage() {
 
   // Fallback data if files don't exist
   const fallbackVersions = {
-    stable: '4.0.13',
-    stable_released: '2025-10-03',
-    development: '4.1.0-alpha.3',
-    development_released: '2025-10-04',
+    stable: '4.1.6',
+    stable_released: '2026-07-13',
+    development: '4.1.0-RC.7',
+    development_released: '2026-02-27',
   };
 
   const stableVersion = versions?.stable || fallbackVersions.stable;
   const stableReleased = versions?.stable_released || fallbackVersions.stable_released;
   const devVersion = versions?.development || fallbackVersions.development;
   const devReleased = versions?.development_released || fallbackVersions.development_released;
+
+  // The versions API keeps serving the last pre-release even after it went
+  // stable; only offer the development channel while it is actually ahead.
+  const baseVersion = (version: string) => version.split('-')[0].split('.').map(Number);
+  const isNewer = (a: number[], b: number[]) =>
+    a[0] !== b[0] ? a[0] > b[0] : a[1] !== b[1] ? a[1] > b[1] : a[2] > b[2];
+  const showDevelopment = isNewer(baseVersion(devVersion), baseVersion(stableVersion));
 
   return (
     <PageLayout title="Download phpMyFAQ">
@@ -130,88 +137,90 @@ export default function DownloadPage() {
               </div>
             </div>
 
-            <div className="col-lg-6">
-              <div className="card h-100 shadow-sm" style={{ border: '2px solid #7c3aed' }}>
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-3">
-                    <div
-                      className="icon-badge-purple rounded-circle d-flex align-items-center justify-content-center me-3"
-                      style={{ width: '50px', height: '50px' }}
-                    >
-                      <i className="fas fa-code-branch fa-lg"></i>
-                    </div>
-                    <div>
-                      <h5 className="mb-0">Development Version</h5>
-                      <small className="text-muted">Testing Only</small>
-                    </div>
-                  </div>
-
-                  <div className="mb-3">
-                    <h4 className="mb-1" style={{ color: '#7c3aed' }}>
-                      phpMyFAQ {devVersion}
-                    </h4>
-                    <p className="text-muted mb-0">Released: {formatReleaseDate(devReleased)}</p>
-                  </div>
-
-                  <p className="mb-3">
-                    Get the latest features and improvements. Use for testing and development only.
-                  </p>
-
-                  {developmentInfo && (
-                    <>
-                      <div className="d-grid gap-2 mb-3">
-                        <a
-                          href={getDownloadUrl(devVersion, 'zip')}
-                          className="btn"
-                          download
-                          style={{
-                            borderRadius: '25px',
-                            backgroundColor: '#7c3aed',
-                            color: 'white',
-                            borderColor: '#7c3aed',
-                          }}
-                        >
-                          <i className="fas fa-download me-2"></i>
-                          ZIP ({formatFileSize(developmentInfo.zip.filesize)})
-                        </a>
-                        <a
-                          href={getDownloadUrl(devVersion, 'tar.gz')}
-                          className="btn btn-outline-purple"
-                          download
-                          style={{ borderRadius: '25px' }}
-                        >
-                          <i className="fas fa-file-archive me-2"></i>
-                          TAR.GZ ({formatFileSize(developmentInfo.targz.filesize)})
-                        </a>
+            {showDevelopment && (
+              <div className="col-lg-6">
+                <div className="card h-100 shadow-sm" style={{ border: '2px solid #7c3aed' }}>
+                  <div className="card-body p-4">
+                    <div className="d-flex align-items-center mb-3">
+                      <div
+                        className="icon-badge-purple rounded-circle d-flex align-items-center justify-content-center me-3"
+                        style={{ width: '50px', height: '50px' }}
+                      >
+                        <i className="fas fa-code-branch fa-lg"></i>
                       </div>
+                      <div>
+                        <h5 className="mb-0">Development Version</h5>
+                        <small className="text-muted">Testing Only</small>
+                      </div>
+                    </div>
 
-                      <div className="checksum-box-dev mb-3 p-3 rounded">
-                        <h6 className="mb-2">Checksums</h6>
-                        <div className="small">
-                          <div className="mb-1">
-                            <strong>ZIP:</strong> <code className="text-muted">{developmentInfo.zip.md5}</code>
-                          </div>
-                          <div>
-                            <strong>TAR.GZ:</strong> <code className="text-muted">{developmentInfo.targz.md5}</code>
+                    <div className="mb-3">
+                      <h4 className="mb-1" style={{ color: '#7c3aed' }}>
+                        phpMyFAQ {devVersion}
+                      </h4>
+                      <p className="text-muted mb-0">Released: {formatReleaseDate(devReleased)}</p>
+                    </div>
+
+                    <p className="mb-3">
+                      Get the latest features and improvements. Use for testing and development only.
+                    </p>
+
+                    {developmentInfo && (
+                      <>
+                        <div className="d-grid gap-2 mb-3">
+                          <a
+                            href={getDownloadUrl(devVersion, 'zip')}
+                            className="btn"
+                            download
+                            style={{
+                              borderRadius: '25px',
+                              backgroundColor: '#7c3aed',
+                              color: 'white',
+                              borderColor: '#7c3aed',
+                            }}
+                          >
+                            <i className="fas fa-download me-2"></i>
+                            ZIP ({formatFileSize(developmentInfo.zip.filesize)})
+                          </a>
+                          <a
+                            href={getDownloadUrl(devVersion, 'tar.gz')}
+                            className="btn btn-outline-purple"
+                            download
+                            style={{ borderRadius: '25px' }}
+                          >
+                            <i className="fas fa-file-archive me-2"></i>
+                            TAR.GZ ({formatFileSize(developmentInfo.targz.filesize)})
+                          </a>
+                        </div>
+
+                        <div className="checksum-box-dev mb-3 p-3 rounded">
+                          <h6 className="mb-2">Checksums</h6>
+                          <div className="small">
+                            <div className="mb-1">
+                              <strong>ZIP:</strong> <code className="text-muted">{developmentInfo.zip.md5}</code>
+                            </div>
+                            <div>
+                              <strong>TAR.GZ:</strong> <code className="text-muted">{developmentInfo.targz.md5}</code>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  )}
+                      </>
+                    )}
 
-                  <a
-                    href={`/changelog#${devVersion}`}
-                    className="btn btn-outline-primary w-100"
-                    target="_blank"
-                    rel="noopener"
-                    style={{ borderRadius: '25px' }}
-                  >
-                    <i className="fas fa-file-alt me-2"></i>
-                    View Release Notes
-                  </a>
+                    <a
+                      href={`/changelog#${devVersion}`}
+                      className="btn btn-outline-primary w-100"
+                      target="_blank"
+                      rel="noopener"
+                      style={{ borderRadius: '25px' }}
+                    >
+                      <i className="fas fa-file-alt me-2"></i>
+                      View Release Notes
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Info Cards */}
