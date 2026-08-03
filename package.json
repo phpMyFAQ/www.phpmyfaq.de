@@ -2,6 +2,7 @@
   "name": "phpmyfaq-website",
   "version": "4.2.0",
   "private": true,
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "next dev",
     "prebuild": "npm run generate:news-api",
