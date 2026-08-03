@@ -35,7 +35,7 @@ export default function ImprintPage() {
             Internet: phpmyfaq.de
           </p>
           <p>
-            Inhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV:
+            Inhaltlich Verantwortlicher gemäß § 18 Absatz 2 MStV:
             <br />
             Thorsten Rinne (Anschrift wie oben)
           </p>

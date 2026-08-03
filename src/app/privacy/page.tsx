@@ -12,6 +12,13 @@ export default function PrivacyPage() {
     <PageLayout title="Privacy Notice">
       <div className="row">
         <div className="col-xs-12">
+          <p>
+            <em>
+              This privacy notice is provided in German, as the site is operated from Germany and the GDPR applies. If
+              you have any questions in English, please contact us at{' '}
+              <a href="mailto:info@phpmyfaq.de">info@phpmyfaq.de</a>.
+            </em>
+          </p>
           <p id="dsg-general-intro">
             Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von
             personenbezogenen Daten (nachfolgend kurz „Daten“) innerhalb unseres Onlineangebotes und der mit ihm

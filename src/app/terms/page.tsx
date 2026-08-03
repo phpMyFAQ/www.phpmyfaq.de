@@ -1,5 +1,6 @@
 import PageLayout from '@/components/PageLayout';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { generatePageMetadata } from '@/components/PageLayout';
 
 export const metadata: Metadata = generatePageMetadata('Terms of Service', 'Terms of service for phpmyfaq.de');
@@ -9,7 +10,7 @@ export default function TermsPage() {
     <PageLayout title="Terms of Service">
       <div className="row">
         <div className="col-xs-12">
-          <p>This Agreement was last modified on May 8th, 2016.</p>
+          <p>This Agreement was last modified on August 3rd, 2026.</p>
           <p>
             Please read these Terms and Conditions ("Agreement", "Terms and Conditions") carefully before using
             phpmyfaq.de ("the Site") operated by Thorsten Rinne ("us", "we", or "our"). This Agreement sets forth the
@@ -21,11 +22,24 @@ export default function TermsPage() {
             Capitalized terms are defined in this Agreement.
           </p>
 
+          <h2>SCOPE</h2>
+          <p>
+            These terms cover the use of the website phpmyfaq.de only. The phpMyFAQ software itself is free and open
+            source software distributed under the Mozilla Public License 2.0; your use of the software is governed
+            solely by that license, not by this Agreement.
+          </p>
+
           <h2>INTELLECTUAL PROPERTY</h2>
           <p>
             The Site and its original content, features and functionality are owned by Thorsten Rinne and are protected
             by international copyright, trademark, patent, trade secret and other intellectual property or proprietary
             rights laws.
+          </p>
+
+          <h2>PRIVACY</h2>
+          <p>
+            Information about how personal data is processed on this Site is provided in our{' '}
+            <Link href="/privacy/">privacy notice</Link>.
           </p>
 
           <h2>TERMINATION</h2>
