@@ -19,6 +19,7 @@ test.describe('All Pages Accessibility Tests', () => {
     { path: '/donations', title: 'Donations - phpMyFAQ' },
     { path: '/references', title: 'Who uses phpMyFAQ? - phpMyFAQ' },
     { path: '/sovereignty', title: 'Digital Sovereignty - phpMyFAQ' },
+    { path: '/souveraenitaet', title: 'Digitale Souveränität - phpMyFAQ' },
     { path: '/thankyou', title: 'Thank You! - phpMyFAQ' },
     { path: '/terms', title: 'Terms of Service - phpMyFAQ' },
     { path: '/imprint', title: 'Imprint - phpMyFAQ' },
