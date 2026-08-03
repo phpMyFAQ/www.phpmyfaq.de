@@ -6,10 +6,13 @@ import { sbomSinceVersion, contactEmail, advisoryReportUrl } from '@/data/securi
 import { getAdvisoriesByYear } from '@/lib/securityAdvisory';
 import styles from './sovereignty.module.scss';
 
-export const metadata: Metadata = generatePageMetadata(
-  'Digital Sovereignty',
-  'Run your FAQ on your own infrastructure — open source, GDPR-friendly, with the transparency modern supply-chain due diligence demands',
-);
+export const metadata: Metadata = {
+  ...generatePageMetadata(
+    'Digital Sovereignty',
+    'Run your FAQ on your own infrastructure — open source, GDPR-friendly, with the transparency modern supply-chain due diligence demands',
+  ),
+  alternates: { languages: { en: '/sovereignty/', de: '/souveraenitaet/' } },
+};
 
 export default function SovereigntyPage() {
   const advisoryYears = getAdvisoriesByYear();
@@ -68,6 +71,11 @@ export default function SovereigntyPage() {
 
   return (
     <PageLayout title="Digital Sovereignty">
+      <p className={styles.prose}>
+        <em>
+          <Link href="/souveraenitaet/">Diese Seite auf Deutsch lesen</Link>
+        </em>
+      </p>
       <p className={styles.lead}>
         phpMyFAQ is open source software, developed in Germany since 2001, and runs entirely on your own infrastructure.
         No SaaS dependency, no data leaving your control — a European answer to proprietary knowledge-base clouds.
