@@ -1,10 +1,11 @@
 import PageLayout from '@/components/PageLayout';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { generatePageMetadata } from '@/components/PageLayout';
 
 export const metadata: Metadata = generatePageMetadata(
   'Who uses phpMyFAQ?',
-  'Organizations and websites using phpMyFAQ',
+  'Universities, public sector, industry and software vendors running phpMyFAQ in production',
 );
 
 export default function ReferencesPage() {
@@ -13,8 +14,11 @@ export default function ReferencesPage() {
       <div className="row">
         <div className="col-xs-12">
           <p>
-            A selection of organizations running phpMyFAQ in production. Is your FAQ missing here? Then{' '}
-            <a href="mailto:info@phpmyfaq.de">tell us</a> about your phpMyFAQ installation.
+            A selection of organizations running phpMyFAQ in production. All entries were last verified in August 2026.
+          </p>
+          <p>
+            Is your FAQ missing here? <a href="mailto:info@phpmyfaq.de">Send us</a> the URL of your installation and a
+            short confirmation that we may list you here.
           </p>
 
           <h3>Higher Education &amp; Organizations</h3>
@@ -23,13 +27,14 @@ export default function ReferencesPage() {
               <a rel="nofollow" target="_blank" href="https://faq.tools.phil.uni-siegen.de/">
                 University of Siegen, Faculty of Arts and Humanities
               </a>{' '}
-              — public FAQ of the Philosophische Fakultät.
+              — public FAQ of the Philosophische Fakultät at the German university.
             </li>
             <li>
               <a rel="nofollow" target="_blank" href="https://howto.fei.org/">
                 Fédération Équestre Internationale (FEI)
               </a>{' '}
-              — &ldquo;FEI How To&rdquo; knowledge base of the international federation for equestrian sports.
+              — &ldquo;FEI How To&rdquo; knowledge base of the Lausanne-based international federation for equestrian
+              sports.
             </li>
           </ul>
 
@@ -55,7 +60,7 @@ export default function ReferencesPage() {
               <a rel="nofollow" target="_blank" href="https://meeting-infohub.cisco.com/faq/">
                 Cisco
               </a>{' '}
-              — FAQ of the Cisco Meeting InfoHub.
+              — Meeting InfoHub FAQ of the US networking company.
             </li>
             <li>
               <a rel="nofollow" target="_blank" href="https://hilfe.zemo.de/">
@@ -89,7 +94,7 @@ export default function ReferencesPage() {
               <a rel="nofollow" target="_blank" href="https://faq.asadatec.de/">
                 ASA Datec
               </a>{' '}
-              — product FAQ of the aviation maintenance (CAMO) software vendor.
+              — product FAQ of the German aviation maintenance (CAMO) software vendor.
             </li>
           </ul>
 
@@ -110,8 +115,16 @@ export default function ReferencesPage() {
           </ul>
 
           <p>
-            Haftungshinweis: Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte
-            externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+            <small>
+              All links lead to external websites; their operators are solely responsible for their content.
+            </small>
+          </p>
+          <p>
+            Want to run phpMyFAQ the way these organizations do? Take a look at the{' '}
+            <Link href="/features/">features</Link> they rely on — LDAP, Active Directory and Microsoft Entra ID
+            authentication, a REST API, and two-factor authentication — or try the{' '}
+            <Link href="/demo/">online demo</Link>. Self-hosted and open source, phpMyFAQ also keeps your knowledge base
+            under your own <Link href="/sovereignty/">digital sovereignty</Link>.
           </p>
         </div>
       </div>
