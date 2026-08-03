@@ -7,8 +7,8 @@ import './tailwind.css';
 import './globals.scss';
 
 export const metadata: Metadata = {
-  title: 'phpMyFAQ - Open Source FAQ web application for PHP 8.2+',
-  description: 'phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.2+',
+  title: 'phpMyFAQ - Open Source FAQ web application for PHP 8.3+',
+  description: 'phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.3+',
   icons: {
     icon: '/favicon.ico',
   },
