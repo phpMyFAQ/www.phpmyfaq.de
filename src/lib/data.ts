@@ -57,6 +57,18 @@ export function getDevelopmentInfo(): DownloadInfo | null {
   }
 }
 
+// The versions API keeps serving the last pre-release even after it went
+// stable, so the development channel is only offered while its base version
+// is actually ahead of the stable release.
+export function isDevelopmentAhead(development: string, stable: string): boolean {
+  const base = (version: string) => version.split('-')[0].split('.').map(Number);
+  const [devParts, stableParts] = [base(development), base(stable)];
+  for (let i = 0; i < 3; i++) {
+    if (devParts[i] !== stableParts[i]) return devParts[i] > stableParts[i];
+  }
+  return false;
+}
+
 export function formatFileSize(sizeInMB: number): string {
   return `${sizeInMB.toFixed(2)} MB`;
 }

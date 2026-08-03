@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('All Pages Accessibility Tests', () => {
   const pages = [
-    { path: '/', title: 'phpMyFAQ - Open Source FAQ web application for PHP 8.2+' },
+    { path: '/', title: 'phpMyFAQ - Open Source FAQ web application for PHP 8.3+' },
     { path: '/download', title: 'Download - phpMyFAQ' },
     { path: '/features', title: 'Features - phpMyFAQ' },
     { path: '/documentation', title: 'Documentation - phpMyFAQ' },
@@ -18,6 +18,7 @@ test.describe('All Pages Accessibility Tests', () => {
     { path: '/news', title: 'News archive - phpMyFAQ' },
     { path: '/donations', title: 'Donations - phpMyFAQ' },
     { path: '/references', title: 'Who uses phpMyFAQ? - phpMyFAQ' },
+    { path: '/sovereignty', title: 'Digital Sovereignty - phpMyFAQ' },
     { path: '/thankyou', title: 'Thank You! - phpMyFAQ' },
     { path: '/terms', title: 'Terms of Service - phpMyFAQ' },
     { path: '/imprint', title: 'Imprint - phpMyFAQ' },
@@ -67,6 +68,7 @@ test.describe('All Pages Accessibility Tests', () => {
       '/news',
       '/donations',
       '/references',
+      '/sovereignty',
       '/20years',
       '/15years',
       '/10years',

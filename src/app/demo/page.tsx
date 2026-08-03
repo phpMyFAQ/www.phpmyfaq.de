@@ -1,5 +1,5 @@
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
-import { getVersions } from '@/lib/data';
+import { getVersions, isDevelopmentAhead } from '@/lib/data';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = generatePageMetadata('Demo installations', 'phpMyFAQ demo installations');
@@ -15,12 +15,7 @@ export default function DemoPage() {
   const stableVersion = versions?.stable || fallback.stable;
   const devVersion = versions?.development || fallback.development;
 
-  // The versions API keeps serving the last pre-release even after it went
-  // stable; only show the development demo while it is actually ahead.
-  const baseVersion = (version: string) => version.split('-')[0].split('.').map(Number);
-  const isNewer = (a: number[], b: number[]) =>
-    a[0] !== b[0] ? a[0] > b[0] : a[1] !== b[1] ? a[1] > b[1] : a[2] > b[2];
-  const showDevelopment = isNewer(baseVersion(devVersion), baseVersion(stableVersion));
+  const showDevelopment = isDevelopmentAhead(devVersion, stableVersion);
 
   return (
     <PageLayout title="Demo" description="phpMyFAQ demo installations">

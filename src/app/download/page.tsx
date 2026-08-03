@@ -9,6 +9,7 @@ import {
   formatFileSize,
   getDownloadUrl,
   formatReleaseDate,
+  isDevelopmentAhead,
 } from '@/lib/data';
 
 export const metadata: Metadata = generatePageMetadata(
@@ -34,12 +35,7 @@ export default function DownloadPage() {
   const devVersion = versions?.development || fallbackVersions.development;
   const devReleased = versions?.development_released || fallbackVersions.development_released;
 
-  // The versions API keeps serving the last pre-release even after it went
-  // stable; only offer the development channel while it is actually ahead.
-  const baseVersion = (version: string) => version.split('-')[0].split('.').map(Number);
-  const isNewer = (a: number[], b: number[]) =>
-    a[0] !== b[0] ? a[0] > b[0] : a[1] !== b[1] ? a[1] > b[1] : a[2] > b[2];
-  const showDevelopment = isNewer(baseVersion(devVersion), baseVersion(stableVersion));
+  const showDevelopment = isDevelopmentAhead(devVersion, stableVersion);
 
   return (
     <PageLayout title="Download phpMyFAQ">

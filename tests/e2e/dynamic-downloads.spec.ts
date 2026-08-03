@@ -1,4 +1,13 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { isDevelopmentAhead } from '../../src/lib/data';
+
+// The development card is only rendered while the development channel is
+// ahead of the stable release, so derive the expectation from the same data
+// the page is built from.
+const versions = JSON.parse(readFileSync(join(process.cwd(), 'data', 'versions.json'), 'utf-8'));
+const developmentShown = isDevelopmentAhead(versions.development, versions.stable);
 
 test.describe('Dynamic Download Functionality', () => {
   test('download page displays current version data', async ({ page }) => {
@@ -37,7 +46,7 @@ test.describe('Dynamic Download Functionality', () => {
     await page.setViewportSize({ width: 1200, height: 800 });
     await page.goto('/download');
     const cards = page.locator('.col-lg-6');
-    await expect(cards).toHaveCount(2);
+    await expect(cards).toHaveCount(developmentShown ? 2 : 1);
     await page.setViewportSize({ width: 375, height: 667 });
     await page.reload();
     await expect(cards.first()).toBeVisible();
@@ -50,6 +59,11 @@ test.describe('Dynamic Download Functionality', () => {
     await page.goto('/download');
     await expect(page.locator('h1')).toContainText('Download phpMyFAQ');
     await expect(page.locator('.card').filter({ hasText: 'Stable Release' })).toBeVisible();
-    await expect(page.locator('.card').filter({ hasText: 'Development Version' })).toBeVisible();
+    const developmentCard = page.locator('.card').filter({ hasText: 'Development Version' });
+    if (developmentShown) {
+      await expect(developmentCard).toBeVisible();
+    } else {
+      await expect(developmentCard).toHaveCount(0);
+    }
   });
 });
