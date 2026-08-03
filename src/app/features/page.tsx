@@ -2,7 +2,71 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
+import ScreenshotGallery, { Screenshot } from '@/components/ScreenshotGallery';
 import styles from './features.module.scss';
+
+const screenshots: Screenshot[] = [
+  {
+    src: '/images/screenshots/frontend-categories.webp',
+    alt: 'phpMyFAQ public category overview',
+    caption: 'The public FAQ: a clear category overview your visitors can browse and search.',
+  },
+  {
+    src: '/images/screenshots/frontend-glossary.webp',
+    alt: 'phpMyFAQ public glossary',
+    caption: 'A built-in glossary explains recurring terms right where readers need them.',
+  },
+  {
+    src: '/images/screenshots/login.webp',
+    alt: 'phpMyFAQ sign-in page with Microsoft and passkey login',
+    caption: 'Modern sign-in with local accounts, Microsoft Entra ID and passkeys.',
+  },
+  {
+    src: '/images/screenshots/admin-dashboard.webp',
+    alt: 'phpMyFAQ admin dashboard',
+    caption: 'The admin dashboard: visits, popular FAQs, content health and backup status at a glance.',
+  },
+  {
+    src: '/images/screenshots/admin-editor.webp',
+    alt: 'phpMyFAQ FAQ editor with WYSIWYG editing',
+    caption: 'Creating a FAQ with WYSIWYG editing, SEO and permission tabs — including AI-assisted translation.',
+  },
+  {
+    src: '/images/screenshots/admin-pages.webp',
+    alt: 'phpMyFAQ custom pages management',
+    caption: 'Custom pages with multi-language support, new in phpMyFAQ 4.2.',
+  },
+  {
+    src: '/images/screenshots/admin-configuration.webp',
+    alt: 'phpMyFAQ configuration backend',
+    caption: 'The searchable configuration: security, LDAP, Keycloak, OAuth 2.0, storage backends and more.',
+  },
+  {
+    src: '/images/screenshots/admin-users.webp',
+    alt: 'phpMyFAQ user management',
+    caption: 'User management with protected accounts, super-admins and two-factor authentication.',
+  },
+  {
+    src: '/images/screenshots/admin-groups.webp',
+    alt: 'phpMyFAQ group management',
+    caption: 'Group management with per-group rights and category restrictions.',
+  },
+  {
+    src: '/images/screenshots/admin-statistics.webp',
+    alt: 'phpMyFAQ session statistics',
+    caption: 'Session statistics with visitor trends and CSV export.',
+  },
+  {
+    src: '/images/screenshots/admin-export.webp',
+    alt: 'phpMyFAQ export options',
+    caption: 'Export your FAQ content as JSON or PDF, per category or in full.',
+  },
+  {
+    src: '/images/screenshots/admin-update.webp',
+    alt: 'phpMyFAQ built-in update center',
+    caption: 'The built-in update center with system health check and release channels.',
+  },
+];
 
 export const metadata: Metadata = generatePageMetadata(
   'Features',
@@ -168,6 +232,13 @@ export default function FeaturesPage() {
           <span>Compatible with all modern browsers</span>
         </li>
       </ul>
+
+      <h2 className={styles.heading}>See it in action</h2>
+      <ScreenshotGallery screenshots={screenshots} />
+      <p>
+        Screenshots show the upcoming phpMyFAQ 4.2 — want to click around yourself? Try the{' '}
+        <Link href="/demo">demo installation</Link>.
+      </p>
 
       <h2 className={styles.heading}>Advanced Features</h2>
       <div className={styles.grid}>
