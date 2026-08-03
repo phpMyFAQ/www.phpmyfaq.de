@@ -51,7 +51,6 @@
     "@types/react-dom": "19.2.4",
     "@vitejs/plugin-react": "^5.2.0",
     "@vitest/coverage-v8": "^4.1.10",
-    "conventional-changelog-atom": "^5.1.0",
     "husky": "^9.1.7",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.3.0",
@@ -61,16 +60,5 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.2.7",
-      "@types/react-dom": "19.2.3"
-    },
-    "ignoredBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "sharp"
-    ]
   }
 }
