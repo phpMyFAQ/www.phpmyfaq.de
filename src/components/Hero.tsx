@@ -42,23 +42,6 @@ export default function Hero() {
             </a>
           </li>
         </ul>
-
-        <div className="heroShot">
-          <div className="heroShotBar" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className="heroShotImage">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/screenshots/admin-dashboard.webp"
-              alt="phpMyFAQ admin dashboard"
-              width={1800}
-              height={1029}
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
