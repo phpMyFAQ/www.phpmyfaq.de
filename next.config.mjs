@@ -7,6 +7,11 @@ const nextConfig = {
   },
   output: isE2E ? undefined : 'export',
   reactStrictMode: true,
+  // TypeScript 7 no longer exposes the compiler API Next.js used; run the
+  // TypeScript CLI during the build instead.
+  experimental: {
+    useTypeScriptCli: true,
+  },
   trailingSlash: true,
   async rewrites() {
     return [

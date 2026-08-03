@@ -29,6 +29,16 @@ export default function ReferencesPage() {
             </li>
           </ul>
 
+          <h3>Public Sector &amp; Research</h3>
+          <ul>
+            <li>
+              <a rel="nofollow" target="_blank" href="https://faq.rpd.cnr.it/">
+                Consiglio Nazionale delle Ricerche (CNR)
+              </a>{' '}
+              — data protection FAQ of the National Research Council of Italy.
+            </li>
+          </ul>
+
           <h3>Industry &amp; Technology</h3>
           <ul>
             <li>
@@ -42,6 +52,12 @@ export default function ReferencesPage() {
                 ZEMO
               </a>{' '}
               — customer help center of the German manufacturer of mobile health card (eGK) readers.
+            </li>
+            <li>
+              <a rel="nofollow" target="_blank" href="https://faq.telecoop.fr/">
+                TeleCoop
+              </a>{' '}
+              — customer FAQ of the French cooperative mobile network operator.
             </li>
           </ul>
 
