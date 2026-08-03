@@ -41,6 +41,12 @@ export default function ReferencesPage() {
               </a>{' '}
               — data protection FAQ of the National Research Council of Italy.
             </li>
+            <li>
+              <a rel="nofollow" target="_blank" href="https://fl.bib-bvb.de/faq/">
+                Bibliotheksverbund Bayern
+              </a>{' '}
+              — FAQ of the Bavarian Library Network&apos;s interlibrary loan service.
+            </li>
           </ul>
 
           <h3>Industry &amp; Technology</h3>
@@ -94,6 +100,12 @@ export default function ReferencesPage() {
                 First Root
               </a>{' '}
               — customer FAQ of the German hosting provider.
+            </li>
+            <li>
+              <a rel="nofollow" target="_blank" href="https://support.brownrice.com/">
+                Brownrice Internet
+              </a>{' '}
+              — support knowledge base of the US hosting and colocation provider.
             </li>
           </ul>
 
