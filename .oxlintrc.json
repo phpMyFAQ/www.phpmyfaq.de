@@ -7,6 +7,7 @@
     "playwright-report/**",
     "test-results/**",
     "node_modules/**",
+    ".pnpm-store/**",
     "dist/**",
     "next-env.d.ts"
   ],
