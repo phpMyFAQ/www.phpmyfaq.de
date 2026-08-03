@@ -2,6 +2,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   formatFileSize,
   getDownloadUrl,
+  getSbomUrl,
+  hasSbomFiles,
   formatReleaseDate,
   getSiteConfig,
   getVersions,
@@ -31,6 +33,48 @@ describe('getDownloadUrl', () => {
   it('should generate correct TAR.GZ download URL', () => {
     const url = getDownloadUrl('4.1.0-alpha.3', 'tar.gz');
     expect(url).toBe('https://download.phpmyfaq.de/phpMyFAQ-4.1.0-alpha.3.tar.gz');
+  });
+});
+
+describe('hasSbomFiles', () => {
+  it('should be false for releases before 4.1.7', () => {
+    expect(hasSbomFiles('4.1.6')).toBe(false);
+    expect(hasSbomFiles('4.0.13')).toBe(false);
+    expect(hasSbomFiles('3.2.10')).toBe(false);
+    expect(hasSbomFiles('1.2.0')).toBe(false);
+  });
+
+  it('should be true for 4.1.7 and later', () => {
+    expect(hasSbomFiles('4.1.7')).toBe(true);
+    expect(hasSbomFiles('4.1.8')).toBe(true);
+    expect(hasSbomFiles('4.2.0')).toBe(true);
+    expect(hasSbomFiles('5.0.0')).toBe(true);
+  });
+
+  it('should compare segments numerically, not lexicographically', () => {
+    // As a string, '4.1.10' < '4.1.7' — the gate must not fall for that.
+    expect(hasSbomFiles('4.1.10')).toBe(true);
+    expect(hasSbomFiles('4.10.0')).toBe(true);
+  });
+
+  it('should exclude pre-releases of 4.1.7 but include later pre-releases', () => {
+    expect(hasSbomFiles('4.1.7-RC.1')).toBe(false);
+    expect(hasSbomFiles('4.2.0-alpha.1')).toBe(true);
+  });
+
+  it('should be false for non-semver versions like nightlies', () => {
+    expect(hasSbomFiles('nightly-2026-08-02')).toBe(false);
+  });
+});
+
+describe('getSbomUrl', () => {
+  it('should generate the combined SBOM URL by default', () => {
+    expect(getSbomUrl('4.1.7')).toBe('https://download.phpmyfaq.de/phpMyFAQ-4.1.7.sbom.cdx.json');
+  });
+
+  it('should generate scoped SBOM URLs with dot-separated scope', () => {
+    expect(getSbomUrl('4.1.7', 'php')).toBe('https://download.phpmyfaq.de/phpMyFAQ-4.1.7.php.sbom.cdx.json');
+    expect(getSbomUrl('4.1.7', 'js')).toBe('https://download.phpmyfaq.de/phpMyFAQ-4.1.7.js.sbom.cdx.json');
   });
 });
 

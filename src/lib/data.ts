@@ -73,10 +73,33 @@ export function formatFileSize(sizeInMB: number): string {
   return `${sizeInMB.toFixed(2)} MB`;
 }
 
+// SBOM files (CycloneDX) are only published for releases from 4.1.7 onwards,
+// so older releases must not get dead links. Each segment is compared
+// numerically — as strings, "4.1.10" would sort before "4.1.7" and newer
+// patch releases would lose their SBOM links.
+export function hasSbomFiles(version: string): boolean {
+  const [base, preRelease] = version.split('-');
+  const parts = base.split('.').map(Number);
+  if (parts.length !== 3 || parts.some(Number.isNaN)) return false;
+  const minimum = [4, 1, 7];
+  for (let i = 0; i < 3; i++) {
+    if (parts[i] !== minimum[i]) return parts[i] > minimum[i];
+  }
+  // Pre-releases of 4.1.7 itself (e.g. 4.1.7-RC.1) predate the release.
+  return preRelease === undefined;
+}
+
 export function getDownloadUrl(version: string, format: 'zip' | 'tar.gz'): string {
   const baseUrl = 'https://download.phpmyfaq.de';
   const extension = format === 'zip' ? 'zip' : 'tar.gz';
   return `${baseUrl}/phpMyFAQ-${version}.${extension}`;
+}
+
+// The scope is dot-separated in the filename, e.g. phpMyFAQ-4.1.7.php.sbom.cdx.json
+export function getSbomUrl(version: string, scope: 'combined' | 'php' | 'js' = 'combined'): string {
+  const baseUrl = 'https://download.phpmyfaq.de';
+  const infix = scope === 'combined' ? '' : `.${scope}`;
+  return `${baseUrl}/phpMyFAQ-${version}${infix}.sbom.cdx.json`;
 }
 
 export function formatReleaseDate(dateString: string): string {

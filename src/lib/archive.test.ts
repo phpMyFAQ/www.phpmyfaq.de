@@ -12,6 +12,14 @@ title: phpMyFAQ Changelog
 
 ## phpMyFAQ 4.1.x
 
+### phpMyFAQ 4.1.10 - 2026-10-01 {#4.1.10}
+
+- later patch release
+
+### phpMyFAQ 4.1.7 - 2026-08-15 {#4.1.7}
+
+- first release with SBOM files
+
 ### phpMyFAQ 4.1.0-RC.7 - 2026-02-27 {#4.1.0-RC.7}
 
 - pre-release
@@ -95,6 +103,22 @@ describe('getArchiveReleases', () => {
     expect(v200?.changelogAnchor).toBe('2.0.0');
   });
 
+  it('offers SBOM links only for releases from 4.1.7 onwards', async () => {
+    const groups = await getArchiveReleases();
+    const all = groups.flatMap((g) => g.releases);
+    expect(all.find((r) => r.version === '4.1.7')?.sbomUrl).toBe(
+      'https://download.phpmyfaq.de/phpMyFAQ-4.1.7.sbom.cdx.json',
+    );
+    // '4.1.10' < '4.1.7' as a string — the gate must compare numerically.
+    expect(all.find((r) => r.version === '4.1.10')?.sbomUrl).toBe(
+      'https://download.phpmyfaq.de/phpMyFAQ-4.1.10.sbom.cdx.json',
+    );
+    expect(all.find((r) => r.version === '4.1.0')?.sbomUrl).toBeNull();
+    expect(all.find((r) => r.version === '2.0.0')?.sbomUrl).toBeNull();
+    expect(all.find((r) => r.version === '1.2.5b')?.sbomUrl).toBeNull();
+    expect(all.find((r) => r.version === '1.1.0')?.sbomUrl).toBeNull();
+  });
+
   it('produces a slug without the .x suffix', async () => {
     const groups = await getArchiveReleases();
     expect(groups.map((g) => g.slug)).toContain('4.1');
@@ -103,9 +127,9 @@ describe('getArchiveReleases', () => {
 
   it('counts all releases and downloadable releases separately', async () => {
     const groups = await getArchiveReleases();
-    // 4.1.0, 2.0.0, 1.2.5b, 1.2.0, 1.1.0, 0.1
-    expect(countReleases(groups)).toBe(6);
+    // 4.1.10, 4.1.7, 4.1.0, 2.0.0, 1.2.5b, 1.2.0, 1.1.0, 0.1
+    expect(countReleases(groups)).toBe(8);
     // everything except 1.1.0 and 0.1
-    expect(countDownloadableReleases(groups)).toBe(4);
+    expect(countDownloadableReleases(groups)).toBe(6);
   });
 });

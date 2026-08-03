@@ -1,5 +1,5 @@
 import { getChangelogData } from './changelog';
-import { getDownloadUrl } from './data';
+import { getDownloadUrl, getSbomUrl, hasSbomFiles } from './data';
 
 // Oldest version with downloadable packages on download.phpmyfaq.de. Releases below
 // this (0.x, 1.0.x, 1.1.x) are listed for historical reference only — no packages exist.
@@ -15,6 +15,8 @@ export interface ArchiveRelease {
   // null when no downloadable package exists for this release.
   zipUrl: string | null;
   targzUrl: string | null;
+  // null for releases before 4.1.7 — no SBOM files exist for those.
+  sbomUrl: string | null;
 }
 
 export interface ArchiveGroup {
@@ -74,6 +76,7 @@ export async function getArchiveReleases(): Promise<ArchiveGroup[]> {
           changelogAnchor: r.anchor,
           zipUrl: downloadable ? getDownloadUrl(r.version, 'zip') : null,
           targzUrl: downloadable && parsed.major >= MIN_TARGZ_MAJOR ? getDownloadUrl(r.version, 'tar.gz') : null,
+          sbomUrl: downloadable && hasSbomFiles(r.version) ? getSbomUrl(r.version) : null,
         };
       });
 

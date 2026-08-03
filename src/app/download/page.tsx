@@ -8,6 +8,8 @@ import {
   getDevelopmentInfo,
   formatFileSize,
   getDownloadUrl,
+  getSbomUrl,
+  hasSbomFiles,
   formatReleaseDate,
   isDevelopmentAhead,
 } from '@/lib/data';
@@ -119,6 +121,36 @@ export default function DownloadPage() {
                     </div>
                   )}
 
+                  {hasSbomFiles(stableVersion) && (
+                    <div className="checksum-box mb-3 p-3 rounded">
+                      <h6 className="mb-2">SBOM (CycloneDX)</h6>
+                      <p className="small text-muted mb-2">
+                        Software Bill of Materials listing all third-party dependencies (CycloneDX format).
+                      </p>
+                      <div className="small">
+                        <div className="mb-1">
+                          <a href={getSbomUrl(stableVersion)} className="text-decoration-none fw-bold" download>
+                            <i className="fas fa-file-code me-1"></i>
+                            Combined SBOM (PHP + JS)
+                          </a>{' '}
+                          ·{' '}
+                          <a href={`${getSbomUrl(stableVersion)}.sha256`} className="text-decoration-none" download>
+                            sha256
+                          </a>
+                        </div>
+                        <div>
+                          <a href={getSbomUrl(stableVersion, 'php')} className="text-decoration-none" download>
+                            PHP only
+                          </a>
+                          {' · '}
+                          <a href={getSbomUrl(stableVersion, 'js')} className="text-decoration-none" download>
+                            JS only
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <a
                     href={`/changelog#${stableVersion}`}
                     className="btn btn-outline-primary w-100"
@@ -201,6 +233,36 @@ export default function DownloadPage() {
                           </div>
                         </div>
                       </>
+                    )}
+
+                    {hasSbomFiles(devVersion) && (
+                      <div className="checksum-box-dev mb-3 p-3 rounded">
+                        <h6 className="mb-2">SBOM (CycloneDX)</h6>
+                        <p className="small text-muted mb-2">
+                          Software Bill of Materials listing all third-party dependencies (CycloneDX format).
+                        </p>
+                        <div className="small">
+                          <div className="mb-1">
+                            <a href={getSbomUrl(devVersion)} className="text-decoration-none fw-bold" download>
+                              <i className="fas fa-file-code me-1"></i>
+                              Combined SBOM (PHP + JS)
+                            </a>{' '}
+                            ·{' '}
+                            <a href={`${getSbomUrl(devVersion)}.sha256`} className="text-decoration-none" download>
+                              sha256
+                            </a>
+                          </div>
+                          <div>
+                            <a href={getSbomUrl(devVersion, 'php')} className="text-decoration-none" download>
+                              PHP only
+                            </a>
+                            {' · '}
+                            <a href={getSbomUrl(devVersion, 'js')} className="text-decoration-none" download>
+                              JS only
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     )}
 
                     <a

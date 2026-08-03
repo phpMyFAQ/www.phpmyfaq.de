@@ -93,6 +93,16 @@ export default function ArchiveView({ groups }: ArchiveViewProps) {
                               <i className="fas fa-file-archive" aria-hidden="true"></i> TAR.GZ
                             </a>
                           )}
+                          {release.sbomUrl && (
+                            <a
+                              className={styles.download}
+                              href={release.sbomUrl}
+                              title="Software Bill of Materials listing all third-party dependencies (CycloneDX format)"
+                              download
+                            >
+                              <i className="fas fa-file-code" aria-hidden="true"></i> SBOM
+                            </a>
+                          )}
                           <a className={styles.notes} href={`/changelog#${release.changelogAnchor}`}>
                             <i className="fas fa-file-lines" aria-hidden="true"></i>
                             <span className={styles.notesLabel}> Release notes</span>
