@@ -11,8 +11,7 @@ export default function PrivacyPage() {
     <PageLayout title="Privacy Notice">
       <div className="row">
         <div className="col-xs-12">
-          <h3 id="dsg-general-intro"></h3>
-          <p>
+          <p id="dsg-general-intro">
             Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von
             personenbezogenen Daten (nachfolgend kurz „Daten“) innerhalb unseres Onlineangebotes und der mit ihm
             verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen, wie z.B. unser Social Media
@@ -35,6 +34,7 @@ export default function PrivacyPage() {
               <br />
               <br />
               E-Mail:{' '}
+              {/* oxlint-disable-next-line nextjs/no-html-link-for-pages -- entity-obfuscated mailto:, not an internal route */}
               <a
                 rel="nofollow"
                 href="&#109;&#97;ilto&#58;thor%73%74&#37;6&#53;n&#64;p&#104;p&#109;y%66&#97;q&#46;&#100;e"

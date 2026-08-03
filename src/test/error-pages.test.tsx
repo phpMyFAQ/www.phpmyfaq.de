@@ -26,7 +26,7 @@ describe('Custom NotFound page', () => {
 
 describe('Custom Error page', () => {
   it('renders message and allows retry via reset()', () => {
-    const reset = vi.fn();
+    const reset = vi.fn<() => void>();
     const error = new Error('Boom!');
     render(<ErrorPage error={error} reset={reset} />);
     expect(screen.getByRole('heading', { name: 'Something went wrong' })).toBeInTheDocument();

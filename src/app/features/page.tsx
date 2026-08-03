@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import styles from './features.module.scss';
@@ -142,7 +143,7 @@ export default function FeaturesPage() {
         <li>
           <i className="fas fa-check"></i>
           <span>
-            <a href="/translations">40+ languages</a> incl. RTL layouts for Arabic, Farsi, Urdu, and Hebrew
+            <Link href="/translations">40+ languages</Link> incl. RTL layouts for Arabic, Farsi, Urdu, and Hebrew
           </span>
         </li>
         <li>

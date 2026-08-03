@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
@@ -18,7 +19,7 @@ export default async function ArchivePage() {
       <p className="lead">
         Every downloadable phpMyFAQ release since version 1.2.0 — {total} releases in total. The earliest 0.x, 1.0 and
         1.1 builds are listed for historical reference only. For the latest stable version, head to the{' '}
-        <a href="/download">download page</a>.
+        <Link href="/download">download page</Link>.
       </p>
       <div className="alert alert-warning d-flex align-items-center" role="alert">
         <i className="fas fa-triangle-exclamation me-2"></i>

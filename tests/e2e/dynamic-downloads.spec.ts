@@ -13,21 +13,22 @@ test.describe('Dynamic Download Functionality', () => {
     await expect(githubLink).toBeVisible();
     await expect(githubLink).toHaveAttribute('target', '_blank');
     await expect(githubLink).toHaveAttribute('rel', 'nofollow');
-    const archiveLink = page.locator('.older-versions-box a[href="/archive"]');
+    // next/link honours trailingSlash: true, so accept both forms
+    const archiveLink = page.locator('.older-versions-box a[href="/archive"], .older-versions-box a[href="/archive/"]');
     await expect(archiveLink).toBeVisible();
   });
 
   test('internal navigation links work', async ({ page }) => {
     await page.goto('/download');
-    await page.click('a[href="/requirements"]');
+    await page.click('a[href="/requirements"], a[href="/requirements/"]');
     await expect(page).toHaveURL(/\/requirements\/?$/);
     await expect(page.locator('h1')).toContainText('System Requirements');
     await page.goto('/download');
-    await page.click('a[href="/documentation"]');
+    await page.click('a[href="/documentation"], a[href="/documentation/"]');
     await expect(page).toHaveURL(/\/documentation\/?$/);
     await expect(page.locator('h1')).toContainText('Documentation');
     await page.goto('/download');
-    await page.click('a[href="/support"]');
+    await page.click('a[href="/support"], a[href="/support/"]');
     await expect(page).toHaveURL(/\/support\/?$/);
     await expect(page.locator('h1')).toContainText('Support');
   });

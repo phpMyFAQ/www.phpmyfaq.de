@@ -24,6 +24,7 @@ export default function ImprintPage() {
           </p>
           <p>
             E-Mail:{' '}
+            {/* oxlint-disable-next-line nextjs/no-html-link-for-pages -- entity-obfuscated mailto:, not an internal route */}
             <a
               rel="nofollow"
               href="&#109;&#97;ilto&#58;thor%73%74&#37;6&#53;n&#64;p&#104;p&#109;y%66&#97;q&#46;&#100;e"

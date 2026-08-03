@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import {
@@ -240,10 +241,10 @@ export default function DownloadPage() {
                       <i className="fas fa-check text-success me-2"></i>Modern web browser
                     </li>
                   </ul>
-                  <a href="/requirements" className="btn btn-outline-primary w-100" style={{ borderRadius: '25px' }}>
+                  <Link href="/requirements" className="btn btn-outline-primary w-100" style={{ borderRadius: '25px' }}>
                     <i className="fas fa-list me-2"></i>
                     View Full Requirements
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -263,15 +264,15 @@ export default function DownloadPage() {
                   <ul className="list-unstyled mb-3">
                     <li className="mb-2">
                       <i className="fas fa-book text-primary me-2"></i>
-                      <a href="/documentation" className="text-decoration-none">
+                      <Link href="/documentation" className="text-decoration-none">
                         Installation Guide
-                      </a>
+                      </Link>
                     </li>
                     <li className="mb-2">
                       <i className="fas fa-headset text-primary me-2"></i>
-                      <a href="/support" className="text-decoration-none">
+                      <Link href="/support" className="text-decoration-none">
                         Getting Support
-                      </a>
+                      </Link>
                     </li>
                     <li className="mb-2">
                       <i className="fab fa-discord text-primary me-2"></i>
@@ -307,10 +308,10 @@ export default function DownloadPage() {
             <h5>Looking for Older Versions?</h5>
             <p className="mb-3">
               Every release since 1.2.0 is available in our
-              <a href="/archive" className="text-decoration-none fw-bold">
+              <Link href="/archive" className="text-decoration-none fw-bold">
                 {' '}
                 download archive
-              </a>
+              </Link>
               .
             </p>
             <p className="text-muted small mb-0">

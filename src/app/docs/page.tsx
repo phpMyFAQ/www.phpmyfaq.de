@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 
@@ -14,7 +15,7 @@ export default function DocsIndexPage() {
           <p>
             Looking for an old version of documentation? Please note that we cannot offer any support for the following,
             old and unmaintained versions. If you&apos;re looking for the current documentation, please go to our{' '}
-            <a href="/documentation">documentation page</a>.
+            <Link href="/documentation">documentation page</Link>.
           </p>
         </div>
       </div>
@@ -51,47 +52,47 @@ export default function DocsIndexPage() {
           <h3>Outdated versions</h3>
           <ul>
             <li>
-              <a href="/docs/3.2">phpMyFAQ 3.2</a>
+              <Link href="/docs/3.2">phpMyFAQ 3.2</Link>
               <br />
               <small>minimum requirement: PHP 7.4+ and a database</small>
             </li>
             <li>
-              <a href="/docs/3.1">phpMyFAQ 3.1</a>
+              <Link href="/docs/3.1">phpMyFAQ 3.1</Link>
               <br />
               <small>minimum requirement: PHP 7.3+ and a database</small>
             </li>
             <li>
-              <a href="/docs/3.0">phpMyFAQ 3.0</a>
+              <Link href="/docs/3.0">phpMyFAQ 3.0</Link>
               <br />
               <small>minimum requirement: PHP 7.1+ and a database</small>
             </li>
             <li>
-              <a href="/docs/2.9">phpMyFAQ 2.9</a>
+              <Link href="/docs/2.9">phpMyFAQ 2.9</Link>
               <br />
               <small>minimum requirement: PHP 5.6+ and a database</small>
             </li>
             <li>
-              <a href="/docs/2.8">phpMyFAQ 2.8</a>
+              <Link href="/docs/2.8">phpMyFAQ 2.8</Link>
               <br />
               <small>minimum requirement: PHP 5.3.3+ and a database</small>
             </li>
             <li>
-              <a href="/docs/2.7">phpMyFAQ 2.7</a>
+              <Link href="/docs/2.7">phpMyFAQ 2.7</Link>
               <br />
               <small>minimum requirement: PHP 5.2.3+ and a database</small>
             </li>
             <li>
-              <a href="/docs/2.6">phpMyFAQ 2.6</a>
+              <Link href="/docs/2.6">phpMyFAQ 2.6</Link>
               <br />
               <small>minimum requirement: PHP 5.2.3+ and a database</small>
             </li>
             <li>
-              <a href="/docs/2.5">phpMyFAQ 2.5</a>
+              <Link href="/docs/2.5">phpMyFAQ 2.5</Link>
               <br />
               <small>minimum requirement: PHP 5.2+ and a database</small>
             </li>
             <li>
-              <a href="/docs/2.0">phpMyFAQ 2.0</a>
+              <Link href="/docs/2.0">phpMyFAQ 2.0</Link>
               <br />
               <small>minimum requirement: PHP 4.3.3+ and a database</small>
             </li>

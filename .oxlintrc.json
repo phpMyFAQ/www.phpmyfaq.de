@@ -21,9 +21,9 @@
   },
   "rules": {
     "no-useless-escape": "warn",
-    "nextjs/no-html-link-for-pages": "warn",
-    "jsx-a11y/heading-has-content": "warn",
-    "vitest/require-mock-type-parameters": "warn",
+    "nextjs/no-html-link-for-pages": "error",
+    "jsx-a11y/heading-has-content": "error",
+    "vitest/require-mock-type-parameters": "error",
     "typescript/triple-slash-reference": "error",
     "typescript/no-explicit-any": "warn",
     "typescript/no-unused-vars": [
