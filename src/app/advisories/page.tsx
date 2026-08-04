@@ -5,10 +5,15 @@ import { Metadata } from 'next';
 import { getAdvisoriesByYear, AdvisorySummary } from '@/lib/securityAdvisory';
 import styles from './advisories.module.scss';
 
-export const metadata: Metadata = generatePageMetadata(
-  'List of Security Advisories',
-  'We seriously take care about any security issues found in phpMyFAQ or bundled components. This page provides links to all our security advisories.',
-);
+export const metadata: Metadata = {
+  ...generatePageMetadata(
+    'List of Security Advisories',
+    'We seriously take care about any security issues found in phpMyFAQ or bundled components. This page provides links to all our security advisories.',
+  ),
+  alternates: {
+    types: { 'application/atom+xml': '/security/atom.xml' },
+  },
+};
 
 function riskClass(risk?: string): string {
   const r = (risk || '').toLowerCase();
@@ -58,6 +63,14 @@ export default function AdvisoriesPage() {
         advisories, grouped by year and ordered from newest to oldest. See our{' '}
         <Link href="/security">security page</Link> for how to report a vulnerability and how long each release is
         supported.
+      </p>
+
+      <p className={styles.feedLink}>
+        {/* oxlint-disable-next-line nextjs/no-html-link-for-pages -- static XML file, not an internal route */}
+        <a href="/security/atom.xml">
+          <i className="fas fa-rss" aria-hidden="true"></i> Subscribe to the Atom feed
+        </a>{' '}
+        to get notified about new advisories.
       </p>
 
       {advisoriesByYear.map(({ year, advisories }) => (

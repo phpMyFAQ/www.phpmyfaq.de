@@ -6,11 +6,16 @@ import styles from './security.module.scss';
 
 const policy = getSecurityPolicy();
 
-export const metadata: Metadata = generatePageMetadata(
-  'Security',
-  policy.frontmatter.description ??
-    'How the phpMyFAQ project handles security — vulnerability reporting, supported versions, SBOM and secure development.',
-);
+export const metadata: Metadata = {
+  ...generatePageMetadata(
+    'Security',
+    policy.frontmatter.description ??
+      'How the phpMyFAQ project handles security — vulnerability reporting, supported versions, SBOM and secure development.',
+  ),
+  alternates: {
+    types: { 'application/atom+xml': '/security/atom.xml' },
+  },
+};
 
 export default function SecurityPage() {
   return (

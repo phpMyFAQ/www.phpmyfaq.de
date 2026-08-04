@@ -1,9 +1,25 @@
 .intro {
   font-size: 1.05rem;
   color: var(--color-text-muted);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
   max-width: 760px;
   line-height: 1.65;
+}
+
+.feedLink {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  i {
+    color: #ff6600;
+    margin-right: 0.25rem;
+  }
 }
 
 .yearSection {

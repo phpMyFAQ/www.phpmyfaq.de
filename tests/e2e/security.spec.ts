@@ -53,6 +53,22 @@ test.describe('Security policy page', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'List of Security Advisories' })).toBeVisible();
   });
 
+  test('the Atom feed is served under /security/atom.xml', async ({ page }) => {
+    const response = await page.request.get('/security/atom.xml');
+    expect(response.status()).toBe(200);
+
+    const body = await response.text();
+    expect(body.startsWith('<?xml version="1.0" encoding="utf-8"?>')).toBe(true);
+    expect(body).toContain('<feed xmlns="http://www.w3.org/2005/Atom">');
+    expect(body).toContain('<entry>');
+  });
+
+  test('/advisories links to the Atom feed', async ({ page }) => {
+    await page.goto('/advisories');
+
+    await expect(page.locator('a[href="/security/atom.xml"]').first()).toBeVisible();
+  });
+
   test('the homepage footer links to both the policy and the advisory list', async ({ page }) => {
     await page.goto('/');
 

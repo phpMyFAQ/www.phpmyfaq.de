@@ -6,6 +6,13 @@ canonical: changelog
 
 ## phpMyFAQ 4.1.x
 
+### phpMyFAQ 4.1.7 - 2026-08-02 {#4.1.7}
+
+- added CycloneDX SBOM (Software Bill of Materials) generation to the release packaging
+- updated third party dependencies
+- fixed security vulnerabilities
+- fixed bugs
+
 ### phpMyFAQ 4.1.6 - 2026-07-13 {#4.1.6}
 
 - fixed security vulnerabilities
