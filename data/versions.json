@@ -1,8 +1,8 @@
 {
   "stable": "4.1.7",
   "stable_released": "2026-08-04",
-  "development": "4.1.0-RC.7",
-  "development_released": "2026-02-27",
-  "nightly": "nightly-2026-08-03",
-  "nightly_released": "2026-08-03"
+  "development": "4.2.0-alpha",
+  "development_released": "2026-08-08",
+  "nightly": "nightly-2026-08-07",
+  "nightly_released": "2026-08-07"
 }

@@ -4,6 +4,51 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 canonical: changelog
 ---
 
+## phpMyFAQ 4.2.x
+
+### phpMyFAQ 4.2.0-alpha - 2026-0808 {#4.2.0-alpha}
+
+- changed PHP requirement to PHP 8.4 or later
+- added Symfony Router for frontend
+- added API for glossary definitions
+- added admin log CSV export feature
+- added pagination, sorting, and filtering for APIs
+- added support for custom pages with WYSIWYG editor, SEO features, multi-language support, and search integration
+- added a translation adapter system with support for Google Cloud Translation, DeepL, Azure Translator, Amazon Translate, and LibreTranslate
+- added a simple chat for users
+- added push notifications via Web Push API
+- added support for Flesch readability tests
+- added storage abstraction layer with support for local filesystem, and Amazon S3
+- added support for SendGrid, AWS SES, and Mailgun
+- added theme manager with support for multiple themes and theme switching
+- added Symfony Kernel for better application structure and extensibility
+- added optional Redis support for configuration caching
+- added LDAP configuration frontend
+- added phpMyFAQ recent news widget to the admin dashboard
+- added experimental support for Keycloak
+- added experimental support for API key authentication via OAuth2
+- added experimental per-tenant quota enforcement and API request rate limits
+- added SBOM (Software Bill of Materials) generation
+- improved audit and activity log with comprehensive security event tracking
+- improved API errors with formatted RFC 7807 Problem Details JSON responses
+- improved support for PDO
+- improved sticky FAQs administration
+- improved update process
+- improved and hardened multi tenancy support
+- improved and redesigned searchable admin configuration frontend
+- updated to PHPUnit v13
+- migrated codebase using PHP 8.4 language features
+- migrated routes using PHP 8+ #[Route] attributes
+- migrated to Vite v8
+- migrated to TypeScript v7
+- migrated from ESLint to oxlint for TypeScript linting
+- migrated from Prettier to oxfmt for JavaScript/TypeScript formatting
+- migrated experimental MCP Server to mcp/sdk
+- upgraded PDF engine to TCPDF 7 / tc-lib-pdf; PDF fonts are now JSON descriptors in src/fonts
+- fixed security vulnerabilities
+- updated third party dependencies
+- fixed bugs
+
 ## phpMyFAQ 4.1.x
 
 ### phpMyFAQ 4.1.7 - 2026-08-02 {#4.1.7}

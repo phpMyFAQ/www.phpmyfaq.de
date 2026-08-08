@@ -1,7 +1,11 @@
 {
-  "generated": "2026-08-03T17:05:09.918Z",
+  "generated": "2026-08-04T17:48:40.239Z",
   "limit": 10,
   "news": [
+    {
+      "date": "2026-08-04",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.7](/download), the \"Sam Neill\" releases.\nThis release adds a CycloneDX SBOM (Software Bill of Materials) generation to the release packaging, fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs."
+    },
     {
       "date": "2026-07-13",
       "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.6](/download), the \"Bonnie Tyler\" releases.\nThis release fixes security vulnerabilities, updates all third party dependencies, and fixes all reported bugs."
@@ -37,10 +41,6 @@
     {
       "date": "2026-02-21",
       "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.1.0-RC.6](/download), the \"Eric Dane\" releases.\nThis release fixes all reported bugs, and we updated our third party dependencies."
-    },
-    {
-      "date": "2026-02-13",
-      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 4.1.0-RC.5](/download), the \"James Van Der Beek\" release.\nThis release fixes all reported bugs, and we updated our third party dependencies."
     }
   ]
 }
