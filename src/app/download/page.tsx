@@ -132,10 +132,6 @@ export default function DownloadPage() {
                           <a href={getSbomUrl(stableVersion)} className="text-decoration-none fw-bold" download>
                             <i className="fas fa-file-code me-1"></i>
                             Combined SBOM (PHP + JS)
-                          </a>{' '}
-                          ·{' '}
-                          <a href={`${getSbomUrl(stableVersion)}.sha256`} className="text-decoration-none" download>
-                            sha256
                           </a>
                         </div>
                         <div>
@@ -246,10 +242,6 @@ export default function DownloadPage() {
                             <a href={getSbomUrl(devVersion)} className="text-decoration-none fw-bold" download>
                               <i className="fas fa-file-code me-1"></i>
                               Combined SBOM (PHP + JS)
-                            </a>{' '}
-                            ·{' '}
-                            <a href={`${getSbomUrl(devVersion)}.sha256`} className="text-decoration-none" download>
-                              sha256
                             </a>
                           </div>
                           <div>
