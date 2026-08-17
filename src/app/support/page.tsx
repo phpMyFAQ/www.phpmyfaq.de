@@ -64,6 +64,11 @@ export default function SupportPage() {
             <li>Training &amp; workshops</li>
             <li>Priority bug fixes</li>
           </ul>
+          <p className={styles.note}>
+            Commercial support includes a defined support period. Our vulnerability handling, support periods, and
+            SBOM provision under the EU Cyber Resilience Act are documented in the{' '}
+            <Link href="/security">Security Policy</Link>.
+          </p>
           <a href="mailto:thorsten@phpmyfaq.de" className={styles.cta}>
             Contact Us
           </a>
