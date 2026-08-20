@@ -6,7 +6,7 @@ canonical: changelog
 
 ## phpMyFAQ 4.2.x
 
-### phpMyFAQ 4.2.0-alpha - 2026-0808 {#4.2.0-alpha}
+### phpMyFAQ 4.2.0-alpha.2 - 2026-08-20 {#4.2.0-alpha.2}
 
 - changed PHP requirement to PHP 8.4 or later
 - added Symfony Router for frontend
@@ -29,6 +29,9 @@ canonical: changelog
 - added experimental support for API key authentication via OAuth2
 - added experimental per-tenant quota enforcement and API request rate limits
 - added SBOM (Software Bill of Materials) generation
+- added separate read, write, and publish permissions for FAQs
+- added an editorial workflow with per-language draft, review, and published states for FAQs
+- added question metadata tracking, an audit log of the open question lifecycle (submitted, answered, reopened)
 - improved audit and activity log with comprehensive security event tracking
 - improved API errors with formatted RFC 7807 Problem Details JSON responses
 - improved support for PDO
@@ -36,6 +39,7 @@ canonical: changelog
 - improved update process
 - improved and hardened multi tenancy support
 - improved and redesigned searchable admin configuration frontend
+- improved package size by removing unused dependencies
 - updated to PHPUnit v13
 - migrated codebase using PHP 8.4 language features
 - migrated routes using PHP 8+ #[Route] attributes
@@ -47,9 +51,16 @@ canonical: changelog
 - upgraded PDF engine to TCPDF 7 / tc-lib-pdf; PDF fonts are now JSON descriptors in src/fonts
 - fixed security vulnerabilities
 - updated third party dependencies
+- fixed security vulnerabilities
 - fixed bugs
 
 ## phpMyFAQ 4.1.x
+
+### phpMyFAQ 4.1.8 - 2026-08-20 {#4.1.8}
+
+- fixed security vulnerabilities
+- updated third party dependencies
+- fixed bugs
 
 ### phpMyFAQ 4.1.7 - 2026-08-02 {#4.1.7}
 

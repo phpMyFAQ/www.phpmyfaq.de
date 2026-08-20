@@ -1,11 +1,11 @@
 {
-  "version": "4.2.0-alpha",
+  "version": "4.2.0-alpha.2",
   "zip": {
-    "filesize": 36.77,
-    "md5": "7a7f092b87220eb1e019482b6eacf7bd"
+    "filesize": 29.1,
+    "md5": "6d8a45b2558a959df64fcd962d1597e8"
   },
   "targz": {
-    "filesize": 29.61,
-    "md5": "199c12a82ab97967eb767ffcaef9463b"
+    "filesize": 23.4,
+    "md5": "f30e3e9702e9672c8968189301867fd2"
   }
 }
