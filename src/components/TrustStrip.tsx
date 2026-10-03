@@ -7,21 +7,21 @@ export default function TrustStrip() {
       <div className="container">
         <div className={styles.grid}>
           <Link href="/references" className={styles.item}>
-            <i className="fas fa-building"></i>
+            <i className="fas fa-building" aria-hidden="true"></i>
             <span>
               <strong>In production since 2001</strong>
               <span>Universities, public sector and industry run phpMyFAQ</span>
             </span>
           </Link>
           <Link href="/sovereignty" className={styles.item}>
-            <i className="fas fa-server"></i>
+            <i className="fas fa-server" aria-hidden="true"></i>
             <span>
               <strong>Self-hosted &amp; open source</strong>
               <span>Your data on your servers — built for GDPR-friendly operation</span>
             </span>
           </Link>
           <Link href="/security" className={styles.item}>
-            <i className="fas fa-shield-alt"></i>
+            <i className="fas fa-shield-alt" aria-hidden="true"></i>
             <span>
               <strong>Security you can audit</strong>
               <span>SBOM with every release, coordinated disclosure, documented support windows</span>

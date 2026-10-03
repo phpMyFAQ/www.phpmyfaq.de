@@ -21,7 +21,7 @@ export default function Hero() {
         </p>
 
         <div className="btns">
-          <Link href="/download" className="btn btn-light me-3">
+          <Link href="/download" className="btn btn-light">
             Download phpMyFAQ
           </Link>
           <Link href="/demo" className="btn btn-outline-light">

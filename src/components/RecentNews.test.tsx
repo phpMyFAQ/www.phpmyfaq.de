@@ -48,12 +48,26 @@ describe('RecentNews', () => {
     expect(link.closest('a')).toHaveAttribute('href', '/download');
   });
 
-  it('should call getRecentNews with limit of 6', () => {
+  it('should call getRecentNews with limit of 3', () => {
     vi.mocked(newsLib.getRecentNews).mockReturnValue([]);
 
     render(<RecentNews />);
 
-    expect(newsLib.getRecentNews).toHaveBeenCalledWith(6);
+    expect(newsLib.getRecentNews).toHaveBeenCalledWith(3);
+  });
+
+  it('should clamp long entries and link to the archive entry', () => {
+    vi.mocked(newsLib.getRecentNews).mockReturnValue([
+      { date: '2026-08-08', content: 'A very long release note. '.repeat(20) },
+      { date: '2026-08-04', content: 'Short note.' },
+    ]);
+
+    render(<RecentNews />);
+
+    const readMore = screen.getAllByText(/read more/i);
+    expect(readMore).toHaveLength(1);
+    // next/link only adds the trailing slash in a real Next build
+    expect(readMore[0].closest('a')?.getAttribute('href')).toMatch(/^\/news\/2026\/?#2026-08-08$/);
   });
 
   it('should render news archive link', () => {

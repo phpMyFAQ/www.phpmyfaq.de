@@ -65,6 +65,14 @@
   color: var(--color-text-muted);
   line-height: 1.65;
 
+  p {
+    margin: 0 0 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   a {
     color: var(--color-text);
     font-weight: 500;
@@ -76,6 +84,36 @@
       border-color: var(--color-primary);
       color: var(--color-primary);
     }
+  }
+}
+
+// Long entries are cut after roughly six lines and faded into the card.
+.clamped {
+  position: relative;
+  max-height: 9.5rem;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, var(--color-bg-secondary));
+  }
+}
+
+.more {
+  display: inline-block;
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary-dark);
   }
 }
 

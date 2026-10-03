@@ -13,6 +13,27 @@
   }
 }
 
+.featured {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  > :first-child {
+    grid-row: 1 / span 2;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+
+    > :first-child {
+      grid-row: auto;
+    }
+  }
+}
+
 .thumb {
   margin: 0;
 

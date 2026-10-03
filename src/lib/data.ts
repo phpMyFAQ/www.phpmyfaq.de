@@ -113,11 +113,14 @@ export function getSbomUrl(version: string, scope: 'combined' | 'php' | 'js' = '
 
 export function formatReleaseDate(dateString: string): string {
   try {
+    // "YYYY-MM-DD" parses as UTC midnight, so format in UTC as well or a
+    // build machine west of Greenwich would print the previous day.
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      timeZone: 'UTC',
     });
   } catch {
     return dateString;

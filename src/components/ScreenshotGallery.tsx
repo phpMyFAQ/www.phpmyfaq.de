@@ -9,7 +9,13 @@ export interface Screenshot {
   caption: string;
 }
 
-export default function ScreenshotGallery({ screenshots }: { screenshots: Screenshot[] }) {
+interface ScreenshotGalleryProps {
+  screenshots: Screenshot[];
+  // "featured" shows the first screenshot large with the others stacked beside it.
+  layout?: 'grid' | 'featured';
+}
+
+export default function ScreenshotGallery({ screenshots, layout = 'grid' }: ScreenshotGalleryProps) {
   const [current, setCurrent] = useState<number | null>(null);
 
   const close = useCallback(() => setCurrent(null), []);
@@ -39,12 +45,12 @@ export default function ScreenshotGallery({ screenshots }: { screenshots: Screen
 
   return (
     <>
-      <div className={styles.grid}>
+      <div className={layout === 'featured' ? styles.featured : styles.grid}>
         {screenshots.map((screenshot, index) => (
           <figure key={screenshot.src} className={styles.thumb}>
             <button type="button" onClick={() => setCurrent(index)} aria-label={`Enlarge: ${screenshot.alt}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={screenshot.src} alt={screenshot.alt} loading="lazy" />
+              <img src={screenshot.src} alt={screenshot.alt} loading={index === 0 ? 'eager' : 'lazy'} />
             </button>
             <figcaption>{screenshot.caption}</figcaption>
           </figure>

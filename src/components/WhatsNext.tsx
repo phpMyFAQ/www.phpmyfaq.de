@@ -19,7 +19,7 @@ export default function WhatsNext() {
         <ul className={styles.list}>
           {highlights.map((highlight) => (
             <li key={highlight}>
-              <i className="fas fa-arrow-right"></i>
+              <i className="fas fa-arrow-right" aria-hidden="true"></i>
               <span>{highlight}</span>
             </li>
           ))}

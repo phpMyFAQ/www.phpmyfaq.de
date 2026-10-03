@@ -143,7 +143,22 @@ h6 {
 }
 
 .btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .btn {
+      text-align: center;
+    }
+  }
 }
 
 .btn {

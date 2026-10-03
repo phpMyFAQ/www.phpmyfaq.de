@@ -70,7 +70,9 @@ function parseNewsContent(content: string): React.JSX.Element[] {
 
     elements.push(
       <div key={date} className="mb-4">
-        <h3 className="mb-2">{date}</h3>
+        <h3 id={date} className="mb-2">
+          {date}
+        </h3>
         <hr className="mb-3" />
         <div dangerouslySetInnerHTML={{ __html: processedContent }} />
       </div>,
