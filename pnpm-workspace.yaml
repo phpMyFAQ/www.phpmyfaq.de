@@ -8,4 +8,15 @@ allowBuilds:
   unrs-resolver: false
 ignoredBuiltDependencies:
   - esbuild
-  - sharp
+  - sharp# Fetch native binaries (oxlint, oxfmt, rolldown, TypeScript 7, Next SWC, ...)
+# for every platform the repo is worked on, so one node_modules serves macOS
+# hosts as well as Linux sandboxes and CI runners.
+supportedArchitectures:
+  os:
+    - darwin
+    - linux
+  cpu:
+    - arm64
+    - x64
+  libc:
+    - glibc
