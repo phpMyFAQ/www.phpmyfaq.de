@@ -22,6 +22,8 @@
   },
   "rules": {
     "no-useless-escape": "warn",
+    "react/set-state-in-effect": "warn",
+    "react/purity": "warn",
     "nextjs/no-html-link-for-pages": "error",
     "jsx-a11y/heading-has-content": "error",
     "vitest/require-mock-type-parameters": "error",

@@ -33,6 +33,26 @@ interface YearNewsResponse {
   news: NewsItem[];
 }
 
+// Writes the response only when its payload (ignoring the timestamp) differs from the file on disk.
+// Unchanged files keep their previous "generated" value so repeated builds do not create spurious diffs.
+function writeIfChanged(filePath: string, response: { generated: string }): boolean {
+  if (fs.existsSync(filePath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(filePath, 'utf8')) as { generated?: string };
+      const { generated: _existingGenerated, ...existingPayload } = existing;
+      const { generated: _newGenerated, ...newPayload } = response;
+      if (JSON.stringify(existingPayload) === JSON.stringify(newPayload)) {
+        return false;
+      }
+    } catch {
+      // Unreadable or invalid JSON: fall through and rewrite the file.
+    }
+  }
+
+  fs.writeFileSync(filePath, JSON.stringify(response, null, 2));
+  return true;
+}
+
 function getAvailableYears(): string[] {
   const newsDir = path.join(__dirname, '..', 'content', 'news');
   const files = fs.readdirSync(newsDir);
@@ -88,8 +108,8 @@ function generateNewsApi(): void {
       news: yearNews,
     };
 
-    fs.writeFileSync(path.join(outputDir, `${year}.json`), JSON.stringify(yearResponse, null, 2));
-    console.log(`✅ Generated ${year}.json (${yearNews.length} entries)`);
+    const yearChanged = writeIfChanged(path.join(outputDir, `${year}.json`), yearResponse);
+    console.log(`${yearChanged ? '✅ Generated' : '⏭️  Unchanged'} ${year}.json (${yearNews.length} entries)`);
   }
 
   // Sort all news by date descending
@@ -102,8 +122,10 @@ function generateNewsApi(): void {
     news: allNews.slice(0, 10),
   };
 
-  fs.writeFileSync(path.join(outputDir, 'recent.json'), JSON.stringify(recentResponse, null, 2));
-  console.log(`✅ Generated recent.json (${recentResponse.news.length} entries)`);
+  const recentChanged = writeIfChanged(path.join(outputDir, 'recent.json'), recentResponse);
+  console.log(
+    `${recentChanged ? '✅ Generated' : '⏭️  Unchanged'} recent.json (${recentResponse.news.length} entries)`,
+  );
 
   // Generate years.json
   const yearsResponse: YearsResponse = {
@@ -111,8 +133,8 @@ function generateNewsApi(): void {
     years: yearsMetadata,
   };
 
-  fs.writeFileSync(path.join(outputDir, 'years.json'), JSON.stringify(yearsResponse, null, 2));
-  console.log(`✅ Generated years.json (${yearsMetadata.length} years)`);
+  const yearsChanged = writeIfChanged(path.join(outputDir, 'years.json'), yearsResponse);
+  console.log(`${yearsChanged ? '✅ Generated' : '⏭️  Unchanged'} years.json (${yearsMetadata.length} years)`);
 
   console.log(`\n🎉 News API generated successfully in ${outputDir}`);
 }
