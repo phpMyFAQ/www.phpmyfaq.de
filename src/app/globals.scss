@@ -1,10 +1,113 @@
-:root {
-  --bs-primary: #ff6600;
-  --bs-secondary: #667eea;
-  --bs-success: #28a745;
-  --bs-warning: #f39c12;
-  --bs-danger: #dc3545;
-  --bs-info: #17a2b8;
+// Base reset. Bootstrap and Tailwind used to provide this; now only what
+// the site actually relies on is set here, and components style the rest.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5rem;
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+pre,
+blockquote {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+dd {
+  margin-left: 0;
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+code,
+kbd,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+pre code {
+  font-size: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+// Hide visually, keep for assistive technology.
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 @font-face {
@@ -62,10 +165,6 @@
   --color-text-muted: #9ca3af;
   --color-border: #374151;
   --color-shadow: rgba(0, 0, 0, 0.4);
-}
-
-* {
-  box-sizing: border-box;
 }
 
 html {
@@ -166,8 +265,11 @@ h6 {
   padding: 0.7rem 1.75rem;
   font-weight: 500;
   font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -245,19 +347,6 @@ h6 {
 }
 
 [data-theme='dark'] {
-  .card {
-    background-color: var(--color-bg-secondary);
-    border-color: var(--color-border) !important;
-  }
-
-  .card-body {
-    color: var(--color-text);
-  }
-
-  .text-muted {
-    color: var(--color-text-muted) !important;
-  }
-
   code {
     background-color: rgba(255, 255, 255, 0.08);
     color: #ffa500;

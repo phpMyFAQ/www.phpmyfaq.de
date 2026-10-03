@@ -2,9 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import ClientLayout from '@/components/ClientLayout';
 import { getSiteConfig } from '@/lib/data';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import './tailwind.css';
 import './globals.scss';
 
 const description = 'phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.3+';

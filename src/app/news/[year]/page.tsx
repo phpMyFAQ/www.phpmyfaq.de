@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import styles from '../news.module.scss';
 import { notFound } from 'next/navigation';
 
 export const dynamicParams = false;
@@ -70,11 +71,11 @@ function parseNewsContent(content: string): React.JSX.Element[] {
       .join('\n');
 
     elements.push(
-      <div key={date} className="mb-4">
-        <h3 id={date} className="mb-2">
+      <div key={date} className={styles.entry}>
+        <h3 id={date} className={styles.entryDate}>
           {date}
         </h3>
-        <hr className="mb-3" />
+        <hr className={styles.entryRule} />
         <div dangerouslySetInnerHTML={{ __html: processedContent }} />
       </div>,
     );
