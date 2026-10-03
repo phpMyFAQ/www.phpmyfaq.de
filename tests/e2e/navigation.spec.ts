@@ -6,8 +6,10 @@ test.describe('Navigation Tests', () => {
     await expect(page).toHaveTitle(/phpMyFAQ/);
     await expect(page.locator('h1.title')).toContainText('phpMyFAQ 4.1');
     await expect(page.locator('p.intro')).toContainText('mobile-friendly');
-    await expect(page.locator('.promo a[href="/demo"], .promo a[href="/demo/"]')).toBeVisible();
-    await expect(page.locator('.promo a[href="/download"], .promo a[href="/download/"]')).toBeVisible();
+    // The hero also links the pre-release to /download/#development, so scope
+    // the check to the call-to-action buttons.
+    await expect(page.locator('.promo .btns a[href="/demo"], .promo .btns a[href="/demo/"]')).toBeVisible();
+    await expect(page.locator('.promo .btns a[href="/download"], .promo .btns a[href="/download/"]')).toBeVisible();
   });
 
   test('navigation links work correctly', async ({ page }) => {
