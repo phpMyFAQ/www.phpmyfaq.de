@@ -23,7 +23,7 @@ test.describe('Dynamic Download Functionality', () => {
     await expect(githubLink).toHaveAttribute('target', '_blank');
     await expect(githubLink).toHaveAttribute('rel', 'nofollow');
     // next/link honours trailingSlash: true, so accept both forms
-    const archiveLink = page.locator('.older-versions-box a[href="/archive"], .older-versions-box a[href="/archive/"]');
+    const archiveLink = page.getByTestId('archive-note').locator('a[href="/archive"], a[href="/archive/"]');
     await expect(archiveLink).toBeVisible();
   });
 
@@ -45,21 +45,21 @@ test.describe('Dynamic Download Functionality', () => {
   test('responsive design works correctly', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 800 });
     await page.goto('/download');
-    const cards = page.locator('.col-lg-6');
+    const cards = page.getByTestId('release-card');
     await expect(cards).toHaveCount(developmentShown ? 2 : 1);
     await page.setViewportSize({ width: 375, height: 667 });
     await page.reload();
     await expect(cards.first()).toBeVisible();
     await expect(cards.last()).toBeVisible();
-    const downloadButtons = page.locator('.btn').filter({ hasText: 'ZIP' });
+    const downloadButtons = page.locator('a[download]').filter({ hasText: 'ZIP' });
     await expect(downloadButtons.first()).toBeVisible();
   });
 
   test('fallback data works when API data is unavailable', async ({ page }) => {
     await page.goto('/download');
     await expect(page.locator('h1')).toContainText('Download phpMyFAQ');
-    await expect(page.locator('.card').filter({ hasText: 'Stable Release' })).toBeVisible();
-    const developmentCard = page.locator('.card').filter({ hasText: 'Development Version' });
+    await expect(page.getByTestId('release-card').filter({ hasText: 'Stable release' })).toBeVisible();
+    const developmentCard = page.getByTestId('release-card').filter({ hasText: 'Pre-release' });
     if (developmentShown) {
       await expect(developmentCard).toBeVisible();
     } else {

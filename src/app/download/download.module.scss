@@ -1,0 +1,359 @@
+.lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 3rem 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+}
+
+/* ---- Release cards ---- */
+
+.releases {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.release {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 1.5rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 16px var(--color-shadow);
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 0.25rem;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0 0 1.5rem;
+  }
+}
+
+// The recommended download carries the brand colour on its top edge.
+.recommended {
+  border-top: 3px solid var(--color-primary);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: 0.875rem;
+  font-family: 'Lato', sans-serif;
+
+  i {
+    font-size: 0.9rem;
+  }
+}
+
+.labelMuted {
+  color: var(--color-text-muted);
+}
+
+.meta {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.2s ease;
+    font-weight: 500;
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+// Doubled selectors beat the `.content a` rule in PageLayout.
+a.cta.cta,
+a.ctaSecondary.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid var(--color-primary);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  small {
+    font-weight: 400;
+    opacity: 0.85;
+  }
+}
+
+a.cta.cta {
+  background: var(--color-primary);
+  color: #ffffff;
+
+  &:hover,
+  &:focus {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+    color: #ffffff;
+  }
+}
+
+a.ctaSecondary.ctaSecondary {
+  background: transparent;
+  color: var(--color-primary);
+
+  &:hover,
+  &:focus {
+    background: var(--color-primary);
+    color: #ffffff;
+  }
+}
+
+/* ---- Checksums and SBOM ---- */
+
+.details {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+  margin-top: auto;
+  display: grid;
+  gap: 1.25rem;
+
+  h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 0.5rem;
+    font-family: 'Lato', sans-serif;
+  }
+
+  p {
+    font-size: 0.8125rem;
+    margin: 0 0 0.5rem;
+  }
+}
+
+.checksums {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.75rem;
+  margin: 0;
+  font-size: 0.8125rem;
+
+  dt {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  dd {
+    margin: 0;
+    min-width: 0;
+
+    code {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      font-size: 0.75rem;
+      color: var(--color-text);
+    }
+  }
+}
+
+ul.sbomLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  font-size: 0.875rem;
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.2s ease;
+    font-weight: 500;
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+}
+
+/* ---- Before you install ---- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 16px var(--color-shadow);
+  }
+
+  .icon {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.625rem;
+    font-family: 'Lato', sans-serif;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+
+    li {
+      padding: 0.4rem 0;
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+
+      &::before {
+        content: '→';
+        color: var(--color-primary);
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      a {
+        color: var(--color-text);
+        text-decoration: none;
+        border-bottom: 1px solid var(--color-border);
+        transition: border-color 0.2s ease;
+        font-weight: 500;
+
+        &:hover {
+          border-color: var(--color-primary);
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  .more {
+    margin-top: auto;
+    align-self: flex-start;
+    font-weight: 500;
+  }
+}
+
+/* ---- Archive note ---- */
+
+.archive {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+
+  p {
+    margin: 0 0 0.5rem;
+  }
+
+  strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+}

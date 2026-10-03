@@ -224,90 +224,6 @@ h6 {
   }
 }
 
-// Download page styles
-.download-hero {
-  background: linear-gradient(135deg, #b34700 0%, #ff6600 100%);
-  color: white;
-}
-
-.download-badge {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.btn-hero-primary {
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  }
-
-  &:active {
-    transform: translateY(-1px);
-  }
-}
-
-.btn-hero-outline {
-  &:hover {
-    background: rgba(255, 255, 255, 1);
-    color: #ff6600;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  }
-
-  &:active {
-    transform: translateY(-1px);
-  }
-}
-
-.icon-badge-orange {
-  background: #ff6600;
-  color: white;
-}
-
-.icon-badge-purple {
-  background: #7c3aed;
-  color: #fff;
-}
-
-.btn-outline-purple {
-  color: #7c3aed;
-  border: 2px solid #7c3aed;
-  background: transparent;
-
-  &:hover {
-    color: #fff;
-    background: #7c3aed;
-    border-color: #7c3aed;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(124, 58, 237, 0.3);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-}
-
-.icon-badge-blue {
-  background: #e7f3ff;
-  color: #0066cc;
-}
-
-.icon-badge-orange-light {
-  background: #fff3e0;
-  color: #ff6600;
-}
-
-.checksum-box {
-  background: var(--color-bg-secondary);
-}
-
-.checksum-box-dev {
-  background: #fff9e6;
-}
-
-.older-versions-box {
-  background: var(--color-bg-secondary);
-}
-
 [data-theme='dark'] {
   .card {
     background-color: var(--color-bg-secondary);
@@ -345,19 +261,5 @@ h6 {
       color: #ffffff;
       text-decoration: underline;
     }
-  }
-
-  .checksum-box-dev {
-    background: rgba(255, 193, 7, 0.1);
-  }
-
-  .icon-badge-blue {
-    background: rgba(0, 102, 204, 0.2);
-    color: #66b3ff;
-  }
-
-  .icon-badge-orange-light {
-    background: rgba(255, 102, 0, 0.2);
-    color: #ff8533;
   }
 }

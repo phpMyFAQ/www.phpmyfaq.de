@@ -1,384 +1,202 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
-import PageLayout from '@/components/PageLayout';
-import { generatePageMetadata } from '@/components/PageLayout';
+import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import {
-  getVersions,
-  getStableInfo,
-  getDevelopmentInfo,
+  DownloadInfo,
+  fallbackVersions,
   formatFileSize,
+  formatReleaseDate,
+  getDevelopmentInfo,
   getDownloadUrl,
   getSbomUrl,
+  getStableInfo,
+  getVersions,
   hasSbomFiles,
-  formatReleaseDate,
   isDevelopmentAhead,
 } from '@/lib/data';
+import styles from './download.module.scss';
 
 export const metadata: Metadata = generatePageMetadata(
   'Download',
   'Download the latest version of phpMyFAQ - the open source FAQ system',
 );
 
+interface ReleaseCardProps {
+  id?: string;
+  version: string;
+  released: string;
+  info: DownloadInfo | null;
+  recommended: boolean;
+}
+
+function ReleaseCard({ id, version, released, info, recommended }: ReleaseCardProps) {
+  return (
+    <article
+      id={id}
+      className={`${styles.release} ${recommended ? styles.recommended : ''}`}
+      data-testid="release-card"
+    >
+      {recommended ? (
+        <div className={styles.label}>
+          <i className="fas fa-check-circle" aria-hidden="true"></i>
+          Stable release · Recommended
+        </div>
+      ) : (
+        <div className={`${styles.label} ${styles.labelMuted}`}>
+          <i className="fas fa-code-branch" aria-hidden="true"></i>
+          Pre-release · For testing only
+        </div>
+      )}
+
+      <h2>phpMyFAQ {version}</h2>
+      <p className={styles.meta}>
+        Released {formatReleaseDate(released)} · <Link href={`/changelog/#${version}`}>Release notes</Link>
+      </p>
+
+      <p>
+        {recommended
+          ? 'All features tested and ready for production use. Pick this one unless you want to help testing.'
+          : 'Get the upcoming features early. Not for production: things may still change before the final release.'}
+      </p>
+
+      {info && (
+        <div className={styles.actions}>
+          <a href={getDownloadUrl(version, 'zip')} className={recommended ? styles.cta : styles.ctaSecondary} download>
+            <i className="fas fa-download" aria-hidden="true"></i>
+            ZIP <small>({formatFileSize(info.zip.filesize)})</small>
+          </a>
+          <a href={getDownloadUrl(version, 'tar.gz')} className={styles.ctaSecondary} download>
+            <i className="fas fa-file-archive" aria-hidden="true"></i>
+            TAR.GZ <small>({formatFileSize(info.targz.filesize)})</small>
+          </a>
+        </div>
+      )}
+
+      {(info || hasSbomFiles(version)) && (
+        <div className={styles.details}>
+          {info && (
+            <section>
+              <h3>MD5 checksums</h3>
+              <dl className={styles.checksums}>
+                <dt>ZIP</dt>
+                <dd>
+                  <code>{info.zip.md5}</code>
+                </dd>
+                <dt>TAR.GZ</dt>
+                <dd>
+                  <code>{info.targz.md5}</code>
+                </dd>
+              </dl>
+            </section>
+          )}
+
+          {hasSbomFiles(version) && (
+            <section>
+              <h3>Software Bill of Materials</h3>
+              <p>CycloneDX listing of all third-party dependencies.</p>
+              <ul className={styles.sbomLinks}>
+                <li>
+                  <a href={getSbomUrl(version)} download>
+                    Combined (PHP + JS)
+                  </a>
+                </li>
+                <li>
+                  <a href={getSbomUrl(version, 'php')} download>
+                    PHP only
+                  </a>
+                </li>
+                <li>
+                  <a href={getSbomUrl(version, 'js')} download>
+                    JS only
+                  </a>
+                </li>
+              </ul>
+            </section>
+          )}
+        </div>
+      )}
+    </article>
+  );
+}
+
 export default function DownloadPage() {
-  const versions = getVersions();
-  const stableInfo = getStableInfo();
-  const developmentInfo = getDevelopmentInfo();
-
-  // Fallback data if files don't exist
-  const fallbackVersions = {
-    stable: '4.1.6',
-    stable_released: '2026-07-13',
-    development: '4.1.0-RC.7',
-    development_released: '2026-02-27',
-  };
-
-  const stableVersion = versions?.stable || fallbackVersions.stable;
-  const stableReleased = versions?.stable_released || fallbackVersions.stable_released;
-  const devVersion = versions?.development || fallbackVersions.development;
-  const devReleased = versions?.development_released || fallbackVersions.development_released;
-
-  const showDevelopment = isDevelopmentAhead(devVersion, stableVersion);
+  const versions = getVersions() ?? fallbackVersions;
+  const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
 
   return (
     <PageLayout title="Download phpMyFAQ">
-      <div className="row">
-        <div className="col-12">
-          <p className="lead text-center mb-4">
-            Download the latest version of phpMyFAQ and start building your knowledge base today.
-          </p>
+      <p className={styles.lead}>
+        Download the latest version of phpMyFAQ and start building your knowledge base today.
+      </p>
 
-          {/* Featured Stable Version */}
-          <div className="download-hero text-center mb-5 p-4 rounded">
-            <div className="download-badge d-inline-block px-3 py-1 rounded mb-3">
-              <small className="text-uppercase fw-bold">Recommended</small>
-            </div>
-            <h2 className="mb-2">phpMyFAQ {stableVersion}</h2>
-            <p className="mb-3">Latest Stable Release · {formatReleaseDate(stableReleased)}</p>
-            {stableInfo && (
-              <div className="d-flex gap-3 justify-content-center flex-wrap">
-                <a
-                  href={getDownloadUrl(stableVersion, 'zip')}
-                  className="btn btn-light btn-lg px-4 btn-hero-primary"
-                  download
-                  style={{ borderRadius: '30px' }}
-                >
-                  <i className="fas fa-download me-2"></i>
-                  Download ZIP ({formatFileSize(stableInfo.zip.filesize)})
-                </a>
-                <a
-                  href={getDownloadUrl(stableVersion, 'tar.gz')}
-                  className="btn btn-light btn-lg px-4 btn-hero-outline"
-                  download
-                  style={{ borderRadius: '30px' }}
-                >
-                  <i className="fas fa-file-archive me-2"></i>
-                  Download TAR.GZ ({formatFileSize(stableInfo.targz.filesize)})
-                </a>
-              </div>
-            )}
+      <div className={styles.releases}>
+        <ReleaseCard
+          version={versions.stable}
+          released={versions.stable_released}
+          info={getStableInfo()}
+          recommended
+        />
+        {showDevelopment && (
+          <ReleaseCard
+            id="development"
+            version={versions.development}
+            released={versions.development_released}
+            info={getDevelopmentInfo()}
+            recommended={false}
+          />
+        )}
+      </div>
+
+      <h2 className={styles.heading}>Before you install</h2>
+      <div className={styles.grid}>
+        <article className={styles.card}>
+          <div className={styles.icon}>
+            <i className="fas fa-server" aria-hidden="true"></i>
           </div>
+          <h3>System requirements</h3>
+          <ul>
+            <li>PHP 8.3 or higher</li>
+            <li>Web server: Apache, Nginx or IIS</li>
+            <li>Database: MySQL, MariaDB, PostgreSQL, SQLite or SQL Server</li>
+            <li>A modern web browser</li>
+          </ul>
+          <Link href="/requirements" className={styles.more}>
+            Full requirements →
+          </Link>
+        </article>
 
-          {/* Version Cards */}
-          <div className="row g-4 mb-5">
-            <div className="col-lg-6">
-              <div className="card h-100 shadow-sm" style={{ border: '2px solid #ff6600' }}>
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-3">
-                    <div
-                      className="icon-badge-orange rounded-circle d-flex align-items-center justify-content-center me-3"
-                      style={{ width: '50px', height: '50px' }}
-                    >
-                      <i className="fas fa-check-circle fa-lg"></i>
-                    </div>
-                    <div>
-                      <h5 className="mb-0">Stable Release</h5>
-                      <small className="text-muted">Production Ready</small>
-                    </div>
-                  </div>
-
-                  <div className="mb-3">
-                    <h4 className="mb-1" style={{ color: '#ff6600' }}>
-                      phpMyFAQ {stableVersion}
-                    </h4>
-                    <p className="text-muted mb-0">Released: {formatReleaseDate(stableReleased)}</p>
-                  </div>
-
-                  <p className="mb-3">
-                    The latest stable version with all features tested and ready for production use.
-                  </p>
-
-                  {stableInfo && (
-                    <div className="checksum-box mb-3 p-3 rounded">
-                      <h6 className="mb-2">Checksums</h6>
-                      <div className="small">
-                        <div className="mb-1">
-                          <strong>ZIP:</strong> <code className="text-muted">{stableInfo.zip.md5}</code>
-                        </div>
-                        <div>
-                          <strong>TAR.GZ:</strong> <code className="text-muted">{stableInfo.targz.md5}</code>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {hasSbomFiles(stableVersion) && (
-                    <div className="checksum-box mb-3 p-3 rounded">
-                      <h6 className="mb-2">SBOM (CycloneDX)</h6>
-                      <p className="small text-muted mb-2">
-                        Software Bill of Materials listing all third-party dependencies (CycloneDX format).
-                      </p>
-                      <div className="small">
-                        <div className="mb-1">
-                          <a href={getSbomUrl(stableVersion)} className="text-decoration-none fw-bold" download>
-                            <i className="fas fa-file-code me-1"></i>
-                            Combined SBOM (PHP + JS)
-                          </a>
-                        </div>
-                        <div>
-                          <a href={getSbomUrl(stableVersion, 'php')} className="text-decoration-none" download>
-                            PHP only
-                          </a>
-                          {' · '}
-                          <a href={getSbomUrl(stableVersion, 'js')} className="text-decoration-none" download>
-                            JS only
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  <a
-                    href={`/changelog#${stableVersion}`}
-                    className="btn btn-outline-primary w-100"
-                    target="_blank"
-                    rel="noopener"
-                    style={{ borderRadius: '25px' }}
-                  >
-                    <i className="fas fa-file-alt me-2"></i>
-                    View Release Notes
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {showDevelopment && (
-              <div className="col-lg-6">
-                <div className="card h-100 shadow-sm" style={{ border: '2px solid #7c3aed' }}>
-                  <div className="card-body p-4">
-                    <div className="d-flex align-items-center mb-3">
-                      <div
-                        className="icon-badge-purple rounded-circle d-flex align-items-center justify-content-center me-3"
-                        style={{ width: '50px', height: '50px' }}
-                      >
-                        <i className="fas fa-code-branch fa-lg"></i>
-                      </div>
-                      <div>
-                        <h5 className="mb-0">Development Version</h5>
-                        <small className="text-muted">Testing Only</small>
-                      </div>
-                    </div>
-
-                    <div className="mb-3">
-                      <h4 className="mb-1" style={{ color: '#7c3aed' }}>
-                        phpMyFAQ {devVersion}
-                      </h4>
-                      <p className="text-muted mb-0">Released: {formatReleaseDate(devReleased)}</p>
-                    </div>
-
-                    <p className="mb-3">
-                      Get the latest features and improvements. Use for testing and development only.
-                    </p>
-
-                    {developmentInfo && (
-                      <>
-                        <div className="d-grid gap-2 mb-3">
-                          <a
-                            href={getDownloadUrl(devVersion, 'zip')}
-                            className="btn"
-                            download
-                            style={{
-                              borderRadius: '25px',
-                              backgroundColor: '#7c3aed',
-                              color: 'white',
-                              borderColor: '#7c3aed',
-                            }}
-                          >
-                            <i className="fas fa-download me-2"></i>
-                            ZIP ({formatFileSize(developmentInfo.zip.filesize)})
-                          </a>
-                          <a
-                            href={getDownloadUrl(devVersion, 'tar.gz')}
-                            className="btn btn-outline-purple"
-                            download
-                            style={{ borderRadius: '25px' }}
-                          >
-                            <i className="fas fa-file-archive me-2"></i>
-                            TAR.GZ ({formatFileSize(developmentInfo.targz.filesize)})
-                          </a>
-                        </div>
-
-                        <div className="checksum-box-dev mb-3 p-3 rounded">
-                          <h6 className="mb-2">Checksums</h6>
-                          <div className="small">
-                            <div className="mb-1">
-                              <strong>ZIP:</strong> <code className="text-muted">{developmentInfo.zip.md5}</code>
-                            </div>
-                            <div>
-                              <strong>TAR.GZ:</strong> <code className="text-muted">{developmentInfo.targz.md5}</code>
-                            </div>
-                          </div>
-                        </div>
-                      </>
-                    )}
-
-                    {hasSbomFiles(devVersion) && (
-                      <div className="checksum-box-dev mb-3 p-3 rounded">
-                        <h6 className="mb-2">SBOM (CycloneDX)</h6>
-                        <p className="small text-muted mb-2">
-                          Software Bill of Materials listing all third-party dependencies (CycloneDX format).
-                        </p>
-                        <div className="small">
-                          <div className="mb-1">
-                            <a href={getSbomUrl(devVersion)} className="text-decoration-none fw-bold" download>
-                              <i className="fas fa-file-code me-1"></i>
-                              Combined SBOM (PHP + JS)
-                            </a>
-                          </div>
-                          <div>
-                            <a href={getSbomUrl(devVersion, 'php')} className="text-decoration-none" download>
-                              PHP only
-                            </a>
-                            {' · '}
-                            <a href={getSbomUrl(devVersion, 'js')} className="text-decoration-none" download>
-                              JS only
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    <a
-                      href={`/changelog#${devVersion}`}
-                      className="btn btn-outline-primary w-100"
-                      target="_blank"
-                      rel="noopener"
-                      style={{ borderRadius: '25px' }}
-                    >
-                      <i className="fas fa-file-alt me-2"></i>
-                      View Release Notes
-                    </a>
-                  </div>
-                </div>
-              </div>
-            )}
+        <article className={styles.card}>
+          <div className={styles.icon}>
+            <i className="fas fa-life-ring" aria-hidden="true"></i>
           </div>
+          <h3>Installation help</h3>
+          <ul>
+            <li>
+              <Link href="/documentation">Installation guide</Link>
+            </li>
+            <li>
+              <Link href="/support">Getting support</Link>
+            </li>
+            <li>
+              <a href="https://discord.gg/wszhTceuNM" target="_blank" rel="noopener noreferrer">
+                Discord community
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/thorsten/phpMyFAQ/issues" target="_blank" rel="noopener noreferrer">
+                Report an issue
+              </a>
+            </li>
+          </ul>
+        </article>
+      </div>
 
-          {/* Info Cards */}
-          <div className="row g-4 mb-4">
-            <div className="col-md-6">
-              <div className="card h-100 shadow-sm">
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-3">
-                    <div
-                      className="icon-badge-blue rounded-circle d-flex align-items-center justify-content-center me-3"
-                      style={{ width: '45px', height: '45px' }}
-                    >
-                      <i className="fas fa-server"></i>
-                    </div>
-                    <h5 className="mb-0">System Requirements</h5>
-                  </div>
-                  <ul className="list-unstyled mb-3">
-                    <li className="mb-2">
-                      <i className="fas fa-check text-success me-2"></i>PHP 8.3 or higher
-                    </li>
-                    <li className="mb-2">
-                      <i className="fas fa-check text-success me-2"></i>Web server (Apache, Nginx, IIS)
-                    </li>
-                    <li className="mb-2">
-                      <i className="fas fa-check text-success me-2"></i>Database (MySQL, PostgreSQL, SQLite)
-                    </li>
-                    <li className="mb-2">
-                      <i className="fas fa-check text-success me-2"></i>Modern web browser
-                    </li>
-                  </ul>
-                  <Link href="/requirements" className="btn btn-outline-primary w-100" style={{ borderRadius: '25px' }}>
-                    <i className="fas fa-list me-2"></i>
-                    View Full Requirements
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6">
-              <div className="card h-100 shadow-sm">
-                <div className="card-body p-4">
-                  <div className="d-flex align-items-center mb-3">
-                    <div
-                      className="icon-badge-orange-light rounded-circle d-flex align-items-center justify-content-center me-3"
-                      style={{ width: '45px', height: '45px' }}
-                    >
-                      <i className="fas fa-life-ring"></i>
-                    </div>
-                    <h5 className="mb-0">Installation Help</h5>
-                  </div>
-                  <ul className="list-unstyled mb-3">
-                    <li className="mb-2">
-                      <i className="fas fa-book text-primary me-2"></i>
-                      <Link href="/documentation" className="text-decoration-none">
-                        Installation Guide
-                      </Link>
-                    </li>
-                    <li className="mb-2">
-                      <i className="fas fa-headset text-primary me-2"></i>
-                      <Link href="/support" className="text-decoration-none">
-                        Getting Support
-                      </Link>
-                    </li>
-                    <li className="mb-2">
-                      <i className="fab fa-discord text-primary me-2"></i>
-                      <a
-                        href="https://discord.gg/wszhTceuNM"
-                        target="_blank"
-                        rel="noopener"
-                        className="text-decoration-none"
-                      >
-                        Discord Community
-                      </a>
-                    </li>
-                    <li className="mb-2">
-                      <i className="fas fa-bug text-primary me-2"></i>
-                      <a
-                        href="https://github.com/thorsten/phpMyFAQ/issues"
-                        target="_blank"
-                        rel="noopener"
-                        className="text-decoration-none"
-                      >
-                        Report Issues
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Older Versions Notice */}
-          <div className="older-versions-box text-center p-4 rounded">
-            <i className="fas fa-archive fa-2x mb-3" style={{ color: '#6c757d' }}></i>
-            <h5>Looking for Older Versions?</h5>
-            <p className="mb-3">
-              Every release since 1.2.0 is available in our
-              <Link href="/archive" className="text-decoration-none fw-bold">
-                {' '}
-                download archive
-              </Link>
-              .
-            </p>
-            <p className="text-muted small mb-0">
-              We recommend always using the latest stable version for security and performance.
-            </p>
-          </div>
-        </div>
+      <div className={styles.archive} data-testid="archive-note">
+        <p>
+          <strong>Looking for an older version?</strong> Every release since 1.2.0 is available in the{' '}
+          <Link href="/archive">download archive</Link>.
+        </p>
+        <p>We recommend always using the latest stable version for security and performance.</p>
       </div>
     </PageLayout>
   );

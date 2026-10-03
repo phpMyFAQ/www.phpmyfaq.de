@@ -1,14 +1,5 @@
 import Link from 'next/link';
-import { formatReleaseDate, getVersions, isDevelopmentAhead } from '@/lib/data';
-
-// Shown while data/versions.json is missing (e.g. a fresh checkout before
-// `npm run fetch:versions`).
-const fallbackVersions = {
-  stable: '4.1.9',
-  stable_released: '2026-10-03',
-  development: '4.2.0-beta',
-  development_released: '2026-10-03',
-};
+import { fallbackVersions, formatReleaseDate, getVersions, isDevelopmentAhead } from '@/lib/data';
 
 // "4.1.9" -> "4.1": the headline names the release line, the exact version
 // goes in the release note below the buttons.
@@ -43,7 +34,7 @@ export default function Hero() {
           {showDevelopment && (
             <>
               {' '}
-              &middot; <Link href="/download">Try {versions.development}</Link>
+              &middot; <Link href="/download/#development">Try {versions.development}</Link>
             </>
           )}
         </p>
