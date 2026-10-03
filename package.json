@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "next dev --webpack",
-    "prebuild": "npm run generate:news-api",
+    "prebuild": "pnpm run generate:news-api",
     "build": "next build",
     "postbuild": "cp -f static/.htaccess out/.htaccess || true",
     "lint": "oxlint .",
@@ -18,10 +18,10 @@
     "test:e2e": "PLAYWRIGHT_TEST=1 playwright test",
     "test:e2e:ui": "PLAYWRIGHT_TEST=1 playwright test --ui",
     "test:e2e:headed": "PLAYWRIGHT_TEST=1 playwright test --headed",
-    "fetch:versions": "npx tsx scripts/fetch-versions.ts",
-    "fetch:downloads": "npx tsx scripts/fetch-downloads.ts",
-    "generate:news-api": "npx tsx scripts/generate-news-api.ts",
-    "update:data": "npm run fetch:versions && npm run fetch:downloads",
+    "fetch:versions": "tsx scripts/fetch-versions.ts",
+    "fetch:downloads": "tsx scripts/fetch-downloads.ts",
+    "generate:news-api": "tsx scripts/generate-news-api.ts",
+    "update:data": "pnpm run fetch:versions && pnpm run fetch:downloads",
     "prepare": "husky",
     "format": "oxfmt .",
     "format:check": "oxfmt --check ."
@@ -58,6 +58,7 @@
     "oxlint": "^1.86.0",
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.2",
     "vitest": "^5.0.3"
