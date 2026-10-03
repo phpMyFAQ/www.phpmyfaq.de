@@ -193,6 +193,26 @@ h6 {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.promo .release-note {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin: 0;
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+// Separators are decorative, so they live in CSS instead of extra list items
+// that screen readers would announce.
+.meta .list-inline-item + .list-inline-item::before {
+  content: '\00b7';
+  margin-right: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .meta a {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
