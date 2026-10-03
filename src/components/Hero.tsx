@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CopyCommand from './CopyCommand';
 import { fallbackVersions, formatReleaseDate, getVersions, isDevelopmentAhead } from '@/lib/data';
 
 // "4.1.9" -> "4.1": the headline names the release line, the exact version
@@ -39,24 +40,22 @@ export default function Hero() {
           )}
         </p>
 
-        <ul className="meta list-inline">
-          <li className="list-inline-item">
-            <a rel="nofollow noopener" target="_blank" href="https://github.com/thorsten/phpMyFAQ">
-              GitHub
+        <div className="meta">
+          <p className="meta-label">Or run the 4.2 nightly in a container:</p>
+          <CopyCommand command="docker pull ghcr.io/thorsten/phpmyfaq:nightly" label="Copy the docker pull command" />
+          <p className="meta-links">
+            <a
+              rel="nofollow noopener"
+              target="_blank"
+              href="https://github.com/thorsten/phpMyFAQ/pkgs/container/phpmyfaq"
+            >
+              All image tags
             </a>
-          </li>
-          <li className="list-inline-item">
-            <Link href="/documentation">Documentation</Link>
-          </li>
-          <li className="list-inline-item">
-            <Link href="/features">Features</Link>
-          </li>
-          <li className="list-inline-item">
             <a rel="nofollow noopener" target="_blank" href="https://github.com/thorsten/phpMyFAQ/issues">
               Report an issue
             </a>
-          </li>
-        </ul>
+          </p>
+        </div>
       </div>
     </section>
   );

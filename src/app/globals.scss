@@ -220,12 +220,17 @@ h6 {
   }
 }
 
-// Separators are decorative, so they live in CSS instead of extra list items
-// that screen readers would announce.
-.meta .list-inline-item + .list-inline-item::before {
-  content: '\00b7';
-  margin-right: 0.5rem;
-  color: rgba(255, 255, 255, 0.5);
+.meta .meta-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin: 0 0 0.75rem;
+}
+
+.meta .meta-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0 0;
 }
 
 .meta a {

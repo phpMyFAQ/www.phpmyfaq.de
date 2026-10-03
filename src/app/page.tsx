@@ -13,8 +13,8 @@ export default function Home() {
       <TrustStrip />
       <Showcase />
       <Highlights />
-      <RecentNews />
       <WhatsNext />
+      <RecentNews />
       <Sponsors />
     </>
   );

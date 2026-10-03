@@ -24,12 +24,22 @@
     grid-row: 1 / span 2;
   }
 
+  // The side shots keep their caption for the lightbox only, so the column
+  // lines up with the large screenshot and its caption.
+  > :not(:first-child) figcaption {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-rows: none;
 
     > :first-child {
       grid-row: auto;
+    }
+
+    > :not(:first-child) figcaption {
+      display: block;
     }
   }
 }

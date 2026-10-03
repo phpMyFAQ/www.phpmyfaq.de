@@ -1,17 +1,24 @@
+import Link from 'next/link';
+import { fallbackVersions, formatReleaseDate, getVersions } from '@/lib/data';
 import styles from './WhatsNext.module.scss';
 
-// Highlights from the 4.2 development changelog:
-// https://github.com/thorsten/phpMyFAQ/blob/main/CHANGELOG.md
+// Curated from the 4.2 section of content/changelog/index.md. Refresh this
+// list with each pre-release; the footer names the release it is based on.
 const highlights = [
-  'Machine translation with DeepL, Google Cloud Translation, Azure Translator, Amazon Translate, and LibreTranslate',
-  'Custom pages with WYSIWYG editing, SEO features, and multi-language support',
-  'Theme manager with support for multiple, switchable themes',
+  'Machine translation with DeepL, Google Cloud Translation, Azure Translator, Amazon Translate and LibreTranslate',
+  'Editorial workflow with per-language draft, review and published states, plus separate read, write and publish permissions',
+  'Custom pages with WYSIWYG editing, SEO features and multi-language support',
+  'Theme manager with multiple, switchable themes',
+  'Official Docker images, a health endpoint and FAQ update notifications',
   'Web push notifications and a simple chat for users',
-  'Storage on Amazon S3 and mail delivery via SendGrid, AWS SES, and Mailgun',
+  'Storage on Amazon S3 and mail delivery via SendGrid, AWS SES and Mailgun',
   'Experimental Keycloak support and API key authentication via OAuth2',
 ];
 
 export default function WhatsNext() {
+  const versions = getVersions() ?? fallbackVersions;
+  const changelogUrl = `/changelog/#${versions.development}`;
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -25,11 +32,8 @@ export default function WhatsNext() {
           ))}
         </ul>
         <p className={styles.footer}>
-          phpMyFAQ 4.2 is under active development on PHP 8.4. Follow the full{' '}
-          <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ/blob/main/CHANGELOG.md">
-            changelog on GitHub
-          </a>
-          .
+          Highlights from the <Link href={changelogUrl}>{versions.development} changelog</Link> (
+          {formatReleaseDate(versions.development_released)}). phpMyFAQ 4.2 requires PHP 8.4 or later.
         </p>
       </div>
     </section>
