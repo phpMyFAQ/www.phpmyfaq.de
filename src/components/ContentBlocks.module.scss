@@ -1,0 +1,242 @@
+// Shared building blocks for content pages, matching the support, features
+// and download pages: a centred lead, hairline headings, bordered cards with
+// arrow lists, and the two button styles.
+
+.lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 3rem 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+}
+
+.grid2,
+.grid3 {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid2 {
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 16px var(--color-shadow);
+  }
+
+  .icon {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.625rem;
+    font-family: 'Lato', sans-serif;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Doubled to beat the generic `.content ul` rule in PageLayout.
+  ul.list.list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      padding: 0.4rem 0;
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+
+      &::before {
+        content: '→';
+        color: var(--color-primary);
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      strong {
+        color: var(--color-text);
+        font-weight: 600;
+      }
+
+      a {
+        color: var(--color-text);
+        text-decoration: none;
+        border-bottom: 1px solid var(--color-border);
+        transition: border-color 0.2s ease;
+        font-weight: 500;
+
+        &:hover {
+          border-color: var(--color-primary);
+          color: var(--color-primary);
+          text-decoration: none;
+        }
+      }
+
+      .meta {
+        display: block;
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .more {
+    margin-top: auto;
+    align-self: flex-start;
+    font-weight: 500;
+  }
+}
+
+// Label/value pairs, e.g. demo credentials.
+dl.kv.kv {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.9375rem;
+
+  dt {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text);
+  }
+}
+
+a.cta.cta,
+a.ctaSecondary.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid var(--color-primary);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+}
+
+a.cta.cta {
+  background: var(--color-primary);
+  color: #ffffff;
+
+  &:hover,
+  &:focus {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+    color: #ffffff;
+  }
+}
+
+a.ctaSecondary.ctaSecondary {
+  background: transparent;
+  color: var(--color-primary);
+
+  &:hover,
+  &:focus {
+    background: var(--color-primary);
+    color: #ffffff;
+  }
+}
+
+// Closing remark under a page's content.
+.note {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+
+  p {
+    margin: 0 0 0.5rem;
+  }
+}

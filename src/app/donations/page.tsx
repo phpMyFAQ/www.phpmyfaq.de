@@ -1,6 +1,6 @@
-import PageLayout from '@/components/PageLayout';
+import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
-import { generatePageMetadata } from '@/components/PageLayout';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = generatePageMetadata(
   'Donations',
@@ -10,62 +10,78 @@ export const metadata: Metadata = generatePageMetadata(
 export default function DonationsPage() {
   return (
     <PageLayout title="Donations">
-      <div className="row">
-        <div className="col-xs-12">
-          <p>
-            <strong>Why should you donate to the phpMyFAQ developers?</strong>
-            <br />
-            phpMyFAQ is an Open Source software project. Nobody is paying us for the work on phpMyFAQ, so all
-            development and support are done in our free time.
-          </p>
+      <p className={blocks.lead}>
+        phpMyFAQ is open source. Nobody pays us for the work on it, so all development and support happen in our free
+        time. Donations keep the lights on.
+      </p>
 
-          <p>
-            <strong>Where will my money go?</strong>
-            <br />
-            Your donations are used to cover the cost of maintaining this website and related resources, and services
-            required to provide these resources. We have to pay the managed webhosting of{' '}
-            <strong>www.phpmyfaq.de</strong>, <strong>api.phpmyfaq.de</strong> and <strong>download.phpmyfaq.de</strong>{' '}
-            and a virtual server for{' '}
-            <a target="_blank" href="https://demo.phpmyfaq.de">
-              demo.phpmyfaq.de
-            </a>
-            . We also use GitHub Copilot for our development, and we have to pay for the usage of this service.
-          </p>
-          <p>The monthly costs are approximately 50€ per month.</p>
+      <h2 className={blocks.heading}>Where the money goes</h2>
+      <p>
+        Your donations cover the managed web hosting of <strong>www.phpmyfaq.de</strong>,{' '}
+        <strong>api.phpmyfaq.de</strong> and <strong>download.phpmyfaq.de</strong>, a virtual server for{' '}
+        <a href="https://demo.phpmyfaq.de" target="_blank" rel="noopener noreferrer">
+          demo.phpmyfaq.de
+        </a>
+        , and the GitHub Copilot subscription we use for development. That adds up to roughly 50 € per month.
+      </p>
 
-          <h2>Support the developers with gifts</h2>
-          <ul>
+      <h2 className={blocks.heading}>Ways to donate</h2>
+      <div className={blocks.grid3}>
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fab fa-github" aria-hidden="true"></i>
+          </div>
+          <h3>GitHub Sponsors</h3>
+          <p>Monthly or one-time sponsorship through GitHub.</p>
+          <a
+            className={blocks.cta}
+            href="https://github.com/sponsors/thorsten"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Sponsor Thorsten
+          </a>
+        </article>
+
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fab fa-paypal" aria-hidden="true"></i>
+          </div>
+          <h3>PayPal</h3>
+          <p>A one-time donation of any amount.</p>
+          <a
+            className={blocks.ctaSecondary}
+            href="https://paypal.me/thorstensmue?country.x=DE&locale.x=de_DE"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Donate via PayPal
+          </a>
+        </article>
+
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fas fa-gift" aria-hidden="true"></i>
+          </div>
+          <h3>Gifts</h3>
+          <p>Prefer to send something tangible?</p>
+          <ul className={blocks.list}>
             <li>
-              <a rel="nofollow" href="https://www.amazon.de/hz/wishlist/ls/UQQJEX7BCHPZ">
-                Thorsten&apos;s wishlist on amazon.de
+              <a href="https://www.amazon.de/hz/wishlist/ls/UQQJEX7BCHPZ" rel="nofollow noopener noreferrer">
+                Thorsten&apos;s wishlist
               </a>
             </li>
             <li>
-              <a rel="nofollow" href="https://www.amazon.de/hz/wishlist/ls/FGS7DWAJIRLD">
-                Florian&apos;s wishlist on amazon.de
+              <a href="https://www.amazon.de/hz/wishlist/ls/FGS7DWAJIRLD" rel="nofollow noopener noreferrer">
+                Florian&apos;s wishlist
               </a>
             </li>
           </ul>
+        </article>
+      </div>
 
-          <h2>Donate with GitHub Sponsors</h2>
-          <ul>
-            <li>
-              <a rel="nofollow" target="_blank" href="https://github.com/sponsors/thorsten">
-                Become a sponsor to Thorsten on GitHub
-              </a>
-            </li>
-          </ul>
-
-          <h2>Donate through PayPal</h2>
-          <p>
-            You can donate through PayPal by clicking on{' '}
-            <a rel="nofollow" target="_blank" href="https://paypal.me/thorstensmue?country.x=DE&locale.x=de_DE">
-              this link
-            </a>
-            .
-          </p>
-          <p style={{ fontSize: '48px', textAlign: 'center', marginTop: '66px' }}>THANK YOU!</p>
-        </div>
+      <div className={blocks.note}>
+        <p>Thank you! Every contribution, however small, helps keep phpMyFAQ free for everyone.</p>
       </div>
     </PageLayout>
   );

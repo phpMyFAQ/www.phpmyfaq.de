@@ -1,7 +1,7 @@
-import PageLayout from '@/components/PageLayout';
-import { generatePageMetadata } from '@/components/PageLayout';
+import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = generatePageMetadata(
   'Documentation',
@@ -11,115 +11,144 @@ export const metadata: Metadata = generatePageMetadata(
 export default function DocumentationPage() {
   return (
     <PageLayout title="Documentation">
-      <div className="row">
-        <div className="col-xs-12">
-          <p className="intro">
-            It&apos;s important for phpMyFAQ to provide documentation to its users, but documentation means different
-            things to different people. You can find links to our end-user guide providing everything from the
-            installation of phpMyFAQ and how to use it. For developers, we provide a bunch of resources about how to
-            contribute to phpMyFAQ the right way.
-          </p>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-6 col-xs-12">
-          <h2>Getting Started</h2>
-          <ul className="list-unstyled">
+      <p className={blocks.lead}>
+        Everything from installing phpMyFAQ and using it day to day, to contributing code the right way.
+      </p>
+
+      <h2 className={blocks.heading}>Getting Started</h2>
+      <div className={blocks.grid2}>
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fas fa-book" aria-hidden="true"></i>
+          </div>
+          <h3>User guides</h3>
+          <p>Detailed documentation for administrators and end users, per release line.</p>
+          <ul className={blocks.list}>
             <li>
-              <h3>
-                <i className="fa fa-caret-right"></i>{' '}
-                <Link target="_blank" href="/docs/4.1">
+              <span>
+                <Link href="/docs/4.1" target="_blank">
                   Documentation for phpMyFAQ 4.1
                 </Link>
-              </h3>
-              This guide contains detailed documentation for those using phpMyFAQ 4.1, whether they be administrators or
-              end-users.
+                <span className={blocks.meta}>Current stable release</span>
+              </span>
             </li>
             <li>
-              <h3>
-                <i className="fa fa-caret-right"></i>{' '}
-                <Link target="_blank" href="/docs/4.0">
+              <span>
+                <Link href="/docs/4.0" target="_blank">
                   Documentation for phpMyFAQ 4.0
                 </Link>
-              </h3>
-              This guide contains detailed documentation for those using phpMyFAQ 4.0, whether they be administrators or
-              end-users.
+                <span className={blocks.meta}>Previous release line</span>
+              </span>
             </li>
             <li>
-              <h3>
-                <i className="fa fa-caret-right"></i> <Link href="/requirements">Requirements</Link>
-              </h3>
-              All requirements like e.g. the minimum PHP version to install the latest version of phpMyFAQ
-            </li>
-            <li>
-              <h3>
-                <i className="fa fa-caret-right"></i> <Link href="/changelog">Changelog</Link>
-              </h3>
-              The list of user-visible changes of phpMyFAQ releases since 2001.
-            </li>
-            <li>
-              <h3>
-                <i className="fa fa-caret-right"></i> <Link href="/translations">Translations</Link>
-              </h3>
-              The list of supported languages in phpMyFAQ and a guide how to fix existing or add new translations.
+              <span>
+                <Link href="/docs/">Documentation archive</Link>
+                <span className={blocks.meta}>Older, unmaintained versions</span>
+              </span>
             </li>
           </ul>
-        </div>
-        <div className="col-lg-6 col-xs-12">
-          <h2>Developer Resources</h2>
-          <ul className="list-unstyled">
+        </article>
+
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fas fa-clipboard-list" aria-hidden="true"></i>
+          </div>
+          <h3>Reference</h3>
+          <p>What you need before installing, and what changed between releases.</p>
+          <ul className={blocks.list}>
             <li>
-              <h3>
-                <i className="fa fa-caret-right"></i> <Link href="/docs/standards">Coding standards</Link>
-              </h3>
-              Coding styles for PHP code, HTML, and LESS/CSS. Please take care you follow these coding standards.
+              <span>
+                <Link href="/requirements">Requirements</Link>
+                <span className={blocks.meta}>PHP version, databases and web servers</span>
+              </span>
             </li>
             <li>
-              <h3>
-                <i className="fa fa-caret-right"></i>{' '}
-                <a target="_blank" href="https://phpmyfaq.readthedocs.io/en/main/development/">
+              <span>
+                <Link href="/changelog">Changelog</Link>
+                <span className={blocks.meta}>User-visible changes since 2001</span>
+              </span>
+            </li>
+            <li>
+              <span>
+                <Link href="/translations">Translations</Link>
+                <span className={blocks.meta}>Supported languages and how to improve them</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <h2 className={blocks.heading}>Developer Resources</h2>
+      <div className={blocks.grid2}>
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fas fa-code" aria-hidden="true"></i>
+          </div>
+          <h3>Contributing</h3>
+          <ul className={blocks.list}>
+            <li>
+              <span>
+                <a
+                  href="https://phpmyfaq.readthedocs.io/en/main/development/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   How to contribute
                 </a>
-              </h3>
-              If you want to contribute code or fix issues in phpMyFAQ you can find everything on this page.
+                <span className={blocks.meta}>Setting up a development environment and sending changes</span>
+              </span>
             </li>
             <li>
-              <h3>
-                <i className="fa fa-caret-right"></i>{' '}
-                <a rel="nofollow" target="_blank" href="https://github.com/thorsten/phpMyFAQ">
-                  Source code
+              <span>
+                <Link href="/docs/standards">Coding standards</Link>
+                <span className={blocks.meta}>Styles for PHP, HTML and CSS</span>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="https://github.com/thorsten/phpMyFAQ" target="_blank" rel="nofollow noopener noreferrer">
+                  Source code on GitHub
                 </a>
-              </h3>
-              Quick link to our repository at{' '}
-              <a rel="nofollow" target="_blank" href="https://github.com">
-                Github
-              </a>
-              .
-            </li>
-            <li>
-              <h3>
-                <i className="fa fa-caret-right"></i>{' '}
-                <a target="_blank" href="https://api-docs.phpmyfaq.de/">
-                  OpenAPI specification
-                </a>
-              </h3>
-              phpMyFAQ 4.0 and later versions provide an OpenAPI specification for the REST API.
-            </li>
-            <li>
-              <h3>
-                <i className="fa fa-caret-right"></i> <Link href="/docs/codenames">Codenames</Link>
-              </h3>
-              phpMyFAQ uses codenames for every major release, if you&apos;re curious about them, take a look at this
-              page.
+              </span>
             </li>
           </ul>
-        </div>
+        </article>
+
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fas fa-plug" aria-hidden="true"></i>
+          </div>
+          <h3>Integrating</h3>
+          <ul className={blocks.list}>
+            <li>
+              <span>
+                <a href="https://api-docs.phpmyfaq.de/" target="_blank" rel="noopener noreferrer">
+                  OpenAPI specification
+                </a>
+                <span className={blocks.meta}>The REST API of phpMyFAQ 4.0 and later</span>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a
+                  href="https://github.com/thorsten/phpMyFAQ/pkgs/container/phpmyfaq"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  Container images
+                </a>
+                <span className={blocks.meta}>Official Docker images on GitHub</span>
+              </span>
+            </li>
+            <li>
+              <span>
+                <Link href="/docs/codenames">Release codenames</Link>
+                <span className={blocks.meta}>Every major release has one</span>
+              </span>
+            </li>
+          </ul>
+        </article>
       </div>
-      <h2>Outdated documentations</h2>
-      <p className="outro">
-        Looking for an old version of documentation? We have an overview of{' '}
-        <Link href="/docs/">old, unmaintained versions</Link> online.
-      </p>
     </PageLayout>
   );
 }

@@ -1,87 +1,88 @@
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
-import { getVersions, isDevelopmentAhead } from '@/lib/data';
+import { fallbackVersions, getVersions, isDevelopmentAhead } from '@/lib/data';
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = generatePageMetadata('Demo installations', 'phpMyFAQ demo installations');
 
 export default function DemoPage() {
-  const versions = getVersions();
-
-  const fallback = {
-    stable: '4.1.6',
-    development: '4.1.0-RC.7',
-  };
-
-  const stableVersion = versions?.stable || fallback.stable;
-  const devVersion = versions?.development || fallback.development;
-
-  const showDevelopment = isDevelopmentAhead(devVersion, stableVersion);
+  const versions = getVersions() ?? fallbackVersions;
+  const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
 
   return (
     <PageLayout title="Demo" description="phpMyFAQ demo installations">
-      <p className="lead">You can test all these phpMyFAQ installations with the following credentials:</p>
+      <p className={blocks.lead}>
+        Click around in a real installation. Every demo is reset once a day, so feel free to change anything.
+      </p>
 
-      <div className="row mb-4">
-        <div className="col-md-6 col-12">
-          <h4>Admin user</h4>
-          <dl className="row">
-            <dt className="col-sm-3">Username</dt>
-            <dd className="col-sm-9">
-              <code>demoadmin</code>
-            </dd>
-            <dt className="col-sm-3">Password</dt>
-            <dd className="col-sm-9">
-              <code>demoadmin</code>
-            </dd>
-          </dl>
-        </div>
-        <div className="col-md-6 col-12">
-          <h4>Normal user</h4>
-          <dl className="row">
-            <dt className="col-sm-3">Username</dt>
-            <dd className="col-sm-9">
-              <code>demouser</code>
-            </dd>
-            <dt className="col-sm-3">Password</dt>
-            <dd className="col-sm-9">
-              <code>demouser</code>
-            </dd>
-          </dl>
-        </div>
-      </div>
-
-      <div className="row gy-4">
-        <div className="col-md-6 col-12">
-          <h2 className="h4">phpMyFAQ {stableVersion}</h2>
-          <ul className="list-unstyled text-center m-0">
-            <li>
-              <a className="btn btn-primary" rel="nofollow" target="_blank" href="https://roy.demo.phpmyfaq.de/">
-                phpMyFAQ {stableVersion}
-              </a>
-            </li>
-          </ul>
-        </div>
-        {showDevelopment && (
-          <div className="col-md-6 col-12">
-            <h2 className="h4">phpMyFAQ {devVersion}</h2>
-            <ul className="list-unstyled text-center m-0">
-              <li>
-                n/a
-                {/*
-              <a className=\"btn btn-primary\" rel=\"nofollow\" target=\"_blank\" href=\"https://moss.demo.phpmyfaq.de/\">
-                phpMyFAQ {devVersion}
-              </a>
-            */}
-              </li>
-            </ul>
+      <h2 className={blocks.heading}>Installations</h2>
+      <div className={blocks.grid2}>
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
+            <i className="fas fa-check-circle" aria-hidden="true"></i>
           </div>
+          <h3>phpMyFAQ {versions.stable}</h3>
+          <p>The current stable release, the version you get from the download page.</p>
+          <a
+            className={blocks.cta}
+            href="https://roy.demo.phpmyfaq.de/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Open the demo for phpMyFAQ {versions.stable}
+          </a>
+        </article>
+
+        {showDevelopment && (
+          <article className={blocks.card}>
+            <div className={blocks.icon}>
+              <i className="fas fa-code-branch" aria-hidden="true"></i>
+            </div>
+            <h3>phpMyFAQ {versions.development}</h3>
+            <p>
+              No public demo for the pre-release yet. Run it yourself with the official{' '}
+              <a
+                href="https://github.com/thorsten/phpMyFAQ/pkgs/container/phpmyfaq"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
+                Docker image
+              </a>{' '}
+              or download it from the <Link href="/download/#development">download page</Link>.
+            </p>
+          </article>
         )}
       </div>
 
-      <div className="row mt-4">
-        <div className="col-12">
-          <p>You can do whatever you want with these installations, the installations will be reset every day.</p>
-        </div>
+      <h2 className={blocks.heading}>Credentials</h2>
+      <div className={blocks.grid2}>
+        <article className={blocks.card}>
+          <h3>Admin user</h3>
+          <dl className={blocks.kv}>
+            <dt>Username</dt>
+            <dd>
+              <code>demoadmin</code>
+            </dd>
+            <dt>Password</dt>
+            <dd>
+              <code>demoadmin</code>
+            </dd>
+          </dl>
+        </article>
+        <article className={blocks.card}>
+          <h3>Normal user</h3>
+          <dl className={blocks.kv}>
+            <dt>Username</dt>
+            <dd>
+              <code>demouser</code>
+            </dd>
+            <dt>Password</dt>
+            <dd>
+              <code>demouser</code>
+            </dd>
+          </dl>
+        </article>
       </div>
     </PageLayout>
   );

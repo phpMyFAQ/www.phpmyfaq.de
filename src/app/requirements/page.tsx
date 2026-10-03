@@ -1,103 +1,108 @@
-import PageLayout from '@/components/PageLayout';
+import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
-import { generatePageMetadata } from '@/components/PageLayout';
+import Link from 'next/link';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = generatePageMetadata(
   'Requirements',
   'System requirements for phpMyFAQ installation and hosting',
 );
 
+const groups = [
+  {
+    icon: 'fab fa-php',
+    title: 'PHP',
+    items: [
+      <>
+        <strong>PHP 8.3 or later</strong>, 8.5 or later recommended
+      </>,
+      <>Extensions: PDO, cURL, GD or ImageMagick, mbstring</>,
+      <>Optional: LDAP, XML, ZIP, Fileinfo</>,
+      <>Memory limit: 128 MB minimum, 256 MB recommended</>,
+    ],
+  },
+  {
+    icon: 'fas fa-server',
+    title: 'Web server',
+    items: [
+      <>
+        <strong>Apache 2.4 or later</strong> with mod_rewrite
+      </>,
+      <>
+        <strong>Nginx 1.18 or later</strong>
+      </>,
+      <>
+        <strong>IIS 10 or later</strong> with the URL Rewrite module
+      </>,
+      <>HTTPS</>,
+    ],
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'Database',
+    items: [
+      <>
+        <strong>MySQL 8.0 or later</strong> or <strong>MariaDB 10.6 or later</strong>
+      </>,
+      <>
+        <strong>PostgreSQL 13 or later</strong>
+      </>,
+      <>
+        <strong>SQLite 3.38 or later</strong> for small installations
+      </>,
+      <>
+        <strong>Microsoft SQL Server 2019 or later</strong> or <strong>Azure SQL</strong>
+      </>,
+    ],
+  },
+  {
+    icon: 'fas fa-puzzle-piece',
+    title: 'Optional',
+    items: [
+      <>
+        <strong>Elasticsearch 7 or OpenSearch 2</strong> for advanced search
+      </>,
+      <>
+        <strong>LDAP or Active Directory</strong> for user authentication
+      </>,
+      <>
+        <strong>SMTP server</strong> for email notifications
+      </>,
+      <>
+        <strong>Redis</strong> for configuration caching
+      </>,
+    ],
+  },
+];
+
 export default function RequirementsPage() {
   return (
     <PageLayout title="System Requirements">
-      <div className="row">
-        <div className="col-12">
-          <p className="lead">phpMyFAQ requires the following system components for proper operation.</p>
+      <p className={blocks.lead}>phpMyFAQ runs on any PHP web host with a database. This is what it needs.</p>
 
-          <div className="row">
-            <div className="col-md-6">
-              <div className="card mb-4">
-                <div className="card-body">
-                  <h5 className="card-title">PHP Requirements</h5>
-                  <ul>
-                    <li>
-                      <strong>PHP 8.3+</strong> (8.5+ recommended)
-                    </li>
-                    <li>Extensions: PDO, cURL, GD/ImageMagick, mbstring</li>
-                    <li>Optional: LDAP, XML, ZIP, Fileinfo</li>
-                    <li>Memory limit: 128MB minimum, 256MB recommended</li>
-                  </ul>
-                </div>
-              </div>
+      <div className={blocks.grid2}>
+        {groups.map((group) => (
+          <article key={group.title} className={blocks.card}>
+            <div className={blocks.icon}>
+              <i className={group.icon} aria-hidden="true"></i>
             </div>
+            <h2>{group.title}</h2>
+            <ul className={blocks.list}>
+              {group.items.map((item, index) => (
+                <li key={index}>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
 
-            <div className="col-md-6">
-              <div className="card mb-4">
-                <div className="card-body">
-                  <h5 className="card-title">Web Server</h5>
-                  <ul>
-                    <li>
-                      <strong>Apache 2.4+</strong> with mod_rewrite
-                    </li>
-                    <li>
-                      <strong>Nginx 1.18+</strong> with proper configuration
-                    </li>
-                    <li>
-                      <strong>IIS 10+</strong> with URL Rewrite Module
-                    </li>
-                    <li>HTTPS support</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6">
-              <div className="card mb-4">
-                <div className="card-body">
-                  <h5 className="card-title">Database</h5>
-                  <ul>
-                    <li>
-                      <strong>MySQL 8.0+</strong> or <strong>MariaDB 10.6+</strong>
-                    </li>
-                    <li>
-                      <strong>PostgreSQL 13+</strong>
-                    </li>
-                    <li>
-                      <strong>SQLite 3.38+</strong> (for small installations)
-                    </li>
-                    <li>
-                      <strong>Microsoft SQL Server 2019+</strong>
-                    </li>
-                    <li>
-                      <strong>Azure SQL</strong>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6">
-              <div className="card mb-4">
-                <div className="card-body">
-                  <h5 className="card-title">Optional Components</h5>
-                  <ul>
-                    <li>
-                      <strong>Elasticsearch 7.0+</strong> or <strong>OpenSearch 2.0+</strong> for advanced search
-                    </li>
-                    <li>
-                      <strong>LDAP server</strong> for user authentication
-                    </li>
-                    <li>
-                      <strong>SMTP server</strong> for email notifications
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className={blocks.note}>
+        <p>
+          Ready to go? <Link href="/download">Download phpMyFAQ</Link> or try the <Link href="/demo">live demo</Link>{' '}
+          first. The <Link href="/documentation">documentation</Link> covers installation step by step.
+        </p>
       </div>
     </PageLayout>
   );
