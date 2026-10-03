@@ -5,6 +5,7 @@ import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import { parseAdvisoryToHTML } from '@/lib/securityAdvisory';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 import styles from '../advisory.module.scss';
 
@@ -82,22 +83,11 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
 
   return (
     <PageLayout title={advisoryData.title}>
-      <div className="row">
-        <div className="col-12">
-          <nav aria-label="breadcrumb" className={styles.breadcrumbNav}>
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <Link href="/advisories">Security Advisories</Link>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                Security Advisory {advisory.replace('advisory-', '')}
-              </li>
-            </ol>
-          </nav>
-
-          <div className={styles.advisoryBody} dangerouslySetInnerHTML={{ __html: html }} />
-        </div>
-      </div>
+      <Breadcrumb
+        parent={{ href: '/advisories', label: 'Security Advisories' }}
+        current={`Security Advisory ${advisory.replace('advisory-', '')}`}
+      />
+      <div className={styles.advisoryBody} dangerouslySetInnerHTML={{ __html: html }} />
     </PageLayout>
   );
 }

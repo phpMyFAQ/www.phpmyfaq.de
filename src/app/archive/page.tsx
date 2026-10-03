@@ -4,6 +4,7 @@ import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import { getArchiveReleases, countDownloadableReleases } from '@/lib/archive';
 import ArchiveView from './ArchiveView';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = generatePageMetadata(
   'Download Archive',
@@ -16,17 +17,17 @@ export default async function ArchivePage() {
 
   return (
     <PageLayout title="Download Archive">
-      <p className="lead">
+      <p className={blocks.lead}>
         Every downloadable phpMyFAQ release since version 1.2.0 — {total} releases in total. The earliest 0.x, 1.0 and
         1.1 builds are listed for historical reference only. For the latest stable version, head to the{' '}
         <Link href="/download">download page</Link>.
       </p>
-      <div className="alert alert-warning d-flex align-items-center" role="alert">
-        <i className="fas fa-triangle-exclamation me-2"></i>
-        <span>
+      <div className={blocks.notice} role="note">
+        <i className="fas fa-triangle-exclamation" aria-hidden="true"></i>
+        <p>
           These versions are kept for archival purposes only. Older releases are unsupported and may contain known
-          security vulnerabilities — always run the latest stable version in production.
-        </span>
+          security vulnerabilities, so always run the latest stable version in production.
+        </p>
       </div>
       <ArchiveView groups={groups} />
     </PageLayout>

@@ -17,7 +17,7 @@ test.describe('News Pages', () => {
       await expect(page.locator('h1')).toContainText(`phpMyFAQ News from ${year}`);
       await expect(page.locator('nav[aria-label="breadcrumb"]')).toBeVisible();
       await expect(page.getByRole('link', { name: 'News', exact: true })).toBeVisible();
-      await expect(page.locator('.breadcrumb-item.active')).toContainText(year.toString());
+      await expect(page.locator('nav[aria-label="breadcrumb"] [aria-current="page"]')).toContainText(year.toString());
       const dateHeaders = page.locator('h3');
       await expect(dateHeaders.first()).toBeVisible();
       const firstDateText = await dateHeaders.first().textContent();

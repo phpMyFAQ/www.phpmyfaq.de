@@ -1,19 +1,3 @@
-.breadcrumbNav {
-  :global(.breadcrumb-item),
-  :global(.breadcrumb-item + .breadcrumb-item::before),
-  :global(.breadcrumb-item.active) {
-    color: var(--color-text);
-  }
-
-  :global(.breadcrumb-item.active) {
-    font-weight: 600;
-  }
-
-  :global(.breadcrumb-item a) {
-    color: var(--color-primary);
-  }
-}
-
 .advisoryBody {
   dl {
     display: grid;

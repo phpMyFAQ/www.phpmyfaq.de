@@ -5,6 +5,7 @@ import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 
 export const dynamicParams = false;
@@ -116,22 +117,8 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
 
   return (
     <PageLayout title={`phpMyFAQ News from ${year}`}>
-      <div className="row">
-        <div className="col-12">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <Link href="/news">News</Link>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                {year}
-              </li>
-            </ol>
-          </nav>
-
-          <div id="news-content">{newsElements}</div>
-        </div>
-      </div>
+      <Breadcrumb parent={{ href: '/news', label: 'News' }} current={year} />
+      <div id="news-content">{newsElements}</div>
     </PageLayout>
   );
 }

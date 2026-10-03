@@ -1,3 +1,5 @@
+import styles from './Sponsors.module.scss';
+
 // Paid placements. Each entry drops off the page automatically once its
 // `expires` date (YYYY-MM-DD, inclusive) has passed, so an expired deal never
 // needs a manual removal. Entries without `expires` stay until removed.
@@ -64,24 +66,18 @@ export default function Sponsors() {
   if (active.length === 0) return null;
 
   return (
-    <section className="sponsors mb-4">
+    <section className={styles.section}>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="text-center" style={{ fontSize: '10px', marginTop: '20px' }}>
-              <strong>SPONSORED BY</strong>
-              {active.map((sponsor) => (
-                <p key={sponsor.href} className="mb-0">
-                  {sponsor.before && `${sponsor.before} `}
-                  <a href={sponsor.href} target="_blank" rel="sponsored nofollow noopener">
-                    {sponsor.text}
-                  </a>
-                  {sponsor.after && ` ${sponsor.after}`}
-                </p>
-              ))}
-            </div>
-          </div>
-        </div>
+        <strong className={styles.label}>Sponsored by</strong>
+        {active.map((sponsor) => (
+          <p key={sponsor.href}>
+            {sponsor.before && `${sponsor.before} `}
+            <a href={sponsor.href} target="_blank" rel="sponsored nofollow noopener">
+              {sponsor.text}
+            </a>
+            {sponsor.after && ` ${sponsor.after}`}
+          </p>
+        ))}
       </div>
     </section>
   );

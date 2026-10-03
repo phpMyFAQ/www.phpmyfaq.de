@@ -4,6 +4,7 @@ import { marked } from 'marked';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 
 interface DocsVersionPageProps {
@@ -61,22 +62,8 @@ export default async function DocsVersionPage({ params }: DocsVersionPageProps) 
 
   return (
     <PageLayout title={`phpMyFAQ ${version} Documentation`}>
-      <div className="row">
-        <div className="col-12">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <Link href="/docs">Documentation</Link>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                {version}
-              </li>
-            </ol>
-          </nav>
-
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
-      </div>
+      <Breadcrumb parent={{ href: '/docs', label: 'Documentation' }} current={version} />
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>
   );
 }

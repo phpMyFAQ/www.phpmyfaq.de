@@ -183,8 +183,13 @@ dl.kv.kv {
 }
 
 a.cta.cta,
-a.ctaSecondary.ctaSecondary {
+a.ctaSecondary.ctaSecondary,
+button.cta.cta,
+button.ctaSecondary.ctaSecondary {
   display: inline-flex;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1.5rem;
@@ -204,7 +209,8 @@ a.ctaSecondary.ctaSecondary {
   }
 }
 
-a.cta.cta {
+a.cta.cta,
+button.cta.cta {
   background: var(--color-primary);
   color: #ffffff;
 
@@ -216,7 +222,8 @@ a.cta.cta {
   }
 }
 
-a.ctaSecondary.ctaSecondary {
+a.ctaSecondary.ctaSecondary,
+button.ctaSecondary.ctaSecondary {
   background: transparent;
   color: var(--color-primary);
 
@@ -225,6 +232,39 @@ a.ctaSecondary.ctaSecondary {
     background: var(--color-primary);
     color: #ffffff;
   }
+}
+
+// A warning or hint box.
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+
+  i {
+    color: var(--color-primary);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 // Closing remark under a page's content.
