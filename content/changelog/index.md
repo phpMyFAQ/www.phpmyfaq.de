@@ -6,7 +6,7 @@ canonical: changelog
 
 ## phpMyFAQ 4.2.x
 
-### phpMyFAQ 4.2.0-alpha.2 - 2026-08-20 {#4.2.0-alpha.2}
+### phpMyFAQ 4.2.0-beta - 2026-10-03 {#4.2.0-beta}
 
 - changed PHP requirement to PHP 8.4 or later
 - added Symfony Router for frontend
@@ -55,6 +55,12 @@ canonical: changelog
 - fixed bugs
 
 ## phpMyFAQ 4.1.x
+
+### phpMyFAQ 4.1.9 - 2026-10-03 {#4.1.9}
+
+- fixed security vulnerabilities
+- updated third party dependencies
+- fixed bugs
 
 ### phpMyFAQ 4.1.8 - 2026-08-20 {#4.1.8}
 

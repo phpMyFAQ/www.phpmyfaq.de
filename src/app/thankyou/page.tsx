@@ -69,6 +69,10 @@ export default function ThankYouPage() {
             <li>
               <strong>Tadashi Jokagi</strong> for the Japanese translation and MIME support
             </li>
+            <li>
+              <a href={"https://callgh0st.medium.com/"} target={"_blank"} rel={"nofollow"}>Callgh0st</a> for security
+              checks
+            </li>
             <li>and everyone we might forgot</li>
             <li>and of course everyone who is using phpMyFAQ!</li>
           </ul>
