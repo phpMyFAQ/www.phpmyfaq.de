@@ -50,7 +50,7 @@
 
   &:hover {
     background: var(--color-bg-secondary);
-    color: var(--color-primary);
+    color: var(--color-primary-text);
   }
 }
 
@@ -197,13 +197,13 @@
 }
 
 .download {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   background: transparent;
 
   &:hover {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: #fff;
+    color: #1a1a2e;
   }
 }
 

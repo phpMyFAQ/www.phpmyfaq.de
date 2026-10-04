@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import styles from './translations.module.scss';
 import Icon from '@/components/Icon';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 type Language = {
   code: string;
@@ -97,7 +98,7 @@ export default function TranslationsList() {
         </div>
       </div>
 
-      <h2 className={styles.heading}>Supported Languages</h2>
+      <h2 className={blocks.heading}>Supported Languages</h2>
 
       <div className={styles.toolbar}>
         <div className={styles.search}>

@@ -86,7 +86,7 @@
   }
 
   &.active a {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
     background: rgba(255, 102, 0, 0.12);
     font-weight: 500;
   }
@@ -142,7 +142,7 @@ a.githubLink {
 
   &:hover,
   &:focus {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
     background: rgba(255, 102, 0, 0.1);
   }
 }

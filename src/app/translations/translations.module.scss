@@ -7,7 +7,7 @@
   text-align: center;
 
   a {
-    color: var(--color-primary);
+    color: var(--color-primary-text);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s ease;
@@ -41,7 +41,7 @@
     display: block;
     font-size: 2rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-primary-text);
     line-height: 1;
     margin-bottom: 0.35rem;
     font-family: 'Cabin', sans-serif;
@@ -53,23 +53,6 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-text-muted);
-  }
-}
-
-.heading {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--color-text);
-  margin: 0 0 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--color-border);
   }
 }
 
@@ -177,7 +160,7 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   flex-shrink: 0;
 }
 
@@ -213,7 +196,7 @@
   margin-left: 0.4rem;
   padding: 0.05rem 0.4rem;
   background: rgba(255, 102, 0, 0.12);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   border-radius: 3px;
   font-size: 0.65rem;
   font-weight: 600;
@@ -256,7 +239,7 @@
     align-items: center;
     gap: 0.5rem;
     background: var(--color-primary);
-    color: #ffffff;
+    color: #1a1a2e;
     padding: 0.65rem 1.4rem;
     border-radius: 6px;
     text-decoration: none;

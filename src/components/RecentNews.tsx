@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import { getRecentNews } from '@/lib/news';
 import { formatReleaseDate } from '@/lib/data';
 import styles from './RecentNews.module.scss';
+import blocks from './ContentBlocks.module.scss';
 
 // Entries longer than this get clamped with a fade and a "Read more" link,
 // so one long release note cannot stretch the whole row.
@@ -14,7 +15,7 @@ export default function RecentNews() {
   return (
     <section id="news" className={styles.section}>
       <div className="container">
-        <h2 className={styles.heading}>Latest News</h2>
+        <h2 className={blocks.heading}>Latest News</h2>
         <div className={styles.grid}>
           {newsItems.map((item) => {
             const clamped = item.content.length > CLAMP_THRESHOLD;

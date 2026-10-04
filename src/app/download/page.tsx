@@ -15,6 +15,9 @@ import {
 } from '@/lib/data';
 import styles from './download.module.scss';
 import Icon from '@/components/Icon';
+import blocks from '@/components/ContentBlocks.module.scss';
+import JsonLd from '@/components/JsonLd';
+import { softwareApplication } from '@/lib/structuredData';
 
 export const metadata: Metadata = generatePageMetadata(
   'Download',
@@ -61,11 +64,11 @@ function ReleaseCard({ id, version, released, info, recommended }: ReleaseCardPr
 
       {info && (
         <div className={styles.actions}>
-          <a href={getDownloadUrl(version, 'zip')} className={recommended ? styles.cta : styles.ctaSecondary} download>
+          <a href={getDownloadUrl(version, 'zip')} className={recommended ? blocks.cta : blocks.ctaSecondary} download>
             <Icon name="download" />
             ZIP <small>({formatFileSize(info.zip.filesize)})</small>
           </a>
-          <a href={getDownloadUrl(version, 'tar.gz')} className={styles.ctaSecondary} download>
+          <a href={getDownloadUrl(version, 'tar.gz')} className={blocks.ctaSecondary} download>
             <Icon name="file-archive" />
             TAR.GZ <small>({formatFileSize(info.targz.filesize)})</small>
           </a>
@@ -125,7 +128,8 @@ export default function DownloadPage() {
 
   return (
     <PageLayout title="Download phpMyFAQ">
-      <p className={styles.lead}>
+      <JsonLd data={softwareApplication(versions, { downloadUrl: getDownloadUrl(versions.stable, 'zip') })} />
+      <p className={blocks.lead}>
         Download the latest version of phpMyFAQ and start building your knowledge base today.
       </p>
 
@@ -142,30 +146,30 @@ export default function DownloadPage() {
         )}
       </div>
 
-      <h2 className={styles.heading}>Before you install</h2>
-      <div className={styles.grid}>
-        <article className={styles.card}>
-          <div className={styles.icon}>
+      <h2 className={blocks.heading}>Before you install</h2>
+      <div className={blocks.grid2}>
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
             <Icon name="server" />
           </div>
           <h3>System requirements</h3>
-          <ul>
+          <ul className={blocks.list}>
             <li>PHP 8.3 or higher</li>
             <li>Web server: Apache, Nginx or IIS</li>
             <li>Database: MySQL, MariaDB, PostgreSQL, SQLite or SQL Server</li>
             <li>A modern web browser</li>
           </ul>
-          <Link href="/requirements" className={styles.more}>
+          <Link href="/requirements" className={blocks.more}>
             Full requirements →
           </Link>
         </article>
 
-        <article className={styles.card}>
-          <div className={styles.icon}>
+        <article className={blocks.card}>
+          <div className={blocks.icon}>
             <Icon name="life-ring" />
           </div>
           <h3>Installation help</h3>
-          <ul>
+          <ul className={blocks.list}>
             <li>
               <Link href="/documentation">Installation guide</Link>
             </li>
@@ -186,7 +190,7 @@ export default function DownloadPage() {
         </article>
       </div>
 
-      <div className={styles.archive} data-testid="archive-note">
+      <div className={blocks.note} data-testid="archive-note">
         <p>
           <strong>Looking for an older version?</strong> Every release since 1.2.0 is available in the{' '}
           <Link href="/archive">download archive</Link>.

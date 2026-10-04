@@ -7,6 +7,7 @@ import { getAdvisoriesByYear } from '@/lib/securityAdvisory';
 import styles from './sovereignty.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = {
   ...generatePageMetadata(
@@ -78,12 +79,12 @@ export default function SovereigntyPage() {
           <Link href="/souveraenitaet/">Diese Seite auf Deutsch lesen</Link>
         </em>
       </p>
-      <p className={styles.lead}>
+      <p className={blocks.lead}>
         phpMyFAQ is open source software, developed in Germany since 2001, and runs entirely on your own infrastructure.
         No SaaS dependency, no data leaving your control — a European answer to proprietary knowledge-base clouds.
       </p>
 
-      <h2 className={styles.heading}>Your data stays on your infrastructure</h2>
+      <h2 className={blocks.heading}>Your data stays on your infrastructure</h2>
       <ul className={styles.checkList}>
         <li>
           <Icon name="check" />
@@ -113,22 +114,22 @@ export default function SovereigntyPage() {
         </li>
       </ul>
 
-      <h2 className={styles.heading}>Built for GDPR-friendly operation</h2>
+      <h2 className={blocks.heading}>Built for GDPR-friendly operation</h2>
       <p className={styles.prose}>
         Software cannot be &ldquo;GDPR-compliant&rdquo; on its own — compliance is achieved in operation. What phpMyFAQ
         gives you is the position to achieve it: full control over where data lives, which services are involved (none,
         by default), and how long anything is retained.
       </p>
 
-      <h2 className={styles.heading}>Security transparency for supply-chain due diligence</h2>
+      <h2 className={blocks.heading}>Security transparency for supply-chain due diligence</h2>
       <p className={styles.prose}>
         The EU Cyber Resilience Act is making software supply chains auditable. When your procurement or security team
         asks for the paper trail, phpMyFAQ already has it:
       </p>
-      <div className={styles.grid}>
+      <div className={blocks.grid2}>
         {dueDiligenceCards.map((card) => (
-          <article key={card.title} className={styles.card}>
-            <div className={styles.icon}>
+          <article key={card.title} className={blocks.card}>
+            <div className={blocks.icon}>
               <Icon name={card.icon} />
             </div>
             <h3>{card.title}</h3>
@@ -142,7 +143,7 @@ export default function SovereigntyPage() {
         for — and closed-source vendors rarely show them.
       </p>
 
-      <h2 className={styles.heading}>See it in practice</h2>
+      <h2 className={blocks.heading}>See it in practice</h2>
       <p className={styles.prose}>
         Universities, public-sector institutions and companies across Europe{' '}
         <Link href="/references/">run phpMyFAQ in production</Link>. Try the <Link href="/demo/">online demo</Link> or{' '}

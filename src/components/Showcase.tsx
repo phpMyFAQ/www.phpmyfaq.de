@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ScreenshotGallery, { Screenshot } from './ScreenshotGallery';
 import styles from './Showcase.module.scss';
+import blocks from './ContentBlocks.module.scss';
 
 // The public FAQ leads; the admin shots show the other half of the product.
 // The full set lives on the features page.
@@ -26,7 +27,7 @@ export default function Showcase() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <h2 className={styles.heading}>See it in action</h2>
+        <h2 className={blocks.heading}>See it in action</h2>
         <ScreenshotGallery screenshots={screenshots} layout="featured" />
         <p className={styles.footer}>
           <Link href="/features">More screenshots</Link> · <Link href="/demo">Try the live demo</Link>

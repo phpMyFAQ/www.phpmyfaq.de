@@ -7,6 +7,8 @@ import { parseAdvisoryToHTML } from '@/lib/securityAdvisory';
 import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 import styles from '../advisory.module.scss';
+import JsonLd from '@/components/JsonLd';
+import { securityAdvisoryArticle } from '@/lib/structuredData';
 
 interface SecurityAdvisoryPageProps {
   params: Promise<{
@@ -82,6 +84,7 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
 
   return (
     <PageLayout title={advisoryData.title}>
+      <JsonLd data={securityAdvisoryArticle(advisory, advisoryData.title, advisoryData.description)} />
       <Breadcrumb
         parent={{ href: '/advisories', label: 'Security Advisories' }}
         current={`Security Advisory ${advisory.replace('advisory-', '')}`}

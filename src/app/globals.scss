@@ -45,7 +45,7 @@ hr {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   text-decoration: underline;
 
   &:hover {
@@ -149,16 +149,20 @@ table {
 :root {
   --color-primary: #ff6600;
   --color-primary-light: #ff8533;
-  --color-primary-dark: #cc5200;
+  --color-primary-dark: #a84300;
+  // The brand orange is for fills, borders and icons. As text on light
+  // backgrounds it needs this darker shade to reach WCAG AA contrast.
+  --color-primary-text: #b84a00;
   --color-bg: #ffffff;
   --color-bg-secondary: #f4f5f7;
   --color-text: #1a1a2e;
-  --color-text-muted: #6b7280;
+  --color-text-muted: #5f6774;
   --color-border: #e5e7eb;
   --color-shadow: rgba(0, 0, 0, 0.08);
 }
 
 [data-theme='dark'] {
+  --color-primary-text: #ff8533;
   --color-bg: #111827;
   --color-bg-secondary: #1f2937;
   --color-text: #f1f5f9;
@@ -279,7 +283,7 @@ h6 {
 
 .promo .btn-light {
   background: white;
-  color: #e55a00;
+  color: #b84a00;
   border-color: white;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);

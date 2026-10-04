@@ -6,6 +6,7 @@ import ScreenshotGallery, { Screenshot } from '@/components/ScreenshotGallery';
 import styles from './features.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 const screenshots: Screenshot[] = [
   {
@@ -172,12 +173,12 @@ const advancedFeatures = [
 export default function FeaturesPage() {
   return (
     <PageLayout title="phpMyFAQ Features">
-      <p className={styles.lead}>
+      <p className={blocks.lead}>
         phpMyFAQ is a mobile-friendly, multilingual, AI-ready, scalable, completely database-driven FAQ software and
         offers the following features &mdash; from single FAQ sites up to enterprise ready integrations:
       </p>
 
-      <h2 className={styles.heading}>Core Features</h2>
+      <h2 className={blocks.heading}>Core Features</h2>
       <ul className={styles.coreList}>
         <li>
           <Icon name="check" />
@@ -235,18 +236,18 @@ export default function FeaturesPage() {
         </li>
       </ul>
 
-      <h2 className={styles.heading}>See it in action</h2>
+      <h2 className={blocks.heading}>See it in action</h2>
       <ScreenshotGallery screenshots={screenshots} />
       <p>
         Screenshots show the upcoming phpMyFAQ 4.2 — want to click around yourself? Try the{' '}
         <Link href="/demo">demo installation</Link>.
       </p>
 
-      <h2 className={styles.heading}>Advanced Features</h2>
-      <div className={styles.grid}>
+      <h2 className={blocks.heading}>Advanced Features</h2>
+      <div className={blocks.grid3}>
         {advancedFeatures.map((feature) => (
-          <article key={feature.title} className={styles.card}>
-            <div className={styles.icon}>
+          <article key={feature.title} className={blocks.card}>
+            <div className={blocks.icon}>
               <Icon name={feature.icon} />
             </div>
             <h3>{feature.title}</h3>

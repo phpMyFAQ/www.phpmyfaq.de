@@ -7,6 +7,7 @@ import { getAdvisoriesByYear } from '@/lib/securityAdvisory';
 import styles from '../sovereignty/sovereignty.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
+import blocks from '@/components/ContentBlocks.module.scss';
 
 export const metadata: Metadata = {
   ...generatePageMetadata(
@@ -78,13 +79,13 @@ export default function SouveraenitaetPage() {
           <Link href="/sovereignty/">Read this page in English</Link>
         </em>
       </p>
-      <p className={styles.lead}>
+      <p className={blocks.lead}>
         phpMyFAQ ist Open-Source-Software, wird seit 2001 in Deutschland entwickelt und läuft vollständig auf Ihrer
         eigenen Infrastruktur. Keine SaaS-Abhängigkeit, keine Daten außerhalb Ihrer Kontrolle — eine europäische Antwort
         auf proprietäre Wissensdatenbank-Clouds.
       </p>
 
-      <h2 className={styles.heading}>Ihre Daten bleiben auf Ihrer Infrastruktur</h2>
+      <h2 className={blocks.heading}>Ihre Daten bleiben auf Ihrer Infrastruktur</h2>
       <ul className={styles.checkList}>
         <li>
           <Icon name="check" />
@@ -113,22 +114,22 @@ export default function SouveraenitaetPage() {
         </li>
       </ul>
 
-      <h2 className={styles.heading}>Gebaut für DSGVO-konformen Betrieb</h2>
+      <h2 className={blocks.heading}>Gebaut für DSGVO-konformen Betrieb</h2>
       <p className={styles.prose}>
         Software kann für sich genommen nicht &bdquo;DSGVO-konform&ldquo; sein — Konformität entsteht im Betrieb.
         phpMyFAQ verschafft Ihnen die Ausgangslage dafür: volle Kontrolle darüber, wo Daten liegen, welche Dienste
         beteiligt sind (standardmäßig keine) und wie lange etwas aufbewahrt wird.
       </p>
 
-      <h2 className={styles.heading}>Sicherheitstransparenz für die Lieferketten-Prüfung</h2>
+      <h2 className={blocks.heading}>Sicherheitstransparenz für die Lieferketten-Prüfung</h2>
       <p className={styles.prose}>
         Der EU Cyber Resilience Act macht Software-Lieferketten prüfbar. Wenn Ihr Einkauf oder Ihr Security-Team nach
         den Nachweisen fragt, hat phpMyFAQ sie bereits:
       </p>
-      <div className={styles.grid}>
+      <div className={blocks.grid2}>
         {dueDiligenceCards.map((card) => (
-          <article key={card.title} className={styles.card}>
-            <div className={styles.icon}>
+          <article key={card.title} className={blocks.card}>
+            <div className={blocks.icon}>
               <Icon name={card.icon} />
             </div>
             <h3>{card.title}</h3>
@@ -143,7 +144,7 @@ export default function SouveraenitaetPage() {
         vorweisen.
       </p>
 
-      <h2 className={styles.heading}>In der Praxis</h2>
+      <h2 className={blocks.heading}>In der Praxis</h2>
       <p className={styles.prose}>
         Universitäten, öffentliche Einrichtungen und Unternehmen in ganz Europa{' '}
         <Link href="/references/">betreiben phpMyFAQ produktiv</Link>. Testen Sie die{' '}

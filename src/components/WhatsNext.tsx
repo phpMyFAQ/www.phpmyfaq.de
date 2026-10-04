@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { formatReleaseDate, requireVersions } from '@/lib/data';
 import styles from './WhatsNext.module.scss';
 import Icon from '@/components/Icon';
+import blocks from './ContentBlocks.module.scss';
 
 // Curated from the 4.2 section of content/changelog/index.md. Refresh this
 // list with each pre-release; the footer names the release it is based on.
@@ -23,7 +24,7 @@ export default function WhatsNext() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <h2 className={styles.heading}>What&apos;s next: phpMyFAQ 4.2</h2>
+        <h2 className={blocks.heading}>What&apos;s next: phpMyFAQ 4.2</h2>
         <ul className={styles.list}>
           {highlights.map((highlight) => (
             <li key={highlight}>

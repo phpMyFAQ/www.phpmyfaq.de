@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './Highlights.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
+import blocks from './ContentBlocks.module.scss';
 
 const highlights = [
   {
@@ -43,11 +44,11 @@ export default function Highlights() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <h2 className={styles.heading}>Everything a knowledge base needs</h2>
-        <div className={styles.grid}>
+        <h2 className={blocks.heading}>Everything a knowledge base needs</h2>
+        <div className={blocks.grid3}>
           {highlights.map((item) => (
-            <article key={item.title} className={styles.card}>
-              <div className={styles.icon}>
+            <article key={item.title} className={blocks.card}>
+              <div className={blocks.icon}>
                 <Icon name={item.icon} />
               </div>
               <h3>{item.title}</h3>
