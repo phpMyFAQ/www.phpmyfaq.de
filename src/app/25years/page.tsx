@@ -2,6 +2,8 @@ import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import styles from './anniversary.module.scss';
+import { requireVersions } from '@/lib/data';
+import { phpRequirementFor } from '@/data/security';
 
 export const metadata: Metadata = generatePageMetadata(
   '25 Years phpMyFAQ',
@@ -29,7 +31,7 @@ const stats = [
   { number: '40+', label: 'Languages Supported' },
   { number: '19 MB+', label: 'Package Size' },
   { number: '17+', label: 'Years on Git' },
-  { number: 'PHP 8.3+', label: 'Powered By' },
+  { number: `PHP ${phpRequirementFor(requireVersions().stable)}`, label: 'Powered By' },
 ];
 
 export default function TwentyFiveYearsPage() {

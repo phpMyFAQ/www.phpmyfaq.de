@@ -26,8 +26,8 @@ export const supportedVersions: SupportedVersion[] = [
 ];
 
 // Minimum PHP version for a release such as "4.1.9", e.g. "8.3+". The site
-// headline, hero and requirements page read it from the table above so they
-// follow the release cycle instead of repeating the number.
+// headline, hero, download, features and requirements pages read it from the
+// table above so they follow the release cycle instead of repeating the number.
 export function phpRequirementFor(release: string): string {
   const line = `${release.split('.').slice(0, 2).join('.')}.x`;
   const entry = supportedVersions.find((v) => v.version === line);
@@ -35,6 +35,28 @@ export function phpRequirementFor(release: string): string {
     throw new Error(`No PHP requirement for ${line} in src/data/security.ts`);
   }
   return entry.php;
+}
+
+// The same without the trailing "+", e.g. "8.3", for prose like "8.3 or later".
+export function phpMinimumFor(release: string): string {
+  return phpRequirementFor(release).replace(/\+$/, '');
+}
+
+// The newest stable PHP release, recommended on the requirements page, and the
+// newest PHP version phpMyFAQ is tested against, which may still be a
+// pre-release. Both follow the yearly PHP release cycle.
+export const recommendedPhpVersion = '8.5';
+export const latestSupportedPhpVersion = '8.6';
+
+// Every PHP minor version from the requirement of `release` up to the latest
+// supported one, e.g. ["8.3", "8.4", "8.5", "8.6"] for a 4.1 release.
+export function supportedPhpVersionsFor(release: string): string[] {
+  const [major, minimum] = phpMinimumFor(release).split('.').map(Number);
+  const [latestMajor, latest] = latestSupportedPhpVersion.split('.').map(Number);
+  if (major !== latestMajor || minimum > latest) {
+    throw new Error(`Cannot list PHP versions from ${major}.${minimum} to ${latestSupportedPhpVersion}`);
+  }
+  return Array.from({ length: latest - minimum + 1 }, (_, i) => `${major}.${minimum + i}`);
 }
 
 // First release shipping sbom.cdx.json.

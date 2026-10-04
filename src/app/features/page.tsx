@@ -7,6 +7,8 @@ import styles from './features.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
 import blocks from '@/components/ContentBlocks.module.scss';
+import { requireVersions } from '@/lib/data';
+import { supportedPhpVersionsFor } from '@/data/security';
 
 const screenshots: Screenshot[] = [
   {
@@ -194,6 +196,12 @@ const advancedFeatures = [
   },
 ] satisfies { icon: IconName; title: string; description: string }[];
 
+// "8.3, 8.4, 8.5, and 8.6": from the requirement of the stable release up to
+// the newest PHP version phpMyFAQ is tested against.
+const supportedPhpList = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(
+  supportedPhpVersionsFor(requireVersions().stable),
+);
+
 export default function FeaturesPage() {
   return (
     <PageLayout title="phpMyFAQ Features">
@@ -206,7 +214,7 @@ export default function FeaturesPage() {
       <ul className={styles.coreList}>
         <li>
           <Icon name="check" />
-          <span>Supports PHP 8.3, 8.4, 8.5, and 8.6</span>
+          <span>Supports PHP {supportedPhpList}</span>
         </li>
         <li>
           <Icon name="check" />

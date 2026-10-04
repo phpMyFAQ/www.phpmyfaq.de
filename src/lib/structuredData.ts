@@ -1,4 +1,5 @@
 import { getSiteConfig, VersionData } from './data';
+import { phpMinimumFor } from '@/data/security';
 
 // schema.org description of phpMyFAQ for the homepage and download page.
 export function softwareApplication(versions: VersionData, options: { downloadUrl?: string } = {}) {
@@ -18,7 +19,7 @@ export function softwareApplication(versions: VersionData, options: { downloadUr
     license: 'https://www.mozilla.org/MPL/2.0/',
     isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
-    softwareRequirements: 'PHP 8.3 or later, a database (MySQL, MariaDB, PostgreSQL, SQLite or SQL Server)',
+    softwareRequirements: `PHP ${phpMinimumFor(versions.stable)} or later, a database (MySQL, MariaDB, PostgreSQL, SQLite or SQL Server)`,
     sameAs: ['https://github.com/thorsten/phpMyFAQ'],
     author: { '@type': 'Organization', name: 'phpMyFAQ Team', url: siteUrl },
   };

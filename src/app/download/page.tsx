@@ -18,6 +18,7 @@ import Icon from '@/components/Icon';
 import blocks from '@/components/ContentBlocks.module.scss';
 import JsonLd from '@/components/JsonLd';
 import { softwareApplication } from '@/lib/structuredData';
+import { phpMinimumFor } from '@/data/security';
 
 export const metadata: Metadata = generatePageMetadata(
   'Download',
@@ -154,7 +155,7 @@ export default function DownloadPage() {
           </div>
           <h3>System requirements</h3>
           <ul className={blocks.list}>
-            <li>PHP 8.3 or higher</li>
+            <li>PHP {phpMinimumFor(versions.stable)} or higher</li>
             <li>Web server: Apache, Nginx or IIS</li>
             <li>Database: MySQL, MariaDB, PostgreSQL, SQLite or SQL Server</li>
             <li>A modern web browser</li>
