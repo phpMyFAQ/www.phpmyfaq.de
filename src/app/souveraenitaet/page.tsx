@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   ...generatePageMetadata(
     'Digitale Souveränität',
     'FAQ-Software auf eigener Infrastruktur betreiben — Open Source, DSGVO-freundlich, mit der Transparenz, die moderne Lieferketten-Prüfungen verlangen',
+    { locale: 'de_DE' },
   ),
   alternates: { languages: { en: '/sovereignty/', de: '/souveraenitaet/' } },
 };
