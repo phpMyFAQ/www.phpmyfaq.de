@@ -2,10 +2,11 @@
 
 // Serves the static export in out/ the way the production Apache host does:
 // directory URLs end in a slash and resolve to index.html, /api/news/<name>
-// maps to the JSON file, unknown paths get 404.html with a 404 status. The
-// Playwright suite runs against this server (see playwright.config.ts).
+// maps to the JSON file, the permanent redirects from .htaccess are applied,
+// and unknown paths get 404.html with a 404 status. The Playwright suite runs
+// against this server (see playwright.config.ts).
 
-import { createReadStream, existsSync, statSync } from 'fs';
+import { createReadStream, existsSync, readFileSync, statSync } from 'fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'http';
 import { extname, join, normalize, resolve } from 'path';
 
@@ -45,6 +46,30 @@ function isDirectory(filePath: string): boolean {
   return existsSync(filePath) && statSync(filePath).isDirectory();
 }
 
+interface Redirect {
+  pattern: RegExp;
+  target: string;
+}
+
+// The permanent redirects of the exported .htaccess, i.e. every RewriteRule
+// with an R=301 flag. Apache matches the pattern against the path without its
+// leading slash, and backreferences work the same way in both.
+function loadRedirects(): Redirect[] {
+  const htaccess = join(root, '.htaccess');
+  if (!isFile(htaccess)) return [];
+
+  const redirects: Redirect[] = [];
+  for (const line of readFileSync(htaccess, 'utf-8').split('\n')) {
+    const rule = line.match(/^\s*RewriteRule\s+(\S+)\s+(\S+)\s+\[([^\]]*)\]/);
+    if (rule && /\bR=301\b/.test(rule[3])) {
+      redirects.push({ pattern: new RegExp(rule[1]), target: rule[2] });
+    }
+  }
+  return redirects;
+}
+
+const redirects = loadRedirects();
+
 function send(res: ServerResponse, status: number, filePath: string): void {
   res.writeHead(status, { 'Content-Type': contentType(filePath) });
   createReadStream(filePath).pipe(res);
@@ -57,6 +82,13 @@ function handle(req: IncomingMessage, res: ServerResponse): void {
 
   if (!target.startsWith(root)) {
     res.writeHead(403).end();
+    return;
+  }
+
+  const relative = pathname.replace(/^\//, '');
+  const redirect = redirects.find((r) => r.pattern.test(relative));
+  if (redirect) {
+    res.writeHead(301, { Location: relative.replace(redirect.pattern, redirect.target) }).end();
     return;
   }
 

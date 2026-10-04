@@ -16,6 +16,16 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # The documentation of the release lines in src/data/security.ts lives on
+  # Read the Docs; the development line is documented from the main branch.
+  # Keep these in step with docsUrlFor() in src/lib/docs.ts (a unit test
+  # checks it). scripts/serve-static.ts applies these rules too, so the e2e
+  # suite exercises them.
+  RewriteRule ^docs/3\.2/?$ https://phpmyfaq.readthedocs.io/en/3.2/ [R=301,L]
+  RewriteRule ^docs/4\.0/?$ https://phpmyfaq.readthedocs.io/en/4.0/ [R=301,L]
+  RewriteRule ^docs/4\.1/?$ https://phpmyfaq.readthedocs.io/en/4.1/ [R=301,L]
+  RewriteRule ^docs/4\.2/?$ https://phpmyfaq.readthedocs.io/en/main/ [R=301,L]
+
   # If the request is a directory, serve its index.html
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^(.*/)$ $1index.html [L]

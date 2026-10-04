@@ -3,19 +3,27 @@ import { Metadata } from 'next';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import blocks from '@/components/ContentBlocks.module.scss';
 import Icon from '@/components/Icon';
+import { documentedLines, isEndOfLife } from '@/lib/docs';
 
 export const metadata: Metadata = generatePageMetadata(
   'Documentation archive',
   'Archive of old, unmaintained versions of phpMyFAQ documentation',
 );
 
-const current = [
-  { version: '4.2', href: 'https://phpmyfaq.readthedocs.io/en/main/', note: 'In development, PHP 8.4 or later' },
-  { version: '4.1', href: 'https://phpmyfaq.readthedocs.io/en/4.1/', note: 'PHP 8.3 or later' },
-  { version: '4.0', href: 'https://phpmyfaq.readthedocs.io/en/4.0/', note: 'PHP 8.2 or later' },
-];
+// Maintained lines from the support table, documented on Read the Docs.
+const current = documentedLines()
+  .filter((line) => !isEndOfLife(line))
+  .map((line) => ({
+    version: line.version,
+    href: line.url,
+    note: `${line.status === 'Active development' ? 'In development, ' : ''}PHP ${line.php.replace(/\+$/, '')} or later`,
+  }));
 
+// Lines that reached end of life. Those still in the support table have their
+// documentation on Read the Docs, the older ones render from content/docs.
+const archived = new Map(documentedLines().map((line) => [line.version, line.url]));
 const outdated = [
+  { version: '4.0', note: 'PHP 8.2 or later' },
   { version: '3.2', note: 'PHP 7.4 or later' },
   { version: '3.1', note: 'PHP 7.3 or later' },
   { version: '3.0', note: 'PHP 7.1 or later' },
@@ -25,7 +33,7 @@ const outdated = [
   { version: '2.6', note: 'PHP 5.2.3 or later' },
   { version: '2.5', note: 'PHP 5.2 or later' },
   { version: '2.0', note: 'PHP 4.3.3 or later' },
-];
+].map((entry) => ({ ...entry, href: archived.get(entry.version) }));
 
 export default function DocsIndexPage() {
   return (
@@ -64,7 +72,13 @@ export default function DocsIndexPage() {
             {outdated.map((entry) => (
               <li key={entry.version}>
                 <span>
-                  <Link href={`/docs/${entry.version}`}>phpMyFAQ {entry.version}</Link>
+                  {entry.href ? (
+                    <a href={entry.href} target="_blank" rel="noopener noreferrer">
+                      phpMyFAQ {entry.version}
+                    </a>
+                  ) : (
+                    <Link href={`/docs/${entry.version}`}>phpMyFAQ {entry.version}</Link>
+                  )}
                   <span className={blocks.meta}>{entry.note}</span>
                 </span>
               </li>

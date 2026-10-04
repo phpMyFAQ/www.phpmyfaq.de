@@ -40,9 +40,9 @@ const staticPages: Entry[] = [
   { path: '/terms/', priority: 0.1, changeFrequency: 'yearly' },
 ];
 
-// Documentation per release line: the newer ones are their own pages, the
-// older ones render from content/docs through the [version] route.
-const docsPages = ['4.2', '4.1', '4.0', '3.2'];
+// Archived documentation rendered from content/docs through the [version]
+// route. The maintained lines redirect to Read the Docs (see static/.htaccess)
+// and are not listed.
 const docsContent = ['3.1', '3.0', '2.9', '2.8', '2.7', '2.6', '2.5', '2.0'];
 
 // Modification dates come from the last commit touching the page or content
@@ -60,14 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.priority,
   }));
 
-  for (const version of docsPages) {
-    entries.push({
-      url: `${base}/docs/${version}/`,
-      lastModified: lastCommitDate(pageFile(`/docs/${version}/`)) ?? now,
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    });
-  }
   for (const version of docsContent) {
     entries.push({
       url: `${base}/docs/${version}/`,

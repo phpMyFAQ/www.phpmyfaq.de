@@ -3,13 +3,23 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import blocks from '@/components/ContentBlocks.module.scss';
 import Icon from '@/components/Icon';
+import { documentedLines, isEndOfLife } from '@/lib/docs';
 
 export const metadata: Metadata = generatePageMetadata(
   'Documentation',
   'Documentation for phpMyFAQ administrator, end-users and developers.',
 );
 
+// What the status in the support table means for a reader of the manual.
+function statusNote(status: string): string {
+  if (status === 'Active development') return 'Development version';
+  if (status === 'Active support') return 'Current stable release';
+  return 'Previous release line';
+}
+
 export default function DocumentationPage() {
+  const guides = documentedLines().filter((line) => !isEndOfLife(line));
+
   return (
     <PageLayout title="Documentation" searchSection="Documentation">
       <p className={blocks.lead}>
@@ -25,22 +35,16 @@ export default function DocumentationPage() {
           <h3>User guides</h3>
           <p>Detailed documentation for administrators and end users, per release line.</p>
           <ul className={blocks.list}>
-            <li>
-              <span>
-                <Link href="/docs/4.1" target="_blank">
-                  Documentation for phpMyFAQ 4.1
-                </Link>
-                <span className={blocks.meta}>Current stable release</span>
-              </span>
-            </li>
-            <li>
-              <span>
-                <Link href="/docs/4.0" target="_blank">
-                  Documentation for phpMyFAQ 4.0
-                </Link>
-                <span className={blocks.meta}>Previous release line</span>
-              </span>
-            </li>
+            {guides.map((line) => (
+              <li key={line.version}>
+                <span>
+                  <a href={line.url} target="_blank" rel="noopener noreferrer">
+                    Documentation for phpMyFAQ {line.version}
+                  </a>
+                  <span className={blocks.meta}>{statusNote(line.status)}</span>
+                </span>
+              </li>
+            ))}
             <li>
               <span>
                 <Link href="/docs/">Documentation archive</Link>

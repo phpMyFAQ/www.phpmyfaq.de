@@ -57,7 +57,7 @@ the TypeScript 7 integration panics under Turbopack.
 ```
 content/
 ├── changelog/             # Changelog rendered at /changelog
-├── docs/                  # Legacy documentation (2.x and 3.x)
+├── docs/                  # Archived documentation (2.x to 3.1)
 ├── news/                  # One Markdown file per year, entries under ### YYYY-MM-DD headings
 └── security/              # One Markdown file per advisory, plus the security policy
 data/                      # Release data (versions, stable, development)
@@ -108,7 +108,10 @@ Most of the site follows `data/versions.json`, which the daily "Update release d
 request. When a new minor version of phpMyFAQ becomes stable, a few hand-maintained spots need a pass as well:
 
 1. `src/data/security.ts`: add the new line to `supportedVersions` with its PHP requirement and support dates, and set
-   the previous line's status. The site title, hero, highlights and requirements page read the PHP version from here.
+   the previous line's status. The site title, hero, highlights, download, features and requirements pages read the PHP
+   version from here, and the documentation pages list the maintained lines from it. Add the matching
+   `/docs/<line>/` redirect to `static/.htaccess` (a unit test checks that both agree) and bump
+   `recommendedPhpVersion` and `latestSupportedPhpVersion` when PHP has moved on.
 2. `src/components/WhatsNext.tsx`: replace the highlights with those of the next development line, or remove the section
    until there is something to announce.
 3. `src/app/news/page.tsx`: update the summary of the current year in `ERAS`.
@@ -140,5 +143,6 @@ pnpm build
 lftp -e "mirror --reverse --delete --verbose out/ ./; quit" -u <ftp-user> ftps://w0XXXXXX.kasserver.com
 ```
 
-The `out/` directory is a complete static site and can be served by any web server. The included `.htaccess` maps
-clean `/api/news/<year>` URLs to the JSON files, sets the right type for the Open Graph image and adds cache headers.
+The `out/` directory is a complete static site and can be served by any web server. The included `.htaccess` serves
+the custom 404 page, redirects the `/docs/<version>/` URLs of the maintained release lines to Read the Docs, maps clean
+`/api/news/<year>` URLs to the JSON files, sets the right type for the Open Graph image and adds cache headers.
