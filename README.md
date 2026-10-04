@@ -100,9 +100,13 @@ The `Deploy` workflow (`.github/workflows/deploy.yml`) builds the static export 
 the server's document root with `rsync --delete` over SSH, and smoke-tests a few URLs afterwards. It can also be started
 by hand from the Actions tab.
 
-The workflow needs these repository secrets: `DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_PATH`, `DEPLOY_SSH_KEY` (private
-key of a dedicated deploy user) and `DEPLOY_KNOWN_HOSTS` (the output of `ssh-keyscan <host>`), plus `DEPLOY_PORT` if
-SSH does not listen on 22. Deployments run in the `production` environment, so approval rules can be attached there.
+The site is hosted on all-inkl shared hosting. SSH must be enabled once in KAS under Tools, SSH-Zugang. The workflow
+needs these repository secrets: `DEPLOY_HOST` (the KAS server address, `w0XXXXXX.kasserver.com`), `DEPLOY_USER` (the
+KAS login), `DEPLOY_PATH` (the document root, `/www/htdocs/w0XXXXXX/www.phpmyfaq.de`) and `DEPLOY_KNOWN_HOSTS` (the
+output of `ssh-keyscan <host>`). Authentication uses `DEPLOY_SSH_KEY`, a private key whose public half is listed in
+`~/.ssh/authorized_keys` on the server, or, if that is not set, `DEPLOY_PASSWORD`, the SSH password from KAS. Add
+`DEPLOY_PORT` only if SSH does not listen on 22. Deployments run in the `production` environment, so approval rules
+can be attached there.
 
 To deploy by hand:
 
