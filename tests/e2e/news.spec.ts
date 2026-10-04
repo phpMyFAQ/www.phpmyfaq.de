@@ -73,4 +73,21 @@ test.describe('News Pages', () => {
     const firstDateText = await dateHeaders.first().textContent();
     expect(firstDateText).toMatch(/^2020-/);
   });
+
+  test('the Atom feed is served under /news/atom.xml', async ({ page }) => {
+    const response = await page.request.get('/news/atom.xml');
+    expect(response.status()).toBe(200);
+
+    const body = await response.text();
+    expect(body.startsWith('<?xml version="1.0" encoding="utf-8"?>')).toBe(true);
+    expect(body).toContain('<feed xmlns="http://www.w3.org/2005/Atom">');
+    expect(body).toContain('<title>phpMyFAQ News</title>');
+    expect(body).toContain('<entry>');
+  });
+
+  test('/news links to the Atom feed', async ({ page }) => {
+    await page.goto('/news');
+    await expect(page.locator('a[href="/news/atom.xml"]')).toBeVisible();
+    await expect(page.locator('head link[type="application/atom+xml"]')).toHaveAttribute('href', /\/news\/atom\.xml$/);
+  });
 });

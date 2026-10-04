@@ -1,13 +1,16 @@
 import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import Link from 'next/link';
+import Icon from '@/components/Icon';
 import { Metadata } from 'next';
 import styles from './news.module.scss';
 
-export const metadata: Metadata = generatePageMetadata(
-  'News archive',
-  'News archive overview about all news about phpMyFAQ since 2001',
-);
+export const metadata: Metadata = {
+  ...generatePageMetadata('News archive', 'News archive overview about all news about phpMyFAQ since 2001'),
+  alternates: {
+    types: { 'application/atom+xml': '/news/atom.xml' },
+  },
+};
 
 interface YearEntry {
   year: number;
@@ -122,6 +125,13 @@ export default function NewsPage() {
   return (
     <PageLayout title="News archive">
       <p className="lead">Two decades of phpMyFAQ, grouped by release era. Pick a year to read what happened.</p>
+      <p className={styles.feedLink}>
+        {/* oxlint-disable-next-line nextjs/no-html-link-for-pages -- static XML file, not an internal route */}
+        <a href="/news/atom.xml">
+          <Icon name="rss" /> Subscribe to the Atom feed
+        </a>{' '}
+        to follow new releases and project news.
+      </p>
       {ERAS.map((era) => (
         <section key={era.label} className={styles.era}>
           <header className={styles.eraHeader}>
