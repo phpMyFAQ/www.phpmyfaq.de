@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import CopyCommand from './CopyCommand';
-import { fallbackVersions, formatReleaseDate, getVersions, isDevelopmentAhead } from '@/lib/data';
+import { formatReleaseDate, isDevelopmentAhead, requireVersions } from '@/lib/data';
 
 // "4.1.9" -> "4.1": the headline names the release line, the exact version
 // goes in the release note below the buttons.
 const releaseLine = (version: string) => version.split('.').slice(0, 2).join('.');
 
 export default function Hero() {
-  const versions = getVersions() ?? fallbackVersions;
+  const versions = requireVersions();
   const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
 
   return (

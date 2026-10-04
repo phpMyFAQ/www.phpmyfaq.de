@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import ClientLayout from '@/components/ClientLayout';
 import { getSiteConfig } from '@/lib/data';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { themeBootScript } from '@/lib/themeStore';
 import './globals.scss';
 
 const description = 'phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.3+';
@@ -41,7 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

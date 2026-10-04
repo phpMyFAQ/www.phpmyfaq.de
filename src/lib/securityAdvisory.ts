@@ -62,15 +62,18 @@ export function getAdvisoriesByYear(): { year: string; advisories: AdvisorySumma
     }));
 }
 
-// Parser für Security-Advisory-Markdown in einen HTML-String
-// - Gruppiert aufeinanderfolgende Metadaten-Zeilen (**Label:** Wert) in ein gemeinsames <dl class="dl-horizontal">
-// - Belässt vorhandenes HTML unverändert
-// - Unterstützt Überschriften (##/###/####) und einfache Absätze pro Zeile
+// Renders an advisory's markdown body to HTML.
+// - Consecutive metadata lines (**Label:** value) become one <dl class="dl-horizontal">
+// - Existing HTML lines pass through untouched
+// - ##/###/#### headings are supported
+// - Consecutive prose lines form one paragraph, as in markdown, so hard-wrapped
+//   advisories do not render as one paragraph per line
 
 export function parseAdvisoryToHTML(content: string): string {
   const lines = content.split('\n');
   const htmlParts: string[] = [];
   let inDl = false;
+  let paragraph: string[] = [];
 
   const closeDlIfOpen = () => {
     if (inDl) {
@@ -79,63 +82,63 @@ export function parseAdvisoryToHTML(content: string): string {
     }
   };
 
-  for (let rawLine of lines) {
+  const flushParagraph = () => {
+    if (paragraph.length > 0) {
+      htmlParts.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
+      paragraph = [];
+    }
+  };
+
+  for (const rawLine of lines) {
     const l = rawLine.trim();
 
     if (l.length === 0) {
       closeDlIfOpen();
+      flushParagraph();
       continue;
     }
 
-    // Bewahre vorhandenes HTML
     if (l.startsWith('<')) {
       closeDlIfOpen();
+      flushParagraph();
       htmlParts.push(l);
       continue;
     }
 
-    // Überschriften
-    if (l.startsWith('#### ')) {
+    const heading = l.match(/^(#{2,4}) (.+)$/);
+    if (heading) {
       closeDlIfOpen();
-      htmlParts.push(`<h4>${renderInline(l.substring(5))}</h4>`);
-      continue;
-    }
-    if (l.startsWith('### ')) {
-      closeDlIfOpen();
-      htmlParts.push(`<h3>${renderInline(l.substring(4))}</h3>`);
-      continue;
-    }
-    if (l.startsWith('## ')) {
-      closeDlIfOpen();
-      htmlParts.push(`<h2>${renderInline(l.substring(3))}</h2>`);
+      flushParagraph();
+      const level = heading[1].length;
+      htmlParts.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
       continue;
     }
 
-    // Metadaten-Zeilen wie **Issued on::** 2004-07-27
+    // Metadata lines such as **Issued on::** 2004-07-27
     const metaMatch = l.match(/^\*\*(.+?)\*\*\s*(.+)$/);
     if (metaMatch) {
-      let labelRaw = metaMatch[1].trim();
+      flushParagraph();
+      const label = metaMatch[1]
+        .trim()
+        .replace(/:+\s*$/, '')
+        .trim();
       const value = metaMatch[2].trim();
-
-      // Entferne einen oder mehrere abschließende Doppelpunkte innerhalb des Labels
-      labelRaw = labelRaw.replace(/:+\s*$/, '').trim();
 
       if (!inDl) {
         htmlParts.push('<dl class="dl-horizontal">');
         inDl = true;
       }
 
-      htmlParts.push(`<dt>${labelRaw}:</dt><dd>${renderInline(value)}</dd>`);
+      htmlParts.push(`<dt>${label}:</dt><dd>${renderInline(value)}</dd>`);
       continue;
     }
 
-    // Standard: Absatz
     closeDlIfOpen();
-    htmlParts.push(`<p>${renderInline(l)}</p>`);
+    paragraph.push(l);
   }
 
-  // Offenes DL schließen
   closeDlIfOpen();
+  flushParagraph();
 
   return htmlParts.join('\n').replace(/\n+/g, '\n').trim();
 }

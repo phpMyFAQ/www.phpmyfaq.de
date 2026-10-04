@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import styles from './Footer.module.scss';
+import Icon from '@/components/Icon';
+
+// Evaluated once per build of this module, not on every render.
+const currentYear = new Date().getFullYear();
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <>
       <section className={styles.topFooter}>
@@ -93,7 +95,7 @@ export default function Footer() {
                   href="https://github.com/thorsten/phpMyFAQ"
                   aria-label="phpMyFAQ at Github"
                 >
-                  <i className="fab fa-github"></i>
+                  <Icon name="brand-github" />
                 </a>
               </li>
               <li>
@@ -103,7 +105,7 @@ export default function Footer() {
                   href="https://www.facebook.com/phpMyFAQ/"
                   aria-label="phpMyFAQ at Facebook"
                 >
-                  <i className="fab fa-facebook"></i>
+                  <Icon name="brand-facebook" />
                 </a>
               </li>
               <li>
@@ -113,12 +115,12 @@ export default function Footer() {
                   href="https://discord.gg/wszhTceuNM"
                   aria-label="phpMyFAQ Discord Community"
                 >
-                  <i className="fab fa-discord"></i>
+                  <Icon name="brand-discord" />
                 </a>
               </li>
               <li>
                 <a rel="nofollow" href="mailto:thorsten@phpmyfaq.de" aria-label="Mail me!">
-                  <i className="fas fa-envelope"></i>
+                  <Icon name="envelope" />
                 </a>
               </li>
             </ul>
@@ -129,8 +131,8 @@ export default function Footer() {
       <footer className={`${styles.footer} footer`}>
         <div className={styles.container}>
           <small className={styles.copyright}>
-            &copy; 2001-{currentYear} | Developed with <i className="fas fa-heart"></i> by Thorsten Rinne and the
-            phpMyFAQ Team | All rights reserved.
+            &copy; 2001-{currentYear} | Developed with <Icon name="heart" /> by Thorsten Rinne and the phpMyFAQ Team |
+            All rights reserved.
           </small>
         </div>
       </footer>

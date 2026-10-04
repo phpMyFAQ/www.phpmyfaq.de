@@ -21,15 +21,6 @@ export interface DownloadInfo {
   targz: FileInfo;
 }
 
-// Used while data/versions.json is missing (e.g. a fresh checkout before
-// `pnpm fetch:versions`). Keep in sync with the latest release.
-export const fallbackVersions: VersionData = {
-  stable: '4.1.9',
-  stable_released: '2026-10-03',
-  development: '4.2.0-beta',
-  development_released: '2026-10-03',
-};
-
 export function getVersions(): VersionData | null {
   try {
     const versionsPath = path.join(process.cwd(), 'data', 'versions.json');
@@ -40,6 +31,16 @@ export function getVersions(): VersionData | null {
   } catch {
     return null;
   }
+}
+
+// data/versions.json is committed and refreshed by `pnpm fetch:versions`;
+// building without it would publish wrong version numbers, so fail loudly.
+export function requireVersions(): VersionData {
+  const versions = getVersions();
+  if (!versions) {
+    throw new Error('data/versions.json is missing or invalid. Run `pnpm fetch:versions` before building.');
+  }
+  return versions;
 }
 
 export function getStableInfo(): DownloadInfo | null {

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './TrustStrip.module.scss';
+import Icon from '@/components/Icon';
 
 export default function TrustStrip() {
   return (
@@ -7,21 +8,21 @@ export default function TrustStrip() {
       <div className="container">
         <div className={styles.grid}>
           <Link href="/references" className={styles.item}>
-            <i className="fas fa-building" aria-hidden="true"></i>
+            <Icon name="building" />
             <span>
               <strong>In production since 2001</strong>
               <span>Universities, public sector and industry run phpMyFAQ</span>
             </span>
           </Link>
           <Link href="/sovereignty" className={styles.item}>
-            <i className="fas fa-server" aria-hidden="true"></i>
+            <Icon name="server" />
             <span>
               <strong>Self-hosted &amp; open source</strong>
               <span>Your data on your servers — built for GDPR-friendly operation</span>
             </span>
           </Link>
           <Link href="/security" className={styles.item}>
-            <i className="fas fa-shield-alt" aria-hidden="true"></i>
+            <Icon name="shield-alt" />
             <span>
               <strong>Security you can audit</strong>
               <span>SBOM with every release, coordinated disclosure, documented support windows</span>

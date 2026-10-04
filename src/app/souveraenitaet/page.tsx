@@ -5,6 +5,8 @@ import { generatePageMetadata } from '@/components/PageLayout';
 import { sbomSinceVersion, contactEmail, advisoryReportUrl } from '@/data/security';
 import { getAdvisoriesByYear } from '@/lib/securityAdvisory';
 import styles from '../sovereignty/sovereignty.module.scss';
+import Icon from '@/components/Icon';
+import type { IconName } from '@/components/icons.generated';
 
 export const metadata: Metadata = {
   ...generatePageMetadata(
@@ -21,7 +23,7 @@ export default function SouveraenitaetPage() {
 
   const dueDiligenceCards = [
     {
-      icon: 'fas fa-cubes',
+      icon: 'cubes',
       title: 'Software Bill of Materials',
       body: (
         <>
@@ -31,7 +33,7 @@ export default function SouveraenitaetPage() {
       ),
     },
     {
-      icon: 'fas fa-shield-alt',
+      icon: 'shield-alt',
       title: `${advisoryCount} öffentliche Security Advisories`,
       body: (
         <>
@@ -41,7 +43,7 @@ export default function SouveraenitaetPage() {
       ),
     },
     {
-      icon: 'fas fa-user-shield',
+      icon: 'user-shield',
       title: 'Coordinated Disclosure',
       body: (
         <>
@@ -55,7 +57,7 @@ export default function SouveraenitaetPage() {
       ),
     },
     {
-      icon: 'fas fa-balance-scale',
+      icon: 'balance-scale',
       title: 'Mozilla Public License 2.0',
       body: (
         <>
@@ -67,7 +69,7 @@ export default function SouveraenitaetPage() {
         </>
       ),
     },
-  ];
+  ] satisfies { icon: IconName; [key: string]: unknown }[];
 
   return (
     <PageLayout title="Digitale Souveränität">
@@ -85,28 +87,28 @@ export default function SouveraenitaetPage() {
       <h2 className={styles.heading}>Ihre Daten bleiben auf Ihrer Infrastruktur</h2>
       <ul className={styles.checkList}>
         <li>
-          <i className="fas fa-check"></i>
+          <Icon name="check" />
           <span>
             Sie wählen die Server, das Land und die Datenbank — MySQL, MariaDB, PostgreSQL, SQL Server, SQLite und mehr
           </span>
         </li>
         <li>
-          <i className="fas fa-check"></i>
+          <Icon name="check" />
           <span>Keine Hersteller-Cloud — keine Drittlandübermittlungen, die Sie bewerten müssten</span>
         </li>
         <li>
-          <i className="fas fa-check"></i>
+          <Icon name="check" />
           <span>Kein externer Auftragsverarbeiter für den Betrieb Ihrer Wissensdatenbank erforderlich</span>
         </li>
         <li>
-          <i className="fas fa-check"></i>
+          <Icon name="check" />
           <span>
             Anbindung an Ihre bestehende Identitätsinfrastruktur über LDAP, Active Directory und Microsoft Entra ID —
             siehe alle <Link href="/features/">Features</Link>
           </span>
         </li>
         <li>
-          <i className="fas fa-check"></i>
+          <Icon name="check" />
           <span>Funktioniert, ohne Nutzungsdaten an Dritte weiterzugeben</span>
         </li>
       </ul>
@@ -127,7 +129,7 @@ export default function SouveraenitaetPage() {
         {dueDiligenceCards.map((card) => (
           <article key={card.title} className={styles.card}>
             <div className={styles.icon}>
-              <i className={card.icon}></i>
+              <Icon name={card.icon} />
             </div>
             <h3>{card.title}</h3>
             <p>{card.body}</p>

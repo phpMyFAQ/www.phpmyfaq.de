@@ -2,6 +2,8 @@ import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
+import type { IconName } from '@/components/icons.generated';
 
 export const metadata: Metadata = generatePageMetadata(
   'Who uses phpMyFAQ?',
@@ -15,14 +17,14 @@ interface Reference {
 }
 
 interface Sector {
-  icon: string;
+  icon: IconName;
   title: string;
   entries: Reference[];
 }
 
 const sectors: Sector[] = [
   {
-    icon: 'fas fa-university',
+    icon: 'university',
     title: 'Higher education & organizations',
     entries: [
       {
@@ -39,7 +41,7 @@ const sectors: Sector[] = [
     ],
   },
   {
-    icon: 'fas fa-landmark',
+    icon: 'landmark',
     title: 'Public sector & research',
     entries: [
       {
@@ -55,7 +57,7 @@ const sectors: Sector[] = [
     ],
   },
   {
-    icon: 'fas fa-industry',
+    icon: 'industry',
     title: 'Industry & technology',
     entries: [
       {
@@ -76,7 +78,7 @@ const sectors: Sector[] = [
     ],
   },
   {
-    icon: 'fas fa-laptop-code',
+    icon: 'laptop-code',
     title: 'Software vendors',
     entries: [
       {
@@ -97,7 +99,7 @@ const sectors: Sector[] = [
     ],
   },
   {
-    icon: 'fas fa-network-wired',
+    icon: 'network-wired',
     title: 'IT service providers',
     entries: [
       {
@@ -127,7 +129,7 @@ export default function ReferencesPage() {
         {sectors.map((sector) => (
           <article key={sector.title} className={blocks.card}>
             <div className={blocks.icon}>
-              <i className={sector.icon} aria-hidden="true"></i>
+              <Icon name={sector.icon} />
             </div>
             <h2>{sector.title}</h2>
             <ul className={blocks.list}>

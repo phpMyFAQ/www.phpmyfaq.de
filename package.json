@@ -21,13 +21,13 @@
     "fetch:versions": "tsx scripts/fetch-versions.ts",
     "fetch:downloads": "tsx scripts/fetch-downloads.ts",
     "generate:news-api": "tsx scripts/generate-news-api.ts",
+    "generate:icons": "tsx scripts/generate-icons.ts",
     "update:data": "pnpm run fetch:versions && pnpm run fetch:downloads",
     "prepare": "husky",
     "format": "oxfmt .",
     "format:check": "oxfmt --check ."
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.3.1",
     "@types/bootstrap": "^5.2.11",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.14",
@@ -40,6 +40,7 @@
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@commitlint/types": "^21.2.3",
+    "@fortawesome/fontawesome-free": "^7.3.1",
     "@playwright/test": "^1.63.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",

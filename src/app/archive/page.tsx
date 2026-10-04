@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { getArchiveReleases, countDownloadableReleases } from '@/lib/archive';
 import ArchiveView from './ArchiveView';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata(
   'Download Archive',
@@ -23,7 +24,7 @@ export default async function ArchivePage() {
         <Link href="/download">download page</Link>.
       </p>
       <div className={blocks.notice} role="note">
-        <i className="fas fa-triangle-exclamation" aria-hidden="true"></i>
+        <Icon name="triangle-exclamation" />
         <p>
           These versions are kept for archival purposes only. Older releases are unsupported and may contain known
           security vulnerabilities, so always run the latest stable version in production.

@@ -1,6 +1,7 @@
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata(
   'Donations',
@@ -29,7 +30,7 @@ export default function DonationsPage() {
       <div className={blocks.grid3}>
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fab fa-github" aria-hidden="true"></i>
+            <Icon name="brand-github" />
           </div>
           <h3>GitHub Sponsors</h3>
           <p>Monthly or one-time sponsorship through GitHub.</p>
@@ -45,7 +46,7 @@ export default function DonationsPage() {
 
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fab fa-paypal" aria-hidden="true"></i>
+            <Icon name="brand-paypal" />
           </div>
           <h3>PayPal</h3>
           <p>A one-time donation of any amount.</p>
@@ -61,7 +62,7 @@ export default function DonationsPage() {
 
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-gift" aria-hidden="true"></i>
+            <Icon name="gift" />
           </div>
           <h3>Gifts</h3>
           <p>Prefer to send something tangible?</p>

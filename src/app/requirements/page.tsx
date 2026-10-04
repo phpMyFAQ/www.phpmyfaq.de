@@ -1,7 +1,10 @@
+import type React from 'react';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
+import type { IconName } from '@/components/icons.generated';
 
 export const metadata: Metadata = generatePageMetadata(
   'Requirements',
@@ -10,7 +13,7 @@ export const metadata: Metadata = generatePageMetadata(
 
 const groups = [
   {
-    icon: 'fab fa-php',
+    icon: 'brand-php',
     title: 'PHP',
     items: [
       <>
@@ -22,7 +25,7 @@ const groups = [
     ],
   },
   {
-    icon: 'fas fa-server',
+    icon: 'server',
     title: 'Web server',
     items: [
       <>
@@ -38,7 +41,7 @@ const groups = [
     ],
   },
   {
-    icon: 'fas fa-database',
+    icon: 'database',
     title: 'Database',
     items: [
       <>
@@ -56,7 +59,7 @@ const groups = [
     ],
   },
   {
-    icon: 'fas fa-puzzle-piece',
+    icon: 'puzzle-piece',
     title: 'Optional',
     items: [
       <>
@@ -73,7 +76,7 @@ const groups = [
       </>,
     ],
   },
-];
+] satisfies { icon: IconName; title: string; items: React.ReactNode[] }[];
 
 export default function RequirementsPage() {
   return (
@@ -84,7 +87,7 @@ export default function RequirementsPage() {
         {groups.map((group) => (
           <article key={group.title} className={blocks.card}>
             <div className={blocks.icon}>
-              <i className={group.icon} aria-hidden="true"></i>
+              <Icon name={group.icon} />
             </div>
             <h2>{group.title}</h2>
             <ul className={blocks.list}>

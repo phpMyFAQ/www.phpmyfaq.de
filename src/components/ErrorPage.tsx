@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageLayout from './PageLayout';
 import blocks from './ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
 
 export default function ErrorPage({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const showDetails = process.env.NODE_ENV !== 'production';
@@ -13,7 +14,7 @@ export default function ErrorPage({ error, reset }: { error: Error & { digest?: 
       </p>
       {showDetails && (
         <div className={blocks.notice} role="alert">
-          <i className="fas fa-triangle-exclamation" aria-hidden="true"></i>
+          <Icon name="triangle-exclamation" />
           <p>
             <strong>Details:</strong> {error.message}
           </p>

@@ -1,40 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 import styles from './ThemeToggle.module.scss';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Get the initial theme
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
       onClick={toggleTheme}
       className={styles.themeToggle}
       aria-label="Toggle theme"
-      title={mounted ? `Switch to ${theme === 'light' ? 'dark' : 'light'} mode` : 'Toggle theme'}
-      suppressHydrationWarning
+      title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
-      <span suppressHydrationWarning>
-        {!mounted || theme === 'light' ? (
+      <span>
+        {theme === 'light' ? (
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>

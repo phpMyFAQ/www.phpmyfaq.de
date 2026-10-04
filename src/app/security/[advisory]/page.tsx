@@ -4,7 +4,6 @@ import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import { parseAdvisoryToHTML } from '@/lib/securityAdvisory';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 import styles from '../advisory.module.scss';

@@ -21,4 +21,19 @@ describe('parseAdvisoryContent', () => {
     expect(html).toContain('<dt>Risk:</dt><dd>medium</dd>');
     expect(html).toContain('<dt>Platforms:</dt><dd>all</dd>');
   });
+
+  it('joins consecutive prose lines into one paragraph', () => {
+    const md = `## Title
+
+First sentence of the paragraph,
+wrapped onto a second line.
+
+A second paragraph.
+`;
+
+    const html = parseAdvisoryToHTML(md);
+
+    expect(html).toContain('<p>First sentence of the paragraph, wrapped onto a second line.</p>');
+    expect(html).toContain('<p>A second paragraph.</p>');
+  });
 });

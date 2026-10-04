@@ -44,12 +44,15 @@ test.describe('News Pages', () => {
     expect(response?.status()).toBe(404);
   });
 
-  test('news links should be clickable and open in new tab', async ({ page }) => {
+  test('internal news links stay in the same tab and resolve', async ({ page }) => {
     await page.goto('/news/2019');
     const links = page.locator('#news-content a[href^="/"]').filter({ hasText: /download|phpMyFAQ/i });
     if ((await links.count()) > 0) {
       const firstLink = links.first();
-      await expect(firstLink).toHaveAttribute('rel', 'noopener');
+      await expect(firstLink).not.toHaveAttribute('target', '_blank');
+      const href = await firstLink.getAttribute('href');
+      const response = await page.request.get(href!);
+      expect([200, 301, 308]).toContain(response.status());
     }
   });
 

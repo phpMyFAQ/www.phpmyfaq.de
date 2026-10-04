@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { getAdvisoriesByYear, AdvisorySummary } from '@/lib/securityAdvisory';
 import styles from './advisories.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = {
   ...generatePageMetadata(
@@ -68,7 +69,7 @@ export default function AdvisoriesPage() {
       <p className={styles.feedLink}>
         {/* oxlint-disable-next-line nextjs/no-html-link-for-pages -- static XML file, not an internal route */}
         <a href="/security/atom.xml">
-          <i className="fas fa-rss" aria-hidden="true"></i> Subscribe to the Atom feed
+          <Icon name="rss" /> Subscribe to the Atom feed
         </a>{' '}
         to get notified about new advisories.
       </p>

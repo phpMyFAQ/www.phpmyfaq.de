@@ -48,6 +48,9 @@ export default function ChangelogView({ groups }: ChangelogViewProps) {
   }, [groups]);
 
   useEffect(() => {
+    // The URL hash is an external system; reading it on mount has to happen
+    // in an effect, and opening the matching group is the state it syncs.
+    // oxlint-disable-next-line react/set-state-in-effect
     revealHash();
     window.addEventListener('hashchange', revealHash);
     return () => window.removeEventListener('hashchange', revealHash);
@@ -59,6 +62,8 @@ export default function ChangelogView({ groups }: ChangelogViewProps) {
     const el = document.getElementById(pendingScroll);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Clears the queued scroll once the DOM target existed, see above.
+      // oxlint-disable-next-line react/set-state-in-effect
       setPendingScroll(null);
     }
   }, [pendingScroll, expanded]);

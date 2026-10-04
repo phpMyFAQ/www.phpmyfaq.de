@@ -2,6 +2,7 @@ import styles from './support.module.scss';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata(
   'Support',
@@ -19,7 +20,7 @@ export default function SupportPage() {
       <div className={styles.grid}>
         <article className={styles.card}>
           <div className={styles.icon}>
-            <i className="fas fa-comments"></i>
+            <Icon name="comments" />
           </div>
           <h3>Community Support</h3>
           <p>Join our vibrant community and get help from fellow phpMyFAQ users and developers.</p>
@@ -53,7 +54,7 @@ export default function SupportPage() {
 
         <article className={styles.card}>
           <div className={styles.icon}>
-            <i className="fas fa-rocket"></i>
+            <Icon name="rocket" />
           </div>
           <h3>Professional Support</h3>
           <p>Need expert help? Our professional services ensure your phpMyFAQ runs perfectly.</p>
@@ -65,8 +66,8 @@ export default function SupportPage() {
             <li>Priority bug fixes</li>
           </ul>
           <p className={styles.note}>
-            Commercial support includes a defined support period. Our vulnerability handling, support periods, and
-            SBOM provision under the EU Cyber Resilience Act are documented in the{' '}
+            Commercial support includes a defined support period. Our vulnerability handling, support periods, and SBOM
+            provision under the EU Cyber Resilience Act are documented in the{' '}
             <Link href="/security">Security Policy</Link>.
           </p>
           <a href="mailto:thorsten@phpmyfaq.de" className={styles.cta}>
@@ -76,7 +77,7 @@ export default function SupportPage() {
 
         <article className={styles.card}>
           <div className={styles.icon}>
-            <i className="fas fa-book"></i>
+            <Icon name="book" />
           </div>
           <h3>Documentation</h3>
           <p>Comprehensive guides and resources to help you master phpMyFAQ.</p>
@@ -102,23 +103,23 @@ export default function SupportPage() {
       <h2 className={styles.heading}>Additional Resources</h2>
       <div className={styles.resourceGrid}>
         <Link href="/changelog" className={styles.resourceItem}>
-          <i className={`fas fa-clipboard-list ${styles.resourceIcon}`}></i>
+          <Icon name="clipboard-list" className={styles.resourceIcon} />
           <span>Changelog</span>
         </Link>
         <Link href="/advisories" className={styles.resourceItem}>
-          <i className={`fas fa-shield-alt ${styles.resourceIcon}`}></i>
+          <Icon name="shield-alt" className={styles.resourceIcon} />
           <span>Security Advisories</span>
         </Link>
         <Link href="/security" className={styles.resourceItem}>
-          <i className={`fas fa-user-shield ${styles.resourceIcon}`}></i>
+          <Icon name="user-shield" className={styles.resourceIcon} />
           <span>Security Policy</span>
         </Link>
         <Link href="/translations" className={styles.resourceItem}>
-          <i className={`fas fa-globe ${styles.resourceIcon}`}></i>
+          <Icon name="globe" className={styles.resourceIcon} />
           <span>Translations</span>
         </Link>
         <Link href="/requirements" className={styles.resourceItem}>
-          <i className={`fas fa-cog ${styles.resourceIcon}`}></i>
+          <Icon name="cog" className={styles.resourceIcon} />
           <span>Requirements</span>
         </Link>
       </div>

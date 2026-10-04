@@ -3,18 +3,18 @@ import { Metadata } from 'next';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import {
   DownloadInfo,
-  fallbackVersions,
   formatFileSize,
   formatReleaseDate,
   getDevelopmentInfo,
   getDownloadUrl,
   getSbomUrl,
   getStableInfo,
-  getVersions,
   hasSbomFiles,
   isDevelopmentAhead,
+  requireVersions,
 } from '@/lib/data';
 import styles from './download.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata(
   'Download',
@@ -38,12 +38,12 @@ function ReleaseCard({ id, version, released, info, recommended }: ReleaseCardPr
     >
       {recommended ? (
         <div className={styles.label}>
-          <i className="fas fa-check-circle" aria-hidden="true"></i>
+          <Icon name="check-circle" />
           Stable release · Recommended
         </div>
       ) : (
         <div className={`${styles.label} ${styles.labelMuted}`}>
-          <i className="fas fa-code-branch" aria-hidden="true"></i>
+          <Icon name="code-branch" />
           Pre-release · For testing only
         </div>
       )}
@@ -62,11 +62,11 @@ function ReleaseCard({ id, version, released, info, recommended }: ReleaseCardPr
       {info && (
         <div className={styles.actions}>
           <a href={getDownloadUrl(version, 'zip')} className={recommended ? styles.cta : styles.ctaSecondary} download>
-            <i className="fas fa-download" aria-hidden="true"></i>
+            <Icon name="download" />
             ZIP <small>({formatFileSize(info.zip.filesize)})</small>
           </a>
           <a href={getDownloadUrl(version, 'tar.gz')} className={styles.ctaSecondary} download>
-            <i className="fas fa-file-archive" aria-hidden="true"></i>
+            <Icon name="file-archive" />
             TAR.GZ <small>({formatFileSize(info.targz.filesize)})</small>
           </a>
         </div>
@@ -120,7 +120,7 @@ function ReleaseCard({ id, version, released, info, recommended }: ReleaseCardPr
 }
 
 export default function DownloadPage() {
-  const versions = getVersions() ?? fallbackVersions;
+  const versions = requireVersions();
   const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
 
   return (
@@ -130,12 +130,7 @@ export default function DownloadPage() {
       </p>
 
       <div className={styles.releases}>
-        <ReleaseCard
-          version={versions.stable}
-          released={versions.stable_released}
-          info={getStableInfo()}
-          recommended
-        />
+        <ReleaseCard version={versions.stable} released={versions.stable_released} info={getStableInfo()} recommended />
         {showDevelopment && (
           <ReleaseCard
             id="development"
@@ -151,7 +146,7 @@ export default function DownloadPage() {
       <div className={styles.grid}>
         <article className={styles.card}>
           <div className={styles.icon}>
-            <i className="fas fa-server" aria-hidden="true"></i>
+            <Icon name="server" />
           </div>
           <h3>System requirements</h3>
           <ul>
@@ -167,7 +162,7 @@ export default function DownloadPage() {
 
         <article className={styles.card}>
           <div className={styles.icon}>
-            <i className="fas fa-life-ring" aria-hidden="true"></i>
+            <Icon name="life-ring" />
           </div>
           <h3>Installation help</h3>
           <ul>

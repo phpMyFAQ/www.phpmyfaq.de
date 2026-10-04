@@ -6,7 +6,7 @@ vi.mock(import('@/lib/data'), async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...actual,
-    getVersions: () => ({
+    requireVersions: () => ({
       stable: '4.1.6',
       stable_released: '2026-07-13',
       development: '4.1.0-RC.7',

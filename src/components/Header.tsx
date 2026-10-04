@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import styles from './Header.module.scss';
+import Icon from '@/components/Icon';
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -70,7 +71,7 @@ export default function Header() {
                 aria-label="phpMyFAQ on GitHub"
                 title="phpMyFAQ on GitHub"
               >
-                <i className="fab fa-github" aria-hidden="true"></i>
+                <Icon name="brand-github" />
               </a>
               <ThemeToggle />
             </div>

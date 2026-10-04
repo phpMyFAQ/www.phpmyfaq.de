@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import styles from './translations.module.scss';
+import Icon from '@/components/Icon';
 
 type Language = {
   code: string;
@@ -100,7 +101,7 @@ export default function TranslationsList() {
 
       <div className={styles.toolbar}>
         <div className={styles.search}>
-          <i className="fas fa-search" aria-hidden="true"></i>
+          <Icon name="search" />
           <input
             type="search"
             placeholder="Search by name, native name, or code…"
@@ -145,7 +146,7 @@ export default function TranslationsList() {
           rel="noopener noreferrer"
           href="https://github.com/thorsten/phpMyFAQ"
         >
-          <i className="fab fa-github" aria-hidden="true"></i>
+          <Icon name="brand-github" />
           Contribute on GitHub
         </a>
       </div>

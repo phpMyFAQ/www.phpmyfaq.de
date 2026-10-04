@@ -3,7 +3,6 @@ import { join } from 'path';
 import { marked } from 'marked';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { notFound } from 'next/navigation';
 

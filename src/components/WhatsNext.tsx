@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { fallbackVersions, formatReleaseDate, getVersions } from '@/lib/data';
+import { formatReleaseDate, requireVersions } from '@/lib/data';
 import styles from './WhatsNext.module.scss';
+import Icon from '@/components/Icon';
 
 // Curated from the 4.2 section of content/changelog/index.md. Refresh this
 // list with each pre-release; the footer names the release it is based on.
@@ -16,7 +17,7 @@ const highlights = [
 ];
 
 export default function WhatsNext() {
-  const versions = getVersions() ?? fallbackVersions;
+  const versions = requireVersions();
   const changelogUrl = `/changelog/#${versions.development}`;
 
   return (
@@ -26,7 +27,7 @@ export default function WhatsNext() {
         <ul className={styles.list}>
           {highlights.map((highlight) => (
             <li key={highlight}>
-              <i className="fas fa-arrow-right" aria-hidden="true"></i>
+              <Icon name="arrow-right" />
               <span>{highlight}</span>
             </li>
           ))}

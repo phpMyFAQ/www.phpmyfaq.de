@@ -2,6 +2,7 @@ import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata(
   'Documentation',
@@ -19,7 +20,7 @@ export default function DocumentationPage() {
       <div className={blocks.grid2}>
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-book" aria-hidden="true"></i>
+            <Icon name="book" />
           </div>
           <h3>User guides</h3>
           <p>Detailed documentation for administrators and end users, per release line.</p>
@@ -51,7 +52,7 @@ export default function DocumentationPage() {
 
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-clipboard-list" aria-hidden="true"></i>
+            <Icon name="clipboard-list" />
           </div>
           <h3>Reference</h3>
           <p>What you need before installing, and what changed between releases.</p>
@@ -82,7 +83,7 @@ export default function DocumentationPage() {
       <div className={blocks.grid2}>
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-code" aria-hidden="true"></i>
+            <Icon name="code" />
           </div>
           <h3>Contributing</h3>
           <ul className={blocks.list}>
@@ -116,7 +117,7 @@ export default function DocumentationPage() {
 
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-plug" aria-hidden="true"></i>
+            <Icon name="plug" />
           </div>
           <h3>Integrating</h3>
           <ul className={blocks.list}>

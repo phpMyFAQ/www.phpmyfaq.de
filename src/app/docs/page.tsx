@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata(
   'Documentation archive',
@@ -37,7 +38,7 @@ export default function DocsIndexPage() {
       <div className={blocks.grid2}>
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-book-open" aria-hidden="true"></i>
+            <Icon name="book-open" />
           </div>
           <h2>Current versions</h2>
           <ul className={blocks.list}>
@@ -56,7 +57,7 @@ export default function DocsIndexPage() {
 
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-archive" aria-hidden="true"></i>
+            <Icon name="archive" />
           </div>
           <h2>Outdated versions</h2>
           <ul className={blocks.list}>

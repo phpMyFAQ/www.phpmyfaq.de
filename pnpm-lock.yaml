@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@fortawesome/fontawesome-free':
-        specifier: ^7.3.1
-        version: 7.3.1
       '@types/bootstrap':
         specifier: ^5.2.11
         version: 5.2.11
@@ -42,6 +39,9 @@ importers:
       '@commitlint/types':
         specifier: ^21.2.3
         version: 21.2.3
+      '@fortawesome/fontawesome-free':
+        specifier: ^7.3.1
+        version: 7.3.1
       '@playwright/test':
         specifier: ^1.63.0
         version: 1.63.0

@@ -1,13 +1,14 @@
 import PageLayout, { generatePageMetadata } from '@/components/PageLayout';
-import { fallbackVersions, getVersions, isDevelopmentAhead } from '@/lib/data';
+import { isDevelopmentAhead, requireVersions } from '@/lib/data';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import blocks from '@/components/ContentBlocks.module.scss';
+import Icon from '@/components/Icon';
 
 export const metadata: Metadata = generatePageMetadata('Demo installations', 'phpMyFAQ demo installations');
 
 export default function DemoPage() {
-  const versions = getVersions() ?? fallbackVersions;
+  const versions = requireVersions();
   const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
 
   return (
@@ -20,7 +21,7 @@ export default function DemoPage() {
       <div className={blocks.grid2}>
         <article className={blocks.card}>
           <div className={blocks.icon}>
-            <i className="fas fa-check-circle" aria-hidden="true"></i>
+            <Icon name="check-circle" />
           </div>
           <h3>phpMyFAQ {versions.stable}</h3>
           <p>The current stable release, the version you get from the download page.</p>
@@ -37,7 +38,7 @@ export default function DemoPage() {
         {showDevelopment && (
           <article className={blocks.card}>
             <div className={blocks.icon}>
-              <i className="fas fa-code-branch" aria-hidden="true"></i>
+              <Icon name="code-branch" />
             </div>
             <h3>phpMyFAQ {versions.development}</h3>
             <p>

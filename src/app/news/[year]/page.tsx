@@ -4,10 +4,10 @@ import PageLayout from '@/components/PageLayout';
 import { generatePageMetadata } from '@/components/PageLayout';
 import { Metadata } from 'next';
 import React from 'react';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import styles from '../news.module.scss';
 import { notFound } from 'next/navigation';
+import { marked } from 'marked';
 
 export const dynamicParams = false;
 
@@ -58,17 +58,8 @@ function parseNewsContent(content: string): React.JSX.Element[] {
 
     const date = dates[i - 1] || '';
 
-    // Process content - convert Markdown links to JSX and clean up separators
-    const processedContent = section
-      .replace(/^\*\s*\*\s*\*/gm, '') // Remove separator lines
-      .replace(
-        /\[([^\]]+)\]\(([^)]+)\)/g,
-        (_m, text: string, href: string) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`,
-      ) // Convert links
-      .split('\n\n') // Split into paragraphs
-      .filter((p) => p.trim()) // Remove empty paragraphs
-      .map((p) => `<p>${p.trim()}</p>`) // Wrap in paragraph tags
-      .join('\n');
+    // Separator lines (* * *) are decoration in the source; marked renders the rest.
+    const processedContent = marked.parse(section.replace(/^\*\s*\*\s*\*/gm, ''), { async: false });
 
     elements.push(
       <div key={date} className={styles.entry}>

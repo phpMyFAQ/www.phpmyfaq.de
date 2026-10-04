@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import type { ArchiveGroup } from '@/lib/archive';
 import styles from './archive.module.scss';
+import Icon from '@/components/Icon';
 
 interface ArchiveViewProps {
   groups: ArchiveGroup[];
@@ -85,12 +86,12 @@ export default function ArchiveView({ groups }: ArchiveViewProps) {
                         <div className={styles.actions}>
                           {release.zipUrl && (
                             <a className={styles.download} href={release.zipUrl} download>
-                              <i className="fas fa-file-zipper" aria-hidden="true"></i> ZIP
+                              <Icon name="file-zipper" /> ZIP
                             </a>
                           )}
                           {release.targzUrl && (
                             <a className={styles.download} href={release.targzUrl} download>
-                              <i className="fas fa-file-archive" aria-hidden="true"></i> TAR.GZ
+                              <Icon name="file-archive" /> TAR.GZ
                             </a>
                           )}
                           {release.sbomUrl && (
@@ -100,11 +101,11 @@ export default function ArchiveView({ groups }: ArchiveViewProps) {
                               title="Software Bill of Materials listing all third-party dependencies (CycloneDX format)"
                               download
                             >
-                              <i className="fas fa-file-code" aria-hidden="true"></i> SBOM
+                              <Icon name="file-code" /> SBOM
                             </a>
                           )}
                           <a className={styles.notes} href={`/changelog#${release.changelogAnchor}`}>
-                            <i className="fas fa-file-lines" aria-hidden="true"></i>
+                            <Icon name="file-lines" />
                             <span className={styles.notesLabel}> Release notes</span>
                           </a>
                         </div>
