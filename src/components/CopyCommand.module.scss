@@ -8,12 +8,15 @@
   overflow: hidden;
 }
 
-.command {
+// `.wrapper code.command` outranks the theme's generic `code` rule, which
+// would otherwise paint the command orange on the orange hero in dark mode.
+.wrapper code.command {
   padding: 0.55rem 0.9rem;
   font-size: 0.875rem;
   color: #ffffff;
   background: none;
   border: none;
+  border-radius: 0;
   white-space: nowrap;
   overflow-x: auto;
   user-select: all;
