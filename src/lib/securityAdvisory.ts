@@ -14,14 +14,20 @@ export interface AdvisorySummary {
   date: string;
 }
 
+const securityDir = join(process.cwd(), 'content/security');
+
+// Slugs of all advisories in content/security/, e.g. "advisory-2026-01-12",
+// in directory order. The policy and other non-advisory files are skipped.
+export function getAdvisorySlugs(): string[] {
+  return readdirSync(securityDir)
+    .filter((file) => file.startsWith('advisory-') && file.endsWith('.md'))
+    .map((file) => file.replace(/\.md$/, ''));
+}
+
 // Reads all advisory markdown files from content/security/ and returns them grouped by year (descending)
 export function getAdvisoriesByYear(): { year: string; advisories: AdvisorySummary[] }[] {
-  const securityDir = join(process.cwd(), 'content/security');
-  const files = readdirSync(securityDir).filter((file) => file.startsWith('advisory-') && file.endsWith('.md'));
-
-  const advisories = files.map((file) => {
-    const slug = file.replace('.md', '');
-    const content = readFileSync(join(securityDir, file), 'utf-8');
+  const advisories = getAdvisorySlugs().map((slug) => {
+    const content = readFileSync(join(securityDir, `${slug}.md`), 'utf-8');
 
     const titleMatch = content.match(/^title:\s*(.+)$/m);
     const descMatch = content.match(/^description:\s*(.+)$/m);

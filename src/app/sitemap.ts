@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getSiteConfig } from '@/lib/data';
-import { getAllSecurityAdvisories } from '@/lib/markdown';
+import { getAdvisorySlugs } from '@/lib/securityAdvisory';
 import { getNewsYears, parseNewsFile } from '@/lib/news';
 import { lastCommitDate } from '@/lib/lastModified';
 
@@ -82,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const slug of getAllSecurityAdvisories().sort().reverse()) {
+  for (const slug of getAdvisorySlugs().sort().reverse()) {
     const date = slug.match(/^advisory-(\d{4}-\d{2}-\d{2})/)?.[1];
     entries.push({
       url: `${base}/security/${slug}/`,

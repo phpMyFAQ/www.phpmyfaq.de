@@ -1,5 +1,16 @@
 import { describe, it, expect } from 'vitest';
-import { getAdvisoriesByYear } from './securityAdvisory';
+import { getAdvisoriesByYear, getAdvisorySlugs } from './securityAdvisory';
+
+describe('getAdvisorySlugs', () => {
+  it('lists every advisory file without its extension and skips the policy', () => {
+    const slugs = getAdvisorySlugs();
+
+    expect(slugs.length).toBeGreaterThan(0);
+    expect(slugs).toContain('advisory-2022-12-11');
+    expect(slugs).not.toContain('policy');
+    expect(slugs.every((slug) => /^advisory-\d{4}-\d{2}-\d{2}/.test(slug))).toBe(true);
+  });
+});
 
 describe('getAdvisoriesByYear', () => {
   it('returns advisories grouped by year, newest year first', () => {
