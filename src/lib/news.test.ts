@@ -272,12 +272,7 @@ describe('getNewsYears', () => {
   it('lists the four-digit news files newest first', () => {
     vi.spyOn(path, 'join').mockReturnValue('/mock/news');
     vi.spyOn(fs, 'existsSync').mockReturnValue(true);
-    vi.spyOn(fs, 'readdirSync').mockReturnValue([
-      '2024.md',
-      'index.md',
-      '2026.md',
-      '2025.md',
-    ] as never);
+    vi.spyOn(fs, 'readdirSync').mockReturnValue(['2024.md', 'index.md', '2026.md', '2025.md'] as never);
 
     expect(getNewsYears()).toEqual(['2026', '2025', '2024']);
   });

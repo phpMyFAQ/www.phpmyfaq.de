@@ -8,7 +8,6 @@ export interface PageData {
   frontmatter: {
     title?: string;
     description?: string;
-    layout?: string;
     [key: string]: unknown;
   };
 }
