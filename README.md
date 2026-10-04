@@ -29,7 +29,7 @@ the TypeScript 7 integration panics under Turbopack.
 ### Development
 
 - `pnpm dev` - Start the development server
-- `pnpm build` - Build the static site into `out/` (runs `generate:news-api` first and copies `static/.htaccess`)
+- `pnpm build` - Build the static site into `out/` (runs `generate:news-api` first, then sets the `lang` attribute of non-English pages via `scripts/set-page-languages.ts` and copies `static/.htaccess`)
 - `pnpm serve` - Serve `out/` locally on port 3100 like the production host does
 - `pnpm lint` / `pnpm lint:fix` - Run oxlint
 - `pnpm format` / `pnpm format:check` - Run oxfmt

@@ -64,6 +64,13 @@ test.describe('All Pages Accessibility Tests', () => {
     });
   }
 
+  test('the German page declares its language', async ({ page }) => {
+    await page.goto('/souveraenitaet');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+    await page.goto('/sovereignty');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  });
+
   test('all footer links work correctly', async ({ page }) => {
     await page.goto('/');
 

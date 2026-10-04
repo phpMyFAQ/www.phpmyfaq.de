@@ -7,7 +7,7 @@
     "dev": "next dev --webpack",
     "prebuild": "pnpm run generate:news-api",
     "build": "next build",
-    "postbuild": "cp -f static/.htaccess out/.htaccess || true",
+    "postbuild": "tsx scripts/set-page-languages.ts && cp -f static/.htaccess out/.htaccess",
     "serve": "tsx scripts/serve-static.ts",
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
