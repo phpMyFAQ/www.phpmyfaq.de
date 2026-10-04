@@ -1,0 +1,66 @@
+name: External link check
+
+# Builds the site and checks every external link in the export once a week.
+# Broken links are collected into a GitHub issue instead of failing a build,
+# since the site itself is fine and the fix is editorial.
+
+on:
+  schedule:
+    - cron: '30 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static export
+        run: pnpm build
+
+      - name: Check external links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Only outbound links: the e2e suite already covers internal ones.
+          # 403 and 429 are accepted because many sites answer bots that way;
+          # a dead host or a 404 still counts as broken.
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --exclude '^https?://(www\.)?phpmyfaq\.de'
+            --exclude '^https?://localhost'
+            --accept '200..=206,403,429'
+            --max-retries 3
+            --timeout 30
+            --max-concurrency 8
+            'out/**/*.html'
+          output: lychee-report.md
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open or update the issue
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Broken external links'
+          content-filepath: lychee-report.md
+          labels: content, automated
