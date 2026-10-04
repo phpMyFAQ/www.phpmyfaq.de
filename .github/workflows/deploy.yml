@@ -1,10 +1,11 @@
 name: Deploy
 
 # Publishes the static export to the web server once both test workflows have
-# succeeded for the same commit on main. Each test workflow triggers this one
-# when it finishes; the gate step checks that both are green and that no other
-# Deploy run has already published this commit, so exactly one of the two
-# triggered runs does the upload. Manual runs skip the gate.
+# succeeded for the same commit on main. Only the Playwright workflow (the
+# slower one) triggers this workflow, so there is exactly one Deploy run per
+# commit; the gate then waits for the Vitest result if it is not in yet.
+# Manual runs skip the gate. If a test workflow is re-run by hand after a
+# failure, start the deployment manually as well.
 #
 # The site lives on all-inkl shared hosting and is uploaded over FTPS with a
 # dedicated FTP user created in KAS (FTP > Neuer FTP-Benutzer) whose directory
@@ -24,7 +25,7 @@ name: Deploy
 
 on:
   workflow_run:
-    workflows: ['Vitest Unit Tests', 'Playwright E2E Tests']
+    workflows: ['Playwright E2E Tests']
     types: [completed]
     branches: [main]
   workflow_dispatch:
@@ -47,7 +48,7 @@ jobs:
       ready: ${{ steps.check.outputs.ready }}
       sha: ${{ steps.check.outputs.sha }}
     steps:
-      - name: Check the other workflow's result for this commit
+      - name: Wait for the Vitest result for this commit
         id: check
         env:
           GH_TOKEN: ${{ github.token }}
@@ -58,26 +59,30 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          runs=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=$SHA&per_page=50")
-          for name in "Vitest Unit Tests" "Playwright E2E Tests"; do
-            conclusion=$(jq -r ".workflow_runs[] | select(.name == \"$name\") | .conclusion" <<< "$runs" | head -n 1)
-            echo "$name: ${conclusion:-not finished}"
-            if [ "$conclusion" != "success" ]; then
-              echo "ready=false" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
+          # Vitest normally finishes long before Playwright; poll for up to 15 minutes in case it has not.
+          for attempt in $(seq 1 30); do
+            conclusion=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=$SHA&per_page=50" \
+              --jq '.workflow_runs[] | select(.name == "Vitest Unit Tests") | .conclusion' | head -n 1)
+            case "$conclusion" in
+              success)
+                echo "Vitest Unit Tests: success"
+                echo "ready=true" >> "$GITHUB_OUTPUT"
+                exit 0
+                ;;
+              failure|cancelled|timed_out|startup_failure)
+                echo "Vitest Unit Tests: $conclusion, not deploying"
+                echo "ready=false" >> "$GITHUB_OUTPUT"
+                exit 0
+                ;;
+              *)
+                echo "Vitest Unit Tests: not finished yet (attempt $attempt)"
+                sleep 30
+                ;;
+            esac
           done
-          # Both test workflows trigger this workflow, so two runs exist per commit.
-          # Only deploy if no other Deploy run for this commit is running or has succeeded.
-          other=$(jq -r --argjson me "${{ github.run_id }}" \
-            '.workflow_runs[] | select(.name == "Deploy" and .id != $me and (.status != "completed" or .conclusion == "success")) | .id' \
-            <<< "$runs" | head -n 1)
-          if [ -n "$other" ]; then
-            echo "Deploy run $other already covers this commit, skipping."
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "ready=true" >> "$GITHUB_OUTPUT"
+          echo "::error::Vitest Unit Tests did not finish in time."
+          echo "ready=false" >> "$GITHUB_OUTPUT"
+          exit 1
 
   deploy:
     name: Build and publish

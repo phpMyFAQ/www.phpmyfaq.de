@@ -96,8 +96,9 @@ The pre-commit hook runs `pnpm lint && pnpm test:ci`; commit messages follow Con
 ## Deployment
 
 Every push to `main` is deployed automatically once the Vitest and Playwright workflows have passed for that commit.
-The `Deploy` workflow (`.github/workflows/deploy.yml`) builds the static export with full git history, uploads `out/`
-over FTPS and smoke-tests a few URLs afterwards. It can also be started by hand from the Actions tab.
+The `Deploy` workflow (`.github/workflows/deploy.yml`) is triggered by the Playwright run, waits for the Vitest result,
+builds the static export with full git history, uploads `out/` over FTPS and smoke-tests a few URLs afterwards. It can
+also be started by hand from the Actions tab, which is also the way to publish after re-running a failed test workflow.
 
 The site is hosted on all-inkl shared hosting. Create a dedicated FTP user in KAS (FTP, Neuer FTP-Benutzer) whose
 directory is the document root `/www/htdocs/w0XXXXXX/www.phpmyfaq.de`, so the credentials in GitHub can reach nothing
