@@ -73,14 +73,18 @@ export function parseNewsFile(year: string): NewsItem[] {
 /**
  * Get the most recent N news entries across years
  */
+// The oldest news file in content/news.
+const FIRST_NEWS_YEAR = 2001;
+
 export function getRecentNews(limit: number = 6): NewsItem[] {
   const currentYear: number = new Date().getFullYear();
   const allNews: NewsItem[] = [];
 
-  // Try the current year and previous years until we have enough entries
-  for (let year: number = currentYear; year >= currentYear - 2 && allNews.length < limit * 2; year--) {
-    const yearNews = parseNewsFile(year.toString());
-    allNews.push(...yearNews);
+  // Walk back year by year until there are enough entries. Every entry of a
+  // year is newer than any entry of the year before, so once the limit is
+  // reached no older year can contribute to the result.
+  for (let year: number = currentYear; year >= FIRST_NEWS_YEAR && allNews.length < limit; year--) {
+    allNews.push(...parseNewsFile(year.toString()));
   }
 
   // Sort by date descending (newest first)

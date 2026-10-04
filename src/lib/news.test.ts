@@ -195,6 +195,24 @@ News 6
     expect(result[5].date).toBe('2025-12-05');
   });
 
+  it('keeps looking back beyond two years when recent years are quiet', () => {
+    vi.setSystemTime(new Date('2026-06-01'));
+
+    vi.spyOn(path, 'join').mockImplementation((_, __, filename) => `/mock/path/${filename}`);
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockImplementation((filePath: fs.PathOrFileDescriptor) => {
+      const year = String(filePath).match(/(\d{4})\.md$/)?.[1];
+      // Only 2026 and 2022 have a single entry each; the years between are empty.
+      if (year === '2026') return '### 2026-01-10\nNews 1\n';
+      if (year === '2022') return '### 2022-03-03\nOld news\n';
+      return '';
+    });
+
+    const result = getRecentNews(2);
+
+    expect(result.map((item) => item.date)).toEqual(['2026-01-10', '2022-03-03']);
+  });
+
   it('should sort news by date descending', () => {
     vi.setSystemTime(new Date('2025-10-09'));
 
