@@ -1,5 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// The suite runs against the static export in out/, served the way the
+// production host serves it, so it tests what is actually deployed. Start the
+// server yourself with `pnpm build && pnpm serve` to skip the rebuild between
+// local runs; outside CI an already running server is reused.
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
@@ -20,12 +24,12 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'PORT=3100 npm run dev',
+    command: 'pnpm build && pnpm serve',
     url: 'http://localhost:3100',
     reuseExistingServer: !process.env.CI,
-    timeout: 120000,
+    timeout: 300000,
     env: {
-      PLAYWRIGHT_TEST: '1',
+      PORT: '3100',
     },
   },
 });

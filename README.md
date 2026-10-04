@@ -30,6 +30,7 @@ the TypeScript 7 integration panics under Turbopack.
 
 - `pnpm dev` - Start the development server
 - `pnpm build` - Build the static site into `out/` (runs `generate:news-api` first and copies `static/.htaccess`)
+- `pnpm serve` - Serve `out/` locally on port 3100 like the production host does
 - `pnpm lint` / `pnpm lint:fix` - Run oxlint
 - `pnpm format` / `pnpm format:check` - Run oxfmt
 
@@ -84,9 +85,11 @@ tests/e2e/                 # Playwright specs
 
 ## Testing
 
-Unit tests cover the Markdown and data helpers, the feeds and the components. The Playwright suite checks that every
-page loads with the right title, that navigation and footer links work, that the feeds are served, and runs an axe-core
-WCAG 2.1 AA sweep over the main templates. Serious and critical violations fail the build.
+Unit tests cover the Markdown and data helpers, the feeds and the components. The Playwright suite builds the static
+export and runs against it, served by `scripts/serve-static.ts` the way the production host serves it. It checks that
+every page loads with the right title, that navigation and footer links work, that the feeds are served, and runs an
+axe-core WCAG 2.1 AA sweep over the main templates. Serious and critical violations fail the build. To skip the rebuild
+between local runs, start `pnpm build && pnpm serve` once; Playwright reuses a running server.
 
 The pre-commit hook runs `pnpm lint && pnpm test:ci`; commit messages follow Conventional Commits.
 

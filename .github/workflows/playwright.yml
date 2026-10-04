@@ -44,9 +44,8 @@ jobs:
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
 
-      - name: Build application
-        run: pnpm build
-
+      # Playwright builds the static export and serves it itself (see
+      # playwright.config.ts), so no separate build step is needed.
       - name: Run E2E tests
         run: pnpm test:e2e
 
