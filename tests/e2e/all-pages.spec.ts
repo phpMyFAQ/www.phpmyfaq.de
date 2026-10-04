@@ -1,8 +1,16 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { phpRequirementFor } from '../../src/data/security';
+
+// The home page title names the PHP requirement of the current stable line,
+// derived from the same data the site is built from.
+const versions = JSON.parse(readFileSync(join(process.cwd(), 'data', 'versions.json'), 'utf-8'));
+const homeTitle = `phpMyFAQ - Open Source FAQ web application for PHP ${phpRequirementFor(versions.stable)}`;
 
 test.describe('All Pages Accessibility Tests', () => {
   const pages = [
-    { path: '/', title: 'phpMyFAQ - Open Source FAQ web application for PHP 8.3+' },
+    { path: '/', title: homeTitle },
     { path: '/download', title: 'Download - phpMyFAQ' },
     { path: '/features', title: 'Features - phpMyFAQ' },
     { path: '/documentation', title: 'Documentation - phpMyFAQ' },

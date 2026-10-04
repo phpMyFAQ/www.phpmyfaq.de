@@ -3,6 +3,8 @@ import styles from './Highlights.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
 import blocks from './ContentBlocks.module.scss';
+import { requireVersions } from '@/lib/data';
+import { phpRequirementFor } from '@/data/security';
 
 const highlights = [
   {
@@ -35,8 +37,7 @@ const highlights = [
   {
     icon: 'server',
     title: 'Runs on your stack',
-    description:
-      'PHP 8.3+, MySQL, MariaDB, PostgreSQL, SQLite or SQL Server. Deploy on a web server, Docker or Kubernetes.',
+    description: `PHP ${phpRequirementFor(requireVersions().stable)}, MySQL, MariaDB, PostgreSQL, SQLite or SQL Server. Deploy on a web server, Docker or Kubernetes.`,
   },
 ] satisfies { icon: IconName; title: string; description: string }[];
 
