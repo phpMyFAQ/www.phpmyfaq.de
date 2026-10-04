@@ -25,6 +25,18 @@ export const supportedVersions: SupportedVersion[] = [
   { version: '3.2.x', status: 'End of life', securityUntil: 'ended 2024-11-09', php: '—' },
 ];
 
+// Minimum PHP version for a release such as "4.1.9", e.g. "8.3+". The site
+// headline, hero and requirements page read it from the table above so they
+// follow the release cycle instead of repeating the number.
+export function phpRequirementFor(release: string): string {
+  const line = `${release.split('.').slice(0, 2).join('.')}.x`;
+  const entry = supportedVersions.find((v) => v.version === line);
+  if (!entry || entry.php === '—') {
+    throw new Error(`No PHP requirement for ${line} in src/data/security.ts`);
+  }
+  return entry.php;
+}
+
 // First release shipping sbom.cdx.json.
 export const sbomSinceVersion = '4.1.7';
 

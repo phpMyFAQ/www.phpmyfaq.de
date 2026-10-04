@@ -1,16 +1,18 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import ClientLayout from '@/components/ClientLayout';
-import { getSiteConfig } from '@/lib/data';
+import { getSiteConfig, requireVersions } from '@/lib/data';
+import { phpRequirementFor } from '@/data/security';
 import { themeBootScript } from '@/lib/themeStore';
 import './globals.scss';
 
-const description = 'phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP 8.3+';
+const php = phpRequirementFor(requireVersions().stable);
+const description = `phpMyFAQ is a mobile-friendly, feature-rich, scalable open source FAQ web app for PHP ${php}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteConfig().siteUrl),
   title: {
-    default: 'phpMyFAQ - Open Source FAQ web application for PHP 8.3+',
+    default: `phpMyFAQ - Open Source FAQ web application for PHP ${php}`,
     // Pages pass their own "<Page> - phpMyFAQ" title via generatePageMetadata.
     template: '%s',
   },

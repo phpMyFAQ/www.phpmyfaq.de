@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import CopyCommand from './CopyCommand';
 import { formatReleaseDate, isDevelopmentAhead, requireVersions } from '@/lib/data';
+import { phpRequirementFor } from '@/data/security';
 
 // "4.1.9" -> "4.1": the headline names the release line, the exact version
 // goes in the release note below the buttons.
@@ -9,6 +10,7 @@ const releaseLine = (version: string) => version.split('.').slice(0, 2).join('.'
 export default function Hero() {
   const versions = requireVersions();
   const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
+  const php = phpRequirementFor(versions.stable);
 
   return (
     <section className="promo">
@@ -18,7 +20,7 @@ export default function Hero() {
         </h1>
 
         <p className="intro">
-          A mobile-friendly, feature-rich, AI-ready open source FAQ web app for PHP 8.3+. Free since 2001.
+          A mobile-friendly, feature-rich, AI-ready open source FAQ web app for PHP {php}. Free since 2001.
         </p>
 
         <div className="btns">

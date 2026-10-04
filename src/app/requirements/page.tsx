@@ -5,11 +5,17 @@ import Link from 'next/link';
 import blocks from '@/components/ContentBlocks.module.scss';
 import Icon from '@/components/Icon';
 import type { IconName } from '@/components/icons.generated';
+import { requireVersions } from '@/lib/data';
+import { phpRequirementFor } from '@/data/security';
 
 export const metadata: Metadata = generatePageMetadata(
   'Requirements',
   'System requirements for phpMyFAQ installation and hosting',
 );
+
+// Minimum version of the current stable line; the recommendation below names
+// the newest PHP release and is maintained by hand.
+const phpMinimum = phpRequirementFor(requireVersions().stable).replace(/\+$/, '');
 
 const groups = [
   {
@@ -17,7 +23,7 @@ const groups = [
     title: 'PHP',
     items: [
       <>
-        <strong>PHP 8.3 or later</strong>, 8.5 or later recommended
+        <strong>PHP {phpMinimum} or later</strong>, 8.5 or later recommended
       </>,
       <>Extensions: PDO, cURL, GD or ImageMagick, mbstring</>,
       <>Optional: LDAP, XML, ZIP, Fileinfo</>,
