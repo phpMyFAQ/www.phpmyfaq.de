@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { getSiteConfig } from '@/lib/data';
-import { getAllNewsFiles, getAllSecurityAdvisories } from '@/lib/markdown';
+import { getAllSecurityAdvisories } from '@/lib/markdown';
+import { getNewsYears, parseNewsFile } from '@/lib/news';
+import { lastCommitDate } from '@/lib/lastModified';
 
 // Written to out/sitemap.xml by the static export; robots.txt points here.
 export const dynamic = 'force-static';
@@ -40,7 +42,12 @@ const staticPages: Entry[] = [
 
 // Documentation per release line: the newer ones are their own pages, the
 // older ones render from content/docs through the [version] route.
-const docsVersions = ['4.2', '4.1', '4.0', '3.2', '3.1', '3.0', '2.9', '2.8', '2.7', '2.6', '2.5', '2.0'];
+const docsPages = ['4.2', '4.1', '4.0', '3.2'];
+const docsContent = ['3.1', '3.0', '2.9', '2.8', '2.7', '2.6', '2.5', '2.0'];
+
+// Modification dates come from the last commit touching the page or content
+// file, so a rebuild does not make the whole site look freshly changed.
+const pageFile = (path: string) => `src/app${path}page.tsx`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteConfig().siteUrl;
@@ -48,17 +55,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries: MetadataRoute.Sitemap = staticPages.map((page) => ({
     url: `${base}${page.path}`,
-    lastModified: now,
+    lastModified: lastCommitDate(pageFile(page.path)) ?? now,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
 
-  for (const version of docsVersions) {
-    entries.push({ url: `${base}/docs/${version}/`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 });
+  for (const version of docsPages) {
+    entries.push({
+      url: `${base}/docs/${version}/`,
+      lastModified: lastCommitDate(pageFile(`/docs/${version}/`)) ?? now,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    });
+  }
+  for (const version of docsContent) {
+    entries.push({
+      url: `${base}/docs/${version}/`,
+      lastModified: lastCommitDate(`content/docs/${version}.md`) ?? now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    });
   }
 
-  for (const year of getAllNewsFiles().sort().reverse()) {
-    entries.push({ url: `${base}/news/${year}/`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 });
+  for (const year of getNewsYears()) {
+    const newest = parseNewsFile(year)
+      .map((item) => item.date)
+      .sort()
+      .at(-1);
+    entries.push({
+      url: `${base}/news/${year}/`,
+      lastModified: newest ? new Date(newest) : now,
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    });
   }
 
   for (const slug of getAllSecurityAdvisories().sort().reverse()) {
