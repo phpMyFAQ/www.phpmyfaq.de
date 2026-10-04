@@ -1,0 +1,49 @@
+name: Update release data
+
+# Fetches the current release information into data/ and opens a pull request
+# when it changed, so the hero and download page do not lag behind a release.
+# Requires "Allow GitHub Actions to create and approve pull requests" in the
+# repository's Actions settings.
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Fetch release data
+        run: pnpm update:data
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          add-paths: data/
+          branch: chore/update-release-data
+          delete-branch: true
+          commit-message: 'chore: update release data'
+          title: 'chore: update release data'
+          body: |
+            Automated refresh of `data/versions.json`, `data/stable.json` and `data/development.json`
+            from api.phpmyfaq.de and download.phpmyfaq.de.
