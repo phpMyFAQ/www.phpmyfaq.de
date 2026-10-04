@@ -20,6 +20,14 @@ name: Deploy
 #   FTP_SERVER_DIR  directory below the FTP user's root to upload into; "./"
 #                   when the user is already pinned to the document root
 #
+# E-mail notification (sent for every outcome once MAIL_SERVER is set):
+#   MAIL_SERVER    SMTP host, for all-inkl the KAS server address
+#   MAIL_PORT      optional, defaults to 465 (implicit TLS)
+#   MAIL_USERNAME  mailbox login, e.g. m0XXXXXX
+#   MAIL_PASSWORD  its password
+#   MAIL_FROM      sender address of that mailbox
+#   MAIL_TO        recipient(s), comma separated
+#
 # The action keeps .ftp-deploy-sync-state.json in that directory to upload
 # only files whose content changed since the previous deployment.
 
@@ -159,3 +167,55 @@ jobs:
             echo "$path -> $code"
             [ "$code" = "200" ] || exit 1
           done
+
+  notify:
+    name: E-mail the result
+    needs: [gate, deploy]
+    # Runs whenever the gate ran, so a deployment that was skipped because
+    # Vitest was red is reported too. If the Playwright run itself failed, this
+    # workflow never gets past the gate and GitHub's own failure mail applies.
+    if: always() && needs.gate.result == 'success'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Describe the outcome
+        id: outcome
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ needs.gate.outputs.sha }}
+          RESULT: ${{ needs.deploy.result }}
+        run: |
+          case "$RESULT" in
+            success) subject="✅ www.phpmyfaq.de deployed" ;;
+            failure) subject="❌ www.phpmyfaq.de deployment failed" ;;
+            skipped) subject="⏭️ www.phpmyfaq.de not deployed: tests were not green" ;;
+            *)       subject="⚠️ www.phpmyfaq.de deployment $RESULT" ;;
+          esac
+          commit=$(gh api "repos/${{ github.repository }}/commits/$SHA" --jq '"\(.commit.message | split("\n")[0]) (\(.commit.author.name))"')
+          {
+            echo "subject=$subject"
+            echo "body<<BODY"
+            echo "Result:  $RESULT"
+            echo "Commit:  ${SHA:0:7} $commit"
+            echo "Run:     ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "Site:    https://www.phpmyfaq.de"
+            echo "BODY"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Send e-mail
+        # Mail trouble must never turn a successful deployment red.
+        if: env.MAIL_SERVER != ''
+        continue-on-error: true
+        env:
+          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_SERVER }}
+          server_port: ${{ secrets.MAIL_PORT || 465 }}
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: phpMyFAQ Deploy <${{ secrets.MAIL_FROM }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: ${{ steps.outcome.outputs.subject }}
+          body: ${{ steps.outcome.outputs.body }}

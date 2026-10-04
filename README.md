@@ -117,6 +117,11 @@ upload keeps a `.ftp-deploy-sync-state.json` on the server and only transfers fi
 disappeared from the export are deleted. Deployments run in the `production` environment, so approval rules can be
 attached there.
 
+Every run ends with an e-mail stating whether the site was deployed, the upload failed, or the deployment was skipped
+because the tests were not green. It is sent through an SMTP mailbox configured with the secrets `MAIL_SERVER`,
+`MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM` and `MAIL_TO` (plus `MAIL_PORT` if not 465); without `MAIL_SERVER` the
+step is skipped.
+
 To deploy by hand:
 
 ```bash
