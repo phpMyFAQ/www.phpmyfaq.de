@@ -49,7 +49,7 @@ the TypeScript 7 integration panics under Turbopack.
 - `pnpm fetch:versions` - Fetch the latest release information from GitHub into `data/versions.json`
 - `pnpm fetch:downloads` - Fetch download metadata
 - `pnpm update:data` - Run both fetchers
-- `pnpm generate:news-api` - Write the JSON news API into `public/api/news/`
+- `pnpm generate:news-api` - Write the JSON news API into `public/api/news/` (gitignored, runs before every build)
 - `pnpm generate:icons` - Regenerate `src/components/icons.generated.ts`
 
 ## Project Structure
