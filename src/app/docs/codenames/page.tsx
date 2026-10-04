@@ -175,7 +175,7 @@ const series: Series[] = [
 
 export default function CodenamesPage() {
   return (
-    <PageLayout title="Code names">
+    <PageLayout title="Code names" searchSection="Documentation">
       <p className={blocks.lead}>
         Since phpMyFAQ 1.4 every major release line gets a code name during development. Here they are, each with the
         Wikipedia article that explains it.

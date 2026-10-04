@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function StandardsPage() {
   return (
-    <PageLayout title="Coding standards">
+    <PageLayout title="Coding standards" searchSection="Documentation">
       <p className={blocks.lead}>All files have to be UTF-8 encoded, never use any other encoding.</p>
 
       <h2>PHP 8+</h2>

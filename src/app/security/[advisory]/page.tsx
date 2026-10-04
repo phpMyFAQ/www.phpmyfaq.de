@@ -83,7 +83,7 @@ export default async function SecurityAdvisoryPage({ params }: SecurityAdvisoryP
   const html = parseAdvisoryToHTML(advisoryData.content);
 
   return (
-    <PageLayout title={advisoryData.title}>
+    <PageLayout title={advisoryData.title} searchSection="Security">
       <JsonLd data={securityAdvisoryArticle(advisory, advisoryData.title, advisoryData.description)} />
       <Breadcrumb
         parent={{ href: '/advisories', label: 'Security Advisories' }}

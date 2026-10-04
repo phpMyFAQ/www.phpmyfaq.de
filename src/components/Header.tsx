@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import SiteSearch from './SiteSearch';
 import styles from './Header.module.scss';
 import Icon from '@/components/Icon';
 
@@ -63,6 +64,7 @@ export default function Header() {
             </nav>
 
             <div className={styles.themeToggleContainer}>
+              <SiteSearch />
               <a
                 className={styles.githubLink}
                 href="https://github.com/thorsten/phpMyFAQ"

@@ -1,17 +1,34 @@
 import { Metadata } from 'next';
 import styles from './PageLayout.module.scss';
 
+export type SearchSection = 'Website' | 'Documentation' | 'News' | 'Security' | 'Changelog';
+
 interface PageLayoutProps {
   children: React.ReactNode;
   title?: string;
   description?: string;
   className?: string;
+  // Section shown as a filter in the site search. Pagefind only indexes
+  // elements marked data-pagefind-body, so the h1 and the content below are
+  // what a search hit is made of; pass searchable={false} to keep a page out.
+  searchSection?: SearchSection;
+  searchable?: boolean;
 }
 
-export default function PageLayout({ children, title, description, className = '' }: PageLayoutProps) {
+export default function PageLayout({
+  children,
+  title,
+  description,
+  className = '',
+  searchSection = 'Website',
+  searchable = true,
+}: PageLayoutProps) {
+  const indexAttributes = searchable
+    ? { 'data-pagefind-body': '', 'data-pagefind-filter': `section:${searchSection}` }
+    : {};
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.container}>
+      <div className={styles.container} {...indexAttributes}>
         {(title || description) && (
           <div className={styles.header}>
             {title && <h1>{title}</h1>}

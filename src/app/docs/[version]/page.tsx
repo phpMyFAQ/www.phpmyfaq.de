@@ -60,7 +60,7 @@ export default async function DocsVersionPage({ params }: DocsVersionPageProps) 
   }
 
   return (
-    <PageLayout title={`phpMyFAQ ${version} Documentation`}>
+    <PageLayout title={`phpMyFAQ ${version} Documentation`} searchSection="Documentation">
       <Breadcrumb parent={{ href: '/docs', label: 'Documentation' }} current={version} />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>

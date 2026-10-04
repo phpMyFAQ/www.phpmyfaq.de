@@ -4,7 +4,11 @@ import blocks from '@/components/ContentBlocks.module.scss';
 
 export default function NotFound() {
   return (
-    <PageLayout title="Page not found" description="Sorry, we couldn't find the page you're looking for.">
+    <PageLayout
+      title="Page not found"
+      description="Sorry, we couldn't find the page you're looking for."
+      searchable={false}
+    >
       <p>The page may have been moved or deleted.</p>
       <div className={blocks.actions}>
         <Link className={blocks.cta} href="/">

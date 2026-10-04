@@ -29,7 +29,7 @@ const outdated = [
 
 export default function DocsIndexPage() {
   return (
-    <PageLayout title="Documentation archive">
+    <PageLayout title="Documentation archive" searchSection="Documentation">
       <p className={blocks.lead}>
         Documentation for every phpMyFAQ release line. We cannot offer support for the outdated versions; the current
         documentation starts on the <Link href="/documentation">documentation page</Link>.

@@ -86,7 +86,7 @@ const groups = [
 
 export default function RequirementsPage() {
   return (
-    <PageLayout title="System Requirements">
+    <PageLayout title="System Requirements" searchSection="Documentation">
       <p className={blocks.lead}>phpMyFAQ runs on any PHP web host with a database. This is what it needs.</p>
 
       <div className={blocks.grid2}>

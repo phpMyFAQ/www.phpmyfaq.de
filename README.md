@@ -74,6 +74,15 @@ static/.htaccess           # Apache rules copied into out/ after the build
 tests/e2e/                 # Playwright specs
 ```
 
+## Search
+
+The site search runs entirely in the browser with [Pagefind](https://pagefind.app). The build step
+`scripts/build-search-index.ts` indexes every page that renders through `PageLayout` (marked with
+`data-pagefind-body`) into `out/pagefind/`, with a section filter taken from the layout's `searchSection` prop. The
+header's search button loads Pagefind's UI on first use; `/` or Ctrl+K opens it. The indexer is a prebuilt binary that
+needs 4K memory pages; on machines where it cannot run, `PAGEFIND_OPTIONAL=1 pnpm build` builds the site without the
+index, while CI and the deployment always build it.
+
 ## Content
 
 - **News**: add an entry to `content/news/<year>.md` under a `### YYYY-MM-DD` heading. The homepage, the year pages,

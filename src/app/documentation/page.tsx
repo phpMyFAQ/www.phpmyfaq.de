@@ -11,7 +11,7 @@ export const metadata: Metadata = generatePageMetadata(
 
 export default function DocumentationPage() {
   return (
-    <PageLayout title="Documentation">
+    <PageLayout title="Documentation" searchSection="Documentation">
       <p className={blocks.lead}>
         Everything from installing phpMyFAQ and using it day to day, to contributing code the right way.
       </p>

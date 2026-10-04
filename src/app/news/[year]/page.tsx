@@ -35,7 +35,7 @@ export default async function NewsYearPage({ params }: NewsYearPageProps) {
   const entries = parseNewsFile(year);
 
   return (
-    <PageLayout title={`phpMyFAQ News from ${year}`}>
+    <PageLayout title={`phpMyFAQ News from ${year}`} searchSection="News">
       <Breadcrumb parent={{ href: '/news', label: 'News' }} current={year} />
       <div id="news-content">
         {entries.map((entry, index) => (

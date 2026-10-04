@@ -13,7 +13,7 @@ export default async function ChangelogPage() {
   const { groups } = await getChangelogData();
 
   return (
-    <PageLayout title="Changelog">
+    <PageLayout title="Changelog" searchSection="Changelog">
       <p className="lead">User visible changes in phpMyFAQ releases since 2001 until today</p>
       <ChangelogView groups={groups} />
     </PageLayout>
