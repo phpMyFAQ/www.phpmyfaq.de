@@ -110,7 +110,12 @@ jobs:
       - name: Build static export
         run: pnpm build
 
+      # Shared hosting resets FTPS data connections now and then (ECONNRESET on
+      # the data socket). The sync state on the server makes a second attempt
+      # cheap, so one retry after a short pause covers that.
       - name: Upload out/ over FTPS
+        id: upload
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -120,6 +125,24 @@ jobs:
           local-dir: out/
           server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           # Remove files on the server that no longer exist in the export.
+          dangerous-clean-slate: false
+          exclude: |
+            **/.DS_Store
+
+      - name: Wait before retrying the upload
+        if: steps.upload.outcome == 'failure'
+        run: sleep 60
+
+      - name: Retry upload over FTPS
+        if: steps.upload.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           dangerous-clean-slate: false
           exclude: |
             **/.DS_Store
