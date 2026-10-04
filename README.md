@@ -102,6 +102,22 @@ between local runs, start `pnpm build && pnpm serve` once; Playwright reuses a r
 
 The pre-commit hook runs `pnpm lint && pnpm test:ci`; commit messages follow Conventional Commits.
 
+## Release checklist
+
+Most of the site follows `data/versions.json`, which the daily "Update release data" workflow refreshes through a pull
+request. When a new minor version of phpMyFAQ becomes stable, a few hand-maintained spots need a pass as well:
+
+1. `src/data/security.ts`: add the new line to `supportedVersions` with its PHP requirement and support dates, and set
+   the previous line's status. The site title, hero, highlights and requirements page read the PHP version from here.
+2. `src/components/WhatsNext.tsx`: replace the highlights with those of the next development line, or remove the section
+   until there is something to announce.
+3. `src/app/news/page.tsx`: update the summary of the current year in `ERAS`.
+4. `src/app/requirements/page.tsx`: check the "recommended" PHP version next to the derived minimum.
+5. `content/news/<year>.md`: write the release entry; homepage, JSON API and Atom feed pick it up.
+6. `src/app/privacy/page.tsx`: bump `LAST_REVISED` if anything about data processing changed.
+
+Then run `pnpm test:ci` and `pnpm test:e2e`; the e2e title check follows the versions table automatically.
+
 ## Deployment
 
 Every push to `main` is deployed automatically once the Vitest and Playwright workflows have passed for that commit.
@@ -116,11 +132,6 @@ else. The workflow needs the repository secrets `FTP_HOST` (the KAS server addre
 upload keeps a `.ftp-deploy-sync-state.json` on the server and only transfers files whose content changed; files that
 disappeared from the export are deleted. Deployments run in the `production` environment, so approval rules can be
 attached there.
-
-Every run ends with an e-mail stating whether the site was deployed, the upload failed, or the deployment was skipped
-because the tests were not green. It is sent through an SMTP mailbox configured with the secrets `MAIL_SERVER`,
-`MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM` and `MAIL_TO` (plus `MAIL_PORT` if not 465); without `MAIL_SERVER` the
-step is skipped.
 
 To deploy by hand:
 
