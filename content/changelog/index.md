@@ -1,7 +1,6 @@
 ---
 title: phpMyFAQ Changelog
 description: User visible changes in phpMyFAQ releases since 2001 until today
-canonical: changelog
 ---
 
 ## phpMyFAQ 4.2.x
