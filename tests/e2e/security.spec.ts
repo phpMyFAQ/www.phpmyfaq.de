@@ -34,8 +34,10 @@ test.describe('Security policy page', () => {
     const first = page.locator('a[href^="/security/advisory-"]').first();
     const href = await first.getAttribute('href');
 
-    const response = await page.goto(href as string);
-    expect(response?.status()).toBe(200);
+    // page.goto() may resolve without a response object while the dev server is
+    // busy; a plain request answers "does this URL resolve" deterministically.
+    const response = await page.request.get(href as string);
+    expect(response.status()).toBe(200);
   });
 
   test('the breadcrumb on an advisory detail page navigates back to the advisory list', async ({ page }) => {

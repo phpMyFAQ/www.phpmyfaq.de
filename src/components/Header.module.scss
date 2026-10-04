@@ -86,7 +86,9 @@
   }
 
   &.active a {
-    color: var(--color-primary-text);
+    // The header is dark in both themes, so the light-theme text orange
+    // (#b84a00) would fail AA here. Use the dark-theme shade unconditionally.
+    color: #ff8533;
     background: rgba(255, 102, 0, 0.12);
     font-weight: 500;
   }
@@ -133,7 +135,8 @@ a.githubLink {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  color: var(--color-text-muted);
+  // Same reasoning as .active above: the header never changes theme.
+  color: rgba(255, 255, 255, 0.75);
   font-size: 1.15rem;
   text-decoration: none;
   transition:
@@ -142,7 +145,7 @@ a.githubLink {
 
   &:hover,
   &:focus {
-    color: var(--color-primary-text);
+    color: #ff8533;
     background: rgba(255, 102, 0, 0.1);
   }
 }

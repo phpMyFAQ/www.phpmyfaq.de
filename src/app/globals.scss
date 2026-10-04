@@ -151,8 +151,12 @@ table {
   --color-primary-light: #ff8533;
   --color-primary-dark: #a84300;
   // The brand orange is for fills, borders and icons. As text on light
-  // backgrounds it needs this darker shade to reach WCAG AA contrast.
+  // backgrounds it needs this darker shade to reach WCAG AA contrast while
+  // still differing enough from body text for links to be distinguishable.
   --color-primary-text: #b84a00;
+  // On the 12% orange tint used by badges and active chips the shade above
+  // drops below 4.5:1 over --color-bg-secondary; this one stays at 4.9:1.
+  --color-primary-text-on-tint: #a84300;
   --color-bg: #ffffff;
   --color-bg-secondary: #f4f5f7;
   --color-text: #1a1a2e;
@@ -163,6 +167,7 @@ table {
 
 [data-theme='dark'] {
   --color-primary-text: #ff8533;
+  --color-primary-text-on-tint: #ff8533;
   --color-bg: #111827;
   --color-bg-secondary: #1f2937;
   --color-text: #f1f5f9;

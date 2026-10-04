@@ -103,7 +103,8 @@
 
 .footer {
   background: #1c1c2e;
-  color: #6b7280;
+  // #6b7280 only reaches 3.5:1 on this background; #9ca3af gives 6.6:1.
+  color: #9ca3af;
   padding: 1.25rem 0;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
