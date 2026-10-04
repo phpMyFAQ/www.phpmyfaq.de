@@ -3,6 +3,10 @@
 # Prefer index.html as the directory index
 DirectoryIndex index.html
 
+# The export ships its own 404 page (src/app/not-found.tsx); without this
+# Apache would answer with its default error page instead.
+ErrorDocument 404 /404.html
+
 # Disable MultiViews (content negotiation on filename) which could pick index.txt
 <IfModule mod_negotiation.c>
   Options -MultiViews
@@ -11,6 +15,7 @@ DirectoryIndex index.html
 # Map directory requests to index.html explicitly as a safety net
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
   # If the request is a directory, serve its index.html
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^(.*/)$ $1index.html [L]
