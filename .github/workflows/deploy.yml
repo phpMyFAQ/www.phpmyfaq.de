@@ -5,21 +5,21 @@ name: Deploy
 # when it finishes; the gate step checks the other workflow's result and the
 # run that arrives second does the deployment. Manual runs skip the gate.
 #
-# The site lives on all-inkl shared hosting. SSH has to be switched on once in
-# KAS (Tools > SSH-Zugang); the server is the one shown in KAS as
-# "Server-Adresse" (w0XXXXXX.kasserver.com) and the user is the KAS login.
+# The site lives on all-inkl shared hosting and is uploaded over FTPS with a
+# dedicated FTP user created in KAS (FTP > Neuer FTP-Benutzer) whose directory
+# is the site's document root, /www/htdocs/w0XXXXXX/www.phpmyfaq.de. The single
+# SSH account would be the KAS master login, so FTP is the least-privilege path.
 #
 # Required repository secrets:
-#   DEPLOY_HOST         w0XXXXXX.kasserver.com
-#   DEPLOY_USER         the KAS login, e.g. w0XXXXXX
-#   DEPLOY_PATH         document root, e.g. /www/htdocs/w0XXXXXX/www.phpmyfaq.de
-#   DEPLOY_KNOWN_HOSTS  output of `ssh-keyscan <host>` so the host key is pinned
-# One of:
-#   DEPLOY_SSH_KEY      private key whose public half is in ~/.ssh/authorized_keys
-#                       on the server (preferred)
-#   DEPLOY_PASSWORD     the SSH password set in KAS, used via sshpass if no key is set
+#   FTP_HOST      the KAS server address, w0XXXXXX.kasserver.com
+#   FTP_USER      the dedicated FTP user, e.g. w0XXXXXXf1
+#   FTP_PASSWORD  its password
 # Optional:
-#   DEPLOY_PORT         SSH port, defaults to 22
+#   FTP_SERVER_DIR  directory below the FTP user's root to upload into; "./"
+#                   when the user is already pinned to the document root
+#
+# The action keeps .ftp-deploy-sync-state.json in that directory to upload
+# only files whose content changed since the previous deployment.
 
 on:
   workflow_run:
@@ -99,45 +99,19 @@ jobs:
       - name: Build static export
         run: pnpm build
 
-      - name: Prepare SSH
-        id: ssh
-        env:
-          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
-          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
-        run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-          ssh_cmd="ssh -p $DEPLOY_PORT -o StrictHostKeyChecking=yes"
-          if [ -n "$DEPLOY_SSH_KEY" ]; then
-            printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
-            chmod 600 ~/.ssh/deploy_key
-            ssh_cmd="$ssh_cmd -i ~/.ssh/deploy_key -o IdentitiesOnly=yes"
-          elif [ -n "$DEPLOY_PASSWORD" ]; then
-            sudo apt-get install -y -qq sshpass > /dev/null
-            # sshpass reads the password from this variable, so it never appears in a command line.
-            echo "SSHPASS=$DEPLOY_PASSWORD" >> "$GITHUB_ENV"
-            ssh_cmd="sshpass -e $ssh_cmd -o PreferredAuthentications=password -o PubkeyAuthentication=no"
-          else
-            echo "::error::Set either DEPLOY_SSH_KEY or DEPLOY_PASSWORD."
-            exit 1
-          fi
-          echo "cmd=$ssh_cmd" >> "$GITHUB_OUTPUT"
-
-      - name: Sync out/ to the server
-        env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          SSH_CMD: ${{ steps.ssh.outputs.cmd }}
-        run: |
-          rsync --archive --compress --delete --human-readable --stats \
-            --exclude '.DS_Store' \
-            -e "$SSH_CMD" \
-            out/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+      - name: Upload out/ over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
+          # Remove files on the server that no longer exist in the export.
+          dangerous-clean-slate: false
+          exclude: |
+            **/.DS_Store
 
       - name: Smoke test
         run: |

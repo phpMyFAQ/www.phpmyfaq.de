@@ -96,23 +96,22 @@ The pre-commit hook runs `pnpm lint && pnpm test:ci`; commit messages follow Con
 ## Deployment
 
 Every push to `main` is deployed automatically once the Vitest and Playwright workflows have passed for that commit.
-The `Deploy` workflow (`.github/workflows/deploy.yml`) builds the static export with full git history, syncs `out/` to
-the server's document root with `rsync --delete` over SSH, and smoke-tests a few URLs afterwards. It can also be started
-by hand from the Actions tab.
+The `Deploy` workflow (`.github/workflows/deploy.yml`) builds the static export with full git history, uploads `out/`
+over FTPS and smoke-tests a few URLs afterwards. It can also be started by hand from the Actions tab.
 
-The site is hosted on all-inkl shared hosting. SSH must be enabled once in KAS under Tools, SSH-Zugang. The workflow
-needs these repository secrets: `DEPLOY_HOST` (the KAS server address, `w0XXXXXX.kasserver.com`), `DEPLOY_USER` (the
-KAS login), `DEPLOY_PATH` (the document root, `/www/htdocs/w0XXXXXX/www.phpmyfaq.de`) and `DEPLOY_KNOWN_HOSTS` (the
-output of `ssh-keyscan <host>`). Authentication uses `DEPLOY_SSH_KEY`, a private key whose public half is listed in
-`~/.ssh/authorized_keys` on the server, or, if that is not set, `DEPLOY_PASSWORD`, the SSH password from KAS. Add
-`DEPLOY_PORT` only if SSH does not listen on 22. Deployments run in the `production` environment, so approval rules
-can be attached there.
+The site is hosted on all-inkl shared hosting. Create a dedicated FTP user in KAS (FTP, Neuer FTP-Benutzer) whose
+directory is the document root `/www/htdocs/w0XXXXXX/www.phpmyfaq.de`, so the credentials in GitHub can reach nothing
+else. The workflow needs the repository secrets `FTP_HOST` (the KAS server address, `w0XXXXXX.kasserver.com`),
+`FTP_USER` and `FTP_PASSWORD`, plus `FTP_SERVER_DIR` only if the user is not already pinned to the document root. The
+upload keeps a `.ftp-deploy-sync-state.json` on the server and only transfers files whose content changed; files that
+disappeared from the export are deleted. Deployments run in the `production` environment, so approval rules can be
+attached there.
 
 To deploy by hand:
 
 ```bash
 pnpm build
-rsync -az --delete out/ user@host:/path/to/document-root/
+lftp -e "mirror --reverse --delete --verbose out/ ./; quit" -u <ftp-user> ftps://w0XXXXXX.kasserver.com
 ```
 
 The `out/` directory is a complete static site and can be served by any web server. The included `.htaccess` maps
