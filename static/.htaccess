@@ -37,3 +37,19 @@ DirectoryIndex index.html
 <Files "opengraph-image">
   ForceType image/png
 </Files>
+
+# Caching. Next.js puts a content hash in every file name under /_next/static,
+# so those can be cached for a year and marked immutable. Fonts and images are
+# not hashed but rarely change. HTML, JSON and XML must always be revalidated so
+# a deploy is picked up immediately.
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  <ElseIf "%{REQUEST_URI} =~ m#^/(fonts|images)/# || %{REQUEST_URI} =~ m#\.(woff2?|png|jpe?g|gif|webp|svg|ico)$# || %{REQUEST_URI} == '/opengraph-image'">
+    Header set Cache-Control "public, max-age=2592000"
+  </ElseIf>
+  <ElseIf "%{REQUEST_URI} =~ m#\.(html|json|xml|txt)$# || %{REQUEST_URI} =~ m#/$#">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </ElseIf>
+</IfModule>
