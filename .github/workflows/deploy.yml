@@ -2,8 +2,9 @@ name: Deploy
 
 # Publishes the static export to the web server once both test workflows have
 # succeeded for the same commit on main. Each test workflow triggers this one
-# when it finishes; the gate step checks the other workflow's result and the
-# run that arrives second does the deployment. Manual runs skip the gate.
+# when it finishes; the gate step checks that both are green and that no other
+# Deploy run has already published this commit, so exactly one of the two
+# triggered runs does the upload. Manual runs skip the gate.
 #
 # The site lives on all-inkl shared hosting and is uploaded over FTPS with a
 # dedicated FTP user created in KAS (FTP > Neuer FTP-Benutzer) whose directory
@@ -57,15 +58,25 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          runs=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=$SHA&per_page=50")
           for name in "Vitest Unit Tests" "Playwright E2E Tests"; do
-            conclusion=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=$SHA&per_page=50" \
-              --jq ".workflow_runs[] | select(.name == \"$name\") | .conclusion" | head -n 1)
+            conclusion=$(jq -r ".workflow_runs[] | select(.name == \"$name\") | .conclusion" <<< "$runs" | head -n 1)
             echo "$name: ${conclusion:-not finished}"
             if [ "$conclusion" != "success" ]; then
               echo "ready=false" >> "$GITHUB_OUTPUT"
               exit 0
             fi
           done
+          # Both test workflows trigger this workflow, so two runs exist per commit.
+          # Only deploy if no other Deploy run for this commit is running or has succeeded.
+          other=$(jq -r --argjson me "${{ github.run_id }}" \
+            '.workflow_runs[] | select(.name == "Deploy" and .id != $me and (.status != "completed" or .conclusion == "success")) | .id' \
+            <<< "$runs" | head -n 1)
+          if [ -n "$other" ]; then
+            echo "Deploy run $other already covers this commit, skipping."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           echo "ready=true" >> "$GITHUB_OUTPUT"
 
   deploy:
