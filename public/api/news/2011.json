@@ -1,0 +1,67 @@
+{
+  "generated": "2026-10-04T08:25:11.583Z",
+  "year": "2011",
+  "total": 15,
+  "news": [
+    {
+      "date": "2011-12-31",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 2.7.2](/download),\nthe \"James Rizzi\" release. This release improves the PDF export and the installation script for MySQL\nusers. We updated the Finnish, the French and the simplified Chinese translations. We also fixed some\nbugs.\n\nphpMyFAQ 2.6 is now out of support, please update to the current 2.7 release as soon as possible."
+    },
+    {
+      "date": "2011-10-25",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 2.7.1](/download),\nthe \"Dennis Ritchie\" release. This releases fixes a remote PHP code injection vulnerability, all users of affected\nphpMyFAQ versions are encouraged to upgrade as soon as possible to this latest versions! A detailed\n[security advisory](/security/advisory-2011-10-25) is available. We also added\nsome missing translations, a configurable encryption type for passwords, support for anonymous login for\nLDAP servers and a table of contents in PDF exports. We also fixed some minor bugs.\n\nWe also released the security release [phpMyFAQ 2.6.18](/download) for\nold 2.6 series."
+    },
+    {
+      "date": "2011-09-30",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 2.7.0](/download),\nthe \"James Dean\" release. With this release we dropped the support of MySQL 4.1 and both Internet Explorer\nversion 6 and 7 due to our new HTML5/CSS3 powered layout. We added a configurable search relevance functionality,\nautomatic translations with Google Translate, Twitter and Facebook Like Button support. We also added an attachment\nadministration frontend, basic authentication support for LDAP groups, basic support for HTML5 microdata and\nthe functionality of the TinyMCE save button. Furthermore we introduced a basic reporting functionality,\nIPv6 support, Single Sign On authentication, support for complete secured FAQ installations, an user configurable\ndate formatting and the possibility to delete user generated search terms. We really improved usability in\nthe whole frontend and administration backend and enabled Gzip compression. We also updated the bundled jQuery,\nModernizr, TinyMCE, SyntaxHighlighter and TCPDF libraries. Our users already updated the Dutch, German,\nJapanese, Portuguese, Russian and Spanish translation.\n\nphpMyFAQ 2.6 will be supported until the end of 2011."
+    },
+    {
+      "date": "2011-09-28",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 2.6.18](/download),\nthe \"Troy Davis\" release. This release fixes a information disclosure vulnerability, all users of affected\nphpMyFAQ versions are encouraged to upgrade as soon as possible to this latest versions! A detailed\n[security advisory](/security/advisory-2011-09-28) is available. We also updated the Spanish translation\nand wie fixed several bugs."
+    },
+    {
+      "date": "2011-09-13",
+      "content": "The phpMyFAQ Team would like to announce the availability of the release candidate of our next major version,\n[phpMyFAQ 2.7.0-RC](/download), the \"Tupac Shakur\" release. We added\nthe possibility to delete user generated search terms and updated the Japanese and Spanish translation. We\nimproved the complete usability all over the application and we also fixed a lot of bugs. Do not use this\nversion in production systems, but test this version and please report bugs!"
+    },
+    {
+      "date": "2011-08-17",
+      "content": "The phpMyFAQ Team is pleased to announce the third and last beta release of our next major version,\n[phpMyFAQ 2.7.0-beta3](/download), the \"Life Of Brian\" release.\nWe added a captcha refresh, improved the attachment handling in the administration backend and upgraded all\nbundled libraries. We improved the complete usability all over the application and we also fixed a lot of\nbugs. Do not use this version in production systems, but test this version and please report bugs!"
+    },
+    {
+      "date": "2011-08-07",
+      "content": "The phpMyFAQ Team would like to announce the availability of the second beta release of our next major version,\n[phpMyFAQ 2.7.0-beta2](/download), the \"Amy Winehouse\" release.\nWe added support for Single Sign On authentication, finally support for complete secured FAQ installations and\nand an user configurable date formatting option. We improved the complete usability all over the application,\nthe Dutch and German translations were updated and we also fixed a lot of bugs. Do not use this version in\nproduction systems, but test this version and report bugs!\n\nThis release is dedicated to the victims of Oslo and Utøya attacks."
+    },
+    {
+      "date": "2011-06-22",
+      "content": "The phpMyFAQ Team is pleased to announce the first beta release of our next major version,\n[phpMyFAQ 2.7.0-beta](/download), the \"Ryan Dunn\" release.\nWe dropped the support for Internet Explorer 7 and upgraded all bundled libraries. We improved the complete\nusability all over the application and we also fixed a lot of bugs. The beta version is now feature complete\nwe're focus now on stability and more improved usability. Do not use this version in production systems, but\ntest this version and please report bugs!"
+    },
+    {
+      "date": "2011-06-08",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 2.6.17](/download), the\n\"Tillmann Uhrmacher\" release. We updated the Portuguese translation and we fixed some minor bugs."
+    },
+    {
+      "date": "2011-05-31",
+      "content": "The phpMyFAQ Team would like to announce the availability of\n[phpMyFAQ 2.6.16](/download), the \"Gunter Sachs\" release. We updated\nthe Dutch and French translation. We also fixed some minor bugs."
+    },
+    {
+      "date": "2011-03-23",
+      "content": "The phpMyFAQ Team is pleased to announce the second preview release of our next major version,\n[phpMyFAQ 2.7.0-alpha2](/download), the \"Elizabeth Taylor\" release.\nWe added functionality of the TinyMCE save button, a basic reporting functionality and introduced IPv6\nsupport. We massively improved the usability in the frontend and the administration backend. We also updated\nthe bundled jQuery library to version 1.5.1 and Modernizr to version 1.7. We also fixed a lot of bugs.\nDo not use this version in production systems, but test this version and please report bugs!"
+    },
+    {
+      "date": "2011-02-23",
+      "content": "The phpMyFAQ Team would like to announce the availability of\n[phpMyFAQ 2.6.15](/download), the \"Christchurch\" release. We added\na Malay translation and we updated the Danish, Brazilian Portuguese and Spanish translation. We also fixed\nsome minor bugs."
+    },
+    {
+      "date": "2011-02-12",
+      "content": "Today, [10 years](/10years) ago, Thorsten Rinne and Bastian Pöttner\nstarted with the development of phpMyFAQ. We would like to say thank you everyone who helped with the\ndevelopment and everyone of our users! Happy birthday, phpMyFAQ!"
+    },
+    {
+      "date": "2011-01-24",
+      "content": "The phpMyFAQ Team is pleased to announce [phpMyFAQ 2.6.14](/download), the\n\"Macintosh 128\" release. We added rewrite rules for nginx, compatibility for MySQL 5.5 with ext/mysql and\nsupport to ban IPs from user tracking files. We improved the restore functionality and updated the Dutch and\nGerman translation. We fixed an issue with sending mails to category administrators and some minor bugs."
+    },
+    {
+      "date": "2011-01-11",
+      "content": "The phpMyFAQ Team would like to announce the availability of the first preview release of our next major version,\n[phpMyFAQ 2.7.0-alpha](/download), the \"Robert Anton Wilson\" release.\nWith this release we changed the PHP requirement to PHP 5.2.3 and dropped the support for MySQL 4.1 as\ndatabase backend and for Internet Explorer 6 as supported browser. We added a completely new HTML5 powered\ndefault layout and administration backend, a configurable search relevance functionality and automatic\ntranslations with the Google Translate API. We added Twitter support, Facebook Like Buttons and support for\n\"Bookmark on Delicious\" support. All comment functionality is now based on Ajax and we added an attachment\nadministration frontend, basic authentication support for LDAP groups and basic support for HTML5 microdata.\nGzip compression is now enabled by default and we updated the bundled jQuery to version 1.4.4. Do not use\nthis version in production systems, but test this version and report bugs!"
+    }
+  ]
+}

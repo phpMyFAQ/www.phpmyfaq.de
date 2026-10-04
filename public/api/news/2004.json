@@ -1,0 +1,191 @@
+{
+  "generated": "2026-10-04T08:25:11.583Z",
+  "year": "2004",
+  "total": 46,
+  "news": [
+    {
+      "date": "2004-12-31",
+      "content": "The [first alpha version of phpMyFAQ 1.5.0](/download) is ready. Besides a lot of code improvements, this version adds\nsupport for PostgreSQL and Sybase databases, LDAP support, and the ability to use mod_rewrite for search engine-friendly\nURLs. Now you can link one FAQ record in various categories, the template engine can parse PHP code if you like, we have\ncomplete XML, XHTML, and DocBook XML exports, and a completely rewritten PDF export. Besides better RSS support, we've\nmade a general code cleanup. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-12-06",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 1.4.4](/download), \"The Santa Claus Version\".\nThis version introduces two new translations with Romanian and Chinese (Traditional). Some bugs were fixed too."
+    },
+    {
+      "date": "2004-11-29",
+      "content": "We've got a [new translation](/download) for phpMyFAQ 1.4.x: Chinese (Traditional)! Thanks to Chinsan!"
+    },
+    {
+      "date": "2004-11-21",
+      "content": "The [first release candidate of phpMyFAQ 1.4.4](/download) is available! This version includes a Romanian translation\nand some bugfixes. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-11-10",
+      "content": "We've got a [new translation](/download) for phpMyFAQ 1.4.x: Romanian! Thanks to Karoly Simo!"
+    },
+    {
+      "date": "2004-11-05",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 1.4.3](/download). This version introduces two\nnew translations with Indonesian and Turkish. The German language file was updated, and many bugs were fixed."
+    },
+    {
+      "date": "2004-10-31",
+      "content": "The [second release candidate of phpMyFAQ 1.4.3](/download) is available! This version includes a Turkish translation\nand really a lot of bugfixes. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-10-27",
+      "content": "We've got a [new translation](/download) for phpMyFAQ 1.4.x: Turkish! Thanks to Zafer Gürsoy!"
+    },
+    {
+      "date": "2004-10-16",
+      "content": "The [first release candidate of phpMyFAQ 1.4.3](/download) is available! This version includes an Indonesian translation\nand some bugfixes. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-10-10",
+      "content": "The phpMyFAQ team is pleased to announce the release of [phpMyFAQ 1.4.2](/download). This release added a Finnish and a\nHebrew translation. A fulltext search inside the admin section and some accessibility improvements were implemented.\nBesides that, many bugs were fixed."
+    },
+    {
+      "date": "2004-10-04",
+      "content": "The [third release candidate of phpMyFAQ 1.4.2](/download) is available! This version fixes a bug in the update script.\nDo not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-10-02",
+      "content": "The [second release candidate of phpMyFAQ 1.4.2](/download) is available! This version includes tons of bugfixes. Do not\nuse this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-08-29",
+      "content": "The [first release candidate of phpMyFAQ 1.4.2](/download) is available! This version includes a fulltext search inside\nthe admin section, adds a Finnish and Hebrew translation, and some accessibility improvements. It also fixes a lot of\nsmall bugs. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-08-28",
+      "content": "We've got two [new translations](/download) for phpMyFAQ 1.4.x: Finnish and Hebrew! Thanks to Juha Tuomala and Daniel\nShkuri!"
+    },
+    {
+      "date": "2004-08-16",
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 1.4.1](/download). This version introduces three\nnew translations with Swedish, Korean, and Japanese. This release added an improved category administration, a custom\nadmin menu according to user permissions, easier record deleting, and support for cookies in the frontend to save the\nsession and language. The user authorization needs fewer SQL queries in the admin section. The install script, the\nChinese, and Portuguese language files were updated. IDN domain support and accessibility were improved too.\nAdditionally, several bugs were fixed."
+    },
+    {
+      "date": "2004-08-12",
+      "content": "The [second release candidate of phpMyFAQ 1.4.1](/download) is available! This version includes improved IDN domain\nsupport and improved accessibility. Besides many bugfixes, the install script and the Chinese language were updated. Do\nnot use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-08-03",
+      "content": "The [first release candidate of phpMyFAQ 1.4.1](/download) is available! This version includes improved category\nadministration, adds a Swedish and Korean translation, a custom admin menu according to user permissions, and easier\nrecord deleting. It also adds support for cookies in the frontend, fewer SQL queries in the admin section, and lots of\nbugfixes. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-07-28",
+      "content": "We've got two [new translations](/download) for phpMyFAQ 1.4.x: Korean and Swedish! Thanks to YoungJoon Kim and Emil\nKennerberg!"
+    },
+    {
+      "date": "2004-07-27",
+      "content": "The phpMyFAQ team is pleased to announce the release of [phpMyFAQ 1.4.0a](/download). This release had been made to fix\na security-related issue. A detailed [security advisory](/security/advisory-2004-07-27) is available."
+    },
+    {
+      "date": "2004-07-26",
+      "content": "As you can see, we now have a unique phpMyFAQ logo. Thanks to [Lieven Op De Beeck](http://www.lieven.be)!"
+    },
+    {
+      "date": "2004-07-22",
+      "content": "The phpMyFAQ team is proud to announce the final release of [phpMyFAQ 1.4.0](/download)! Some of the new features of\nphpMyFAQ 1.4.0 include:\n\n- A WYSIWYG XHTML-Editor replaces the BBCode Editor\n- An Image Manager for uploading images\n- A complete new category module with more features\n- Support for XML-RPC\n- Support for timezones\n- ISO 639 support in language files\n- Better PDF export with a table of contents\n- A new and better installer\n- New XHTML based templates\n- Automatic language detection\n- Improved IDN domain support"
+    },
+    {
+      "date": "2004-07-15",
+      "content": "The [fifth (and hopefully the last) release candidate of phpMyFAQ 1.4.0](/download) is ready! This version supports RFC\n1522 compliant e-mail headers, an updated Dutch language file, and some minor bugfixes. Do not use this version in\nproduction systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-07-09",
+      "content": "The [fourth release candidate of phpMyFAQ 1.4.0](/download) is available! This version includes many bugfixes. Do not\nuse this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-07-08",
+      "content": "The [third release candidate of phpMyFAQ 1.4.0](/download) is ready! This version includes the re-added attachment\nfunction. It has experimental support for the application/xhtml+xml media type and includes some code improvements and\nsome minor bugfixes. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-07-02",
+      "content": "The [second release candidate of phpMyFAQ 1.4.0](/download) is available! This version includes improved IDN domain\nsupport. The password reset function now generates mnemonic passwords, and there are many bugfixes. Do not use this\nversion in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-06-24",
+      "content": "The [first release candidate of phpMyFAQ 1.4.0](/download) is available! This version includes the finished XHTML/CSS\ntemplates and the redesigned admin section. It also includes some code cleanup and many bugfixes. Do not use this\nversion in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-06-18",
+      "content": "The [third beta version of phpMyFAQ 1.4.0](/download) is available. This version introduces a new XHTML/CSS based layout\nfor the admin section and new redesigned templates. It also includes a lot of code cleanup, improvements, and many\nbugfixes. Do not use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-06-09",
+      "content": "[phpMyFAQ 1.3.14](/download) is available. This release introduces the language files for Danish, Serbian, and\nSlovenian. phpMyFAQ now features 18 languages. Performance on Windows Server 2003 and PHP with ISAPI was improved, and\nseveral bug fixes were made."
+    },
+    {
+      "date": "2004-06-06",
+      "content": "A new language file is available for [download](/download): Igor translated phpMyFAQ 1.3.x into Slovenian. Thank you!"
+    },
+    {
+      "date": "2004-06-02",
+      "content": "The [second beta version of phpMyFAQ 1.4.0](/download) is available. This version adds a table of contents to the full\nPDF export, the update script converts old BBCode to XHTML, and it includes a lot of code cleanup and many bugfixes. Do\nnot use this version in production systems, but test this version and report bugs!"
+    },
+    {
+      "date": "2004-05-28",
+      "content": "A new language file is available for [download](/download): Vanja Hrustic translated phpMyFAQ 1.3.x into Serbian. Thank\nyou!"
+    },
+    {
+      "date": "2004-05-27",
+      "content": "The [first beta version of phpMyFAQ 1.4.0](/download) is available. This version introduces support for XML-RPC, a\nfunction for resetting forgotten passwords, including internal links easily with a dropdown box, and lots of bug fixes.\nDo not use this version in production systems, but test this version if you like!"
+    },
+    {
+      "date": "2004-05-22",
+      "content": "Our [translation page](/download) is updated and now includes all available languages. The new Danish files were added\ntoo."
+    },
+    {
+      "date": "2004-05-18",
+      "content": "In response to vulnerabilities in the stable branch phpMyFAQ 1.3.x and the development version phpMyFAQ 1.4.x, we\nreleased the security updates, [phpMyFAQ 1.3.13](/download) and [phpMyFAQ 1.4.0 alpha2](/download). Everyone running\naffected versions of phpMyFAQ is encouraged to upgrade immediately. The new 1.3.13 release doesn't include other\nchanges, so upgrading from 1.3.12 is safe. phpMyFAQ 1.4.0 alpha2 includes some unready new features like a better\nintegration of the WYSIWYG editor, a better PDF export, and dozens of bug fixes. A\ndetailed [security advisory](/security/advisory-2004-05-18) is available. We would like to thank Stefan Esser of\ne-matters GmbH for discovering this vulnerability. A [patch for phpMyFAQ 1.2.x](/download) is available too."
+    },
+    {
+      "date": "2004-05-10",
+      "content": "The [first alpha version of phpMyFAQ 1.4.0](/download) is ready. Besides a lot of code improvements, this version adds a\nWYSIWYG Editor, an Image Manager, the brand new category module, support for timezones ISO 639 support in language\nfiles, new XHTML based templates, and tons of bugfixes. Do not use this version in production systems!"
+    },
+    {
+      "date": "2004-04-21",
+      "content": "[phpMyFAQ 1.3.12](/download) is available. This new stable version adds a Hungarian translation and includes some\nbugfixes. This will probably be the last phpMyFAQ version from the 1.3.x series; we'll continue on the 1.4 branch."
+    },
+    {
+      "date": "2004-04-13",
+      "content": "phpMyFAQ 1.3.11 was a little bit buggy. [phpMyFAQ 1.3.11a](/download) will fix some annoying bugs."
+    },
+    {
+      "date": "2004-04-07",
+      "content": "[phpMyFAQ 1.3.11](/download) is available. This new stable version adds a Chinese translation, a Czech translation,\nsupport for IDN domains, and includes many bugfixes. This will probably be the last phpMyFAQ version from the 1.3.x\nseries; we'll continue on the 1.4 branch."
+    },
+    {
+      "date": "2004-04-05",
+      "content": "The [third Release Candidate for phpMyFAQ 1.3.11](/download) can be downloaded for testing. This version supports the\nChinese language and fixes some bugs."
+    },
+    {
+      "date": "2004-03-24",
+      "content": "The [second release candidate of phpMyFAQ 1.3.11](/download) is available for download. This version includes lots of\nbugfixes, an upgraded Czech language file, and better IDN support."
+    },
+    {
+      "date": "2004-03-12",
+      "content": "Marty Rudinec translated the [documentation for phpMyFAQ 1.3.x into the Czech language](/documentation). Thanks for this\nwork!"
+    },
+    {
+      "date": "2004-03-03",
+      "content": "The [first Release Candidate for phpMyFAQ 1.3.11](/download) can be downloaded for testing. This version supports IDN\ndomains and includes a Czech language file."
+    },
+    {
+      "date": "2004-02-12",
+      "content": "[phpMyFAQ 1.3.10](/download) is available. This new stable version includes the updated bundled FPDF class, an\nexperimental Arabic language file, and lots of minor bugfixes."
+    },
+    {
+      "date": "2004-02-04",
+      "content": "The [second release candidate for phpMyFAQ 1.3.10](/download) is available for public. This version includes some\nbugfixes."
+    },
+    {
+      "date": "2004-01-22",
+      "content": "The [first Release Candidate for phpMyFAQ 1.3.10](/download) can be downloaded for testing. This version features an\nexperimental Arabic language file, enhanced security, and lots of minor bugfixes."
+    },
+    {
+      "date": "2004-01-08",
+      "content": "[We're blogging, too](http://devblog.phpmyfaq.de/)."
+    }
+  ]
+}

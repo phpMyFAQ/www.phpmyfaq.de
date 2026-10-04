@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { parseNewsFile, getRecentNews } from './news';
+import { parseNewsFile, getRecentNews, getNewsYears } from './news';
 import fs from 'fs';
 import path from 'path';
 
@@ -222,5 +222,63 @@ Older news
     expect(result.length).toBe(3);
     expect(new Date(result[0].date).getTime()).toBeGreaterThanOrEqual(new Date(result[1].date).getTime());
     expect(new Date(result[1].date).getTime()).toBeGreaterThanOrEqual(new Date(result[2].date).getTime());
+  });
+});
+describe('parseNewsFile with the pre-2015 format', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('parses bold date markers and drops the rule underneath', () => {
+    const mockContent = `---
+title: phpMyFAQ news from 2001
+---
+
+**2001-11-23**
+
+---
+
+Due to acute lack of time, the release of version 1.1.0 has been postponed.
+
+**2001-11-09**
+
+---
+
+About half of the new version is now finished.
+`;
+
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/2001.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(mockContent);
+
+    const result = parseNewsFile('2001');
+
+    expect(result).toEqual([
+      { date: '2001-11-23', content: 'Due to acute lack of time, the release of version 1.1.0 has been postponed.' },
+      { date: '2001-11-09', content: 'About half of the new version is now finished.' },
+    ]);
+  });
+
+  it('accepts a heading without a space after the hashes', () => {
+    vi.spyOn(path, 'join').mockReturnValue('/mock/path/2015.md');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('###2015-03-01\nReleased.\n');
+
+    expect(parseNewsFile('2015')).toEqual([{ date: '2015-03-01', content: 'Released.' }]);
+  });
+});
+
+describe('getNewsYears', () => {
+  it('lists the four-digit news files newest first', () => {
+    vi.spyOn(path, 'join').mockReturnValue('/mock/news');
+    vi.spyOn(fs, 'existsSync').mockReturnValue(true);
+    vi.spyOn(fs, 'readdirSync').mockReturnValue([
+      '2024.md',
+      'index.md',
+      '2026.md',
+      '2025.md',
+    ] as never);
+
+    expect(getNewsYears()).toEqual(['2026', '2025', '2024']);
   });
 });

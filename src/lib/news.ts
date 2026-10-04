@@ -7,6 +7,34 @@ export interface NewsItem {
   content: string;
 }
 
+// A news entry starts with its date on a line of its own. Files since 2015 use
+// a "### YYYY-MM-DD" heading (with or without the space); older files use
+// "**YYYY-MM-DD**".
+const ENTRY_HEADER = /^(?:###\s*|\*\*)(\d{4}-\d{2}-\d{2})(?:\*\*)?\s*$/gm;
+
+// Decorative rules directly under the date ("* * *" or "---") and stray
+// "* * *" lines are dropped; everything else is left to the Markdown renderer.
+function cleanEntry(section: string): string {
+  return section
+    .replace(/^\*\s*\*\s*\*\s*$/gm, '')
+    .trim()
+    .replace(/^---\s*\n/, '')
+    .trim();
+}
+
+// Years that have a news file, newest first.
+export function getNewsYears(): string[] {
+  const newsDir = path.join(process.cwd(), 'content/news');
+  if (!fs.existsSync(newsDir)) {
+    return [];
+  }
+  return fs
+    .readdirSync(newsDir)
+    .map((file) => file.match(/^(\d{4})\.md$/)?.[1])
+    .filter((year): year is string => year !== undefined)
+    .sort((a, b) => b.localeCompare(a));
+}
+
 /**
  * Parse a single year's news markdown file and extract individual news entries
  */
@@ -21,50 +49,20 @@ export function parseNewsFile(year: string): NewsItem[] {
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { content } = matter(fileContents);
 
-    // Split by date headers (### YYYY-MM-DD)
-    const datePattern = /^### (\d{4}-\d{2}-\d{2})\s*$/gm;
+    const headers = [...content.matchAll(ENTRY_HEADER)].map((match) => ({
+      date: match[1],
+      start: match.index,
+      bodyStart: match.index + match[0].length,
+    }));
+
     const entries: NewsItem[] = [];
-
-    let match;
-    const matches: { date: string; index: number }[] = [];
-
-    // Find all date headers and their positions
-    while ((match = datePattern.exec(content)) !== null) {
-      matches.push({
-        date: match[1],
-        index: match.index + match[0].length,
-      });
-    }
-
-    // Extract content between date headers
-    for (let i = 0; i < matches.length; i++) {
-      const current = matches[i];
-      const next = matches[i + 1];
-
-      const startIndex = current.index;
-      // Calculate how much to subtract for the next header
-      // We need to find the position right before the next "###" line
-      let endIndex: number;
-      if (next) {
-        // Find where the next header starts (the ### line itself)
-        const nextHeaderStart = content.lastIndexOf('\n###', next.index);
-        endIndex = nextHeaderStart > startIndex ? nextHeaderStart : next.index;
-      } else {
-        endIndex = content.length;
-      }
-
-      let itemContent = content.substring(startIndex, endIndex).trim();
-
-      // Remove separator lines (* * *)
-      itemContent = itemContent.replace(/^\*\s*\*\s*\*\s*$/gm, '').trim();
-
+    headers.forEach((header, i) => {
+      const end = headers[i + 1]?.start ?? content.length;
+      const itemContent = cleanEntry(content.substring(header.bodyStart, end));
       if (itemContent) {
-        entries.push({
-          date: current.date,
-          content: itemContent,
-        });
+        entries.push({ date: header.date, content: itemContent });
       }
-    }
+    });
 
     return entries;
   } catch {
