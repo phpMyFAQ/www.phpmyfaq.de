@@ -8,16 +8,22 @@ import blocks from './ContentBlocks.module.scss';
 const screenshots: Screenshot[] = [
   {
     src: '/images/screenshots/frontend-categories.webp',
+    width: 1800,
+    height: 1029,
     alt: 'phpMyFAQ public category overview',
     caption: 'The public FAQ: a clear category overview your visitors can browse and search.',
   },
   {
     src: '/images/screenshots/admin-dashboard.webp',
+    width: 1800,
+    height: 1029,
     alt: 'phpMyFAQ admin dashboard',
     caption: 'The admin dashboard with visits, popular FAQs and content health.',
   },
   {
     src: '/images/screenshots/admin-editor.webp',
+    width: 1800,
+    height: 1029,
     alt: 'phpMyFAQ FAQ editor with WYSIWYG editing',
     caption: 'The FAQ editor with WYSIWYG editing, SEO and permission tabs.',
   },

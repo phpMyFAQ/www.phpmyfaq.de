@@ -7,6 +7,9 @@ export interface Screenshot {
   src: string;
   alt: string;
   caption: string;
+  // Intrinsic pixel size, so the browser reserves the space before the lazy image arrives.
+  width: number;
+  height: number;
 }
 
 interface ScreenshotGalleryProps {
@@ -50,7 +53,13 @@ export default function ScreenshotGallery({ screenshots, layout = 'grid' }: Scre
           <figure key={screenshot.src} className={styles.thumb}>
             <button type="button" onClick={() => setCurrent(index)} aria-label={`Enlarge: ${screenshot.alt}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={screenshot.src} alt={screenshot.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+              <img
+                src={screenshot.src}
+                alt={screenshot.alt}
+                width={screenshot.width}
+                height={screenshot.height}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
             </button>
             <figcaption>{screenshot.caption}</figcaption>
           </figure>
@@ -62,7 +71,13 @@ export default function ScreenshotGallery({ screenshots, layout = 'grid' }: Scre
           {/* A full-size button behind the image closes the lightbox on backdrop click. */}
           <button type="button" className={styles.lightboxBackdrop} onClick={close} aria-label="Close" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className={styles.lightboxImage} src={screenshots[current].src} alt={screenshots[current].alt} />
+          <img
+            className={styles.lightboxImage}
+            src={screenshots[current].src}
+            alt={screenshots[current].alt}
+            width={screenshots[current].width}
+            height={screenshots[current].height}
+          />
           <p className={styles.lightboxCaption}>{screenshots[current].caption}</p>
           <button type="button" className={styles.lightboxClose} onClick={close} aria-label="Close">
             ×
