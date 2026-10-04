@@ -95,9 +95,21 @@ The pre-commit hook runs `pnpm lint && pnpm test:ci`; commit messages follow Con
 
 ## Deployment
 
+Every push to `main` is deployed automatically once the Vitest and Playwright workflows have passed for that commit.
+The `Deploy` workflow (`.github/workflows/deploy.yml`) builds the static export with full git history, syncs `out/` to
+the server's document root with `rsync --delete` over SSH, and smoke-tests a few URLs afterwards. It can also be started
+by hand from the Actions tab.
+
+The workflow needs these repository secrets: `DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_PATH`, `DEPLOY_SSH_KEY` (private
+key of a dedicated deploy user) and `DEPLOY_KNOWN_HOSTS` (the output of `ssh-keyscan <host>`), plus `DEPLOY_PORT` if
+SSH does not listen on 22. Deployments run in the `production` environment, so approval rules can be attached there.
+
+To deploy by hand:
+
 ```bash
 pnpm build
+rsync -az --delete out/ user@host:/path/to/document-root/
 ```
 
 The `out/` directory is a complete static site and can be served by any web server. The included `.htaccess` maps
-clean `/api/news/<year>` URLs to the JSON files and sets the right type for the Open Graph image.
+clean `/api/news/<year>` URLs to the JSON files, sets the right type for the Open Graph image and adds cache headers.

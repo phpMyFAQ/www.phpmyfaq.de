@@ -1,0 +1,125 @@
+name: Deploy
+
+# Publishes the static export to the web server once both test workflows have
+# succeeded for the same commit on main. Each test workflow triggers this one
+# when it finishes; the gate step checks the other workflow's result and the
+# run that arrives second does the deployment. Manual runs skip the gate.
+#
+# Required repository secrets:
+#   DEPLOY_HOST         hostname of the web server
+#   DEPLOY_USER         SSH user
+#   DEPLOY_PATH         absolute document root on the server, e.g. /var/www/phpmyfaq.de
+#   DEPLOY_SSH_KEY      private key of a deploy user (ed25519 recommended)
+#   DEPLOY_KNOWN_HOSTS  output of `ssh-keyscan <host>` so the host key is pinned
+# Optional:
+#   DEPLOY_PORT         SSH port, defaults to 22
+
+on:
+  workflow_run:
+    workflows: ['Vitest Unit Tests', 'Playwright E2E Tests']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+# Never run two deployments at once; a newer commit supersedes a queued one.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    name: Both test workflows green
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+      sha: ${{ steps.check.outputs.sha }}
+    steps:
+      - name: Check the other workflow's result for this commit
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          for name in "Vitest Unit Tests" "Playwright E2E Tests"; do
+            conclusion=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=$SHA&per_page=50" \
+              --jq ".workflow_runs[] | select(.name == \"$name\") | .conclusion" | head -n 1)
+            echo "$name: ${conclusion:-not finished}"
+            if [ "$conclusion" != "success" ]; then
+              echo "ready=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Build and publish
+    needs: gate
+    if: needs.gate.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.phpmyfaq.de
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.gate.outputs.sha }}
+          # Full history: the sitemap takes modification dates from git.
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static export
+        run: pnpm build
+
+      - name: Prepare SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Sync out/ to the server
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+        run: |
+          rsync --archive --compress --delete --human-readable --stats \
+            --exclude '.DS_Store' \
+            -e "ssh -i ~/.ssh/deploy_key -p $DEPLOY_PORT -o StrictHostKeyChecking=yes" \
+            out/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+
+      - name: Smoke test
+        run: |
+          for path in / /download/ /news/atom.xml /sitemap.xml; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://www.phpmyfaq.de$path")
+            echo "$path -> $code"
+            [ "$code" = "200" ] || exit 1
+          done
