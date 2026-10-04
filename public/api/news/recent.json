@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-03T11:15:55.049Z",
+  "generated": "2026-10-04T08:11:01.285Z",
   "limit": 10,
   "news": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "date": "2026-08-08",
-      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.2.0-alpha](/download), the \"Lou Koller\" release – the biggest step forward in the project's history. \nThis version introduces custom pages with a WYSIWYG editor and SEO capabilities, a theme manager, and a flexible translation layer that supports self-hosted LibreTranslate as well as DeepL, Google, Azure, and Amazon Translate. \nAs a self-hosted open-source platform, phpMyFAQ puts digital sovereignty first: your knowledge base, user data, and infrastructure choices - from local filesystem or Amazon S3 storage to mail delivery via SendGrid, AWS SES, or Mailgun — remain full under your control. \nThe release also adds user chat, web push notifications, readability analysis, and optional Redis caching. \nSecurity has been significantly improved as well, with comprehensive audit and security event logging, hardened multi-tenancy, and SBOM generation for full supply-chain transparency. \nBuilt on PHP 8.4, it further strengthens enterprise readiness with experimental support for Keycloak, OAuth2 API keys, and per-tenant rate limiting."
+      "content": "The phpMyFAQ Team would like to announce the availability of [phpMyFAQ 4.2.0-alpha](/download), the \"Lou Koller\" release – the biggest step forward in the project's history.\nThis version introduces custom pages with a WYSIWYG editor and SEO capabilities, a theme manager, and a flexible translation layer that supports self-hosted LibreTranslate as well as DeepL, Google, Azure, and Amazon Translate.\nAs a self-hosted open-source platform, phpMyFAQ puts digital sovereignty first: your knowledge base, user data, and infrastructure choices - from local filesystem or Amazon S3 storage to mail delivery via SendGrid, AWS SES, or Mailgun — remain full under your control.\nThe release also adds user chat, web push notifications, readability analysis, and optional Redis caching.\nSecurity has been significantly improved as well, with comprehensive audit and security event logging, hardened multi-tenancy, and SBOM generation for full supply-chain transparency.\nBuilt on PHP 8.4, it further strengthens enterprise readiness with experimental support for Keycloak, OAuth2 API keys, and per-tenant rate limiting."
     },
     {
       "date": "2026-08-04",
