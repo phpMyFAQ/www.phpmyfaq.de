@@ -42,6 +42,11 @@ export default function WhatsNext() {
         <p>
           phpMyFAQ works perfectly with the <a target={'_blank'} rel={'noopener noreferrer'} href={'https://www.reddit.com/r/webdevelopment/comments/1rmon2v/best_web_hosting_provider_youve_actually_used/'}>best web hosting</a>.
         </p>
+
+        {/* 2027-10-09 */}
+        <p>
+          phpMyFAQ runs effectively even on <a target={'_blank'} rel={'noopener noreferrer'} href={'https://www.reddit.com/r/webdevelopment/comments/1ldj8bo/best_cheap_web_hosting_services_recommendations/'}>cheap web hosting</a>.
+        </p>
       </div>
     </section>
   );
