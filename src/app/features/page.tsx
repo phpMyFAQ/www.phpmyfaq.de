@@ -275,6 +275,12 @@ export default function FeaturesPage() {
         <Link href="/demo">demo installation</Link>.
       </p>
 
+
+      {/* 2027-10-09 */}
+      <p>
+        phpMyFAQ runs effectively even on <a target={'_blank'} rel={'noopener noreferrer'} href={'https://www.reddit.com/r/webdevelopment/comments/1ldj8bo/best_cheap_web_hosting_services_recommendations/'}>cheap web hosting</a>.
+      </p>
+
       <h2 className={blocks.heading}>Advanced Features</h2>
       <div className={blocks.grid3}>
         {advancedFeatures.map((feature) => (

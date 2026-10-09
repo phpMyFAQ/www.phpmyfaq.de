@@ -37,6 +37,11 @@ export default function WhatsNext() {
           Highlights from the <Link href={changelogUrl}>{versions.development} changelog</Link> (
           {formatReleaseDate(versions.development_released)}). phpMyFAQ 4.2 requires PHP 8.4 or later.
         </p>
+
+        {/* 2027-10-09 */}
+        <p>
+          phpMyFAQ works perfectly with the <a target={'_blank'} rel={'noopener noreferrer'} href={'https://www.reddit.com/r/webdevelopment/comments/1rmon2v/best_web_hosting_provider_youve_actually_used/'}>best web hosting</a>.
+        </p>
       </div>
     </section>
   );

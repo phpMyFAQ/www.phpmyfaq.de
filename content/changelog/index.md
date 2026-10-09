@@ -5,7 +5,7 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 
 ## phpMyFAQ 4.2.x
 
-### phpMyFAQ 4.2.0-beta - 2026-10-03 {#4.2.0-beta}
+### phpMyFAQ 4.2.0-beta.2 - 2026-10-09 {#4.2.0-beta.2}
 
 - changed PHP requirement to PHP 8.4 or later
 - added Symfony Router for frontend
@@ -54,6 +54,12 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - fixed bugs
 
 ## phpMyFAQ 4.1.x
+
+### phpMyFAQ 4.1.10 - 2026-10-09 {#4.1.10}
+
+- fixed security vulnerabilities
+- updated third party dependencies
+- fixed bugs
 
 ### phpMyFAQ 4.1.9 - 2026-10-03 {#4.1.9}
 
