@@ -40,25 +40,24 @@ const sponsors: Sponsor[] = [
     expires: '2026-12-11',
   },
   {
-    before: 'Schnelle und sichere Zahlungen auch in Online Spielotheken mit',
-    text: 'Jeton Cash Casino',
-    href: 'https://de.handycasinos24.com/zahlungsmethoden/jeton',
-    after: 'Lösungen. Handycasinos24.com für weitere Infos.',
-  },
-  {
     text: 'nettikasinot',
     href: 'http://fi.parhaatuudetkasinot.com/nettikasinot',
+    expires: '2027-05-28',
   },
   {
     text: 'casino recensies',
     href: 'https://nieuwe-casinos.net/casino-reviews',
+    expires: '2027-02-02',
   },
 ];
 
 // The site is statically exported, so "today" is the build date. Rebuilds
 // happen with every release, which is often enough for sponsor expiry.
-export function activeSponsors(today: string = new Date().toISOString().slice(0, 10)): Sponsor[] {
-  return sponsors.filter((sponsor) => !sponsor.expires || sponsor.expires >= today);
+export function activeSponsors(
+  today: string = new Date().toISOString().slice(0, 10),
+  list: Sponsor[] = sponsors,
+): Sponsor[] {
+  return list.filter((sponsor) => !sponsor.expires || sponsor.expires >= today);
 }
 
 export default function Sponsors() {

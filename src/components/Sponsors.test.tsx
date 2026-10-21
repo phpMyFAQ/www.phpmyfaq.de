@@ -14,8 +14,10 @@ describe('activeSponsors', () => {
   });
 
   it('keeps entries without an expiry date', () => {
-    const active = activeSponsors('2099-01-01');
-    expect(active.map((sponsor) => sponsor.href)).toContain('https://nieuwe-casinos.net/casino-reviews');
+    const permanent = { text: 'permanent', href: 'https://example.com/permanent' };
+    const expiring = { text: 'expiring', href: 'https://example.com/expiring', expires: '2026-01-01' };
+    const active = activeSponsors('2099-01-01', [permanent, expiring]);
+    expect(active).toEqual([permanent]);
   });
 });
 
