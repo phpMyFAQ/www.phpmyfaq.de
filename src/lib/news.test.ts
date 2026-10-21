@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { parseNewsFile, getRecentNews, getNewsYears } from './news';
+import { parseNewsFile, getRecentNews, getNewsYears, getCurrentSecurityNotice } from './news';
 import fs from 'fs';
 import path from 'path';
 
@@ -293,5 +293,39 @@ describe('getNewsYears', () => {
     vi.spyOn(fs, 'readdirSync').mockReturnValue(['2024.md', 'index.md', '2026.md', '2025.md'] as never);
 
     expect(getNewsYears()).toEqual(['2026', '2025', '2024']);
+  });
+});
+describe('getCurrentSecurityNotice', () => {
+  const mockContent = `### 2026-10-21
+
+**Security notice:** Update PHP now.
+
+### 2026-10-09
+
+The phpMyFAQ Team is pleased to announce phpMyFAQ 4.1.10.
+`;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.spyOn(path, 'join').mockImplementation((...parts: string[]) => parts.join('/'));
+    vi.spyOn(fs, 'existsSync').mockImplementation((file) => String(file).endsWith('2026.md'));
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(mockContent);
+  });
+
+  it('returns a recent security notice', () => {
+    expect(getCurrentSecurityNotice(new Date('2026-10-25'))).toEqual({
+      date: '2026-10-21',
+      content: '**Security notice:** Update PHP now.',
+    });
+  });
+
+  it('ignores a security notice older than the age limit', () => {
+    expect(getCurrentSecurityNotice(new Date('2026-12-01'))).toBeUndefined();
+  });
+
+  it('ignores regular news entries', () => {
+    vi.spyOn(fs, 'readFileSync').mockReturnValue('### 2026-10-09\n\nReleased.\n');
+
+    expect(getCurrentSecurityNotice(new Date('2026-10-10'))).toBeUndefined();
   });
 });

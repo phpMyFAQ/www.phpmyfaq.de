@@ -17,8 +17,8 @@ export default function Home() {
       <TrustStrip />
       <Showcase />
       <Highlights />
-      <WhatsNext />
       <RecentNews />
+      <WhatsNext />
       <Sponsors />
     </>
   );

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import CopyCommand from './CopyCommand';
 import { formatReleaseDate, isDevelopmentAhead, requireVersions } from '@/lib/data';
 import { phpRequirementFor } from '@/data/security';
+import { getCurrentSecurityNotice } from '@/lib/news';
 
 // "4.1.9" -> "4.1": the headline names the release line, the exact version
 // goes in the release note below the buttons.
@@ -11,6 +12,7 @@ export default function Hero() {
   const versions = requireVersions();
   const showDevelopment = isDevelopmentAhead(versions.development, versions.stable);
   const php = phpRequirementFor(versions.stable);
+  const notice = getCurrentSecurityNotice();
 
   return (
     <section className="promo">
@@ -18,6 +20,13 @@ export default function Hero() {
         <h1 className="title">
           phpMy<span className="highlight">FAQ</span> {releaseLine(versions.stable)}
         </h1>
+
+        {notice && (
+          <p className="security-notice" role="note">
+            <strong>Security notice</strong> ({formatReleaseDate(notice.date)}):{' '}
+            <Link href={`/news/${notice.date.slice(0, 4)}/#${notice.date}`}>Read the details &rarr;</Link>
+          </p>
+        )}
 
         <p className="intro">
           A mobile-friendly, feature-rich, AI-ready open source FAQ web app for PHP {php}. Free since 2001.

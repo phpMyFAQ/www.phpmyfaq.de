@@ -97,3 +97,16 @@ export function getRecentNews(limit: number = 6): NewsItem[] {
   // Return only the requested number of entries
   return allNews.slice(0, limit);
 }
+// Entries that open with this marker are surfaced in the hero while they are recent.
+const SECURITY_NOTICE = /^\*\*Security notice:\*\*/;
+
+/**
+ * Get the newest security notice published within the last maxAgeDays, if any.
+ * The site is exported statically, so "now" is the build time.
+ */
+export function getCurrentSecurityNotice(now: Date = new Date(), maxAgeDays: number = 30): NewsItem | undefined {
+  const cutoff: number = now.getTime() - maxAgeDays * 24 * 60 * 60 * 1000;
+  return getRecentNews(6).find(
+    (item) => SECURITY_NOTICE.test(item.content) && new Date(item.date).getTime() >= cutoff,
+  );
+}
