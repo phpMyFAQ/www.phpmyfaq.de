@@ -5,7 +5,7 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 
 ## phpMyFAQ 4.2.x
 
-### phpMyFAQ 4.2.0-beta.3 - 2026-10-21 {#4.2.0-beta.3}
+### phpMyFAQ 4.2.0-RC.1 - 2026-11-01 {#4.2.0-RC.1}
 
 - changed PHP requirement to PHP 8.4 or later
 - added Symfony Router for frontend
@@ -32,7 +32,12 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - added an editorial workflow with per-language draft, review, and published states for FAQs
 - added question metadata tracking, an audit log of the open question lifecycle (submitted, answered, reopened)
 - added support for generic OpenID Connect providers such as Authentik
-  added the "Force layout mode" configuration, which renders one mode for all visitors and skips the inline theme script and the theme switcher
+- added the "Force layout mode" configuration, which renders one mode for all visitors and skips the inline theme script and the theme switcher
+- added experimental FrankenPHP worker mode, enabled with `FRANKENPHP_WORKER_MODE=true` in the Docker images
+- added the command line tools (`bin/console`, `bin/worker.php`, `bin/scheduler.php`) to the release packages and the Docker images
+- added table of contents plugin in WYSIWYG editor
+- added resizing of uploaded videos in WYSIWYG editor
+- added embedded videos from allowed media hosts like YouTube and Vimeo in FAQs, news, and custom pages
 - improved audit and activity log with comprehensive security event tracking
 - improved API errors with formatted RFC 7807 Problem Details JSON responses
 - improved support for PDO
@@ -41,6 +46,8 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - improved and hardened multi tenancy support
 - improved and redesigned searchable admin configuration frontend
 - improved package size by removing unused dependencies
+- changed the REST API documentation to OpenAPI 3.1 and documented the `Accept-Language` and `x-pmf-token` request headers as header parameters
+- updated all translations
 - updated to PHPUnit v13
 - migrated codebase using PHP 8.4 language features
 - migrated routes using PHP 8+ #[Route] attributes
@@ -52,7 +59,6 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - upgraded PDF engine to TCPDF 7 / tc-lib-pdf; PDF fonts are now JSON descriptors in src/fonts
 - fixed security vulnerabilities
 - updated third party dependencies
-- fixed security vulnerabilities
 - fixed bugs
 
 ## phpMyFAQ 4.1.x

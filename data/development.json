@@ -1,11 +1,11 @@
 {
-  "version": "4.2.0-beta.3",
+  "version": "4.2.0-RC.1",
   "zip": {
-    "filesize": 27.99,
-    "md5": "065a8a22957f2b7003864cfe496f8a36"
+    "filesize": 28.54,
+    "md5": "636af8e54ac0f91b6f612058cab9cba2"
   },
   "targz": {
-    "filesize": 22.43,
-    "md5": "124bdc0bda2096cc366a25283f6eb020"
+    "filesize": 22.95,
+    "md5": "05d14679efc8ecd36b9c822ea15f49dd"
   }
 }
