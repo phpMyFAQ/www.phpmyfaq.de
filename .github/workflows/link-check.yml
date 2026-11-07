@@ -40,10 +40,14 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # Only outbound links: the e2e suite already covers internal ones.
+          # Root-relative links like `/download/` are resolved against the
+          # production host via --base-url so the exclude below drops them;
+          # without it lychee reports every one of them as an error.
           # 403 and 429 are accepted because many sites answer bots that way;
           # a dead host or a 404 still counts as broken.
           args: >-
             --no-progress
+            --base-url https://www.phpmyfaq.de
             --scheme https --scheme http
             --exclude '^https?://(www\.)?phpmyfaq\.de'
             --exclude '^https?://localhost'
@@ -57,6 +61,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Find the existing issue
+        if: steps.lychee.outputs.exit_code != 0
+        id: existing
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          number=$(gh issue list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --label automated \
+            --search 'in:title "Broken external links"' \
+            --json number \
+            --jq '.[0].number // empty')
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
       - name: Open or update the issue
         if: steps.lychee.outputs.exit_code != 0
         uses: peter-evans/create-issue-from-file@v6
@@ -64,3 +83,4 @@ jobs:
           title: 'Broken external links'
           content-filepath: lychee-report.md
           labels: content, automated
+          issue-number: ${{ steps.existing.outputs.number }}
