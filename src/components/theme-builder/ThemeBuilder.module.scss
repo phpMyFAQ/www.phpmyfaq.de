@@ -1,0 +1,288 @@
+.layout {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr);
+
+  @media (min-width: 1024px) {
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.panel {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  padding: 1.25rem;
+}
+
+.stack {
+  margin-top: 1.5rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+
+  button {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg);
+    font-weight: 600;
+
+    &[aria-selected='true'] {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #ffffff;
+    }
+  }
+}
+
+.field {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fieldLabel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.35rem;
+
+  small {
+    color: var(--color-text-muted);
+  }
+}
+
+.fieldInputs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  input[type='color'] {
+    width: 2.5rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: none;
+  }
+}
+
+.hexInput {
+  width: 7.5rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  &[aria-invalid='true'] {
+    border-color: #c62828;
+  }
+}
+
+.fieldHint {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  color: #c62828;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--color-primary-dark);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.buttonSecondary {
+  background: var(--color-bg);
+  color: var(--color-primary-text);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--color-bg-secondary);
+  }
+}
+
+.report {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+.pass {
+  color: #1b7f3b;
+  font-weight: 600;
+}
+
+.fail {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.cssOutput {
+  width: 100%;
+  min-height: 14rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  resize: vertical;
+}
+
+// Preview mock. Everything below is painted only with --bs-* variables set by
+// the generated CSS, so what the visitor sees is what their FAQ will get.
+.preview {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bs-pmf-background);
+  color: var(--bs-body-color);
+  font-family: system-ui, sans-serif;
+}
+
+.previewNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--bs-pmf-nav);
+  color: var(--bs-light);
+  font-weight: 700;
+
+  a {
+    color: var(--bs-light);
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 400;
+  }
+}
+
+.previewBody {
+  margin: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+
+  h2 {
+    margin-top: 0;
+  }
+
+  a {
+    color: var(--bs-link-color, var(--bs-primary));
+
+    &:hover {
+      color: var(--bs-link-hover-color, var(--bs-primary));
+    }
+  }
+}
+
+.previewSearch {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 6px;
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+  }
+}
+
+.previewCard {
+  padding: 1rem;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.previewButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.previewSearch button,
+.previewButtons button {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btnPrimary {
+  background: var(--bs-primary);
+}
+
+.btnSecondary {
+  background: var(--bs-secondary);
+}
+
+.btnSuccess {
+  background: var(--bs-success);
+}
+
+.btnDanger {
+  background: var(--bs-danger);
+}
+
+.btnWarning {
+  background: var(--bs-warning);
+  color: #000000 !important;
+}
+
+.btnInfo {
+  background: var(--bs-info);
+}
+
+.previewAlert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: var(--bs-info);
+  color: #ffffff;
+}
+
+.previewFooter {
+  padding: 1rem;
+  background: var(--bs-pmf-footer);
+  color: var(--bs-light);
+  font-size: 0.875rem;
+}

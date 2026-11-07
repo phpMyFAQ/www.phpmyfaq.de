@@ -1,0 +1,64 @@
+'use client';
+
+import { useEffect, useId, useState } from 'react';
+import { isHexColor, type TokenDefinition } from '@/lib/themeBuilder/tokens';
+import styles from './ThemeBuilder.module.scss';
+
+export interface ColorFieldProps {
+  token: TokenDefinition;
+  value: string | undefined;
+  onChange: (value: string) => void;
+}
+
+// One colour token: a native colour picker and a hex text field kept in sync.
+// Only a complete #rrggbb value is committed; while the text is invalid the
+// previous colour stays active and the field is marked invalid.
+export default function ColorField({ token, value, onChange }: ColorFieldProps) {
+  const hintId = useId();
+  const [text, setText] = useState(value ?? '');
+  const invalid = text !== '' && !isHexColor(text);
+
+  useEffect(() => {
+    setText(value ?? '');
+  }, [value]);
+
+  const commit = (next: string) => {
+    setText(next);
+    if (isHexColor(next)) {
+      onChange(next.toLowerCase());
+    }
+  };
+
+  return (
+    <div className={styles.field}>
+      <label className={styles.fieldLabel}>
+        <span>{token.label}</span>
+        <small>{token.description}</small>
+      </label>
+      <div className={styles.fieldInputs}>
+        <input
+          type="color"
+          aria-label={`${token.label} picker`}
+          value={value ?? '#000000'}
+          onChange={(event) => commit(event.target.value)}
+        />
+        <input
+          type="text"
+          aria-label={`${token.label} hex value`}
+          aria-invalid={invalid ? 'true' : undefined}
+          aria-describedby={invalid ? hintId : undefined}
+          className={styles.hexInput}
+          value={text}
+          maxLength={7}
+          spellCheck={false}
+          onChange={(event) => commit(event.target.value)}
+        />
+      </div>
+      {invalid && (
+        <p id={hintId} className={styles.fieldHint}>
+          Use a six-digit hex colour like #083c83
+        </p>
+      )}
+    </div>
+  );
+}
