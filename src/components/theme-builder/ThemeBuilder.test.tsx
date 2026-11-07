@@ -75,6 +75,21 @@ describe('ThemeBuilder', () => {
     expect(screen.getByLabelText('Danger hex value')).toHaveValue('#f01704');
   });
 
+  it('keeps the theme and URL when a mock link in the preview is clicked', () => {
+    render(<ThemeBuilder />);
+    fireEvent.change(screen.getByLabelText('Danger hex value'), { target: { value: '#aa0000' } });
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    const hash = window.location.hash;
+    expect(hash).toMatch(/^#v1\./);
+    fireEvent.click(screen.getByText('Categories'));
+    fireEvent.click(screen.getByText('How do I reset my password?'));
+    expect(screen.getByTestId('theme-preview').querySelectorAll('a')).toHaveLength(0);
+    expect(window.location.hash).toBe(hash);
+    expect(screen.getByLabelText('Danger hex value')).toHaveValue('#aa0000');
+  });
+
   it('follows a hashchange from outside', () => {
     render(<ThemeBuilder />);
     const theme = cloneTheme(DEFAULT_THEME);

@@ -8,6 +8,8 @@ const PREVIEW_ID = 'pmf-theme-preview';
 
 // A static mock of a phpMyFAQ start page. The generated CSS is attached to the
 // preview element rather than :root so the builder page itself stays untouched.
+// Links are rendered as spans: real anchors would change the URL hash, which
+// carries the theme state, and there is nothing to navigate to anyway.
 export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode: Mode }) {
   return (
     <>
@@ -21,11 +23,11 @@ export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode:
       >
         <div className={styles.previewNav}>
           <span>My FAQ</span>
-          <nav aria-label="Preview navigation">
-            <a href="#preview">Categories</a>
-            <a href="#preview">Add question</a>
-            <a href="#preview">Login</a>
-          </nav>
+          <span className={styles.previewNavLinks}>
+            <span className={styles.previewLink}>Categories</span>
+            <span className={styles.previewLink}>Add question</span>
+            <span className={styles.previewLink}>Login</span>
+          </span>
         </div>
         <div className={styles.previewBody}>
           <h2>Welcome to the FAQ</h2>
@@ -37,7 +39,7 @@ export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode:
           </div>
           <article className={styles.previewCard}>
             <h3>
-              <a href="#preview">How do I reset my password?</a>
+              <span className={styles.previewLink}>How do I reset my password?</span>
             </h3>
             <p>Use the "Forgot password" link on the login page and follow the email instructions.</p>
           </article>
@@ -67,6 +69,7 @@ export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode:
         </div>
         <div className={styles.previewFooter}>powered by phpMyFAQ 4.2</div>
       </div>
+      <p className={styles.previewNote}>Preview only: the links and buttons do nothing.</p>
     </>
   );
 }

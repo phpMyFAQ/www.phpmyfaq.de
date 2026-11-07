@@ -185,12 +185,22 @@
   color: var(--bs-light);
   font-weight: 700;
 
-  a {
+  .previewLink {
     color: var(--bs-light);
-    text-decoration: none;
     margin-left: 1rem;
     font-weight: 400;
   }
+}
+
+.previewLink {
+  text-decoration: underline;
+  cursor: default;
+}
+
+.previewNote {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
 }
 
 .previewBody {
@@ -204,7 +214,7 @@
     margin-top: 0;
   }
 
-  a {
+  .previewLink {
     color: var(--bs-link-color, var(--bs-primary));
 
     &:hover {
