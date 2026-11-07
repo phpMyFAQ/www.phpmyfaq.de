@@ -106,5 +106,7 @@ const SECURITY_NOTICE = /^\*\*Security notice:\*\*/;
  */
 export function getCurrentSecurityNotice(now: Date = new Date(), maxAgeDays: number = 30): NewsItem | undefined {
   const cutoff: number = now.getTime() - maxAgeDays * 24 * 60 * 60 * 1000;
-  return getRecentNews(6).find((item) => SECURITY_NOTICE.test(item.content) && new Date(item.date).getTime() >= cutoff);
+  return getRecentNews(6).find(
+    (item) => SECURITY_NOTICE.test(item.content) && new Date(item.date).getTime() >= cutoff,
+  );
 }

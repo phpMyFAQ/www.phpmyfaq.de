@@ -19,13 +19,24 @@ test.describe('Theme builder', () => {
     expect(download.suggestedFilename()).toBe('theme.css');
   });
 
-  test('restores a shared theme from the URL and resets', async ({ page }) => {
+  test('restores a shared theme from the URL without a hydration error and resets', async ({ page, context }) => {
     await page.goto('/theme-builder/');
     await page.getByLabel('Danger hex value').fill('#aa0000');
+    // The URL is written debounced.
+    await expect(page).toHaveURL(/#v1\./);
     const url = page.url();
-    await page.goto(url);
-    await expect(page.getByLabel('Danger hex value')).toHaveValue('#aa0000');
-    await page.getByRole('button', { name: 'Reset to phpMyFAQ defaults' }).click();
-    await expect(page.getByLabel('Danger hex value')).toHaveValue('#f01704');
+
+    // A fresh page is a real document load; goto() on the same URL would only
+    // be a fragment navigation served from the in-memory state.
+    const shared = await context.newPage();
+    const pageErrors: string[] = [];
+    shared.on('pageerror', (error) => pageErrors.push(error.message));
+    await shared.goto(url);
+    await expect(shared.getByLabel('Danger hex value')).toHaveValue('#aa0000');
+    expect(pageErrors).toEqual([]);
+
+    await shared.getByRole('button', { name: 'Reset to phpMyFAQ defaults' }).click();
+    await expect(shared.getByLabel('Danger hex value')).toHaveValue('#f01704');
+    await expect(shared).toHaveURL(/\/theme-builder\/$/);
   });
 });
