@@ -29,7 +29,7 @@ export default function ThemeBuilderPage() {
         <li>
           Copy the CSS into Admin → Configuration → Layout → Custom CSS, or download <code>theme.css</code> for a copied
           template set as described in the{' '}
-          <a href="https://docs.phpmyfaq.de/development.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://phpmyfaq.readthedocs.io/en/main/development/" target="_blank" rel="noopener noreferrer">
             developer documentation
           </a>
           .
