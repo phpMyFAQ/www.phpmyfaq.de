@@ -36,6 +36,9 @@ export default function Footer() {
                 <li>
                   <Link href="/translations">Translations</Link>
                 </li>
+                <li>
+                  <Link href="/theme-builder">Theme Builder</Link>
+                </li>
               </ul>
             </div>
             <div>

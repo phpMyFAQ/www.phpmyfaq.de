@@ -13,14 +13,14 @@ describe('ColorField', () => {
   });
 
   it('commits a valid hex value typed into the text field', () => {
-    const onChange = vi.fn();
+    const onChange = vi.fn<(value: string) => void>();
     render(<ColorField token={primary} value="#083c83" onChange={onChange} />);
     fireEvent.change(screen.getByLabelText('Primary hex value'), { target: { value: '#FF6600' } });
     expect(onChange).toHaveBeenCalledWith('#ff6600');
   });
 
   it('rejects short hex and rgb() input and marks the field invalid', () => {
-    const onChange = vi.fn();
+    const onChange = vi.fn<(value: string) => void>();
     render(<ColorField token={primary} value="#083c83" onChange={onChange} />);
     const text = screen.getByLabelText('Primary hex value');
     fireEvent.change(text, { target: { value: '#abc' } });
@@ -31,7 +31,7 @@ describe('ColorField', () => {
   });
 
   it('commits the colour picker value', () => {
-    const onChange = vi.fn();
+    const onChange = vi.fn<(value: string) => void>();
     render(<ColorField token={primary} value="#083c83" onChange={onChange} />);
     fireEvent.change(screen.getByLabelText('Primary picker'), { target: { value: '#112233' } });
     expect(onChange).toHaveBeenCalledWith('#112233');

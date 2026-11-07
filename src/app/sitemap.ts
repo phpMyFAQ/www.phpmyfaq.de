@@ -22,6 +22,7 @@ const staticPages: Entry[] = [
   { path: '/security/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/advisories/', priority: 0.6, changeFrequency: 'weekly' },
   { path: '/translations/', priority: 0.5, changeFrequency: 'monthly' },
+  { path: '/theme-builder/', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/references/', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/sovereignty/', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/souveraenitaet/', priority: 0.5, changeFrequency: 'monthly' },

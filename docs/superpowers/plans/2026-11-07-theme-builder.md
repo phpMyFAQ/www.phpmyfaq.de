@@ -33,42 +33,70 @@
 
 ## File Structure
 
-| Path | Responsibility |
-| --- | --- |
-| `src/lib/themeBuilder/tokens.ts` | Types, mode list, token list, default values, contrast pair list |
-| `src/lib/themeBuilder/generateCss.ts` | `ThemeState` → CSS string (custom-CSS variant, theme.css variant) |
-| `src/lib/themeBuilder/contrast.ts` | Hex parsing, relative luminance, contrast ratio, report |
-| `src/lib/themeBuilder/serialize.ts` | `ThemeState` ↔ URL-hash string |
-| `src/components/theme-builder/ThemeBuilder.tsx` | Client root: state, mode tabs, layout |
-| `src/components/theme-builder/ColorField.tsx` | One token: colour picker + hex text input |
-| `src/components/theme-builder/ThemePreview.tsx` | Static phpMyFAQ mock styled by generated CSS |
-| `src/components/theme-builder/ContrastReport.tsx` | List of pairs with ratio and pass/fail |
-| `src/components/theme-builder/ExportPanel.tsx` | Copy custom CSS, download theme.css |
-| `src/components/theme-builder/ThemeBuilder.module.scss` | Styles for all of the above |
-| `src/app/theme-builder/page.tsx` | Route, metadata, intro text |
-| `src/app/sitemap.ts`, `src/components/Footer.tsx`, `tests/e2e/*.spec.ts`, `README.md` | Wiring |
+| Path                                                                                  | Responsibility                                                    |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `src/lib/themeBuilder/tokens.ts`                                                      | Types, mode list, token list, default values, contrast pair list  |
+| `src/lib/themeBuilder/generateCss.ts`                                                 | `ThemeState` → CSS string (custom-CSS variant, theme.css variant) |
+| `src/lib/themeBuilder/contrast.ts`                                                    | Hex parsing, relative luminance, contrast ratio, report           |
+| `src/lib/themeBuilder/serialize.ts`                                                   | `ThemeState` ↔ URL-hash string                                    |
+| `src/components/theme-builder/ThemeBuilder.tsx`                                       | Client root: state, mode tabs, layout                             |
+| `src/components/theme-builder/ColorField.tsx`                                         | One token: colour picker + hex text input                         |
+| `src/components/theme-builder/ThemePreview.tsx`                                       | Static phpMyFAQ mock styled by generated CSS                      |
+| `src/components/theme-builder/ContrastReport.tsx`                                     | List of pairs with ratio and pass/fail                            |
+| `src/components/theme-builder/ExportPanel.tsx`                                        | Copy custom CSS, download theme.css                               |
+| `src/components/theme-builder/ThemeBuilder.module.scss`                               | Styles for all of the above                                       |
+| `src/app/theme-builder/page.tsx`                                                      | Route, metadata, intro text                                       |
+| `src/app/sitemap.ts`, `src/components/Footer.tsx`, `tests/e2e/*.spec.ts`, `README.md` | Wiring                                                            |
 
 ---
 
 ### Task 1: Tokens and defaults
 
 **Files:**
+
 - Create: `src/lib/themeBuilder/tokens.ts`
 - Test: `src/lib/themeBuilder/tokens.test.ts`
 
 **Interfaces:**
+
 - Produces:
+
   ```ts
   export type Mode = 'light' | 'dark' | 'high-contrast';
   export const MODES: readonly Mode[];
   export const MODE_LABELS: Record<Mode, string>;
-  export type TokenName = '--bs-light' | '--bs-dark' | '--bs-primary' | '--bs-secondary' | '--bs-info' | '--bs-success' | '--bs-warning' | '--bs-danger' | '--bs-pmf-nav' | '--bs-pmf-footer' | '--bs-pmf-background' | '--bs-body-bg' | '--bs-body-color' | '--bs-border-color' | '--bs-link-color' | '--bs-link-hover-color';
-  export interface TokenDefinition { name: TokenName; label: string; description: string; }
-  export const TOKENS: readonly TokenDefinition[];        // display order
+  export type TokenName =
+    | '--bs-light'
+    | '--bs-dark'
+    | '--bs-primary'
+    | '--bs-secondary'
+    | '--bs-info'
+    | '--bs-success'
+    | '--bs-warning'
+    | '--bs-danger'
+    | '--bs-pmf-nav'
+    | '--bs-pmf-footer'
+    | '--bs-pmf-background'
+    | '--bs-body-bg'
+    | '--bs-body-color'
+    | '--bs-border-color'
+    | '--bs-link-color'
+    | '--bs-link-hover-color';
+  export interface TokenDefinition {
+    name: TokenName;
+    label: string;
+    description: string;
+  }
+  export const TOKENS: readonly TokenDefinition[]; // display order
   export type ModeTokens = Partial<Record<TokenName, string>>;
   export type ThemeState = Record<Mode, ModeTokens>;
   export const DEFAULT_THEME: ThemeState;
-  export interface ContrastPair { id: string; label: string; foreground: TokenName | '#ffffff' | '#000000'; background: TokenName; }
+  export interface ContrastPair {
+    id: string;
+    label: string;
+    foreground: TokenName | '#ffffff' | '#000000';
+    background: TokenName;
+  }
   export const CONTRAST_PAIRS: readonly ContrastPair[];
   export const HEX_COLOR = /^#[0-9a-f]{6}$/i;
   export function isHexColor(value: string): boolean;
@@ -266,7 +294,12 @@ export const CONTRAST_PAIRS: readonly ContrastPair[] = [
   { id: 'success', label: 'White on success', foreground: '#ffffff', background: '--bs-success' },
   { id: 'danger', label: 'White on danger', foreground: '#ffffff', background: '--bs-danger' },
   { id: 'warning', label: 'Black on warning', foreground: '#000000', background: '--bs-warning' },
-  { id: 'primary-text', label: 'Primary as text on body background', foreground: '--bs-primary', background: '--bs-body-bg' },
+  {
+    id: 'primary-text',
+    label: 'Primary as text on body background',
+    foreground: '--bs-primary',
+    background: '--bs-body-bg',
+  },
 ];
 
 export const HEX_COLOR = /^#[0-9a-f]{6}$/i;
@@ -301,15 +334,18 @@ git commit -m "feat(theme-builder): add phpMyFAQ 4.2 colour tokens and defaults"
 ### Task 2: CSS generation
 
 **Files:**
+
 - Create: `src/lib/themeBuilder/generateCss.ts`
 - Test: `src/lib/themeBuilder/generateCss.test.ts`
 
 **Interfaces:**
+
 - Consumes: `ThemeState`, `MODES`, `DEFAULT_THEME` from Task 1.
 - Produces:
+
   ```ts
-  export function generateCustomCss(theme: ThemeState): string;   // three variable blocks only
-  export function generateThemeCss(theme: ThemeState): string;    // full theme.css replacement
+  export function generateCustomCss(theme: ThemeState): string; // three variable blocks only
+  export function generateThemeCss(theme: ThemeState): string; // full theme.css replacement
   export function generatePreviewCss(theme: ThemeState, scopeSelector: string): string; // blocks scoped under a selector
   ```
 
@@ -364,7 +400,9 @@ describe('generateThemeCss', () => {
     expect(css).toContain('phpMyFAQ 4.2 theme generated by https://www.phpmyfaq.de/theme-builder/');
     expect(css).toContain("font-family: 'Atkinson Hyperlegible Next';");
     expect(css).toContain("url('../../fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf')");
-    expect(css).toContain("[data-bs-theme='high-contrast'] body {\n  font-family: 'Atkinson Hyperlegible Next' !important;");
+    expect(css).toContain(
+      "[data-bs-theme='high-contrast'] body {\n  font-family: 'Atkinson Hyperlegible Next' !important;",
+    );
     expect(css).toContain(EXPECTED_LIGHT_BLOCK);
   });
 });
@@ -480,16 +518,27 @@ git commit -m "feat(theme-builder): generate custom CSS and theme.css from token
 ### Task 3: Contrast maths and report
 
 **Files:**
+
 - Create: `src/lib/themeBuilder/contrast.ts`
 - Test: `src/lib/themeBuilder/contrast.test.ts`
 
 **Interfaces:**
+
 - Consumes: `CONTRAST_PAIRS`, `ThemeState`, `Mode`, `TokenName` from Task 1.
 - Produces:
+
   ```ts
   export function contrastRatio(foregroundHex: string, backgroundHex: string): number;
   export function requiredRatio(mode: Mode): number; // 4.5 or 7
-  export interface ContrastResult { id: string; label: string; foreground: string; background: string; ratio: number; required: number; passes: boolean; }
+  export interface ContrastResult {
+    id: string;
+    label: string;
+    foreground: string;
+    background: string;
+    ratio: number;
+    required: number;
+    passes: boolean;
+  }
   export function contrastReport(theme: ThemeState, mode: Mode): ContrastResult[];
   ```
 
@@ -604,7 +653,15 @@ export function contrastReport(theme: ThemeState, mode: Mode): ContrastResult[] 
       continue;
     }
     const ratio = contrastRatio(foreground, background);
-    results.push({ id: pair.id, label: pair.label, foreground, background, ratio, required, passes: ratio >= required });
+    results.push({
+      id: pair.id,
+      label: pair.label,
+      foreground,
+      background,
+      ratio,
+      required,
+      passes: ratio >= required,
+    });
   }
   return results;
 }
@@ -627,15 +684,17 @@ git commit -m "feat(theme-builder): add WCAG contrast report"
 ### Task 4: URL hash serialisation
 
 **Files:**
+
 - Create: `src/lib/themeBuilder/serialize.ts`
 - Test: `src/lib/themeBuilder/serialize.test.ts`
 
 **Interfaces:**
+
 - Consumes: `ThemeState`, `DEFAULT_THEME`, `MODES`, `TOKENS`, `isHexColor`, `cloneTheme` from Task 1.
 - Produces:
   ```ts
-  export function encodeTheme(theme: ThemeState): string;              // hash payload without '#'
-  export function decodeTheme(payload: string): ThemeState;            // defaults merged with valid known values
+  export function encodeTheme(theme: ThemeState): string; // hash payload without '#'
+  export function decodeTheme(payload: string): ThemeState; // defaults merged with valid known values
   ```
 
 Format: `v1.` followed by base64url of JSON `{ light: {...}, dark: {...}, "high-contrast": {...} }` containing only values that differ from the defaults. Unknown keys and invalid colours are dropped. Any parse failure returns a clone of `DEFAULT_THEME`.
@@ -669,7 +728,9 @@ describe('theme serialisation', () => {
   });
 
   it('drops unknown tokens and invalid colours', () => {
-    const json = JSON.stringify({ light: { '--bs-primary': '#123456', '--bs-future': '#000000', '--bs-danger': 'red' } });
+    const json = JSON.stringify({
+      light: { '--bs-primary': '#123456', '--bs-future': '#000000', '--bs-danger': 'red' },
+    });
     const payload = 'v1.' + Buffer.from(json).toString('base64url');
     const theme = decodeTheme(payload);
     expect(theme.light['--bs-primary']).toBe('#123456');
@@ -766,17 +827,25 @@ git commit -m "feat(theme-builder): encode theme state in the URL hash"
 ### Task 5: ColorField component
 
 **Files:**
+
 - Create: `src/components/theme-builder/ColorField.tsx`
 - Create: `src/components/theme-builder/ThemeBuilder.module.scss`
 - Test: `src/components/theme-builder/ColorField.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `TokenDefinition`, `isHexColor` from Task 1.
 - Produces:
+
   ```tsx
-  export interface ColorFieldProps { token: TokenDefinition; value: string | undefined; onChange: (value: string) => void; }
+  export interface ColorFieldProps {
+    token: TokenDefinition;
+    value: string | undefined;
+    onChange: (value: string) => void;
+  }
   export default function ColorField(props: ColorFieldProps): JSX.Element;
   ```
+
   Renders a `<label>` with the token label, an `<input type="color">` (aria-label `${label} picker`) and an `<input type="text">` (aria-label `${label} hex value`). Text input commits only valid `#rrggbb`; invalid text sets `aria-invalid="true"` and a visible hint "Use a six-digit hex colour like #083c83".
 
 - [ ] **Step 1: Write the failing test**
@@ -1146,12 +1215,25 @@ export default function ColorField({ token, value, onChange }: ColorFieldProps) 
   }
 }
 
-.btnPrimary { background: var(--bs-primary); }
-.btnSecondary { background: var(--bs-secondary); }
-.btnSuccess { background: var(--bs-success); }
-.btnDanger { background: var(--bs-danger); }
-.btnWarning { background: var(--bs-warning); color: #000000 !important; }
-.btnInfo { background: var(--bs-info); }
+.btnPrimary {
+  background: var(--bs-primary);
+}
+.btnSecondary {
+  background: var(--bs-secondary);
+}
+.btnSuccess {
+  background: var(--bs-success);
+}
+.btnDanger {
+  background: var(--bs-danger);
+}
+.btnWarning {
+  background: var(--bs-warning);
+  color: #000000 !important;
+}
+.btnInfo {
+  background: var(--bs-info);
+}
 
 .previewAlert {
   padding: 0.75rem 1rem;
@@ -1185,14 +1267,17 @@ git commit -m "feat(theme-builder): add colour field with hex validation"
 ### Task 6: ThemePreview and ContrastReport components
 
 **Files:**
+
 - Create: `src/components/theme-builder/ThemePreview.tsx`
 - Create: `src/components/theme-builder/ContrastReport.tsx`
 - Test: `src/components/theme-builder/ThemePreview.test.tsx`
 - Test: `src/components/theme-builder/ContrastReport.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `generatePreviewCss` (Task 2), `contrastReport`, `ContrastResult` (Task 3), `ThemeState`, `Mode` (Task 1).
 - Produces:
+
   ```tsx
   export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode: Mode }): JSX.Element;
   // Renders <style> with generatePreviewCss(theme, '#pmf-theme-preview') and a <div id="pmf-theme-preview" data-bs-theme={mode} data-testid="theme-preview">.
@@ -1279,7 +1364,13 @@ export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode:
   return (
     <>
       <style>{generatePreviewCss(theme, `#${PREVIEW_ID}`)}</style>
-      <div id={PREVIEW_ID} data-bs-theme={mode} data-testid="theme-preview" className={styles.preview} aria-label="Theme preview">
+      <div
+        id={PREVIEW_ID}
+        data-bs-theme={mode}
+        data-testid="theme-preview"
+        className={styles.preview}
+        aria-label="Theme preview"
+      >
         <div className={styles.previewNav}>
           <span>My FAQ</span>
           <nav aria-label="Preview navigation">
@@ -1292,7 +1383,9 @@ export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode:
           <h2>Welcome to the FAQ</h2>
           <div className={styles.previewSearch}>
             <input type="search" aria-label="Preview search" placeholder="Search the FAQ" readOnly />
-            <button type="button" className={styles.btnPrimary}>Search</button>
+            <button type="button" className={styles.btnPrimary}>
+              Search
+            </button>
           </div>
           <article className={styles.previewCard}>
             <h3>
@@ -1301,12 +1394,24 @@ export default function ThemePreview({ theme, mode }: { theme: ThemeState; mode:
             <p>Use the "Forgot password" link on the login page and follow the email instructions.</p>
           </article>
           <div className={styles.previewButtons}>
-            <button type="button" className={styles.btnPrimary}>Primary</button>
-            <button type="button" className={styles.btnSecondary}>Secondary</button>
-            <button type="button" className={styles.btnSuccess}>Success</button>
-            <button type="button" className={styles.btnInfo}>Info</button>
-            <button type="button" className={styles.btnWarning}>Warning</button>
-            <button type="button" className={styles.btnDanger}>Danger</button>
+            <button type="button" className={styles.btnPrimary}>
+              Primary
+            </button>
+            <button type="button" className={styles.btnSecondary}>
+              Secondary
+            </button>
+            <button type="button" className={styles.btnSuccess}>
+              Success
+            </button>
+            <button type="button" className={styles.btnInfo}>
+              Info
+            </button>
+            <button type="button" className={styles.btnWarning}>
+              Warning
+            </button>
+            <button type="button" className={styles.btnDanger}>
+              Danger
+            </button>
           </div>
           <div className={styles.previewAlert} role="note">
             This FAQ was updated yesterday.
@@ -1366,12 +1471,15 @@ git commit -m "feat(theme-builder): add scoped preview and contrast report"
 ### Task 7: ExportPanel component
 
 **Files:**
+
 - Create: `src/components/theme-builder/ExportPanel.tsx`
 - Test: `src/components/theme-builder/ExportPanel.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `generateCustomCss`, `generateThemeCss` (Task 2), `ThemeState` (Task 1).
 - Produces:
+
   ```tsx
   export default function ExportPanel({ theme }: { theme: ThemeState }): JSX.Element;
   // Readonly <textarea aria-label="Custom CSS"> with generateCustomCss(theme);
@@ -1491,8 +1599,8 @@ export default function ExportPanel({ theme }: { theme: ThemeState }) {
     <div className={styles.panel}>
       <h2>Export</h2>
       <p>
-        Paste the CSS below into <strong>Admin → Configuration → Layout → Custom CSS</strong>. No file access
-        needed, works on every phpMyFAQ 4.2 installation.
+        Paste the CSS below into <strong>Admin → Configuration → Layout → Custom CSS</strong>. No file access needed,
+        works on every phpMyFAQ 4.2 installation.
       </p>
       <textarea className={styles.cssOutput} aria-label="Custom CSS" readOnly value={customCss} />
       <div className={styles.actions}>
@@ -1534,10 +1642,12 @@ git commit -m "feat(theme-builder): add copy and download export panel"
 ### Task 8: ThemeBuilder root component
 
 **Files:**
+
 - Create: `src/components/theme-builder/ThemeBuilder.tsx`
 - Test: `src/components/theme-builder/ThemeBuilder.test.tsx`
 
 **Interfaces:**
+
 - Consumes: `ColorField` (Task 5), `ThemePreview`, `ContrastReport` (Task 6), `ExportPanel` (Task 7), `encodeTheme`/`decodeTheme` (Task 4), tokens (Task 1).
 - Produces: `export default function ThemeBuilder(): JSX.Element;`
   - Mode tabs (`role="tablist"`, buttons with `role="tab"`, `aria-selected`), label from `MODE_LABELS`.
@@ -1566,7 +1676,9 @@ describe('ThemeBuilder', () => {
     const css = (screen.getByLabelText('Custom CSS') as HTMLTextAreaElement).value;
     expect(css.split("[data-bs-theme='dark']")[0]).toContain('--bs-primary: #ff6600;');
     expect(css.split("[data-bs-theme='dark']")[1]).toContain('--bs-primary: #083c83;');
-    expect(window.location.hash).toBe('#' + encodeTheme({ ...cloneTheme(DEFAULT_THEME), light: { ...DEFAULT_THEME.light, '--bs-primary': '#ff6600' } }));
+    expect(window.location.hash).toBe(
+      '#' + encodeTheme({ ...cloneTheme(DEFAULT_THEME), light: { ...DEFAULT_THEME.light, '--bs-primary': '#ff6600' } }),
+    );
   });
 
   it('switches modes with the tabs', () => {
@@ -1650,7 +1762,12 @@ export default function ThemeBuilder() {
             ))}
           </div>
           {TOKENS.map((token) => (
-            <ColorField key={token.name} token={token} value={theme[mode][token.name]} onChange={(v) => update(token.name, v)} />
+            <ColorField
+              key={token.name}
+              token={token}
+              value={theme[mode][token.name]}
+              onChange={(v) => update(token.name, v)}
+            />
           ))}
           <div className={styles.actions}>
             <button
@@ -1700,6 +1817,7 @@ git commit -m "feat(theme-builder): assemble builder with mode tabs and URL stat
 ### Task 9: Route, navigation, sitemap, e2e, docs
 
 **Files:**
+
 - Create: `src/app/theme-builder/page.tsx`
 - Modify: `src/app/sitemap.ts` (the `staticPages` array)
 - Modify: `src/components/Footer.tsx` (resources column, next to the `/translations` link)
@@ -1708,6 +1826,7 @@ git commit -m "feat(theme-builder): assemble builder with mode tabs and URL stat
 - Modify: `README.md` (Project Structure section: mention `src/lib/themeBuilder/`)
 
 **Interfaces:**
+
 - Consumes: `ThemeBuilder` (Task 8), `PageLayout`, `generatePageMetadata`, `ContentBlocks.module.scss`.
 
 - [ ] **Step 1: Write the page**
@@ -1732,9 +1851,9 @@ export default function ThemeBuilderPage() {
       searchable={false}
     >
       <p className={blocks.lead}>
-        phpMyFAQ 4.2 paints its frontend from a small set of CSS variables, one set per colour mode. Change them
-        here, watch the preview, and paste the result into your installation. Everything runs in your browser;
-        the theme is stored in the page URL, so you can bookmark or share it.
+        phpMyFAQ 4.2 paints its frontend from a small set of CSS variables, one set per colour mode. Change them here,
+        watch the preview, and paste the result into your installation. Everything runs in your browser; the theme is
+        stored in the page URL, so you can bookmark or share it.
       </p>
       <ThemeBuilder />
       <h2 className={blocks.heading}>How it works</h2>
@@ -1742,8 +1861,8 @@ export default function ThemeBuilderPage() {
         <li>Pick a colour mode (light, dark or high contrast) and adjust the colours.</li>
         <li>Check the contrast report. Light and dark should meet WCAG AA, high contrast AAA.</li>
         <li>
-          Copy the CSS into Admin → Configuration → Layout → Custom CSS, or download <code>theme.css</code> for a
-          copied template set as described in the{' '}
+          Copy the CSS into Admin → Configuration → Layout → Custom CSS, or download <code>theme.css</code> for a copied
+          template set as described in the{' '}
           <a href="https://docs.phpmyfaq.de/development.html" target="_blank" rel="noopener noreferrer">
             developer documentation
           </a>
@@ -1766,9 +1885,9 @@ In `src/app/sitemap.ts`, add after the `/translations/` entry:
 In `src/components/Footer.tsx`, add after the `Translations` list item:
 
 ```tsx
-                <li>
-                  <Link href="/theme-builder">Theme Builder</Link>
-                </li>
+<li>
+  <Link href="/theme-builder">Theme Builder</Link>
+</li>
 ```
 
 - [ ] **Step 3: Add e2e coverage**
@@ -1854,6 +1973,7 @@ git commit -m "feat: add theme builder page for phpMyFAQ 4.2"
 ### Task 10: Announce (optional, same PR)
 
 **Files:**
+
 - Modify: `content/news/2026.md`
 
 - [ ] **Step 1: Add a news entry**

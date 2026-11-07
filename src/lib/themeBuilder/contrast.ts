@@ -36,7 +36,7 @@ export interface ContrastResult {
 }
 
 function resolve(theme: ThemeState, mode: Mode, value: TokenName | '#ffffff' | '#000000'): string | undefined {
-  return value.startsWith('#') ? value : theme[mode][value];
+  return value === '#ffffff' || value === '#000000' ? value : theme[mode][value];
 }
 
 export function contrastReport(theme: ThemeState, mode: Mode): ContrastResult[] {

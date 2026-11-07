@@ -29,6 +29,7 @@ phpMyFAQ 4.2 installation without touching SCSS or the build chain.
 ## Scope
 
 In:
+
 - Colour editing for the 13 common tokens plus the mode-specific extras, for all three modes.
 - Live preview: a static mock of a phpMyFAQ page (navbar, hero/search, FAQ card, buttons, alert, footer)
   styled only through the generated variables, switchable between the three modes.
@@ -42,6 +43,7 @@ In:
 - Presets: "phpMyFAQ default" only. No gallery.
 
 Out:
+
 - Fonts, spacing, logos, layout changes, template edits.
 - ZIP generation, server-side anything (site is a static export).
 - Importing an existing theme.css.

@@ -68,7 +68,7 @@ src/
 ├── components/            # React components with co-located SCSS modules and tests
 ├── contexts/              # Theme context (light/dark)
 ├── data/                  # Hand-maintained data such as the security policy values
-├── lib/                   # Markdown parsing, news, changelog, advisories, feeds, structured data
+├── lib/                   # Markdown parsing, news, changelog, advisories, feeds, structured data, theme builder logic
 └── test/                  # Vitest setup and cross-cutting tests
 static/.htaccess           # Apache rules copied into out/ after the build
 tests/e2e/                 # Playwright specs

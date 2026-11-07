@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useState } from 'react';
+import { useId, useState } from 'react';
 import { isHexColor, type TokenDefinition } from '@/lib/themeBuilder/tokens';
 import styles from './ThemeBuilder.module.scss';
 
@@ -15,17 +15,24 @@ export interface ColorFieldProps {
 // previous colour stays active and the field is marked invalid.
 export default function ColorField({ token, value, onChange }: ColorFieldProps) {
   const hintId = useId();
-  const [text, setText] = useState(value ?? '');
+  // The draft holds what was typed while it is not a valid colour yet. Once a
+  // valid value is committed, or the value changes from outside (reset, URL),
+  // the field shows the committed value again.
+  const [draft, setDraft] = useState<string | null>(null);
+  const [previousValue, setPreviousValue] = useState(value);
+  if (value !== previousValue) {
+    setPreviousValue(value);
+    setDraft(null);
+  }
+  const text = draft ?? value ?? '';
   const invalid = text !== '' && !isHexColor(text);
 
-  useEffect(() => {
-    setText(value ?? '');
-  }, [value]);
-
   const commit = (next: string) => {
-    setText(next);
     if (isHexColor(next)) {
+      setDraft(null);
       onChange(next.toLowerCase());
+    } else {
+      setDraft(next);
     }
   };
 

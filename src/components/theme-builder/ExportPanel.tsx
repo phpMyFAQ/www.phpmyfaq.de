@@ -1,20 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { generateCustomCss, generateThemeCss } from '@/lib/themeBuilder/generateCss';
 import type { ThemeState } from '@/lib/themeBuilder/tokens';
 import styles from './ThemeBuilder.module.scss';
 
 export default function ExportPanel({ theme }: { theme: ThemeState }) {
   const [copied, setCopied] = useState(false);
-  const [canDownload, setCanDownload] = useState(false);
+  // Object URLs are a browser feature. The server snapshot is false so the
+  // static export and the first client render agree; the browser then decides.
+  const canDownload = useSyncExternalStore(
+    () => () => {},
+    () => typeof URL.createObjectURL === 'function',
+    () => false,
+  );
   const customCss = generateCustomCss(theme);
-
-  // Object URLs are a browser feature; decide after mount so the static
-  // export and the test environment both render the same initial markup.
-  useEffect(() => {
-    setCanDownload(typeof URL.createObjectURL === 'function');
-  }, []);
 
   const copy = async () => {
     try {

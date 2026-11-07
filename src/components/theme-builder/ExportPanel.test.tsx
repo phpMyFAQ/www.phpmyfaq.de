@@ -27,8 +27,8 @@ describe('ExportPanel', () => {
   });
 
   it('downloads theme.css through an object URL', () => {
-    const createObjectURL = vi.fn().mockReturnValue('blob:test');
-    const revokeObjectURL = vi.fn();
+    const createObjectURL = vi.fn<(blob: Blob) => string>().mockReturnValue('blob:test');
+    const revokeObjectURL = vi.fn<(url: string) => void>();
     vi.stubGlobal('URL', Object.assign(URL, { createObjectURL, revokeObjectURL }));
     const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
 
