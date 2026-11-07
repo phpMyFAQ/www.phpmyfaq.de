@@ -43,7 +43,7 @@ export default function ExportPanel({ theme }: { theme: ThemeState }) {
       <h2>Export</h2>
       <p>
         Paste the CSS below into <strong>Admin → Configuration → Layout → Custom CSS</strong>. No file access needed,
-        works on every phpMyFAQ 4.2 installation.
+        works on every phpMyFAQ 4.1 and 4.2 installation.
       </p>
       <textarea className={styles.cssOutput} aria-label="Custom CSS" readOnly value={customCss} />
       <div className={styles.actions}>
