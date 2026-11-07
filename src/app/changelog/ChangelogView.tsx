@@ -18,7 +18,7 @@ function formatDate(date: string): string {
 function itemCategory(html: string): string {
   const word =
     html
-      .replace(/<[^>]+>/g, '')
+      .replace(/[<>]/g, '')
       .trim()
       .split(/\s+/)[0]
       ?.toLowerCase() ?? '';
