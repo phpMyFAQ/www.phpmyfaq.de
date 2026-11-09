@@ -121,7 +121,7 @@ jobs:
       - name: Upload out/ over FTPS
         id: upload
         continue-on-error: true
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
@@ -140,7 +140,7 @@ jobs:
 
       - name: Retry upload over FTPS
         if: steps.upload.outcome == 'failure'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
