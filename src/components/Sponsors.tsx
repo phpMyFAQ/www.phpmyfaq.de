@@ -33,21 +33,28 @@ const sponsors: Sponsor[] = [
     expires: '2026-12-11',
   },
   {
+    before: 'Schnelle und sichere Zahlungen auch in Online Spielotheken mit',
+    text: 'Jeton Cash Casino',
+    href: 'https://de.handycasinos24.com/zahlungsmethoden/jeton',
+    after: 'Lösungen. Handycasinos24.com für weitere Infos.',
+    expires: '2026-12-09',
+  },
+  {
     before: 'Für ein optimales Spielerlebnis in Casinos',
     text: 'ohne OASIS Sperrdatei',
     href: 'https://neue-casinos24.com/casino-ohne-oasis',
     after: 'sorgt Neuecasinos24 durch die neuesten Casino Vergleiche.',
-    expires: '2026-12-11',
+    expires: '2026-12-09',
   },
   {
     text: 'nettikasinot',
     href: 'http://fi.parhaatuudetkasinot.com/nettikasinot',
-    expires: '2027-05-28',
+    expires: '2026-12-09',
   },
   {
     text: 'casino recensies',
     href: 'https://nieuwe-casinos.net/casino-reviews',
-    expires: '2027-02-02',
+    expires: '2026-12-09',
   },
 ];
 
