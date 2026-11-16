@@ -17,6 +17,11 @@ interface DownloadInfo {
   sha256: string;
 }
 
+function hasFileInfo(file: unknown): boolean {
+  const info = file as { filesize?: unknown; md5?: unknown } | null;
+  return typeof info?.filesize === 'number' && typeof info?.md5 === 'string';
+}
+
 async function fetchDownloadInfo(version: string, filename: string): Promise<DownloadInfo> {
   return new Promise((resolve, reject) => {
     const url = `https://download.phpmyfaq.de/info/${version}`;
@@ -30,7 +35,18 @@ async function fetchDownloadInfo(version: string, filename: string): Promise<Dow
 
       res.on('end', () => {
         try {
-          const downloadInfo: DownloadInfo = JSON.parse(data);
+          if (res.statusCode !== 200) {
+            throw new Error(`${url} responded with HTTP ${res.statusCode}`);
+          }
+
+          const downloadInfo = JSON.parse(data);
+
+          // The endpoint answers with a bare JSON string while a release has
+          // no download info yet, so never overwrite good data with that.
+          if (!hasFileInfo(downloadInfo?.zip) || !hasFileInfo(downloadInfo?.targz)) {
+            throw new Error(`${url} returned no download info for ${version}: ${data.slice(0, 120)}`);
+          }
+
           const dataDir = path.join(__dirname, '..', 'data');
 
           if (!fs.existsSync(dataDir)) {
