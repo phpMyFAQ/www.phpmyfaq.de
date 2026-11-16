@@ -72,6 +72,7 @@ export function getAdvisoriesByYear(): { year: string; advisories: AdvisorySumma
 // - Consecutive metadata lines (**Label:** value) become one <dl class="dl-horizontal">
 // - Existing HTML lines pass through untouched
 // - ##/###/#### headings are supported
+// - Consecutive "- " lines become one <ul>
 // - Consecutive prose lines form one paragraph, as in markdown, so hard-wrapped
 //   advisories do not render as one paragraph per line
 
@@ -79,12 +80,18 @@ export function parseAdvisoryToHTML(content: string): string {
   const lines = content.split('\n');
   const htmlParts: string[] = [];
   let inDl = false;
+  let inUl = false;
   let paragraph: string[] = [];
 
+  // Closes an open metadata list or bullet list; named for its first use.
   const closeDlIfOpen = () => {
     if (inDl) {
       htmlParts.push('</dl>');
       inDl = false;
+    }
+    if (inUl) {
+      htmlParts.push('</ul>');
+      inUl = false;
     }
   };
 
@@ -120,10 +127,23 @@ export function parseAdvisoryToHTML(content: string): string {
       continue;
     }
 
+    const listItem = l.match(/^[-*] +(.+)$/);
+    if (listItem) {
+      flushParagraph();
+      if (!inUl) {
+        closeDlIfOpen();
+        htmlParts.push('<ul>');
+        inUl = true;
+      }
+      htmlParts.push(`<li>${renderInline(listItem[1])}</li>`);
+      continue;
+    }
+
     // Metadata lines such as **Issued on::** 2004-07-27
     const metaMatch = l.match(/^\*\*(.+?)\*\*\s*(.+)$/);
     if (metaMatch) {
       flushParagraph();
+      if (inUl) closeDlIfOpen();
       const label = metaMatch[1]
         .trim()
         .replace(/:+\s*$/, '')

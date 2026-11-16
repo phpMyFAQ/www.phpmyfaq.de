@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getAdvisoriesByYear, getAdvisorySlugs } from './securityAdvisory';
+import { getAdvisoriesByYear, getAdvisorySlugs, parseAdvisoryToHTML } from './securityAdvisory';
 
 describe('getAdvisorySlugs', () => {
   it('lists every advisory file without its extension and skips the policy', () => {
@@ -30,5 +30,20 @@ describe('getAdvisoriesByYear', () => {
 
   it('has no "Unknown" year bucket', () => {
     expect(getAdvisoriesByYear().map((y) => y.year)).not.toContain('Unknown');
+  });
+});
+describe('parseAdvisoryToHTML', () => {
+  it('renders consecutive "- " lines as one unordered list', () => {
+    const html = parseAdvisoryToHTML('### High severity\n\n- First `code` issue.\n- Second issue.\n\nAfter the list.');
+
+    expect(html).toBe(
+      '<h3>High severity</h3>\n<ul>\n<li>First <code>code</code> issue.</li>\n<li>Second issue.</li>\n</ul>\n<p>After the list.</p>',
+    );
+  });
+
+  it('escapes markup inside inline code in list items', () => {
+    const html = parseAdvisoryToHTML('- Elements such as `<x:script>` are missed.');
+
+    expect(html).toContain('<li>Elements such as <code>&lt;x:script&gt;</code> are missed.</li>');
   });
 });
