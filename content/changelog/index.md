@@ -5,7 +5,7 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 
 ## phpMyFAQ 4.2.x
 
-### phpMyFAQ 4.2.0-RC.1 - 2026-11-01 {#4.2.0-RC.1}
+### phpMyFAQ 4.2.0-RC.2 - 2026-11-16 {#4.2.0-RC.2}
 
 - changed PHP requirement to PHP 8.4 or later
 - added Symfony Router for frontend
@@ -28,16 +28,22 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - added experimental support for API key authentication via OAuth2
 - added experimental per-tenant quota enforcement and API request rate limits
 - added SBOM (Software Bill of Materials) generation
-- added separate read, write, and publish permissions for FAQs
+- added granular permission model with category- and language-scoped permissions and separate read, write and publish permissions for FAQs
 - added an editorial workflow with per-language draft, review, and published states for FAQs
 - added question metadata tracking, an audit log of the open question lifecycle (submitted, answered, reopened)
 - added support for generic OpenID Connect providers such as Authentik
 - added the "Force layout mode" configuration, which renders one mode for all visitors and skips the inline theme script and the theme switcher
-- added experimental FrankenPHP worker mode, enabled with `FRANKENPHP_WORKER_MODE=true` in the Docker images
-- added the command line tools (`bin/console`, `bin/worker.php`, `bin/scheduler.php`) to the release packages and the Docker images
+- added a font size switcher next to the theme switcher to scale the base font size in steps from 80% to 120%
+- added a redesigned start page with an accent hero, popular tags below the search, an optional hero image, FAQ counts on the category tiles, and tabs for the FAQ lists
+- added a display settings menu for the theme and font size switchers and a floating help button linking to the contact page
+- added experimental FrankenPHP worker mode in the Docker images
+- added the command line tools to the release packages and the Docker images
+- added official Docker images (Apache and FrankenPHP) published to the GitHub Container Registry
+- added `GET /api/health` endpoint for container health checks
 - added table of contents plugin in WYSIWYG editor
 - added resizing of uploaded videos in WYSIWYG editor
 - added embedded videos from allowed media hosts like YouTube and Vimeo in FAQs, news, and custom pages
+- added a list of the registered passkeys with a remove button to the user control panel
 - improved audit and activity log with comprehensive security event tracking
 - improved API errors with formatted RFC 7807 Problem Details JSON responses
 - improved support for PDO
@@ -46,7 +52,7 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - improved and hardened multi tenancy support
 - improved and redesigned searchable admin configuration frontend
 - improved package size by removing unused dependencies
-- changed the REST API documentation to OpenAPI 3.1 and documented the `Accept-Language` and `x-pmf-token` request headers as header parameters
+- changed the REST API documentation to OpenAPI 3.1
 - updated all translations
 - updated to PHPUnit v13
 - migrated codebase using PHP 8.4 language features
@@ -62,6 +68,12 @@ description: User visible changes in phpMyFAQ releases since 2001 until today
 - fixed bugs
 
 ## phpMyFAQ 4.1.x
+
+### phpMyFAQ 4.1.12 - 2026-11-16 {#4.1.12}
+
+- fixed security vulnerabilities
+- updated third party dependencies
+- fixed bugs
 
 ### phpMyFAQ 4.1.11 - 2026-10-21 {#4.1.11}
 
